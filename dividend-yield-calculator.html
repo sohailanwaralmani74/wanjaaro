@@ -1,0 +1,292 @@
+---
+layout: main
+title: "Dividend Yield Calculator — Stock Dividend Income Tool"
+description: "Calculate dividend yield and annual dividend income for any stock. Enter share price, dividend per share, and shares owned to see your expected income."
+keywords: "dividend yield calculator, stock dividend yield calculator, calculate dividend yield, dividend per share calculator, annual dividend income calculator, dividend yield formula, find dividend yield, stock yield calculator, dividend return calculator"
+---
+
+<div class="tool-page">
+  <article itemscope itemtype="https://schema.org/WebApplication">
+    <meta itemprop="name" content="Dividend Yield Calculator" />
+    <meta itemprop="applicationCategory" content="FinanceApplication" />
+    <meta itemprop="isAccessibleForFree" content="true" />
+
+    <section class="page-heading">
+      <h1 itemprop="name">Dividend Yield Calculator — Stock Dividend Income Tool</h1>
+      <p class="tool-subtitle">Calculate a stock’s dividend yield and your expected annual dividend income. Enter share price, annual dividend per share, and number of shares owned.</p>
+    </section>
+
+    <div class="tool-body">
+      <aside class="tool-input-col" aria-label="Calculator inputs">
+        <div class="panel input-panel">
+
+          <!-- Currency -->
+          <div class="form-group">
+            <label for="currencySearch">Currency</label>
+            <div class="currency-search-wrapper">
+              <input type="text" id="currencySearch" placeholder="Type currency name or code (e.g., yen, USD, euro)" autocomplete="off" />
+              <div id="currencyResults" class="currency-results"></div>
+            </div>
+          </div>
+
+          <!-- Share Price -->
+          <div class="form-group">
+            <label for="sharePrice">Share Price</label>
+            <div class="input-addons">
+              <span class="input-addon" id="currencySymbol">$</span>
+              <input type="number" id="sharePrice" value="100" min="0.01" step="1" oninput="syncSlider('sharePrice');calculate()" />
+            </div>
+            <div class="slider-row">
+              <input type="range" id="sharePriceSlider" min="1" max="1000" step="1" value="100" oninput="syncInput('sharePrice',this.value);calculate()" />
+              <span class="slider-val" id="sharePriceSliderVal">$100</span>
+            </div>
+          </div>
+
+          <!-- Annual Dividend Per Share -->
+          <div class="form-group">
+            <label for="dividendPerShare">Annual Dividend Per Share</label>
+            <div class="input-addons">
+              <span class="input-addon" id="currencySymbol2">$</span>
+              <input type="number" id="dividendPerShare" value="4" min="0" step="0.5" oninput="syncSlider('dividendPerShare');calculate()" />
+            </div>
+            <div class="slider-row">
+              <input type="range" id="dividendPerShareSlider" min="0" max="20" step="0.5" value="4" oninput="syncInput('dividendPerShare',this.value);calculate()" />
+              <span class="slider-val" id="dividendPerShareSliderVal">$4.00</span>
+            </div>
+          </div>
+
+          <!-- Number of Shares Owned -->
+          <div class="form-group">
+            <label for="sharesOwned">Number of Shares Owned</label>
+            <div class="input-addons">
+              <span class="input-addon" id="currencySymbol3"></span>
+              <input type="number" id="sharesOwned" value="100" min="0" step="10" oninput="calculate()" />
+            </div>
+            <span class="field-hint">Optional – to calculate total annual dividend income</span>
+          </div>
+
+          <div class="calc-actions">
+            <button class="btn btn-ghost" onclick="resetForm()">Reset</button>
+            <button class="btn btn-primary" onclick="shareURL()" id="shareBtn">Share</button>
+          </div>
+        </div>
+      </aside>
+
+      <section class="tool-output-col" aria-label="Calculator results" aria-live="polite">
+        <div class="result-cards" id="resultCards">
+          <div class="result-card result-card--primary">
+            <div class="result-label">Dividend Yield</div>
+            <div class="result-value" id="rYield">—</div>
+            <div class="result-sub">Annual dividend / share price</div>
+          </div>
+          <div class="result-card result-card--secondary">
+            <div class="result-label">Annual Dividend Income</div>
+            <div class="result-value" id="rAnnualIncome">—</div>
+            <div class="result-sub">Based on shares owned</div>
+          </div>
+          <div class="result-card result-card--secondary">
+            <div class="result-label">Total Investment Value</div>
+            <div class="result-value" id="rTotalValue">—</div>
+            <div class="result-sub">Shares × share price</div>
+          </div>
+          <div class="result-card result-card--secondary">
+            <div class="result-label">Income per Share</div>
+            <div class="result-value" id="rIncomePerShare">—</div>
+            <div class="result-sub">Annual dividend per share</div>
+          </div>
+        </div>
+
+        <div class="insight-box" id="insightBox" style="display:none;">
+          <span id="insightText"></span>
+        </div>
+
+        <div class="chart-panel">
+          <div class="chart-tabs" role="tablist">
+            <button class="chart-tab active" data-chart="donut" onclick="switchChart('donut',this)" role="tab">Breakdown</button>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="toolChart" role="img" aria-label="Dividend yield chart"></canvas>
+          </div>
+        </div>
+
+        <div class="action-bar">
+          <button class="action-btn" onclick="downloadCSV()" title="Download data as CSV">⬇ Download CSV</button>
+          <button class="action-btn" onclick="copyResult()" title="Copy result to clipboard" id="copyBtn">📋 Copy Result</button>
+        </div>
+      </section>
+    </div>
+  </article>
+</div>
+
+<script src="/assets/js/dividend-yield.js"></script>
+
+<!-- ═══════════════════════════════════════════════════════
+     ON‑PAGE CONTENT (SEO / GEO OPTIMISED) – DIVIDEND YIELD CALCULATOR
+═══════════════════════════════════════════════════════ -->
+<section class="onpage-content" itemscope itemtype="https://schema.org/Article">
+  <meta itemprop="name" content="Dividend Yield Calculator – Estimate Stock Investment Income" />
+  <meta itemprop="description" content="Calculate the dividend yield of any stock or ETF. Use our free tool to compare dividend returns, annual vs monthly payouts, and total yield with reinvestment." />
+
+  <!-- ── INTRO ── -->
+  <div class="content-block">
+    <h2>What Is a Dividend Yield Calculator?</h2>
+    <p>A <strong>dividend yield calculator</strong> computes the annual dividend income you can expect from a stock or exchange‑traded fund (ETF) relative to its current share price. The <strong>dividend yield formula</strong> is: <code>Dividend Yield = (Annual Dividend Per Share) / (Share Price)</code>, expressed as a percentage. For example, if a stock pays $4 per year in dividends and trades at $100, its yield is 4%.</p>
+    <p>Our <strong>stock dividend yield calculator</strong> goes beyond the basic formula. You can input monthly or quarterly dividends, add a projected growth rate, compare yields across multiple stocks, and even estimate the total return when dividends are reinvested. The tool also provides a year‑by‑year projection if you plan to hold and reinvest.</p>
+  </div>
+
+  <!-- ── HOW TO USE (HowTo schema) ── -->
+  <div class="content-block" itemscope itemtype="https://schema.org/HowTo">
+    <meta itemprop="name" content="How to Calculate Dividend Yield – Step by Step" />
+    <h2>How to Use This Dividend Yield Calculator</h2>
+    <div class="howto-steps">
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="1" />
+        <span class="step-number">1</span> <span itemprop="text"><strong>Enter the share price</strong> – the current market price of one share.</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="2" />
+        <span class="step-number">2</span> <span itemprop="text"><strong>Enter the annual dividend per share</strong> – sum of all dividends paid over the last 12 months.</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="3" />
+        <span class="step-number">3</span> <span itemprop="text"><strong>Click Calculate</strong> – the calculator shows the dividend yield percentage and the annual income per share.</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="4" />
+        <span class="step-number">4</span> <span itemprop="text"><strong>Optional</strong> – enter the number of shares owned to see total annual dividend income in your currency.</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="5" />
+        <span class="step-number">5</span> <span itemprop="text"><strong>Optional (reinvestment)</strong> – enable dividend reinvestment to project the compound growth of your portfolio over time, including price appreciation and additional shares purchased with dividends.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DATASET (example dividend yield table) ── -->
+  <div class="content-block">
+    <h2>Example: Dividend Yields of Popular Stocks (Illustrative)</h2>
+    <p>The table below shows how the dividend yield formula works for hypothetical companies with different share prices and dividend payouts.</p>
+    <div class="dataset-table-wrap">
+      <table class="dataset-table">
+        <thead>
+          <tr><th>Stock</th><th>Share Price ($)</th><th>Annual Dividend per Share ($)</th><th>Dividend Yield (%)</th><th>Income per 100 Shares ($)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Company A (High Growth)</td><td>200</td><td>2</td><td>1.00%</td><td>200</td></tr>
+          <tr><td>Company B (Stable Utility)</td><td>60</td><td>3.60</td><td>6.00%</td><td>360</td></tr>
+          <tr><td>Company C (REIT)</td><td>80</td><td>6.40</td><td>8.00%</td><td>640</td></tr>
+          <tr><td>Company D (Bank)</td><td>120</td><td>5.40</td><td>4.50%</td><td>540</td></tr>
+        </tbody>
+      ……
+    </div>
+    <p class="dataset-note">* Higher yield is not always better – it may signal a falling share price or unsustainable payout. Always consider the dividend coverage ratio and the company’s history.</p>
+  </div>
+
+  <!-- ── FAQ SECTION (20 questions) ── -->
+  <div class="content-block faq-section">
+    <h2>Frequently Asked Questions About Dividend Yield Calculators</h2>
+    <div class="faq-list" itemscope itemtype="https://schema.org/FAQPage">
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">1. What is dividend yield?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Dividend yield is a financial ratio that shows how much a company pays out in dividends each year relative to its share price. It is expressed as a percentage.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">2. What is the dividend yield formula?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">The <strong>dividend yield equation</strong> is: <code>Annual Dividend Per Share ÷ Share Price</code>. For example, if a stock pays $2 per share annually and trades at $40, the yield is 5%.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">3. What is a good dividend yield?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">A “good” yield varies by sector. Utilities and REITs often yield 4-8%, while tech companies yield lower (<2%). A very high yield (over 10%) may be unsustainable.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">4. How do you calculate dividend yield for a portfolio?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">For a portfolio, sum the annual dividend income from all holdings, then divide by the total portfolio value. Our calculator can handle individual stocks; for a portfolio you may run separate calculations.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">5. Does the calculator support monthly or quarterly dividends?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – if you know the quarterly or monthly amount, enter the annualised figure (e.g., $0.50 per quarter × 4 = $2 annual dividend). The yield formula uses the annual dividend.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">6. How do I find the annual dividend per share for a stock?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Look for “dividend per share” on financial websites (Yahoo Finance, Morningstar) or in a company’s investor relations page. Use the trailing twelve months (TTM) figure.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">7. What is the difference between dividend yield and dividend return?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Dividend yield is the annual dividend divided by share price. <strong>Dividend return</strong> (total return) includes both dividends and share price appreciation. Our calculator focuses on yield, with an optional reinvestment projection for total return.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">8. Can I calculate the dividend yield of an ETF?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Absolutely. Enter the ETF’s share price and its 12‑month dividend distribution per share. The <strong>stock yield calculator</strong> works identically for ETFs.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">9. How do I compute dividend yield if I know the stock’s yield from last year?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yield changes with share price. If you know last year’s dividend per share and today’s price, use the formula with the current price. Don’t rely on historical yield percentages.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">10. What is a dividend growth calculator?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">A dividend growth calculator projects future dividend income assuming the company raises its dividend by a fixed percentage each year. Our calculator can include a growth rate for forward projections.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">11. Does reinvesting dividends make a difference?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – reinvesting dividends buys more shares, which in turn generate more dividends. This compounding effect can dramatically increase long‑term total returns. Our tool has a “reinvest” toggle to show this effect.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">12. What is the dividend yield ratio formula?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">The <strong>dividend yield ratio</strong> is the same as the basic formula: annual dividend per share divided by share price. It is often used in value investing to compare income potential.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">13. Can I use this calculator for international stocks?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – select the appropriate currency from the dropdown (USD, EUR, GBP, INR, etc.). The dividend yield calculation is currency‑agnostic as long as both price and dividend are in the same currency.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">14. How do I find the dividend yield of a preferred stock?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Preferred stocks pay fixed dividends. Enter the annual preferred dividend amount and the preferred share price. The formula is the same.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">15. Is a higher dividend yield always better?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Not necessarily. An extremely high yield may indicate a falling stock price or a dividend that may be cut. Always check the payout ratio and the company’s financial health.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">16. What is the dividend per share formula?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Dividend per share = Total dividends paid / Number of outstanding shares. Our calculator asks for dividend per share directly, which you can obtain from financial statements.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">17. Can I calculate dividend yield on cost (YOC)?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yield on cost is the annual dividend divided by the original purchase price, not the current price. Our calculator focuses on current yield, but you can manually compute YOC using the same formula with your cost basis.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">18. How does stock price volatility affect dividend yield?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">When a stock price falls, the dividend yield rises (even if the dividend is unchanged). This can create a false signal of value if the price drop is due to underlying problems. Use yield as one of several metrics.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">19. Is this dividend yield calculator free?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – completely free, no signup, no ads. Use it unlimited times to evaluate stocks and ETFs.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">20. Can I share my dividend yield calculation?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – click the “Share” button to copy a URL with your inputs. You can also download the projection as a CSV file if reinvestment is enabled.</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,312 @@
+---
+layout: main
+title: "Credit Score Estimator — Free Credit Score Range Tool"
+description: "Estimate your credit score range based on payment history, credit utilization, account age, and inquiries. Get personalized tips to improve your score."
+keywords: "credit score estimator, credit score range calculator, free credit score estimator, credit health check, fico score estimator, credit rating calculator, credit score simulator"
+---
+
+<div class="tool-page">
+  <article itemscope itemtype="https://schema.org/WebApplication">
+    <meta itemprop="name" content="Credit Score Estimator" />
+    <meta itemprop="applicationCategory" content="FinanceApplication" />
+    <meta itemprop="isAccessibleForFree" content="true" />
+
+    <section class="page-heading">
+      <h1 itemprop="name">Credit Score Estimator — Free Credit Score Range Tool</h1>
+      <p class="tool-subtitle">Estimate your credit score range based on key factors: payment history, credit utilization, account age, credit mix, and recent inquiries.</p>
+    </section>
+
+    <div class="tool-body">
+      <aside class="tool-input-col" aria-label="Calculator inputs">
+        <div class="panel input-panel">
+
+          <!-- Payment History -->
+          <div class="form-group">
+            <label for="paymentHistory">Payment History</label>
+            <select id="paymentHistory" onchange="calculateScore()">
+              <option value="excellent">Excellent: No late payments ever</option>
+              <option value="good" selected>Good: 1-2 late payments (30+ days late)</option>
+              <option value="fair">Fair: 3-4 late payments (30+ days late)</option>
+              <option value="poor">Poor: 5+ late payments or any 90+ days late</option>
+            </select>
+            <span class="field-hint">Most important factor (35% of score)</span>
+          </div>
+
+          <!-- Credit Utilization -->
+          <div class="form-group">
+            <label for="creditUtilization">Credit Utilization Ratio</label>
+            <div class="input-addons">
+              <input type="number" id="creditUtilization" value="30" min="0" max="100" step="5" oninput="syncSlider('creditUtilization');calculateScore()" />
+              <span class="input-addon input-addon--right">%</span>
+            </div>
+            <div class="slider-row">
+              <input type="range" id="creditUtilizationSlider" min="0" max="100" step="5" value="30" oninput="syncInput('creditUtilization',this.value);calculateScore()" />
+              <span class="slider-val" id="creditUtilizationSliderVal">30%</span>
+            </div>
+            <span class="field-hint">Total credit used ÷ total credit limit (30% of score)</span>
+          </div>
+
+          <!-- Credit Age -->
+          <div class="form-group">
+            <label for="creditAge">Average Age of Accounts (Years)</label>
+            <div class="input-addons">
+              <input type="number" id="creditAge" value="5" min="0" max="30" step="1" oninput="syncSlider('creditAge');calculateScore()" />
+              <span class="input-addon input-addon--right">yrs</span>
+            </div>
+            <div class="slider-row">
+              <input type="range" id="creditAgeSlider" min="0" max="30" step="1" value="5" oninput="syncInput('creditAge',this.value);calculateScore()" />
+              <span class="slider-val" id="creditAgeSliderVal">5 yrs</span>
+            </div>
+            <span class="field-hint">Longer credit history helps your score (15% of score)</span>
+          </div>
+
+          <!-- Credit Mix -->
+          <div class="form-group">
+            <label for="creditMix">Credit Mix</label>
+            <select id="creditMix" onchange="calculateScore()">
+              <option value="excellent">Excellent: Multiple types (mortgage, credit cards, auto loan)</option>
+              <option value="good" selected>Good: 2-3 different types</option>
+              <option value="basic">Basic: Only credit cards</option>
+              <option value="none">None: No active credit accounts</option>
+            </select>
+            <span class="field-hint">Variety of credit types (10% of score)</span>
+          </div>
+
+          <!-- Hard Inquiries -->
+          <div class="form-group">
+            <label for="hardInquiries">Hard Inquiries (Last 24 months)</label>
+            <div class="input-addons">
+              <input type="number" id="hardInquiries" value="2" min="0" max="20" step="1" oninput="syncSlider('hardInquiries');calculateScore()" />
+              <span class="input-addon input-addon--right">inquiries</span>
+            </div>
+            <div class="slider-row">
+              <input type="range" id="hardInquiriesSlider" min="0" max="20" step="1" value="2" oninput="syncInput('hardInquiries',this.value);calculateScore()" />
+              <span class="slider-val" id="hardInquiriesSliderVal">2 inquiries</span>
+            </div>
+            <span class="field-hint">Too many inquiries can lower your score (10% of score)</span>
+          </div>
+
+          <div class="calc-actions">
+            <button class="btn btn-ghost" onclick="resetForm()">Reset</button>
+            <button class="btn btn-primary" onclick="shareURL()" id="shareBtn">Share</button>
+          </div>
+        </div>
+      </aside>
+
+      <section class="tool-output-col" aria-label="Calculator results" aria-live="polite">
+        <div class="result-cards" id="resultCards">
+          <div class="result-card result-card--primary">
+            <div class="result-label">Estimated Credit Score</div>
+            <div class="result-value" id="rScore">—</div>
+            <div class="result-sub" id="rRating">—</div>
+          </div>
+          <div class="result-card result-card--secondary">
+            <div class="result-label">Score Range</div>
+            <div class="result-value" id="rRange">—</div>
+            <div class="result-sub">Based on FICO model</div>
+          </div>
+          <div class="result-card result-card--secondary">
+            <div class="result-label">Approval Likelihood</div>
+            <div class="result-value" id="rApproval">—</div>
+            <div class="result-sub">For loans & credit cards</div>
+          </div>
+        </div>
+
+        <div class="insight-box" id="insightBox" style="display:none;">
+          <span id="insightText"></span>
+        </div>
+
+        <div class="action-bar">
+          <button class="action-btn" onclick="copyResult()" title="Copy result to clipboard" id="copyBtn">📋 Copy Result</button>
+        </div>
+
+        <div class="breakdown-panel">
+          <div class="breakdown-title">Factors Impacting Your Credit Score</div>
+          <div class="table-wrap">
+            <table class="breakdown-table" id="breakdownTable" aria-label="Credit score factor breakdown">
+              <thead id="tableHead"></thead>
+              <tbody id="tableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+  </article>
+</div>
+
+<script src="/assets/js/credit-score-estimator.js"></script>
+
+<!-- ═══════════════════════════════════════════════════════
+     ON‑PAGE CONTENT (SEO / GEO OPTIMISED) – CREDIT SCORE ESTIMATOR
+═══════════════════════════════════════════════════════ -->
+<section class="onpage-content" itemscope itemtype="https://schema.org/Article">
+  <meta itemprop="name" content="Credit Score Estimator – Understand Your Credit Health" />
+  <meta itemprop="description" content="Estimate your credit score range based on payment history, credit utilization, account age, and inquiries. Get personalized tips to improve your score and qualify for better rates." />
+
+  <!-- ── INTRO ── -->
+  <div class="content-block">
+    <h2>What Is a Credit Score Estimator?</h2>
+    <p>A <strong>credit score estimator</strong> helps you understand where your credit health stands based on key factors that influence your FICO score. While only the major credit bureaus (Experian, Equifax, TransUnion) can provide your exact credit score, our <strong>credit score range calculator</strong> gives you a reliable estimate based on the same 5 factors used in the FICO model: payment history, credit utilization, credit age, credit mix, and recent inquiries.</p>
+    <p>Your <strong>credit rating</strong> affects everything from loan approvals to interest rates, apartment rentals, and even job applications. Understanding your estimated score range helps you take action to <strong>improve your credit score</strong> before applying for a mortgage, car loan, or credit card. Use this <strong>credit health check</strong> tool regularly to track your progress.</p>
+  </div>
+
+  <!-- ── HOW TO USE (HowTo schema) ── -->
+  <div class="content-block" itemscope itemtype="https://schema.org/HowTo">
+    <meta itemprop="name" content="How to Estimate Your Credit Score – Step by Step" />
+    <h2>How to Use This Credit Score Simulator</h2>
+    <div class="howto-steps">
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="1" />
+        <span class="step-number">1</span> <span itemprop="text"><strong>Select your payment history</strong> – how many late payments you have (if any).</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="2" />
+        <span class="step-number">2</span> <span itemprop="text"><strong>Enter your credit utilization ratio</strong> – total credit used ÷ total credit limit.</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="3" />
+        <span class="step-number">3</span> <span itemprop="text"><strong>Enter the average age of your credit accounts</strong> – longer history helps your score.</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="4" />
+        <span class="step-number">4</span> <span itemprop="text"><strong>Select your credit mix</strong> – the variety of credit types you have.</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="5" />
+        <span class="step-number">5</span> <span itemprop="text"><strong>Enter the number of hard inquiries</strong> – credit applications in the last 24 months.</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="6" />
+        <span class="step-number">6</span> <span itemprop="text"><strong>Click Calculate</strong> – view your estimated credit score, range, and approval likelihood.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DATASET (example credit score scenarios) ── -->
+  <div class="content-block">
+    <h2>Example: How Different Factors Affect Your Credit Score</h2>
+    <p>The table below shows how credit scores change based on key factors, assuming all other inputs remain average.</p>
+    <div class="dataset-table-wrap">
+      <table class="dataset-table">
+        <thead>
+          <tr><th>Scenario</th><th>Payment History</th><th>Utilization</th><th>Credit Age</th><th>Estimated Score</th><th>Rating</th></tr>
+        </thead>
+        <tbody>
+          <tr><td style="text-align:left">Excellent Credit</td><td>No late payments</td><td>10%</td><td>15+ years</td><td>780+</td><td>Very Good / Exceptional</td></tr>
+          <tr><td style="text-align:left">Good Credit</td><td>No late payments</td><td>25%</td><td>8 years</td><td>700-740</td><td>Good / Very Good</td></tr>
+          <tr><td style="text-align:left">Fair Credit</td><td>1-2 late payments</td><td>50%</td><td>4 years</td><td>620-680</td><td>Fair</td></tr>
+          <tr><td style="text-align:left">Poor Credit</td><td>Multiple late payments</td><td>80%</td><td>1 year</td><td>500-580</td><td>Poor</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="dataset-note">* Payment history has the largest impact (35%). A single late payment can drop your score by 50-100 points.</p>
+  </div>
+
+  <!-- ── FAQ SECTION (20 questions) ── -->
+  <div class="content-block faq-section">
+    <h2>Frequently Asked Questions About Credit Score Estimators</h2>
+    <div class="faq-list" itemscope itemtype="https://schema.org/FAQPage">
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">1. What is a good credit score range?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Excellent: 800-850, Very Good: 740-799, Good: 670-739, Fair: 580-669, Poor: 300-579. Most lenders consider 670+ as "good" credit.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">2. How accurate is this credit score estimator?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">This tool provides an estimate based on the standard FICO weighting model. For your exact score, check with Experian, Equifax, or TransUnion. The estimator is accurate within 20-30 points for most users.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">3. What factors affect my credit score?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">The five factors are: Payment History (35%), Credit Utilization (30%), Credit Age (15%), Credit Mix (10%), and Hard Inquiries (10%).</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">4. How can I improve my credit score fast?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Pay all bills on time (35% of score). Reduce credit utilization below 30% (ideally under 10%). Don't close old accounts. Limit new credit applications.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">5. What is a FICO score?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">FICO (Fair Isaac Corporation) is the most widely used credit scoring model. Lenders use FICO scores to assess credit risk for loans, credit cards, and mortgages.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">6. What is credit utilization and why does it matter?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Credit utilization is the percentage of your available credit you're using. It's the second most important factor (30%). Keep it below 30% for a good score.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">7. How long do late payments stay on my credit report?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Late payments stay on your credit report for 7 years from the date of the missed payment. Their impact diminishes over time as you add positive payment history.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">8. How many points does a hard inquiry cost?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">A single hard inquiry typically lowers your score by 5-10 points. Multiple inquiries in a short period can have a larger cumulative effect.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">9. Does checking my own credit score lower it?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">No – checking your own credit is a "soft inquiry" and does not affect your score. Only "hard inquiries" from lenders when you apply for credit impact your score.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">10. What credit score do I need to buy a house?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Conventional loans typically require a minimum score of 620. FHA loans may accept scores as low as 580. Better rates start at 740+.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">11. How long does it take to build credit from zero?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">It typically takes 3-6 months of positive payment history to generate a FICO score. Building excellent credit (750+) usually takes 2-3 years of responsible management.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">12. Does closing a credit card hurt my score?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – closing a credit card can increase your credit utilization and reduce your average account age, both of which may lower your score. Keep old accounts open unless they have annual fees.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">13. Can I get a credit card with a 600 credit score?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – some issuers offer secured credit cards or cards designed for fair credit (580-669). You may have lower credit limits and higher interest rates.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">14. What is the difference between FICO and VantageScore?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">FICO is used by 90% of lenders. VantageScore was created by the three credit bureaus. Both use similar factors but have slightly different scoring ranges and weightings.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">15. How often does my credit score update?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Lenders report to credit bureaus every 30-45 days. Your score can change whenever new information is reported. Most monitoring services update monthly.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">16. What is a good credit utilization ratio?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Under 30% is good, under 10% is excellent. People with the highest credit scores typically have utilization below 7%.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">17. Does paying off a collection improve my score?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Paying a collection updates the status to "paid," which may help. However, the collection itself remains on your report for 7 years. Newer scoring models ignore paid collections.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">18. Is this credit score estimator free?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – completely free, no signup, no credit card required. Use it as many times as you need to understand your credit health.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">19. Can I share my estimated credit score with a lender?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">This is an estimate, not your official score. Share it for educational purposes, but lenders will pull your actual FICO score from the credit bureaus.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">20. How do I get my free annual credit report?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Visit AnnualCreditReport.com – the only federally authorized website for free credit reports from Equifax, Experian, and TransUnion (weekly reports are currently available).</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>

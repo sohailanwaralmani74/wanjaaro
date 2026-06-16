@@ -1,0 +1,337 @@
+---
+layout: main
+title: "Retirement Corpus Calculator — Plan Your Retirement Savings"
+description: "Calculate the retirement corpus needed to maintain your lifestyle. Adjust for inflation, life expectancy, and expected returns. Free online retirement planning tool."
+keywords: "retirement corpus calculator, calculating retirement corpus, retirement corpus calculation, corpus calculator for retirement, retirement corpus calculator with inflation, pension corpus calculator, nps corpus calculator, retirement corpus formula"
+---
+<div class="tool-page">
+  <article itemscope itemtype="https://schema.org/WebApplication">
+    <meta itemprop="name" content="Retirement Corpus Calculator" />
+    <meta itemprop="applicationCategory" content="FinanceApplication" />
+    <meta itemprop="isAccessibleForFree" content="true" />
+
+    <section class="page-heading">
+      <h1 itemprop="name">Retirement Corpus Calculator — How Much Do You Need to Retire?</h1>
+      <p class="tool-subtitle">Calculate the lump sum required at retirement to cover your expenses for life, accounting for inflation and investment returns.</p>
+    </section>
+
+    <div class="tool-body">
+      <aside class="tool-input-col" aria-label="Calculator inputs">
+        <div class="panel input-panel">
+
+          <!-- Currency -->
+          <div class="form-group">
+            <label for="currencySearch">Currency</label>
+            <div class="currency-search-wrapper">
+              <input type="text" id="currencySearch" placeholder="Type currency name or code" autocomplete="off" />
+              <div id="currencyResults" class="currency-results"></div>
+            </div>
+          </div>
+
+          <!-- Current Annual Expenses -->
+          <div class="form-group">
+            <label for="currentExpenses">Current Annual Expenses</label>
+            <div class="input-addons">
+              <span class="input-addon" id="currencySymbol">$</span>
+              <input type="number" id="currentExpenses" value="50000" min="0" step="1000" oninput="syncSlider('currentExpenses');calculate()" />
+            </div>
+            <div class="slider-row">
+              <input type="range" id="currentExpensesSlider" min="0" max="200000" step="1000" value="50000" oninput="syncInput('currentExpenses',this.value);calculate()" />
+              <span class="slider-val" id="currentExpensesSliderVal">$50k</span>
+            </div>
+          </div>
+
+          <!-- Age inputs -->
+          <div class="form-group">
+            <label for="currentAge">Current Age</label>
+            <input type="number" id="currentAge" value="30" min="18" max="80" step="1" oninput="calculate()" />
+          </div>
+          <div class="form-group">
+            <label for="retirementAge">Retirement Age</label>
+            <input type="number" id="retirementAge" value="60" min="18" max="80" step="1" oninput="calculate()" />
+          </div>
+          <div class="form-group">
+            <label for="lifeExpectancy">Life Expectancy (Age)</label>
+            <input type="number" id="lifeExpectancy" value="85" min="60" max="120" step="1" oninput="calculate()" />
+          </div>
+
+          <!-- Inflation & Returns -->
+          <div class="form-group">
+            <label for="inflationRate">Inflation Rate (%)</label>
+            <input type="number" id="inflationRate" value="6" step="0.5" oninput="calculate()" />
+          </div>
+          <div class="form-group">
+            <label for="preReturn">Pre‑Retirement Return (%)</label>
+            <input type="number" id="preReturn" value="10" step="0.5" oninput="calculate()" />
+          </div>
+          <div class="form-group">
+            <label for="postReturn">Post‑Retirement Return (%)</label>
+            <input type="number" id="postReturn" value="5" step="0.5" oninput="calculate()" />
+          </div>
+
+          <!-- Current Savings & Monthly Saving -->
+          <div class="form-group">
+            <label for="currentSavings">Current Retirement Savings</label>
+            <div class="input-addons">
+              <span class="input-addon" id="currencySymbol2">$</span>
+              <input type="number" id="currentSavings" value="50000" min="0" step="1000" oninput="calculate()" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="monthlySaving">Monthly Saving (until retirement)</label>
+            <div class="input-addons">
+              <span class="input-addon" id="currencySymbol3">$</span>
+              <input type="number" id="monthlySaving" value="5000" min="0" step="500" oninput="calculate()" />
+            </div>
+          </div>
+
+          <div class="calc-actions">
+            <button class="btn btn-ghost" onclick="resetForm()">Reset</button>
+            <button class="btn btn-primary" onclick="shareURL()" id="shareBtn">Share</button>
+          </div>
+        </div>
+      </aside>
+
+      <section class="tool-output-col" aria-label="Calculator results" aria-live="polite">
+        <div class="result-cards" id="resultCards">
+          <div class="result-card result-card--primary">
+            <div class="result-label">Corpus Needed at Retirement</div>
+            <div class="result-value" id="rCorpusNeeded">—</div>
+            <div class="result-sub">Lump sum required</div>
+          </div>
+          <div class="result-card result-card--secondary">
+            <div class="result-label">Projected Corpus at Retirement</div>
+            <div class="result-value" id="rProjectedCorpus">—</div>
+            <div class="result-sub">With current savings + monthly contributions</div>
+          </div>
+          <div class="result-card result-card--secondary">
+            <div class="result-label">Shortfall / Surplus</div>
+            <div class="result-value" id="rShortfall">—</div>
+            <div class="result-sub">Corpus needed minus projected</div>
+          </div>
+          <div class="result-card result-card--secondary">
+            <div class="result-label">Monthly Saving Required</div>
+            <div class="result-value" id="rRequiredMonthly">—</div>
+            <div class="result-sub">To meet the target corpus</div>
+          </div>
+        </div>
+
+        <div class="insight-box" id="insightBox" style="display:none;">
+          <span id="insightText"></span>
+        </div>
+
+        <div class="chart-panel">
+          <div class="chart-tabs" role="tablist">
+            <button class="chart-tab active" data-chart="line" onclick="switchChart('line',this)" role="tab">Corpus Growth</button>
+            <button class="chart-tab" data-chart="bar" onclick="switchChart('bar',this)" role="tab">Savings vs Target</button>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="toolChart" role="img" aria-label="Retirement corpus chart"></canvas>
+          </div>
+        </div>
+
+        <div class="action-bar">
+          <button class="action-btn" onclick="downloadCSV()" title="Download year-by-year table as CSV">⬇ Download CSV</button>
+          <button class="action-btn" onclick="copyResult()" title="Copy result to clipboard" id="copyBtn">📋 Copy Result</button>
+        </div>
+
+        <div class="breakdown-panel">
+          <div class="breakdown-title" id="tableTitle">Year‑by‑Year Projection</div>
+          <div class="table-wrap">
+            <table class="breakdown-table" id="breakdownTable" aria-label="Year by year projection">
+              <thead id="tableHead"></thead>
+              <tbody id="tableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+  </article>
+</div>
+<script src="/assets/js/retirement-corpus-calculator.js"></script>
+<!-- ═══════════════════════════════════════════════════════
+     ON‑PAGE CONTENT (SEO / GEO OPTIMISED) – RETIREMENT CORPUS CALCULATOR
+═══════════════════════════════════════════════════════ -->
+<section class="onpage-content" itemscope itemtype="https://schema.org/Article">
+  <meta itemprop="name" content="Retirement Corpus Calculator – Plan Your Financial Future" />
+  <meta itemprop="description" content="Calculate how much retirement corpus you need based on monthly expenses, life expectancy, inflation, and expected returns. Free online retirement planning calculator." />
+
+  <!-- ── INTRO ── -->
+  <div class="content-block">
+    <h2>What Is a Retirement Corpus Calculator?</h2>
+    <p>A <strong>retirement corpus calculator</strong> estimates the total amount of savings you need to accumulate by the time you retire, so that you can sustain your desired lifestyle for the rest of your life. It accounts for factors such as your current monthly expenses, expected inflation, life expectancy, and the rate of return on your investments (both before and after retirement). The <strong>retirement corpus calculation</strong> ensures you do not outlive your savings.</p>
+    <p>Our <strong>pension corpus calculator</strong> goes beyond basic formulas. It allows you to input existing savings, monthly contributions until retirement, expected inflation (e.g., 6%), pre‑retirement return rate (e.g., 10%), post‑retirement return rate (e.g., 5%), and desired retirement years. The tool then computes the required corpus and shows a year‑by‑year projection of your wealth accumulation and drawdown.</p>
+  </div>
+
+  <!-- ── HOW TO USE (HowTo schema) ── -->
+  <div class="content-block" itemscope itemtype="https://schema.org/HowTo">
+    <meta itemprop="name" content="How to Calculate Your Retirement Corpus – Step by Step" />
+    <h2>How to Use This Retirement Corpus Calculator</h2>
+    <div class="howto-steps">
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="1" />
+        <span class="step-number">1</span> <span itemprop="text"><strong>Enter your current monthly expenses</strong> – the amount you need for living costs today.</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="2" />
+        <span class="step-number">2</span> <span itemprop="text"><strong>Set your current age and desired retirement age</strong> – how many years until retirement.</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="3" />
+        <span class="step-number">3</span> <span itemprop="text"><strong>Enter life expectancy</strong> – the number of years you want your corpus to last in retirement.</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="4" />
+        <span class="step-number">4</span> <span itemprop="text"><strong>Set expected inflation rate</strong> – e.g., 6% for India, 3% for US/EU.</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="5" />
+        <span class="step-number">5</span> <span itemprop="text"><strong>Choose pre‑retirement return rate</strong> – expected annual return on your investments while saving (e.g., 10% for equity).</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="6" />
+        <span class="step-number">6</span> <span itemprop="text"><strong>Choose post‑retirement return rate</strong> – conservative return after retirement (e.g., 5% for debt).</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="7" />
+        <span class="step-number">7</span> <span itemprop="text"><strong>Add existing savings and monthly contributions</strong> – your current retirement fund and how much you save each month.</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="8" />
+        <span class="step-number">8</span> <span itemprop="text"><strong>Click Calculate</strong> – view the required retirement corpus, how much you will accumulate, and a year‑by‑year projection.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DATASET (example retirement calculation) ── -->
+  <div class="content-block">
+    <h2>Example: Retirement Corpus for a 30‑Year‑Old in India</h2>
+    <p>Assume current monthly expenses: ₹50,000. Retirement age: 60 (30 years away). Life expectancy: 85 (25 years in retirement). Inflation: 6% pre‑retirement and 6% during retirement. Pre‑retirement return: 10%, post‑retirement return: 5%. Current savings: ₹5,00,000, monthly SIP: ₹15,000.</p>
+    <div class="dataset-table-wrap">
+      <table class="dataset-table">
+        <thead>
+          <tr><th>Year</th><th>Age</th><th>Portfolio Value (₹)</th><th>Annual Withdrawal (₹)</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>0 (now) </td><td>30</td><td>5,00,000</td><td>—</td><td>Accumulation</td></tr>
+          <tr><td>10</td><td>40</td><td>38,50,000</td><td>—</td><td>Accumulation</td></tr>
+          <tr><td>20</td><td>50</td><td>1,20,00,000</td><td>—</td><td>Accumulation</td></tr>
+          <tr><td>30 (retire)</td><td>60</td><td>2,85,00,000</td><td>—</td><td>Corpus needed</td></tr>
+          <tr><td>31</td><td>61</td><td>2,70,00,000</td><td>12,00,000</td><td>Drawdown</td></tr>
+          <tr><td colspan="5" style="text-align:center">... (drawdown continues to age 85) ...</td>
+          </tr>
+          <tr><td>55 (end)</td><td>85</td><td>0</td><td>—</td><td>Exhausted</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="dataset-note">* Required corpus at retirement: ~₹2.85 crore. Monthly SIP needed to reach that: ₹15,000. Use the calculator above to adjust for your own numbers.</p>
+  </div>
+
+  <!-- ── FAQ SECTION (20 questions) ── -->
+  <div class="content-block faq-section">
+    <h2>Frequently Asked Questions About Retirement Corpus Calculators</h2>
+    <div class="faq-list" itemscope itemtype="https://schema.org/FAQPage">
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">1. What is a retirement corpus?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">A retirement corpus is the total savings you need to accumulate by the time you retire so that you can generate a regular income to cover your expenses for the rest of your life.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">2. How is retirement corpus calculated?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">The formula considers your current expenses, expected inflation, number of years until retirement, life expectancy, and expected returns. It uses a <strong>retirement corpus formula</strong> that accounts for both accumulation and drawdown phases.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">3. Why is inflation important in retirement planning?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Inflation reduces purchasing power. At 6% inflation, expenses double every 12 years. Our <strong>retirement corpus calculator with inflation</strong> ensures you don't underestimate future needs.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">4. What is a realistic return assumption for retirement savings?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Pre‑retirement: 8-10% for equity‑heavy portfolios, 6-7% for balanced. Post‑retirement: 4-6% due to safer debt funds. Adjust based on your risk tolerance.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">5. Can I use this calculator for NPS (National Pension System)?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – an <strong>nps corpus calculator</strong> works the same way. Enter your NPS contributions and expected returns to estimate the final corpus.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">6. How does life expectancy affect the corpus needed?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Longer life expectancy means more years in retirement, requiring a larger corpus. Plan for at least 90 years of age to be safe.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">7. What is the rule of thumb for retirement corpus?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">The 4% rule says your corpus should be 25× your first year’s expenses. For example, ₹10L/year expenses → ₹2.5Cr corpus. But this rule may not hold with high inflation.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">8. Can I include my spouse's expenses and savings?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – combine your expenses and savings. For a couple, consider that one may outlive the other, so plan for a longer retirement period.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">9. Does the calculator work for any currency?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – select your currency (INR, USD, EUR, GBP, PKR, etc.). All expenses and corpus will be displayed in that currency.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">10. What if I don't have any existing savings?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Enter zero. The calculator will show the monthly savings required from today to reach your goal. It's never too late to start.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">11. Can I see a year‑by‑year projection?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – the tool provides a table showing your portfolio growth each year until retirement, and then how it depletes each year during retirement.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">12. How do I adjust for part‑time work or pension income?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Reduce your monthly expense requirement by the expected pension or part‑time income. The calculator assumes you need to cover the gap.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">13. What is the difference between a <strong>retirement corpus calculator</strong> and a <strong>pension corpus calculator</strong>?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">They are essentially the same. “Pension corpus” often refers to the fund needed to generate a regular pension income. Our tool covers both.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">14. Can I use this for early retirement (FIRE)?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Absolutely. For FIRE, set retirement age earlier (e.g., 40) and plan for a longer retirement (e.g., 50 years). Use a lower withdrawal rate (e.g., 3%).</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">15. How does the calculator handle market volatility?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">It assumes a constant annual return – a simplification. For conservative planning, use lower return assumptions to account for volatility.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">16. Can I download my retirement plan?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – click “Download CSV” to save the year‑by‑year projection. You can also share your calculation via a unique URL.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">17. What if I want to leave an inheritance?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Increase your target corpus. The calculator currently assumes you spend down to zero. For inheritance, aim for a corpus that grows even after withdrawals.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">18. Is this calculator accurate for high inflation countries?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – you can set inflation up to 20%. The calculator uses the same formula regardless of inflation rate.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">19. Is the calculator free?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – 100% free, no signup, no ads. Use it for personal or professional retirement planning.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">20. Can I use this calculator for my parents' retirement?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – enter their current age, expenses, and existing savings. The calculator will show the corpus needed and any shortfall to cover.</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>

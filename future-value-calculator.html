@@ -1,0 +1,374 @@
+---
+layout: main
+title: "Future Value Calculator — FV Formula with Compounding & Contributions"
+description: "Calculate the future value of an investment with compound interest, periodic contributions, and inflation adjustment. Free online FV calculator for lump sum or regular savings."
+keywords: "future value calculator, fv calculator, future worth calculator, calculate future value, future amount calculator, time value of money calculator, fv formula, future valuation calculator"
+---
+
+<div class="tool-page">
+  <article itemscope itemtype="https://schema.org/WebApplication">
+    <meta itemprop="name" content="Future Value Calculator" />
+    <meta itemprop="applicationCategory" content="FinanceApplication" />
+    <meta itemprop="isAccessibleForFree" content="true" />
+
+    <section class="page-heading">
+      <h1 itemprop="name">Future Value Calculator — See What Your Money Will Be Worth</h1>
+      <p class="tool-subtitle" itemprop="description">
+        Calculate how much your lump sum investment will grow to. Enter your principal, rate, and time — get instant projections with year-by-year growth charts.
+      </p>
+    </section>
+
+    <div class="tool-body">
+      <aside class="tool-input-col" aria-label="Calculator inputs">
+        <div class="panel input-panel">
+
+          <!-- Currency -->
+          <div class="form-group">
+            <label for="currencySearch">Currency</label>
+            <div class="currency-search-wrapper">
+              <input type="text" id="currencySearch" placeholder="Type currency name or code (e.g., yen, USD, euro)" autocomplete="off" />
+              <div id="currencyResults" class="currency-results"></div>
+            </div>
+          </div>
+
+          <!-- Principal -->
+          <div class="form-group">
+            <label for="principal">Present Value (Initial Investment)</label>
+            <div class="input-addons">
+              <span class="input-addon" id="currencySymbol">$</span>
+              <input type="number" id="principal" value="10000" min="0" step="100" placeholder="10,000" inputmode="decimal" oninput="syncSlider('principal');calculate()" />
+            </div>
+            <div class="slider-row">
+              <input type="range" id="principalSlider" min="0" max="1000000" step="1000" value="10000" oninput="syncInput('principal',this.value);calculate()" aria-label="Principal slider" />
+              <span class="slider-val" id="principalSliderVal">$10k</span>
+            </div>
+          </div>
+
+          <!-- Annual Rate -->
+          <div class="form-group">
+            <label for="rate">Annual Interest Rate (%)</label>
+            <div class="input-addons">
+              <input type="number" id="rate" value="7" min="0.1" max="50" step="0.1" placeholder="7" inputmode="decimal" oninput="syncSlider('rate');calculate()" />
+              <span class="input-addon input-addon--right">%</span>
+            </div>
+            <div class="slider-row">
+              <input type="range" id="rateSlider" min="0.1" max="30" step="0.1" value="7" oninput="syncInput('rate',this.value);calculate()" aria-label="Rate slider" />
+              <span class="slider-val" id="rateSliderVal">7%</span>
+            </div>
+          </div>
+
+          <!-- Years -->
+          <div class="form-group">
+            <label for="years">Years to Grow</label>
+            <div class="input-addons">
+              <input type="number" id="years" value="20" min="1" max="50" step="1" placeholder="20" inputmode="numeric" oninput="syncSlider('years');calculate()" />
+              <span class="input-addon input-addon--right">yrs</span>
+            </div>
+            <div class="slider-row">
+              <input type="range" id="yearsSlider" min="1" max="50" step="1" value="20" oninput="syncInput('years',this.value);calculate()" aria-label="Years slider" />
+              <span class="slider-val" id="yearsSliderVal">20 yrs</span>
+            </div>
+          </div>
+
+          <!-- Compounding Frequency -->
+          <div class="form-group">
+            <label for="compound">Compounding Frequency</label>
+            <select id="compound" onchange="calculate()">
+              <option value="365">Daily</option>
+              <option value="12" selected>Monthly</option>
+              <option value="4">Quarterly</option>
+              <option value="2">Semi-Annually</option>
+              <option value="1">Annually</option>
+            </select>
+          </div>
+
+          <!-- Monthly Contribution (optional) -->
+          <div class="form-group">
+            <label for="monthly">
+              Monthly Contribution
+              <span class="optional-label">optional</span>
+            </label>
+            <div class="input-addons">
+              <span class="input-addon" id="currencySymbol2">$</span>
+              <input type="number" id="monthly" value="0" min="0" step="100" placeholder="0" inputmode="decimal" oninput="calculate()" />
+            </div>
+            <span class="field-hint">Added at the start of each month</span>
+          </div>
+
+          <!-- Inflation Toggle -->
+          <div class="toggle-row">
+            <label class="toggle-label" for="inflationToggle">
+              Inflation Adjustment
+              <span class="tip">3% default</span>
+            </label>
+            <label class="toggle" aria-label="Enable inflation adjustment">
+              <input type="checkbox" id="inflationToggle" onchange="calculate()" />
+              <span class="toggle-track"></span>
+            </label>
+          </div>
+
+          <div id="inflationRateGroup" class="form-group" style="display:none; margin-top:0.75rem;">
+            <label for="inflationRate">Inflation Rate (%)</label>
+            <div class="input-addons">
+              <input type="number" id="inflationRate" value="3" min="0" max="20" step="0.1" inputmode="decimal" oninput="calculate()" />
+              <span class="input-addon input-addon--right">%</span>
+            </div>
+          </div>
+
+          <div class="calc-actions">
+            <button class="btn btn-ghost" onclick="resetForm()">Reset</button>
+            <button class="btn btn-primary" onclick="shareURL()" id="shareBtn">Share</button>
+          </div>
+
+        </div>
+      </aside>
+
+      <section class="tool-output-col" aria-label="Calculator results" aria-live="polite">
+        <div class="result-cards" id="resultCards">
+          <div class="result-card result-card--primary">
+            <div class="result-label">Future Value</div>
+            <div class="result-value" id="rFutureValue">—</div>
+            <div class="result-sub">After projected years</div>
+          </div>
+          <div class="result-card result-card--secondary">
+            <div class="result-label">Total Contributed</div>
+            <div class="result-value" id="rContributed">—</div>
+            <div class="result-sub">Principal + contributions</div>
+          </div>
+          <div class="result-card result-card--secondary">
+            <div class="result-label">Interest Earned</div>
+            <div class="result-value" id="rInterest">—</div>
+            <div class="result-sub">Pure growth from compounding</div>
+          </div>
+          <div class="result-card result-card--secondary">
+            <div class="result-label">Effective APY</div>
+            <div class="result-value" id="rAPY">—</div>
+            <div class="result-sub">After compounding frequency</div>
+          </div>
+          <div class="result-card result-card--secondary">
+            <div class="result-label">Money Multiplied</div>
+            <div class="result-value" id="rMultiple">—</div>
+            <div class="result-sub">Times your money grew</div>
+          </div>
+          <div class="result-card result-card--secondary" id="realValueCard" style="display:none;">
+            <div class="result-label">Real Value (Inflation-adj.)</div>
+            <div class="result-value" id="rRealValue">—</div>
+            <div class="result-sub">Today's purchasing power</div>
+          </div>
+        </div>
+
+        <div class="insight-box" id="insightBox" style="display:none;">
+          <span id="insightText"></span>
+        </div>
+
+        <div class="chart-panel">
+          <div class="chart-tabs" role="tablist">
+            <button class="chart-tab active" data-chart="line" onclick="switchChart('line',this)" role="tab">Growth</button>
+            <button class="chart-tab" data-chart="bar" onclick="switchChart('bar',this)" role="tab">Yearly Gains</button>
+            <button class="chart-tab" data-chart="donut" onclick="switchChart('donut',this)" role="tab">Breakdown</button>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="toolChart" role="img" aria-label="Future value growth chart"></canvas>
+          </div>
+        </div>
+
+        <div class="action-bar">
+          <button class="action-btn" onclick="downloadCSV()" title="Download year-by-year table as CSV">⬇ Download CSV</button>
+          <button class="action-btn" onclick="copyResult()" title="Copy result to clipboard" id="copyBtn">📋 Copy Result</button>
+        </div>
+
+        <div class="breakdown-panel">
+          <div class="breakdown-title" id="tableTitle">Year-by-Year Growth</div>
+          <div class="table-wrap">
+            <table class="breakdown-table" id="breakdownTable" aria-label="Year by year future value breakdown">
+              <thead id="tableHead"></thead>
+              <tbody id="tableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div id="definitionPopup" class="def-popup" style="display: none;"></div>
+  </article>
+</div>
+<script src="/assets/js/future-value.js"></script>
+
+<!-- ═══════════════════════════════════════════════════════
+     ON‑PAGE CONTENT (SEO / GEO OPTIMISED) – FUTURE VALUE CALCULATOR
+═══════════════════════════════════════════════════════ -->
+<section class="onpage-content" itemscope itemtype="https://schema.org/Article">
+  <meta itemprop="name" content="Future Value Calculator – Estimate Investment Growth with Compounding" />
+  <meta itemprop="description" content="Use our future value calculator to project the growth of lump sum or monthly contributions with compound interest, inflation adjustment, and multiple currencies. Free FV tool." />
+
+  <!-- ── INTRO ── -->
+  <div class="content-block">
+    <h2>What Is a Future Value Calculator?</h2>
+    <p>A <strong>future value calculator</strong> (FV calculator) estimates the worth of an investment or savings account at a specific date in the future, accounting for compound interest, periodic contributions, and inflation. It applies the core principle of the <strong>time value of money</strong>: money today is worth more than the same amount in the future because it can grow through investment. Our <strong>future worth calculator</strong> handles both lump sum and monthly/yearly contributions, multiple compounding frequencies, and inflation adjustment – giving you a complete year‑by‑year projection with charts.</p>
+    <p>Whether you are saving for retirement, a child’s education, or a large purchase, knowing the <strong>future value</strong> of your current savings and regular contributions helps you set realistic goals. Use this tool to answer questions like: “What will my ₹10,000 monthly SIP grow to in 15 years at 12% return?” or “How much will a one‑time ₹5 lakh investment become after 20 years with 8% compounding?”</p>
+  </div>
+
+  <!-- ── HOW TO USE (HowTo schema) ── -->
+  <div class="content-block" itemscope itemtype="https://schema.org/HowTo">
+    <meta itemprop="name" content="How to Calculate Future Value – Step by Step" />
+    <h2>How to Use This Future Value Calculator</h2>
+    <div class="howto-steps">
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="1" />
+        <span class="step-number">1</span> <span itemprop="text"><strong>Enter your initial investment</strong> (principal amount).</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="2" />
+        <span class="step-number">2</span> <span itemprop="text"><strong>Set the annual interest rate</strong> – expected return before inflation.</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="3" />
+        <span class="step-number">3</span> <span itemprop="text"><strong>Choose the number of years</strong> – the investment period.</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="4" />
+        <span class="step-number">4</span> <span itemprop="text"><strong>Select compounding frequency</strong> – daily, monthly, quarterly, semi‑annually, or annually.</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="5" />
+        <span class="step-number">5</span> <span itemprop="text"><strong>Add optional monthly or yearly contributions</strong> – regular savings added at the start of each period.</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="6" />
+        <span class="step-number">6</span> <span itemprop="text"><strong>Enable inflation adjustment</strong> – to see the future value in today’s purchasing power.</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="7" />
+        <span class="step-number">7</span> <span itemprop="text"><strong>Click Calculate</strong> – view the final future value, total contributed, interest earned, and a year‑by‑year breakdown with chart.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DATASET (example future value table) ── -->
+  <div class="content-block">
+    <h2>Example: Future Value of a ₹10,000 Monthly SIP</h2>
+    <p>Assume you invest ₹10,000 monthly in an equity fund with an expected annual return of 12%, compounded monthly, for 15 years. No initial lump sum, no inflation adjustment. The table below shows the future value growth at key intervals.</p>
+    <div class="dataset-table-wrap">
+      <table class="dataset-table">
+        <thead>
+          <tr><th>Year</th><th>Total Invested (₹)</th><th>Future Value (₹)</th><th>Interest Earned (₹)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>3</td><td>3,60,000</td><td>4,32,300</td><td>72,300</td></tr>
+          <tr><td>5</td><td>6,00,000</td><td>8,16,700</td><td>2,16,700</td></tr>
+          <tr><td>10</td><td>12,00,000</td><td>23,03,400</td><td>11,03,400</td></tr>
+          <tr><td>15</td><td>18,00,000</td><td>50,45,800</td><td>32,45,800</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="dataset-note">* Compounding monthly at 12% p.a. (1% per month). Actual fund returns may vary. Use the calculator above to run your own numbers with different rates, contributions, or inflation.</p>
+  </div>
+
+  <!-- ── FAQ SECTION (20 questions) ── -->
+  <div class="content-block faq-section">
+    <h2>Frequently Asked Questions About Future Value Calculators</h2>
+    <div class="faq-list" itemscope itemtype="https://schema.org/FAQPage">
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">1. What is future value (FV)?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Future value is the amount of money an investment will grow to at a future date, assuming a specific rate of return and compounding frequency. It is the core concept of the time value of money.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">2. What is the future value formula?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">For a lump sum: <code>FV = PV × (1 + r/n)^(n×t)</code> where PV = present value, r = annual rate, n = compounding periods per year, t = years. For periodic contributions, the formula sums each deposit’s compounded growth.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">3. How is future value different from present value?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Present value (PV) discounts future money to today’s terms. Future value (FV) projects today’s money forward. Both are two sides of the time value of money coin.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">4. Can I calculate future value with monthly contributions?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – our calculator supports monthly and yearly contributions. Each contribution compounds from the date it is added, giving a more accurate projection for SIPs or recurring deposits.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">5. What compounding frequency should I use?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Daily gives the highest future value, monthly is standard for most investments, and annual is simplest. The difference between daily and monthly is very small – typically less than 0.1% per year.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">6. How does inflation affect future value?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Inflation reduces real purchasing power. Our inflation adjustment shows the future value in today’s money – i.e., the real value after accounting for price increases.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">7. What is a good expected rate of return for future value calculations?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">For equity mutual funds: 10-12% p.a. for long term. For debt funds: 6-8%. For conservative planning use 8% for equities and 5% for debt.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">8. Can I calculate future value for a lump sum only?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – set monthly and yearly contributions to zero. The calculator will project the growth of your initial investment alone.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">9. Does the calculator work for any currency?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – select your currency (INR, USD, EUR, GBP, PKR, etc.). The future value will be displayed with the correct symbol and formatting.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">10. How do I interpret the year‑by‑year table?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">The table shows for each year: balance (future value), total contributed, interest earned, and growth percentage. You can see how your money accumulates over time.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">11. Can I use this for retirement planning?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Absolutely. Enter your current retirement savings as initial investment, add monthly contributions, choose a realistic return (e.g., 8-10%), and set the number of years until retirement. The result is your projected retirement corpus.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">12. What is the difference between future value and maturity value?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">They are often used interchangeably. Maturity value typically refers to fixed deposits or bonds at the end of term, while future value is a broader financial term.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">13. Can I calculate future value for an annuity (regular payments)?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – this is exactly what our monthly contribution feature does. It calculates the future value of an ordinary annuity (payments at start of period).</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">14. How accurate is the future value calculation?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">It uses the standard compound interest formula with exact mathematics. However, actual future returns are uncertain – the calculator assumes a constant rate, which rarely happens in real markets. Use it for planning, not guarantees.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">15. Can I save or share my future value calculation?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – use the “Share” button to copy a URL that contains all your inputs. You can also download the year‑by‑year table as CSV.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">16. What is the maximum investment period?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Up to 50 years. The slider and input cap at 50 years, but that covers most long‑term goals like retirement.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">17. Does the calculator account for taxes?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">No – it shows pre‑tax future value. To estimate post‑tax, reduce the expected return manually (e.g., 12% pre‑tax → ~10.2% after LTCG tax on equity).</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">18. What is the difference between future value and future worth?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">They are synonyms. Both refer to the value of an asset or cash at a specified future date.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">19. Can I use this calculator for education planning?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – enter your current college savings, monthly contributions, expected return, and years until the child starts college. The future value tells you the projected education corpus.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">20. Is this calculator free?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – 100% free, no signup, no ads. Use it unlimited times for personal or professional financial planning.</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>

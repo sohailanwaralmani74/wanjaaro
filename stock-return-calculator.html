@@ -1,0 +1,324 @@
+---
+layout: main
+title: "Stock Return Calculator — Total Return with Dividends & Capital Gains"
+description: "Calculate total stock return including capital gains and dividends. Compare annualised return (CAGR) and see breakdown of profit sources. Free online tool."
+keywords: "stock return calculator, total return stock calculator, stock investment return calculator, stock rate of return calculator, share return calculator, calculate stock return, stock ROI calculator, capital gains and dividends calculator, annualised return calculator"
+---
+
+<div class="tool-page">
+  <article itemscope itemtype="https://schema.org/WebApplication">
+    <meta itemprop="name" content="Stock Return Calculator" />
+    <meta itemprop="applicationCategory" content="FinanceApplication" />
+    <meta itemprop="isAccessibleForFree" content="true" />
+
+    <section class="page-heading">
+      <h1 itemprop="name">Stock Return Calculator — Total Return with Dividends & Capital Gains</h1>
+      <p class="tool-subtitle">Calculate the total return of a stock investment, including share price change and dividends. Get the annualised return (CAGR) and breakdown of gains.</p>
+    </section>
+
+    <div class="tool-body">
+      <aside class="tool-input-col" aria-label="Calculator inputs">
+        <div class="panel input-panel">
+
+          <!-- Currency -->
+          <div class="form-group">
+            <label for="currencySearch">Currency</label>
+            <div class="currency-search-wrapper">
+              <input type="text" id="currencySearch" placeholder="Type currency name or code" autocomplete="off" />
+              <div id="currencyResults" class="currency-results"></div>
+            </div>
+          </div>
+
+          <!-- Purchase Price -->
+          <div class="form-group">
+            <label for="purchasePrice">Purchase Price per Share</label>
+            <div class="input-addons">
+              <span class="input-addon" id="currencySymbol">$</span>
+              <input type="number" id="purchasePrice" value="50" min="0.01" step="1" oninput="syncSlider('purchasePrice');calculate()" />
+            </div>
+            <div class="slider-row">
+              <input type="range" id="purchasePriceSlider" min="1" max="500" step="1" value="50" oninput="syncInput('purchasePrice',this.value);calculate()" />
+              <span class="slider-val" id="purchasePriceSliderVal">$50</span>
+            </div>
+          </div>
+
+          <!-- Current/Selling Price -->
+          <div class="form-group">
+            <label for="currentPrice">Current / Selling Price per Share</label>
+            <div class="input-addons">
+              <span class="input-addon" id="currencySymbol2">$</span>
+              <input type="number" id="currentPrice" value="70" min="0.01" step="1" oninput="syncSlider('currentPrice');calculate()" />
+            </div>
+            <div class="slider-row">
+              <input type="range" id="currentPriceSlider" min="1" max="500" step="1" value="70" oninput="syncInput('currentPrice',this.value);calculate()" />
+              <span class="slider-val" id="currentPriceSliderVal">$70</span>
+            </div>
+          </div>
+
+          <!-- Number of Shares -->
+          <div class="form-group">
+            <label for="shares">Number of Shares</label>
+            <input type="number" id="shares" value="100" min="0" step="10" oninput="calculate()" />
+          </div>
+
+          <!-- Total Dividends Received -->
+          <div class="form-group">
+            <label for="totalDividends">Total Dividends Received</label>
+            <div class="input-addons">
+              <span class="input-addon" id="currencySymbol3">$</span>
+              <input type="number" id="totalDividends" value="200" min="0" step="50" oninput="calculate()" />
+            </div>
+            <span class="field-hint">Sum of all dividends received over the holding period</span>
+          </div>
+
+          <!-- Holding Period (Years) -->
+          <div class="form-group">
+            <label for="holdingPeriod">Holding Period (Years)</label>
+            <input type="number" id="holdingPeriod" value="5" min="0.1" max="50" step="0.5" oninput="calculate()" />
+          </div>
+
+          <!-- Reinvest Dividends Toggle -->
+          <div class="toggle-row">
+            <label class="toggle-label" for="reinvestToggle">Reinvest Dividends (DRIP)</label>
+            <label class="toggle">
+              <input type="checkbox" id="reinvestToggle" onchange="calculate()" />
+              <span class="toggle-track"></span>
+            </label>
+          </div>
+
+          <div class="calc-actions">
+            <button class="btn btn-ghost" onclick="resetForm()">Reset</button>
+            <button class="btn btn-primary" onclick="shareURL()" id="shareBtn">Share</button>
+          </div>
+        </div>
+      </aside>
+
+      <section class="tool-output-col" aria-label="Calculator results" aria-live="polite">
+        <div class="result-cards" id="resultCards">
+          <div class="result-card result-card--primary">
+            <div class="result-label">Total Return</div>
+            <div class="result-value" id="rTotalReturn">—</div>
+            <div class="result-sub">Absolute gain ($)</div>
+          </div>
+          <div class="result-card result-card--secondary">
+            <div class="result-label">Total Return (%)</div>
+            <div class="result-value" id="rTotalReturnPct">—</div>
+            <div class="result-sub">Percentage gain</div>
+          </div>
+          <div class="result-card result-card--secondary">
+            <div class="result-label">Annualised Return (CAGR)</div>
+            <div class="result-value" id="rCAGR">—</div>
+            <div class="result-sub">Per‑year rate</div>
+          </div>
+          <div class="result-card result-card--secondary">
+            <div class="result-label">Capital Gain</div>
+            <div class="result-value" id="rCapitalGain">—</div>
+            <div class="result-sub">Price appreciation</div>
+          </div>
+          <div class="result-card result-card--secondary">
+            <div class="result-label">Dividend Income</div>
+            <div class="result-value" id="rDividendIncome">—</div>
+            <div class="result-sub">Total dividends</div>
+          </div>
+        </div>
+
+        <div class="insight-box" id="insightBox" style="display:none;">
+          <span id="insightText"></span>
+        </div>
+
+        <div class="chart-panel">
+          <div class="chart-tabs" role="tablist">
+            <button class="chart-tab active" data-chart="donut" onclick="switchChart('donut',this)" role="tab">Breakdown</button>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="toolChart" role="img" aria-label="Stock return breakdown"></canvas>
+          </div>
+        </div>
+
+        <div class="action-bar">
+          <button class="action-btn" onclick="downloadCSV()" title="Download data as CSV">⬇ Download CSV</button>
+          <button class="action-btn" onclick="copyResult()" title="Copy result to clipboard" id="copyBtn">📋 Copy Result</button>
+        </div>
+      </section>
+    </div>
+  </article>
+</div>
+
+<script src="/assets/js/stock-return.js"></script>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     ON‑PAGE CONTENT (SEO / GEO OPTIMISED) – STOCK RETURN CALCULATOR
+═══════════════════════════════════════════════════════ -->
+<section class="onpage-content" itemscope itemtype="https://schema.org/Article">
+  <meta itemprop="name" content="Stock Return Calculator – Total Return with Dividends" />
+  <meta itemprop="description" content="Calculate the total return of a stock investment including share price appreciation and dividends. Compute annualised return, cumulative growth, and compare scenarios." />
+
+  <!-- ── INTRO ── -->
+  <div class="content-block">
+    <h2>What Is a Stock Return Calculator?</h2>
+    <p>A <strong>stock return calculator</strong> measures the total return of an investment in a single stock over a specific period. Total return includes two components: <strong>capital gains</strong> (the increase in share price) and <strong>dividends</strong> (cash distributions from the company). Unlike simple price‑change calculators, our <strong>stock investment return calculator</strong> accounts for reinvested dividends, giving you the true annualised and cumulative return – the same way professional investors evaluate performance.</p>
+    <p>Whether you are backtesting a past investment or projecting a future one, this <strong>total return stock calculator</strong> helps you compare stocks, assess risk, and make informed decisions. You can input the purchase price, current or selling price, number of shares, dividend history (annual or quarterly), and holding period. The tool then computes the absolute gain, percentage return, and annualised return (CAGR).</p>
+  </div>
+
+  <!-- ── HOW TO USE (HowTo schema) ── -->
+  <div class="content-block" itemscope itemtype="https://schema.org/HowTo">
+    <meta itemprop="name" content="How to Calculate Stock Return – Step by Step" />
+    <h2>How to Use This Stock Return Calculator</h2>
+    <div class="howto-steps">
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="1" />
+        <span class="step-number">1</span> <span itemprop="text"><strong>Enter the purchase price per share</strong> – what you paid for each share.</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="2" />
+        <span class="step-number">2</span> <span itemprop="text"><strong>Enter the current (or selling) price per share</strong> – the value today or at sale.</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="3" />
+        <span class="step-number">3</span> <span itemprop="text"><strong>Input the number of shares purchased</strong> – total shares held.</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="4" />
+        <span class="step-number">4</span> <span itemprop="text"><strong>Add dividend information</strong> – either the annual dividend per share (or a list of quarterly dividends received).</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="5" />
+        <span class="step-number">5</span> <span itemprop="text"><strong>Enter the holding period (years)</strong> – how long you owned the stock.</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="6" />
+        <span class="step-number">6</span> <span itemprop="text"><strong>Click Calculate</strong> – view total gain, total return percentage, and annualised return (CAGR). Optionally enable dividend reinvestment to see compounded growth.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DATASET (example stock return calculation) ── -->
+  <div class="content-block">
+    <h2>Example: Total Return of a Dividend Stock (5‑Year Holding)</h2>
+    <p>Suppose you bought 100 shares of a company at $50 per share ($5,000 invested). You held for 5 years, received a constant annual dividend of $2 per share, and sold at $70 per share. Total return is calculated as:</p>
+    <div class="dataset-table-wrap">
+      <table class="dataset-table">
+        <thead>
+          <tr><th>Component</th><th>Calculation</th><th>Amount ($)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Capital gain</td><td>(70 - 50) × 100 shares</td><td>2,000</td></tr>
+          <tr><td>Dividends received</td><td>$2 × 100 shares × 5 years</td><td>1,000</td></tr>
+          <tr><td><strong>Total gain</strong></td><td>2,000 + 1,000</td><td><strong>3,000</strong></td></tr>
+          <tr><td>Total return (%)</td><td>3,000 / 5,000</td><td>60%</td></tr>
+          <tr><td>Annualised return (CAGR)</td><td>(1.60)^(1/5) - 1</td><td>~9.9%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="dataset-note">* If dividends were reinvested, the return would be higher because additional shares would also generate dividends. Use the "Reinvest dividends" option to see the compounded effect.</p>
+  </div>
+
+  <!-- ── FAQ SECTION (20 questions) ── -->
+  <div class="content-block faq-section">
+    <h2>Frequently Asked Questions About Stock Return Calculators</h2>
+    <div class="faq-list" itemscope itemtype="https://schema.org/FAQPage">
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">1. What is total return of a stock?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Total return = capital gains (change in share price) + dividends (cash distributions). It reflects the true gain from owning a stock, unlike price‑only returns.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">2. How do you calculate annualised return for a stock?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Use the CAGR formula: (Ending value / Beginning value)^(1 / years) – 1. This gives the average annual rate of growth over the period.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">3. Does the calculator include dividend reinvestment?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – there is an optional toggle to assume dividends are reinvested. The calculator then models the purchase of additional shares with each dividend payment, showing a higher total return.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">4. What is a good annualised stock return?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">The long‑term average for the S&P 500 (with dividends reinvested) is about 9-10% per year. Individual stocks can be higher or lower. Use the calculator to compare.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">5. Can I use this for a stock that doesn't pay dividends?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Absolutely – enter zero dividends. The calculator will then report only capital gains.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">6. How do I account for multiple purchases (average cost)?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">For a single purchase, use the inputs as given. For multiple purchases, you can enter the average purchase price and total shares, or use a portfolio calculator. This tool focuses on a single entry.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">7. What is the difference between simple return and annualised return?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Simple return is the total percentage gain over the entire holding period. Annualised return (CAGR) normalises that to a per‑year rate, making it easier to compare investments held for different lengths.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">8. Does the calculator work for any currency?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – select your currency (USD, EUR, GBP, INR, PKR, etc.). All price and dividend inputs should be in that currency.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">9. How do I calculate the total return if I sold part of my position?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Our calculator assumes you hold all shares for the entire period. For partial sales, you would need to track the return on the sold portion separately.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">10. Does the calculator account for stock splits?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Not directly. You can adjust the purchase price and share count manually using the split ratio. For example, a 2‑for‑1 split halves the purchase price and doubles shares.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">11. What is the difference between stock return and stock ROI?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">ROI (Return on Investment) is the same as total return: (gain ÷ cost) × 100. The terms are often used interchangeably.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">12. Can I compare my stock return to a benchmark like the S&P 500?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes. After calculating your stock's annualised return, compare it to the benchmark's annualised return over the same period. You can find benchmark data online.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">13. How are quarterly dividends handled in the annualised return calculation?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">If you choose not to reinvest, we sum all dividends received and treat them as cash gain. If you choose to reinvest, we apply dividend reinvestment each quarter, compounding the return more accurately.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">14. Does this calculator include taxes or brokerage fees?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">No – it shows pre‑tax, pre‑fee returns. For net returns, reduce the gain by your effective tax rate and subtract transaction costs.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">15. Can I use this calculator for ETFs or mutual funds?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – ETFs and mutual funds that trade like stocks (with dividends) work the same way. Enter the price per unit and distributions.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">16. How accurate is the calculator for very long periods (e.g., 30 years)?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Mathematically accurate assuming constant dividend reinvestment and no changes in dividend policy. Real dividends may change, but the tool provides a solid projection.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">17. Can I save or share my stock return calculation?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – click the “Share” button to copy a URL with all your inputs. You can also download a CSV report of the dividend reinvestment schedule (if enabled).</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">18. What is the difference between stock return calculator and stock market return calculator?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">A stock return calculator typically evaluates a single stock. A stock market return calculator often looks at the overall market (e.g., S&P 500). Our tool is for individual stocks.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">19. Is this calculator free?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – completely free, no signup, no ads. Use it for personal investing or professional analysis.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">20. Can I calculate the return if I held a stock for less than one year?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – enter the holding period in years as a decimal (e.g., 0.5 for 6 months). The calculator will annualise the return accordingly.</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>

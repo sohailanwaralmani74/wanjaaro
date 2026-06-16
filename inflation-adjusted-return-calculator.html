@@ -1,0 +1,422 @@
+---
+layout: main
+title: "Inflation Adjusted Return Calculator — Real Rate of Return"
+description: "Calculate your real rate of return after inflation. See the true purchasing power of your investments with nominal vs real value comparison."
+keywords: "inflation adjusted return calculator, real rate of return, inflation calculator, purchasing power calculator, nominal return, real return, investment inflation adjustment"
+---
+<!-- ═══════════════════════════════════════════════════════
+     Inflation Adjusted Return Calculator Breadcrumb With Tool Screen 
+═══════════════════════════════════════════════════════ -->
+<div class="tool-page">
+  <!-- ── Tool header ── -->
+  <article itemscope itemtype="https://schema.org/WebApplication">
+    <meta itemprop="name"            content="Inflation Adjusted Return Calculator" />
+    <meta itemprop="applicationCategory" content="FinanceApplication" />
+    <meta itemprop="isAccessibleForFree" content="true" />
+
+    <section class="page-heading">
+      <h1 itemprop="name">Inflation Adjusted Return Calculator — See Your Real Gains</h1>
+      <p class="tool-subtitle" itemprop="description">
+        Discover your true purchasing power. Enter your nominal return and inflation rate — see the real rate of return, future value, and buying power year by year.
+      </p>
+    </section>
+
+    <!-- ═════════════════════════════════════
+         TOOL BODY
+    ═════════════════════════════════════ -->
+    <div class="tool-body">
+
+      <!-- ══ LEFT — INPUTS ══ -->
+      <aside class="tool-input-col" aria-label="Calculator inputs">
+        <div class="panel input-panel">
+
+        <!-- Currency DROPDOWN -->
+        <div class="form-group">
+            <label for="currencySearch">Currency</label>
+            <div class="currency-search-wrapper">
+                <input type="text" id="currencySearch" placeholder="Type currency name or code (e.g., yen, USD, euro)"
+                    autocomplete="off" />
+                <div id="currencyResults" class="currency-results"></div>
+            </div>
+        </div>
+
+        <!-- Initial Investment -->
+          <div class="form-group">
+            <label for="initialAmount">Initial Investment</label>
+            <div class="input-addons">
+              <span class="input-addon" id="currencySymbol">$</span>
+              <input type="number" id="initialAmount" value="10000" min="0" step="any"
+                     placeholder="10,000" inputmode="decimal"
+                     aria-describedby="initialHint" oninput="syncSlider('initialAmount');calculateInflation()" />
+            </div>
+            <span class="field-hint" id="initialHint">The amount you start with today</span>
+            <div class="slider-row">
+              <input type="range" id="initialAmountSlider" min="100" max="1000000" step="100" value="10000"
+                     oninput="syncInput('initialAmount',this.value);calculateInflation()" aria-label="Initial amount slider" />
+              <span class="slider-val" id="initialAmountSliderVal">$10k</span>
+            </div>
+          </div>
+
+          <!-- Nominal Annual Return -->
+          <div class="form-group">
+            <label for="nominalRate">Nominal Annual Return</label>
+            <div class="input-addons">
+              <input type="number" id="nominalRate" value="8" min="-50" max="100" step="0.01"
+                     placeholder="8" inputmode="decimal" oninput="syncSlider('nominalRate');calculateInflation()" />
+              <span class="input-addon input-addon--right">%</span>
+            </div>
+            <span class="field-hint">Return before inflation adjustment</span>
+            <div class="slider-row">
+              <input type="range" id="nominalRateSlider" min="-10" max="30" step="0.1" value="8"
+                     oninput="syncInput('nominalRate',this.value);calculateInflation()" aria-label="Nominal rate slider" />
+              <span class="slider-val" id="nominalRateSliderVal">8%</span>
+            </div>
+          </div>
+
+          <!-- Inflation Rate -->
+          <div class="form-group">
+            <label for="inflationRate">Annual Inflation Rate</label>
+            <div class="input-addons">
+              <input type="number" id="inflationRate" value="3" min="0" max="50" step="0.01"
+                     placeholder="3" inputmode="decimal" oninput="syncSlider('inflationRate');calculateInflation()" />
+              <span class="input-addon input-addon--right">%</span>
+            </div>
+            <span class="field-hint">Average expected inflation (e.g., 3%)</span>
+            <div class="slider-row">
+              <input type="range" id="inflationRateSlider" min="0" max="20" step="0.1" value="3"
+                     oninput="syncInput('inflationRate',this.value);calculateInflation()" aria-label="Inflation rate slider" />
+              <span class="slider-val" id="inflationRateSliderVal">3%</span>
+            </div>
+          </div>
+
+          <!-- Duration -->
+          <div class="form-group">
+            <label for="years">Investment Duration</label>
+            <div class="input-addons">
+              <input type="number" id="years" value="10" min="1" max="50" step="1"
+                     placeholder="10" inputmode="numeric" oninput="syncSlider('years');calculateInflation()" />
+              <span class="input-addon input-addon--right">yrs</span>
+            </div>
+            <div class="slider-row">
+              <input type="range" id="yearsSlider" min="1" max="50" step="1" value="10"
+                     oninput="syncInput('years',this.value);calculateInflation()" aria-label="Years slider" />
+              <span class="slider-val" id="yearsSliderVal">10 yrs</span>
+            </div>
+          </div>
+
+          <!-- Monthly Contribution -->
+          <div class="form-group">
+            <label for="monthly">
+              Monthly Contribution
+              <span class="optional-label">optional</span>
+            </label>
+            <div class="input-addons">
+              <span class="input-addon" id="currencySymbol2">$</span>
+              <input type="number" id="monthly" value="0" min="0" step="any"
+                     placeholder="0" inputmode="decimal" oninput="calculateInflation()" />
+            </div>
+            <span class="field-hint">Added at the start of each month</span>
+          </div>
+
+          <!-- Yearly Contribution -->
+          <div class="form-group">
+            <label for="yearly">
+              Yearly Contribution
+              <span class="optional-label">optional</span>
+            </label>
+            <div class="input-addons">
+              <span class="input-addon" id="currencySymbol3">$</span>
+              <input type="number" id="yearly" value="0" min="0" step="any"
+                     placeholder="0" inputmode="decimal" oninput="calculateInflation()" />
+            </div>
+            <span class="field-hint">Lump sum added at the start of each year</span>
+          </div>
+
+          <!-- Start Year -->
+          <div class="form-group">
+            <label for="startYear">Start Year</label>
+            <input type="number" id="startYear" value="2025" min="2000" max="2100"
+                   step="1" inputmode="numeric" oninput="calculateInflation()" />
+          </div>
+
+          <!-- Toggles -->
+          <div class="toggle-row">
+            <label class="toggle-label" for="showNominalToggle">
+              Show Nominal Value
+              <span class="tip">on chart</span>
+            </label>
+            <label class="toggle" aria-label="Show nominal value on chart">
+              <input type="checkbox" id="showNominalToggle" checked onchange="calculateInflation()" />
+              <span class="toggle-track"></span>
+            </label>
+          </div>
+
+          <div class="calc-actions">
+            <button class="btn btn-ghost" onclick="resetForm()">Reset</button>
+            <button class="btn btn-primary" onclick="shareURL()" id="shareBtn">Share</button>
+          </div>
+
+        </div><!-- /input-panel -->
+      </aside>
+
+      <!-- ══ RIGHT — OUTPUTS ══ -->
+      <section class="tool-output-col" aria-label="Calculator results" aria-live="polite">
+
+        <!-- Result cards -->
+        <div class="result-cards" id="resultCards">
+          <div class="result-card result-card--primary">
+            <div class="result-label">Real Rate of Return</div>
+            <div class="result-value" id="rRealRate">—</div>
+            <div class="result-sub"  id="rRealRateSub">Enter values to calculate</div>
+          </div>
+          <div class="result-card result-card--secondary">
+            <div class="result-label">Nominal Rate</div>
+            <div class="result-value" id="rNominalRate">—</div>
+            <div class="result-sub">Before inflation adjustment</div>
+          </div>
+          <div class="result-card result-card--secondary">
+            <div class="result-label">Inflation Rate</div>
+            <div class="result-value" id="rInflationRate">—</div>
+            <div class="result-sub">Annual price increase</div>
+          </div>
+          <div class="result-card result-card--secondary">
+            <div class="result-label">Future Nominal Value</div>
+            <div class="result-value" id="rNominalValue">—</div>
+            <div class="result-sub">Without inflation adjustment</div>
+          </div>
+          <div class="result-card result-card--secondary">
+            <div class="result-label">Future Real Value</div>
+            <div class="result-value" id="rRealValue">—</div>
+            <div class="result-sub">Today's purchasing power</div>
+          </div>
+          <div class="result-card result-card--secondary">
+            <div class="result-label">Purchasing Power Lost</div>
+            <div class="result-value" id="rPurchasingPowerLost">—</div>
+            <div class="result-sub">Value eroded by inflation</div>
+          </div>
+        </div>
+
+        <!-- Insight -->
+        <div class="insight-box" id="insightBox" style="display:none;">
+          <span id="insightText"></span>
+        </div>
+
+        <!-- Chart panel -->
+        <div class="chart-panel">
+          <div class="chart-tabs" role="tablist">
+            <button class="chart-tab active" data-chart="nominalVsReal" onclick="switchChart('nominalVsReal',this)" role="tab">Nominal vs Real</button>
+            <button class="chart-tab" data-chart="purchasingPower" onclick="switchChart('purchasingPower',this)" role="tab">Purchasing Power</button>
+            <button class="chart-tab" data-chart="breakdown" onclick="switchChart('breakdown',this)" role="tab">Breakdown</button>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="toolChart" role="img" aria-label="Inflation adjusted return chart"></canvas>
+          </div>
+        </div>
+
+        <!-- Action bar -->
+        <div class="action-bar">
+          <button class="action-btn" onclick="downloadCSV()" title="Download year-by-year table as CSV">
+            ⬇ Download CSV
+          </button>
+          <button class="action-btn" onclick="copyResult()" title="Copy result to clipboard" id="copyBtn">
+            📋 Copy Result
+          </button>
+        </div>
+
+        <!-- Breakdown Table -->
+        <div class="breakdown-panel">
+          <div class="breakdown-title" id="tableTitle">Year-by-Year Breakdown</div>
+          <div class="table-wrap">
+            <table class="breakdown-table" id="breakdownTable" aria-label="Year by year inflation adjusted return breakdown">
+              <thead id="tableHead"></thead>
+              <tbody id="tableBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+    </div><!-- /tool-body -->
+
+    <!-- Popup definition container (hidden by default) -->
+    <div id="definitionPopup" class="def-popup" style="display: none;"></div>
+
+  </article>
+</div><!-- /tool-page -->
+
+<script src="/assets/js/inflation-adjusted-return.js"></script>
+<!-- ═══════════════════════════════════════════════════════
+     ON‑PAGE CONTENT (SEO / GEO OPTIMISED) – INFLATION ADJUSTED RETURN CALCULATOR
+═══════════════════════════════════════════════════════ -->
+<section class="onpage-content" itemscope itemtype="https://schema.org/Article">
+  <meta itemprop="name" content="Inflation Adjusted Return Calculator – Understand Your Real Purchasing Power" />
+  <meta itemprop="description" content="Calculate the real rate of return after inflation. Enter nominal return and inflation rate to see your true investment growth. Includes year‑by‑year nominal vs real balance chart." />
+
+  <!-- ── INTRO ── -->
+  <div class="content-block">
+    <h2>What Is an Inflation Adjusted Return Calculator?</h2>
+    <p>An <strong>inflation adjusted return calculator</strong> shows the true growth of your investment after removing the eroding effect of inflation. While your nominal return might look impressive (e.g., 12% from stocks), inflation can eat away a large portion of that gain. The <strong>real rate of return</strong> tells you how much your purchasing power actually increased. This tool uses the Fisher equation: <code>Real Return = (1 + Nominal Return) / (1 + Inflation Rate) – 1</code>.</p>
+    <p>Whether you are evaluating a <strong>stock market investment</strong>, a fixed deposit, or a bond, understanding the <strong>inflation adjusted stock market return</strong> is critical for long‑term planning. Our calculator also shows a year‑by‑year comparison of nominal vs real balances, helping you visualise the impact of inflation over time.</p>
+  </div>
+
+  <!-- ── HOW TO USE (HowTo schema) ── -->
+  <div class="content-block" itemscope itemtype="https://schema.org/HowTo">
+    <meta itemprop="name" content="How to Calculate Inflation Adjusted Returns – Step by Step" />
+    <h2>How to Use This Real Rate of Return Calculator</h2>
+    <div class="howto-steps">
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="1" />
+        <span class="step-number">1</span> <span itemprop="text"><strong>Enter your initial investment</strong> – the lump sum you start with (optional, but needed for balance chart).</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="2" />
+        <span class="step-number">2</span> <span itemprop="text"><strong>Set the nominal annual return</strong> – the expected or historical return before inflation (e.g., 12% for equities).</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="3" />
+        <span class="step-number">3</span> <span itemprop="text"><strong>Set the inflation rate</strong> – the average expected inflation over your investment period (e.g., 6% for India, 3% for US/EU).</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="4" />
+        <span class="step-number">4</span> <span itemprop="text"><strong>Choose investment duration</strong> – in years (1 to 50).</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="5" />
+        <span class="step-number">5</span> <span itemprop="text"><strong>Click Calculate</strong> – view the real annual return, final nominal balance, final real balance (in today’s purchasing power), and a chart comparing nominal vs real growth over time.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DATASET (example table) ── -->
+  <div class="content-block">
+    <h2>Example: Inflation Adjusted Return on a ₹10,00,000 Investment</h2>
+    <p>Assume you invest ₹10,00,000 in a diversified equity fund with a nominal return of 12% per year, while inflation runs at 6% annually. Below is a 10‑year breakdown showing how inflation erodes the real value of your corpus.</p>
+    <div class="dataset-table-wrap">
+      <table class="dataset-table">
+        <thead>
+          <tr><th>Year</th><th>Nominal Balance (₹)</th><th>Real Balance (₹) (Today's ₹)</th><th>Real Return (Cumulative)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>11,27,000</td><td>10,63,000</td><td>6.3%</td></tr>
+          <tr><td>2</td><td>12,70,000</td><td>11,30,000</td><td>13.0%</td></tr>
+          <tr><td>3</td><td>14,31,000</td><td>12,01,000</td><td>20.1%</td></tr>
+          <tr><td>4</td><td>16,13,000</td><td>12,77,000</td><td>27.7%</td></tr>
+          <tr><td>5</td><td>18,18,000</td><td>13,58,000</td><td>35.8%</td></tr>
+          <tr><td>6</td><td>20,49,000</td><td>14,44,000</td><td>44.4%</td></tr>
+          <tr><td>7</td><td>23,10,000</td><td>15,36,000</td><td>53.6%</td></tr>
+          <tr><td>8</td><td>26,03,000</td><td>16,33,000</td><td>63.3%</td></tr>
+          <tr><td>9</td><td>29,34,000</td><td>17,37,000</td><td>73.7%</td></tr>
+          <tr><td>10</td><td>33,07,000</td><td>18,47,000</td><td>84.7%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="dataset-note">* Real balance calculated by discounting nominal balance with 6% annual inflation. After 10 years, your nominal corpus grew to ₹33.07 lakh, but in today’s purchasing power it is only ₹18.47 lakh. Use the calculator above to run your own numbers.</p>
+  </div>
+
+  <!-- ── FAQ SECTION (20 questions) ── -->
+  <div class="content-block faq-section">
+    <h2>Frequently Asked Questions About Inflation Adjusted Returns</h2>
+    <div class="faq-list" itemscope itemtype="https://schema.org/FAQPage">
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">1. What is an inflation adjusted return?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">An <strong>inflation adjusted return</strong> (real return) is the growth of your investment after accounting for the loss of purchasing power due to inflation. It shows how much more you can actually buy compared to the start.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">2. How do you calculate inflation adjusted return?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">The formula is: <strong>Real Return = (1 + Nominal Return) / (1 + Inflation Rate) – 1</strong>. For example, 12% nominal return with 6% inflation gives a real return of (1.12/1.06) – 1 = 5.66%.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">3. What is a typical inflation adjusted stock market return?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Historically, the S&P 500 has returned about 10% nominal and 7% real (after 3% inflation). For Indian equities (Nifty 50), long‑term real returns have been around 6–8% after adjusting for 5‑6% inflation.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">4. Can real return be negative?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes. If inflation is higher than your nominal return (e.g., 3% return but 5% inflation), the real return is negative – you lose purchasing power even though your balance grew nominally.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">5. How does inflation affect long‑term investments?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Inflation compounds over time, eroding purchasing power exponentially. A 6% inflation rate halves the real value of money every 12 years. This is why you need investments that beat inflation.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">6. What is the Fisher equation?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">The Fisher equation describes the relationship between nominal interest rates, real interest rates, and inflation. The exact form used here is: (1 + nominal) = (1 + real) × (1 + inflation).</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">7. Why is nominal return misleading without inflation adjustment?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Because the same number of rupees buys less in the future. A 12% nominal return with 10% inflation leaves you only 2% real gain – a much smaller improvement in actual wealth.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">8. Does this calculator work for any currency?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – select your currency (USD, INR, EUR, GBP, etc.). Inflation adjustment is independent of currency; the real return formula remains the same.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">9. What inflation rate should I use for long‑term planning?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Use a conservative estimate based on your country's historical average: 6% for India, 3% for US/EU, 4–5% for many emerging markets. You can also run multiple scenarios with different rates.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">10. Can I calculate inflation adjusted return for a portfolio with multiple assets?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">This calculator assumes a single lump sum with a constant nominal return. For a portfolio, first calculate your weighted average nominal return, then apply inflation adjustment.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">11. Does the calculator account for taxes?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">No – it shows pre‑tax returns. For post‑tax real returns, first reduce your nominal return by the applicable tax rate (e.g., 10% LTCG for equity), then apply inflation adjustment.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">12. What is the difference between real return and nominal return?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Nominal return is the percentage increase in your rupee/dollar balance. Real return is the percentage increase in your purchasing power – what matters most for retirement and long‑term goals.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">13. How accurate is the Fisher equation for small inflation rates?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">For typical inflation rates (0–15%), the Fisher equation is highly accurate. For hyperinflation, the exact geometric formula is still correct – and our calculator uses it.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">14. Can I use this for debt funds or fixed deposits?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Absolutely. Enter the FD or bond’s nominal rate (e.g., 7%) and your expected inflation (e.g., 6%). The real return may be very small or negative after taxes.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">15. How do I interpret the chart?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">The chart shows two lines: nominal balance (grows faster) and real balance (grows slower). The gap between them widens over time, visually demonstrating the erosion caused by inflation.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">16. Can I download the data?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – click the “Download CSV” button below the chart. The CSV includes year‑by‑year nominal balance, real balance, and cumulative real return.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">17. Does the calculator support negative inflation (deflation)?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – you can enter negative inflation rates (e.g., -1%). In deflation, real returns can be higher than nominal returns.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">18. What is the maximum investment period allowed?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Up to 50 years – sufficient for most retirement and generational wealth planning.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">19. Is this calculator free?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – 100% free, no signup, no ads. Use it as many times as you need.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">20. Can I share my calculation with others?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – click the “Share” button to copy a URL with all your inputs. Anyone opening that link will see the same nominal and real return results.</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>

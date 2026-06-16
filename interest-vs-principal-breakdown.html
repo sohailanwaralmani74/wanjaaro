@@ -1,0 +1,312 @@
+---
+layout: main
+title: "Interest vs Principal Breakdown — Loan Amortisation Visualiser"
+description: "See exactly how your loan payments split between interest and principal over time. Visualise the tipping point where principal exceeds interest."
+keywords: "interest vs principal breakdown, principal vs interest calculator, loan payment breakdown, EMI breakdown, home loan interest vs principal, car loan amortisation"
+---
+
+<div class="tool-page">
+  <article itemscope itemtype="https://schema.org/WebApplication">
+    <meta itemprop="name" content="Interest vs Principal Breakdown" />
+    <meta itemprop="applicationCategory" content="FinanceApplication" />
+    <meta itemprop="isAccessibleForFree" content="true" />
+
+    <section class="page-heading">
+      <h1 itemprop="name">Interest vs Principal Breakdown — Loan Amortisation Visualiser</h1>
+      <p class="tool-subtitle">See exactly how your loan payments split between interest and principal over time. Visualise the tipping point where principal exceeds interest.</p>
+    </section>
+
+    <div class="tool-body">
+      <aside class="tool-input-col" aria-label="Calculator inputs">
+        <div class="panel input-panel">
+
+          <!-- Currency -->
+          <div class="form-group">
+            <label for="currencySearch">Currency</label>
+            <div class="currency-search-wrapper">
+              <input type="text" id="currencySearch" placeholder="Type currency name or code" autocomplete="off" />
+              <div id="currencyResults" class="currency-results"></div>
+            </div>
+          </div>
+
+          <!-- Loan Amount -->
+          <div class="form-group">
+            <label for="loanAmount">Loan Amount</label>
+            <div class="input-addons">
+              <span class="input-addon" id="currencySymbol">$</span>
+              <input type="number" id="loanAmount" value="500000" min="0" step="10000" oninput="syncSlider('loanAmount');calculate()" />
+            </div>
+            <div class="slider-row">
+              <input type="range" id="loanAmountSlider" min="0" max="10000000" step="50000" value="500000" oninput="syncInput('loanAmount',this.value);calculate()" />
+              <span class="slider-val" id="loanAmountSliderVal">$500k</span>
+            </div>
+          </div>
+
+          <!-- Interest Rate -->
+          <div class="form-group">
+            <label for="interestRate">Annual Interest Rate (%)</label>
+            <div class="input-addons">
+              <input type="number" id="interestRate" value="8.5" min="0" max="30" step="0.1" oninput="syncSlider('interestRate');calculate()" />
+              <span class="input-addon input-addon--right">%</span>
+            </div>
+            <div class="slider-row">
+              <input type="range" id="interestRateSlider" min="0" max="30" step="0.1" value="8.5" oninput="syncInput('interestRate',this.value);calculate()" />
+              <span class="slider-val" id="interestRateSliderVal">8.5%</span>
+            </div>
+          </div>
+
+          <!-- Loan Tenure -->
+          <div class="form-group">
+            <label for="loanTenure">Loan Tenure (Years)</label>
+            <div class="input-addons">
+              <input type="number" id="loanTenure" value="20" min="1" max="50" step="1" oninput="syncSlider('loanTenure');calculate()" />
+              <span class="input-addon input-addon--right">yrs</span>
+            </div>
+            <div class="slider-row">
+              <input type="range" id="loanTenureSlider" min="1" max="50" step="1" value="20" oninput="syncInput('loanTenure',this.value);calculate()" />
+              <span class="slider-val" id="loanTenureSliderVal">20 yrs</span>
+            </div>
+          </div>
+
+          <div class="calc-actions">
+            <button class="btn btn-ghost" onclick="resetForm()">Reset</button>
+            <button class="btn btn-primary" onclick="shareURL()" id="shareBtn">Share</button>
+          </div>
+        </div>
+      </aside>
+
+      <section class="tool-output-col" aria-label="Calculator results" aria-live="polite">
+        <div class="result-cards" id="resultCards">
+          <div class="result-card result-card--primary">
+            <div class="result-label">Monthly Payment (EMI)</div>
+            <div class="result-value" id="rEMI">—</div>
+            <div class="result-sub">Fixed monthly payment</div>
+          </div>
+          <div class="result-card result-card--secondary">
+            <div class="result-label">Tipping Point</div>
+            <div class="result-value" id="rTippingPoint">—</div>
+            <div class="result-sub">When principal > interest</div>
+          </div>
+          <div class="result-card result-card--secondary">
+            <div class="result-label">Total Interest</div>
+            <div class="result-value" id="rTotalInterest">—</div>
+            <div class="result-sub">Over entire loan term</div>
+          </div>
+          <div class="result-card result-card--secondary">
+            <div class="result-label">Principal vs Interest Ratio</div>
+            <div class="result-value" id="rRatio">—</div>
+            <div class="result-sub">Final breakdown</div>
+          </div>
+        </div>
+
+        <div class="insight-box" id="insightBox" style="display:none;">
+          <span id="insightText"></span>
+        </div>
+
+        <div class="chart-panel">
+          <div class="chart-tabs" role="tablist">
+            <button class="chart-tab active" data-chart="area" onclick="switchChart('area',this)" role="tab">Interest vs Principal</button>
+            <button class="chart-tab" data-chart="balance" onclick="switchChart('balance',this)" role="tab">Balance Over Time</button>
+            <button class="chart-tab" data-chart="donut" onclick="switchChart('donut',this)" role="tab">Final Breakdown</button>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="toolChart" role="img" aria-label="Interest vs Principal breakdown chart"></canvas>
+          </div>
+        </div>
+
+        <div class="action-bar">
+          <button class="action-btn" onclick="downloadCSV()" title="Download amortisation schedule as CSV">⬇ Download CSV</button>
+          <button class="action-btn" onclick="copyResult()" title="Copy result to clipboard" id="copyBtn">📋 Copy Result</button>
+        </div>
+
+        <div class="breakdown-panel">
+          <div class="breakdown-title" id="tableTitle">Amortisation Schedule (First 12 Months + Yearly)</div>
+          <div class="table-wrap">
+            <table class="breakdown-table" id="breakdownTable" aria-label="Loan amortisation schedule">
+              <thead id="tableHead"></thead>
+              <tbody id="tableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+  </article>
+</div>
+
+<script src="/assets/js/interest-vs-principal-breakdown.js"></script>
+
+<!-- ═══════════════════════════════════════════════════════
+     ON‑PAGE CONTENT (SEO / GEO OPTIMISED) – INTEREST VS PRINCIPAL BREAKDOWN
+═══════════════════════════════════════════════════════ -->
+<section class="onpage-content" itemscope itemtype="https://schema.org/Article">
+  <meta itemprop="name" content="Interest vs Principal Breakdown – See How Your Loan Payments Split" />
+  <meta itemprop="description" content="Visualise how your loan payments split between interest and principal over time. Find the tipping point where principal exceeds interest. Free amortisation tool." />
+
+  <!-- ── INTRO ── -->
+  <div class="content-block">
+    <h2>Interest vs Principal: Understanding Your Loan Payments</h2>
+    <p>When you take out a loan – whether a home loan, car loan, or personal loan – each monthly payment consists of two parts: <strong>interest</strong> (the cost of borrowing) and <strong>principal</strong> (the amount you actually borrowed). Early in the loan term, most of your payment goes toward interest. Over time, the balance shifts, and more of your payment applies to the principal. Understanding the <strong>difference between principal and interest</strong> helps you see the true cost of borrowing and plan for prepayments.</p>
+    <p>Our <strong>interest vs principal calculator</strong> shows you exactly how each payment splits over the life of your loan. You can see the <strong>tipping point</strong> – the month where principal payment exceeds interest – and visualise the breakdown through interactive charts. Whether you have a mortgage, auto loan, or any other amortising loan, this tool gives you clarity on where your money is going.</p>
+  </div>
+
+  <!-- ── HOW TO USE (HowTo schema) ── -->
+  <div class="content-block" itemscope itemtype="https://schema.org/HowTo">
+    <meta itemprop="name" content="How to Calculate Interest vs Principal – Step by Step" />
+    <h2>How to Use This Interest vs Principal Calculator</h2>
+    <div class="howto-steps">
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="1" />
+        <span class="step-number">1</span> <span itemprop="text"><strong>Enter your loan amount</strong> – the principal you borrowed.</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="2" />
+        <span class="step-number">2</span> <span itemprop="text"><strong>Set the annual interest rate</strong> – your loan's APR or interest rate.</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="3" />
+        <span class="step-number">3</span> <span itemprop="text"><strong>Choose your loan tenure</strong> – in years (e.g., 30 years for a mortgage, 5 years for a car loan).</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="4" />
+        <span class="step-number">4</span> <span itemprop="text"><strong>Click Calculate</strong> – view your monthly payment, tipping point, and total interest.</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="5" />
+        <span class="step-number">5</span> <span itemprop="text"><strong>Explore the charts</strong> – see the stacked area chart showing interest vs principal over time, or switch to balance or donut view.</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="6" />
+        <span class="step-number">6</span> <span itemprop="text"><strong>Download or share</strong> – export the amortisation schedule as CSV or share via unique URL.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DATASET (example comparison table) ── -->
+  <div class="content-block">
+    <h2>Example: $500,000 Home Loan at 8.5% for 20 Years</h2>
+    <p>For a $500,000 home loan at 8.5% interest over 20 years, the monthly payment is $4,339. The table below shows how the interest vs principal split changes over time:</p>
+    <div class="dataset-table-wrap">
+      <table class="dataset-table">
+        <thead>
+          <tr><th>Year</th><th>Monthly Payment</th><th>Interest Portion</th><th>Principal Portion</th><th>Remaining Balance</th></tr>
+        </thead>
+        <tbody>
+          <tr><td style="text-align:center">1</td><td>$4,339</td><td>$3,514</td><td>$825</td><td>$490,091</td></tr>
+          <tr><td style="text-align:center">5</td><td>$4,339</td><td>$2,891</td><td>$1,448</td><td>$375,820</td></tr>
+          <tr><td style="text-align:center">10</td><td>$4,339</td><td>$1,943</td><td>$2,396</td><td>$200,102</td></tr>
+          <tr><td style="text-align:center">15</td><td>$4,339</td><td>$900</td><td>$3,439</td><td>$56,845</td></tr>
+          <tr><td style="text-align:center">20</td><td>$4,339</td><td>$0</td><td>$4,339</td><td>$0</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="dataset-note">* The tipping point – where principal payment exceeds interest – occurs at month 164 (year 14). Total interest paid over the loan term: $541,360. Use the calculator above to run your own numbers.</p>
+  </div>
+
+  <!-- ── FAQ SECTION (20 questions) ── -->
+  <div class="content-block faq-section">
+    <h2>Frequently Asked Questions About Interest vs Principal</h2>
+    <div class="faq-list" itemscope itemtype="https://schema.org/FAQPage">
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">1. What is the difference between principal and interest?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Principal is the original amount you borrowed. Interest is the fee charged by the lender for borrowing that money. Your monthly payment covers both, with more going toward interest early in the loan term.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">2. What is the tipping point in a loan?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">The tipping point is the month where your principal payment exceeds your interest payment for the first time. After this point, more of your monthly payment goes toward reducing your loan balance.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">3. Why do I pay more interest at the beginning of a loan?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Interest is calculated on your remaining balance. Early in the loan, your balance is highest, so interest charges are higher. As you pay down principal, the interest portion decreases.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">4. Can I use this calculator for a mortgage?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – our <strong>mortgage interest vs principal calculator</strong> works perfectly for home loans. Enter your loan amount, interest rate, and tenure (typically 15-30 years).</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">5. Does it work for car loans?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Absolutely – our <strong>car loan principal vs interest</strong> tool helps you visualise auto loan amortisation. Car loans typically have shorter terms (3-7 years).</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">6. What is the difference between interest only and principal & interest?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">An <strong>interest only vs principal and interest calculator</strong> compares two loan types. Interest‑only loans pay only interest for a period, then switch to full payments. Our calculator models standard amortising loans where each payment reduces principal.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">7. How do I calculate interest vs principal for my loan?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">You can use the <strong>interest vs principal formula</strong>: interest payment = remaining balance × (annual rate/12). Principal payment = EMI – interest. Our calculator does this automatically month by month.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">8. What is the 30 year mortgage interest vs principal chart?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">A 30‑year mortgage has a long period where interest dominates early payments. The chart shows the gradual shift, with the tipping point typically around year 18-20 depending on interest rate.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">9. How does making extra principal payments affect my loan?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Extra principal payments reduce your remaining balance faster, which lowers total interest and can shorten your loan term. The tipping point will occur earlier.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">10. What is the difference between a regular payment and a principal payment?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">A regular payment includes both principal and interest. A pure principal payment (extra payment) goes entirely toward reducing your loan balance, saving future interest.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">11. Does this calculator work for any currency?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – select your currency (USD, EUR, GBP, INR, PKR, etc.). All loan amounts, payments, and interest calculations are displayed in your chosen currency.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">12. Can I download the full amortisation schedule?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – click the “Download CSV” button below the chart. The CSV includes each month's principal, interest, and remaining balance.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">13. How do I read the interest vs principal chart?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">The stacked area chart shows interest (orange) and principal (teal) portions of each payment. Early months have more orange; over time, teal grows. The lines cross at the tipping point.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">14. Can I see a 15 year vs 30 year mortgage comparison?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Run two separate calculations. A 15‑year mortgage has higher monthly payments but much lower total interest and an earlier tipping point.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">15. What is the unpaid principal balance?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">The unpaid principal balance is the remaining amount you owe on your loan, not including future interest. This decreases as you make payments.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">16. Is this calculator free?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – 100% free, no signup, no ads. Use it for home loans, car loans, personal loans, or any amortising debt.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">17. Can I share my interest vs principal calculation?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – click the “Share” button to copy a unique URL with your loan inputs. Anyone opening that link will see the same breakdown.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">18. How accurate is the interest vs principal calculation?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">The calculator uses the standard amortisation formula used by all major banks and financial institutions. It is mathematically precise for planning purposes.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">19. What is a home loan interest vs principal calculator?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">A <strong>home loan interest vs principal calculator</strong> specifically helps homeowners see how their mortgage payments split over time, helping them decide whether to make extra payments or refinance.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">20. How do I calculate how much of my payment is interest vs principal?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">The <strong>interest vs principal payment calculator</strong> does this automatically. For a given month, interest = remaining balance × monthly rate. Principal = EMI – interest.</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>

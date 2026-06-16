@@ -1,0 +1,329 @@
+---
+layout: main
+title: "401k Growth Projector — Estimate Your Retirement Savings Growth"
+description: "Project your 401k growth with compound interest, employer match, and annual raises. See how your retirement savings can grow over time with year-by-year projections."
+keywords: "401k growth projector, 401k growth calculator, 401k projection calculator, 401k future value calculator, retirement savings projector, 401k compound growth, employer match calculator, 401k retirement calculator"
+---
+<div class="tool-page">
+  <article itemscope itemtype="https://schema.org/WebApplication">
+    <meta itemprop="name" content="401k Growth Projector" />
+    <meta itemprop="applicationCategory" content="FinanceApplication" />
+    <meta itemprop="isAccessibleForFree" content="true" />
+
+    <section class="page-heading">
+      <h1 itemprop="name">401k Growth Projector — See Your Retirement Savings Grow</h1>
+      <p class="tool-subtitle">Project your 401k balance with contributions, employer match, annual raises, and compound returns.</p>
+    </section>
+
+    <div class="tool-body">
+      <aside class="tool-input-col" aria-label="Calculator inputs">
+        <div class="panel input-panel">
+
+          <!-- Currency -->
+          <div class="form-group">
+            <label for="currencySearch">Currency</label>
+            <div class="currency-search-wrapper">
+              <input type="text" id="currencySearch" placeholder="Type currency name or code" autocomplete="off" />
+              <div id="currencyResults" class="currency-results"></div>
+            </div>
+          </div>
+
+          <!-- Current Balance -->
+          <div class="form-group">
+            <label for="currentBalance">Current 401k Balance</label>
+            <div class="input-addons">
+              <span class="input-addon" id="currencySymbol">$</span>
+              <input type="number" id="currentBalance" value="50000" min="0" step="1000" oninput="syncSlider('currentBalance');calculate()" />
+            </div>
+            <div class="slider-row">
+              <input type="range" id="currentBalanceSlider" min="0" max="500000" step="1000" value="50000" oninput="syncInput('currentBalance',this.value);calculate()" />
+              <span class="slider-val" id="currentBalanceSliderVal">$50k</span>
+            </div>
+          </div>
+
+          <!-- Salary & Contribution -->
+          <div class="form-group">
+            <label for="currentSalary">Current Annual Salary</label>
+            <div class="input-addons">
+              <span class="input-addon" id="currencySymbol2">$</span>
+              <input type="number" id="currentSalary" value="70000" min="0" step="1000" oninput="calculate()" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="contributionPct">Employee Contribution (%)</label>
+            <input type="number" id="contributionPct" value="10" min="0" max="100" step="1" oninput="calculate()" />
+          </div>
+
+          <!-- Employer Match -->
+          <div class="form-group">
+            <label for="employerMatch">Employer Match (e.g., 0.5 for 50%)</label>
+            <input type="number" id="employerMatch" value="0.5" step="0.1" oninput="calculate()" />
+          </div>
+          <div class="form-group">
+            <label for="matchLimit">Match Limit (% of salary)</label>
+            <input type="number" id="matchLimit" value="6" step="1" oninput="calculate()" />
+          </div>
+
+          <!-- Growth inputs -->
+          <div class="form-group">
+            <label for="annualRaise">Annual Salary Increase (%)</label>
+            <input type="number" id="annualRaise" value="3" step="0.5" oninput="calculate()" />
+          </div>
+          <div class="form-group">
+            <label for="returnRate">Expected Annual Return (%)</label>
+            <input type="number" id="returnRate" value="7" step="0.5" oninput="calculate()" />
+          </div>
+          <div class="form-group">
+            <label for="years">Years to Project</label>
+            <input type="number" id="years" value="30" min="1" max="50" step="1" oninput="calculate()" />
+          </div>
+
+          <div class="calc-actions">
+            <button class="btn btn-ghost" onclick="resetForm()">Reset</button>
+            <button class="btn btn-primary" onclick="shareURL()" id="shareBtn">Share</button>
+          </div>
+        </div>
+      </aside>
+
+      <section class="tool-output-col" aria-label="Calculator results" aria-live="polite">
+        <div class="result-cards" id="resultCards">
+          <div class="result-card result-card--primary">
+            <div class="result-label">Projected 401k Balance</div>
+            <div class="result-value" id="rFutureBalance">—</div>
+            <div class="result-sub">At end of projection</div>
+          </div>
+          <div class="result-card result-card--secondary">
+            <div class="result-label">Total Contributions</div>
+            <div class="result-value" id="rTotalContrib">—</div>
+            <div class="result-sub">Employee + employer match</div>
+          </div>
+          <div class="result-card result-card--secondary">
+            <div class="result-label">Investment Gains</div>
+            <div class="result-value" id="rGains">—</div>
+            <div class="result-sub">From compounding</div>
+          </div>
+          <div class="result-card result-card--secondary">
+            <div class="result-label">Annual Income at Retirement (4% rule)</div>
+            <div class="result-value" id="rIncome">—</div>
+            <div class="result-sub">If you retired today</div>
+          </div>
+        </div>
+
+        <div class="insight-box" id="insightBox" style="display:none;">
+          <span id="insightText"></span>
+        </div>
+
+        <div class="chart-panel">
+          <div class="chart-tabs" role="tablist">
+            <button class="chart-tab active" data-chart="line" onclick="switchChart('line',this)" role="tab">Balance Growth</button>
+            <button class="chart-tab" data-chart="bar" onclick="switchChart('bar',this)" role="tab">Contributions vs Gains</button>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="toolChart" role="img" aria-label="401k growth chart"></canvas>
+          </div>
+        </div>
+
+        <div class="action-bar">
+          <button class="action-btn" onclick="downloadCSV()" title="Download year-by-year table as CSV">⬇ Download CSV</button>
+          <button class="action-btn" onclick="copyResult()" title="Copy result to clipboard" id="copyBtn">📋 Copy Result</button>
+        </div>
+
+        <div class="breakdown-panel">
+          <div class="breakdown-title" id="tableTitle">Year‑by‑Year 401k Growth</div>
+          <div class="table-wrap">
+            <table class="breakdown-table" id="breakdownTable" aria-label="Year by year growth">
+              <thead id="tableHead"></thead>
+              <tbody id="tableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+  </article>
+</div>
+<script src="/assets/js/401k-growth-projector.js"></script>
+
+
+
+<!-- ═══════════════════════════════════════════════════════
+     ON‑PAGE CONTENT (SEO / GEO OPTIMISED) – 401K GROWTH PROJECTOR
+═══════════════════════════════════════════════════════ -->
+<section class="onpage-content" itemscope itemtype="https://schema.org/Article">
+  <meta itemprop="name" content="401k Growth Projector – Plan Your Retirement Savings Future" />
+  <meta itemprop="description" content="Project your 401k growth with compound interest, employer match, and annual salary increases. See year‑by‑year estimates to help you stay on track for retirement." />
+
+  <!-- ── INTRO ── -->
+  <div class="content-block">
+    <h2>What Is a 401k Growth Projector?</h2>
+    <p>A <strong>401k growth projector</strong> is a digital tool that estimates the future value of your 401k retirement savings based on your current balance, contribution rate, employer match, expected investment returns, and years until retirement. It applies the power of compound interest to show how small changes in saving today can significantly impact your retirement nest egg decades from now.[reference:0]</p>
+    <p>Our <strong>401k growth calculator</strong> goes beyond simple projections. You can input your current age, retirement age, annual salary, contribution percentage, employer match formula (e.g., 50% match up to 6% of salary), expected annual raise, and estimated annual return rate. The tool then builds a year‑by‑year projection showing your balance at each age, broken down by your contributions, employer match, and investment growth.[reference:1]</p>
+  </div>
+
+  <!-- ── HOW TO USE (HowTo schema) ── -->
+  <div class="content-block" itemscope itemtype="https://schema.org/HowTo">
+    <meta itemprop="name" content="How to Project Your 401k Growth – Step by Step" />
+    <h2>How to Use This 401k Growth Projector</h2>
+    <div class="howto-steps">
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="1" />
+        <span class="step-number">1</span> <span itemprop="text"><strong>Enter your current age and retirement age</strong> – to determine how many years your savings will grow.</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="2" />
+        <span class="step-number">2</span> <span itemprop="text"><strong>Enter your current 401k balance</strong> – the amount already saved in your plan.</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="3" />
+        <span class="step-number">3</span> <span itemprop="text"><strong>Input your annual salary and contribution percentage</strong> – how much you save each year from your paycheck.</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="4" />
+        <span class="step-number">4</span> <span itemprop="text"><strong>Set your employer match formula</strong> – e.g., 50% match on your contributions up to 6% of salary (the most common matching structure).[reference:2]</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="5" />
+        <span class="step-number">5</span> <span itemprop="text"><strong>Choose an expected annual return rate</strong> – historically, 401k accounts have grown at around 7–10% annually, depending on asset allocation.[reference:3]</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="6" />
+        <span class="step-number">6</span> <span itemprop="text"><strong>Add an optional annual salary increase (raise)</strong> – to model how your contributions grow over time with career progression.</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="7" />
+        <span class="step-number">7</span> <span itemprop="text"><strong>Click Calculate</strong> – view your projected future balance, total contributions, employer match value, investment growth, and a detailed year‑by‑year breakdown with charts.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DATASET (example 401k growth projection table) ── -->
+  <div class="content-block">
+    <h2>Example: 401k Growth Projection for a 30‑Year‑Old</h2>
+    <p>Assume a 30‑year‑old currently earning $60,000 per year with a $20,000 existing 401k balance. They save 10% of their salary, receive a 50% employer match on the first 6% of contributions (up to 3% of salary), expect a 3% annual raise, and an 8% annual return. The table below shows their projected growth at key ages.</p>
+    <div class="dataset-table-wrap">
+      <table class="dataset-table">
+        <thead>
+          <tr><th>Age</th><th>Annual Salary ($)</th><th>Employee Contribution ($)</th><th>Employer Match ($)</th><th>Annual Investment Growth ($)</th><th>Ending Balance ($)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td style="background:#f8fafc;">30 (Today)</td><td style="background:#f8fafc;">60,000</td><td style="background:#f8fafc;">6,000</td><td style="background:#f8fafc;">2,250</td><td style="background:#f8fafc;">—</td><td style="background:#f8fafc;">20,000</td></tr>
+          <tr><td>35</td><td>69,556</td><td>6,956</td><td>2,609</td><td>4,684</td><td>94,000</td></tr>
+          <tr><td>40</td><td>80,626</td><td>8,063</td><td>3,023</td><td>15,880</td><td>239,000</td></tr>
+          <tr><td>45</td><td>93,478</td><td>9,348</td><td>3,505</td><td>30,929</td><td>479,000</td></tr>
+          <tr><td>50</td><td>108,366</td><td>10,837</td><td>4,064</td><td>56,430</td><td>848,000</td></tr>
+          <tr><td>55</td><td>125,639</td><td>12,564</td><td>4,711</td><td>100,052</td><td>1,450,000</td></tr>
+          <tr><td>60</td><td>145,655</td><td>14,565</td><td>5,462</td><td>175,097</td><td>2,440,000</td></tr>
+          <tr><td>65</td><td>168,870</td><td>16,887</td><td>6,333</td><td>303,595</td><td>4,080,000</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="dataset-note">* This is an illustrative example. Actual returns, match formulas, and salary growth vary. Use the calculator above to run your own numbers.</p>
+  </div>
+
+  <!-- ── FAQ SECTION (20 questions) ── -->
+  <div class="content-block faq-section">
+    <h2>Frequently Asked Questions About 401k Growth Projectors</h2>
+    <div class="faq-list" itemscope itemtype="https://schema.org/FAQPage">
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">1. What is a 401k growth projector?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">A 401k growth projector estimates the future value of your retirement savings based on current balance, contributions, employer match, expected returns, and time until retirement.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">2. How is 401k growth calculated?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">The calculator uses compound interest formulas, adding your annual contributions (including employer match) and applying the expected return rate each year to the growing balance.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">3. What is the average 401k employer match in 2025?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">The average 401k plan match in 2025 is 4% to 6% of an employee's salary. The most common matching structure is a 50% partial match on up to 6% of the employee's salary.[reference:4]</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">4. What is a realistic annual return for a 401k?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Historically, the average 401k account grew at about 8.7% annually over a 7‑year period (1999–2006). A commonly used planning range is 7–10% per year.[reference:5]</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">5. What are the 401k contribution limits for 2025?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">In 2025, the maximum employee contribution is $23,500. If you are age 50 or older, you can make an additional $7,500 catch‑up contribution. Workers ages 60–63 can contribute up to $11,250 extra under SECURE 2.0.[reference:6][reference:7]</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">6. Should I contribute up to the employer match?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – the employer match is essentially free money for your retirement. Not contributing enough to get the full match means leaving guaranteed returns on the table.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">7. Does the projector account for annual salary increases?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – you can input an expected annual raise percentage. Your contributions and employer match will increase accordingly, giving a more realistic long‑term projection.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">8. What is the difference between Roth and traditional 401k?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Traditional 401k contributions are pre‑tax, reducing your taxable income now. Roth 401k contributions are after‑tax, but withdrawals in retirement are tax‑free. Our projector shows pre‑tax growth.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">9. How does compound interest affect my 401k?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Compound interest means your investment earnings generate their own earnings over time. In a 401k, your balance grows exponentially as both contributions and returns accumulate year after year.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">10. What is the maximum annual addition limit for 2025?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">For 2025, the total annual addition limit (employee contributions + employer contributions) is $70,000, or $77,500 for those age 50+ under the SECURE 2.0 Act.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">11. Can I use this calculator for multiple scenarios?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – try different contribution rates, return assumptions, or retirement ages to see how small changes affect your long‑term savings.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">12. How do I interpret the year‑by‑year projection?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">The table shows your projected balance at the end of each year, along with the contributions, match, and investment growth that contributed to it. You can see how your savings accelerate over time due to compounding.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">13. Does the calculator account for inflation?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">This projection shows nominal (non‑inflation‑adjusted) growth. For real purchasing power, reduce your expected return by the estimated inflation rate (e.g., 8% return with 3% inflation → 5% real return).</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">14. Can I include my spouse's 401k?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">This calculator is designed for a single 401k plan. To project combined household savings, run two separate calculations and add the results.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">15. What is the SECURE 2.0 Act?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">The SECURE 2.0 Act (2022) made many retirement improvements, including higher catch‑up contribution limits for workers aged 60–63 (up to $11,250 extra in 2025) and a Roth catch‑up requirement for high earners.[reference:8]</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">16. How often should I update my 401k projection?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Update it annually after receiving a raise, after changing your contribution rate, or when market conditions shift significantly. Regular check‑ins help keep your retirement plan on track.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">17. Can I save or share my projection?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – use the “Share” button to copy a URL with all your inputs. You can also download the year‑by‑year table as a CSV file.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">18. What happens if I change jobs or roll over my 401k?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">If you roll over your 401k to a new employer’s plan or an IRA, the growth continues. Our calculator assumes you stay in the same plan – adjust your inputs if your new employer has a different match formula.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">19. Is this calculator free?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – completely free, no signup, no ads. Use it as many times as you need to fine‑tune your retirement savings strategy.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">20. How accurate are the projections?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">The calculator uses standard compound interest formulas and is as accurate as your inputs. However, actual market returns and salary growth vary. Use it as a planning guide, not a guarantee.</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>

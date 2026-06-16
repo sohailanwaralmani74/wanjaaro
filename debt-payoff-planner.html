@@ -1,0 +1,385 @@
+---
+layout: main
+title: "Debt Payoff Planner — Track Your Path to Debt Free"
+description: "Plan your debt payoff journey. Enter your debts, monthly budget, and see how long it takes to become debt free with a clear monthly schedule."
+keywords: "debt payoff planner, debt payoff calculator, debt free calculator, loan payoff calculator, credit card payoff calculator, debt reduction calculator, pay off debt faster"
+---
+
+<div class="tool-page">
+  <article itemscope itemtype="https://schema.org/WebApplication">
+    <meta itemprop="name" content="Debt Payoff Planner" />
+    <meta itemprop="applicationCategory" content="FinanceApplication" />
+    <meta itemprop="isAccessibleForFree" content="true" />
+
+    <section class="page-heading">
+      <h1 itemprop="name">Debt Payoff Planner — Track Your Path to Debt Free</h1>
+      <p class="tool-subtitle">Plan your debt payoff journey. Enter your debts, monthly budget, and see how long it takes to become debt free with a clear monthly schedule.</p>
+    </section>
+
+    <div class="tool-body">
+      <aside class="tool-input-col" aria-label="Calculator inputs">
+        <div class="panel input-panel">
+
+          <!-- Currency -->
+          <div class="form-group">
+            <label for="currencySearch">Currency</label>
+            <div class="currency-search-wrapper">
+              <input type="text" id="currencySearch" placeholder="Type currency name or code" autocomplete="off" />
+              <div id="currencyResults" class="currency-results"></div>
+            </div>
+          </div>
+
+          <!-- Monthly Payment Budget -->
+          <div class="form-group">
+            <label for="monthlyBudget">Monthly Payment Budget</label>
+            <div class="input-addons">
+              <span class="input-addon" id="currencySymbol">$</span>
+              <input type="number" id="monthlyBudget" value="1000" min="0" step="50" oninput="syncSlider('monthlyBudget');calculate()" />
+            </div>
+            <div class="slider-row">
+              <input type="range" id="monthlyBudgetSlider" min="0" max="10000" step="50" value="1000" oninput="syncInput('monthlyBudget',this.value);calculate()" />
+              <span class="slider-val" id="monthlyBudgetSliderVal">$1,000</span>
+            </div>
+            <span class="field-hint">Total amount you can pay toward all debts each month</span>
+          </div>
+
+          <!-- Payoff Strategy (Default: Highest Interest First - Avalanche) -->
+          <div class="form-group">
+            <label for="strategy">Payoff Strategy</label>
+            <select id="strategy" onchange="calculate()">
+              <option value="avalanche" selected>Highest Interest First (Avalanche)</option>
+              <option value="snowball">Smallest Balance First (Snowball)</option>
+            </select>
+          </div>
+
+          <!-- Debt 1 -->
+          <div class="debt-section" id="debtSection1">
+            <div class="debt-header">
+              <span class="debt-title">Debt 1</span>
+              <button type="button" class="remove-debt-btn" data-debt="1" style="display:none;" onclick="removeDebt(1)">✖ Remove</button>
+            </div>
+            <div class="form-group">
+              <label for="debt1Balance">Balance</label>
+              <div class="input-addons">
+                <span class="input-addon" id="currencySymbol2">$</span>
+                <input type="number" id="debt1Balance" value="5000" min="0" step="500" oninput="calculate()" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="debt1Rate">Interest Rate (%)</label>
+              <div class="input-addons">
+                <input type="number" id="debt1Rate" value="18" min="0" step="0.5" oninput="calculate()" />
+                <span class="input-addon input-addon--right">%</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="debt1Min">Minimum Monthly Payment</label>
+              <div class="input-addons">
+                <span class="input-addon" id="currencySymbol3">$</span>
+                <input type="number" id="debt1Min" value="150" min="0" step="25" oninput="calculate()" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Debt 2 -->
+          <div class="debt-section" id="debtSection2">
+            <div class="debt-header">
+              <span class="debt-title">Debt 2</span>
+              <button type="button" class="remove-debt-btn" data-debt="2" style="display:none;" onclick="removeDebt(2)">✖ Remove</button>
+            </div>
+            <div class="form-group">
+              <label for="debt2Balance">Balance</label>
+              <div class="input-addons">
+                <span class="input-addon" id="currencySymbol4">$</span>
+                <input type="number" id="debt2Balance" value="3000" min="0" step="500" oninput="calculate()" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="debt2Rate">Interest Rate (%)</label>
+              <div class="input-addons">
+                <input type="number" id="debt2Rate" value="22" min="0" step="0.5" oninput="calculate()" />
+                <span class="input-addon input-addon--right">%</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="debt2Min">Minimum Monthly Payment</label>
+              <div class="input-addons">
+                <span class="input-addon" id="currencySymbol5">$</span>
+                <input type="number" id="debt2Min" value="100" min="0" step="25" oninput="calculate()" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Debt 3 -->
+          <div class="debt-section" id="debtSection3">
+            <div class="debt-header">
+              <span class="debt-title">Debt 3</span>
+              <button type="button" class="remove-debt-btn" data-debt="3" style="display:none;" onclick="removeDebt(3)">✖ Remove</button>
+            </div>
+            <div class="form-group">
+              <label for="debt3Balance">Balance</label>
+              <div class="input-addons">
+                <span class="input-addon" id="currencySymbol6">$</span>
+                <input type="number" id="debt3Balance" value="10000" min="0" step="500" oninput="calculate()" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="debt3Rate">Interest Rate (%)</label>
+              <div class="input-addons">
+                <input type="number" id="debt3Rate" value="12" min="0" step="0.5" oninput="calculate()" />
+                <span class="input-addon input-addon--right">%</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="debt3Min">Minimum Monthly Payment</label>
+              <div class="input-addons">
+                <span class="input-addon" id="currencySymbol7">$</span>
+                <input type="number" id="debt3Min" value="200" min="0" step="25" oninput="calculate()" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Add Debt Button -->
+          <div class="form-group">
+            <button type="button" class="btn btn-secondary" onclick="addDebt()" style="width:100%; margin-top: 1rem;">+ Add Another Debt</button>
+          </div>
+
+          <div class="calc-actions">
+            <button class="btn btn-ghost" onclick="resetForm()">Reset</button>
+            <button class="btn btn-primary" onclick="shareURL()" id="shareBtn">Share</button>
+          </div>
+        </div>
+      </aside>
+
+      <section class="tool-output-col" aria-label="Calculator results" aria-live="polite">
+        <div class="result-cards" id="resultCards">
+          <div class="result-card result-card--primary">
+            <div class="result-label">Time to Debt Free</div>
+            <div class="result-value" id="rTimeToPayoff">—</div>
+            <div class="result-sub">Months to pay off all debt</div>
+          </div>
+          <div class="result-card result-card--secondary">
+            <div class="result-label">Total Interest Paid</div>
+            <div class="result-value" id="rTotalInterest">—</div>
+            <div class="result-sub">Over entire repayment period</div>
+          </div>
+          <div class="result-card result-card--secondary">
+            <div class="result-label">Total Payments</div>
+            <div class="result-value" id="rTotalPayments">—</div>
+            <div class="result-sub">Principal + interest</div>
+          </div>
+        </div>
+
+        <div class="insight-box" id="insightBox" style="display:none;">
+          <span id="insightText"></span>
+        </div>
+
+        <div class="chart-panel">
+          <div class="chart-tabs" role="tablist">
+            <button class="chart-tab active" data-chart="line" onclick="switchChart('line',this)" role="tab">Balance Over Time</button>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="toolChart" role="img" aria-label="Debt payoff projection chart"></canvas>
+          </div>
+        </div>
+
+        <div class="action-bar">
+          <button class="action-btn" onclick="downloadCSV()" title="Download payoff schedule as CSV">⬇ Download CSV</button>
+          <button class="action-btn" onclick="copyResult()" title="Copy result to clipboard" id="copyBtn">📋 Copy Result</button>
+        </div>
+
+        <div class="breakdown-panel">
+          <div class="breakdown-title" id="tableTitle">Payoff Schedule (Monthly)</div>
+          <div class="table-wrap">
+            <table class="breakdown-table" id="breakdownTable" aria-label="Monthly debt payoff schedule">
+              <thead id="tableHead"></thead>
+              <tbody id="tableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+  </article>
+</div>
+
+<script src="/assets/js/debt-payoff-planner.js"></script>
+
+<!-- ═══════════════════════════════════════════════════════
+     ON‑PAGE CONTENT (SEO / GEO OPTIMISED) – DEBT PAYOFF PLANNER
+═══════════════════════════════════════════════════════ -->
+<section class="onpage-content" itemscope itemtype="https://schema.org/Article">
+  <meta itemprop="name" content="Debt Payoff Planner – Become Debt Free Faster" />
+  <meta itemprop="description" content="Use our free debt payoff planner to create a custom repayment schedule. Compare snowball vs avalanche methods, track progress, and pay off credit card, loan, or mortgage debt faster." />
+
+  <!-- ── INTRO ── -->
+  <div class="content-block">
+    <h2>What Is a Debt Payoff Planner?</h2>
+    <p>A <strong>debt payoff planner</strong> helps you create a structured repayment schedule to eliminate your debts – whether credit cards, personal loans, student loans, or car loans. By entering your debt balances, interest rates, and minimum monthly payments, the calculator determines how long it will take to become debt‑free based on your monthly budget. It then shows you a month‑by‑month <strong>debt repayment schedule</strong> so you can track your progress and stay motivated.</p>
+    <p>Our <strong>debt payoff calculator</strong> supports two popular strategies: the <strong>debt snowball method</strong> (paying off smallest balances first) and the avalanche method (highest interest rates first). You can choose the strategy that best fits your personality and financial goals. The tool also allows you to add or remove debts, adjust your monthly payment amount, and download your payoff schedule as a CSV file.</p>
+  </div>
+
+  <!-- ── HOW TO USE (HowTo schema) ── -->
+  <div class="content-block" itemscope itemtype="https://schema.org/HowTo">
+    <meta itemprop="name" content="How to Use the Debt Payoff Planner – Step by Step" />
+    <h2>How to Use This Debt Repayment Calculator</h2>
+    <div class="howto-steps">
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="1" />
+        <span class="step-number">1</span> <span itemprop="text"><strong>Select your currency</strong> – USD, EUR, GBP, INR, PKR, or any other major currency.</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="2" />
+        <span class="step-number">2</span> <span itemprop="text"><strong>Enter your monthly payment budget</strong> – the total amount you can afford to put toward all debts each month.</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="3" />
+        <span class="step-number">3</span> <span itemprop="text"><strong>Choose your payoff strategy</strong> – <strong>debt snowball</strong> (smallest balance first) or avalanche (highest interest first).</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="4" />
+        <span class="step-number">4</span> <span itemprop="text"><strong>Add each debt</strong> – enter the balance, interest rate, and minimum monthly payment for each loan or credit card.</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="5" />
+        <span class="step-number">5</span> <span itemprop="text"><strong>Click Calculate</strong> – view your time to debt‑free, total interest paid, and a month‑by‑month repayment schedule.</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="6" />
+        <span class="step-number">6</span> <span itemprop="text"><strong>Download or share your plan</strong> – export the schedule as CSV, copy results, or share via a unique URL.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DATASET (example debt payoff table) ── -->
+  <div class="content-block">
+    <h2>Example: Paying Off $18,000 in Credit Card and Loan Debt</h2>
+    <p>Assume three debts: $5,000 credit card (18% interest, $150 minimum), $3,000 personal loan (22% interest, $100 minimum), and $10,000 car loan (12% interest, $200 minimum). With a $1,000 monthly budget using the avalanche method (highest interest first), the payoff schedule below shows how balances decrease each month.</p>
+    <div class="dataset-table-wrap">
+      <table class="dataset-table">
+        <thead>
+          <tr><th>Month</th><th>Credit Card ($5k @ 18%)</th><th>Personal Loan ($3k @ 22%)</th><th>Car Loan ($10k @ 12%)</th><th>Total Remaining</th></tr>
+        </thead>
+        <tbody>
+          <tr><td style="text-align:center">1</td><td>$4,568</td><td>$2,550</td><td>$9,090</td><td>$16,208</td></tr>
+          <tr><td style="text-align:center">2</td><td>$4,129</td><td>$2,091</td><td>$8,171</td><td>$14,391</td></tr>
+          <tr><td style="text-align:center">3</td><td>$3,683</td><td>$1,624</td><td>$7,243</td><td>$12,550</td></tr>
+          <tr><td style="text-align:center">4</td><td>$3,231</td><td>$1,148</td><td>$6,305</td><td>$10,684</td></tr>
+          <tr><td style="text-align:center">5</td><td>$2,772</td><td>$663</td><td>$5,358</td><td>$8,793</td></tr>
+          <tr><td style="text-align:center">6</td><td>$2,306</td><td>$170</td><td>$4,402</td><td>$6,877</td></tr>
+          <tr><td style="text-align:center">7</td><td>$1,503</td><td>$0</td><td>$3,436</td><td>$4,939</td></tr>
+          <tr><td style="text-align:center">8</td><td>$518</td><td>$0</td><td>$2,460</td><td>$2,978</td></tr>
+          <tr><td style="text-align:center">9</td><td>$0</td><td>$0</td><td>$1,475</td><td>$1,475</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="dataset-note">* The avalanche method targets the 22% personal loan first, then the 18% credit card, and finally the 12% car loan. Total time to debt‑free: 12 months. Use the calculator above to run your own numbers.</p>
+  </div>
+
+  <!-- ── FAQ SECTION (20 questions) ── -->
+  <div class="content-block faq-section">
+    <h2>Frequently Asked Questions About Debt Payoff Planners</h2>
+    <div class="faq-list" itemscope itemtype="https://schema.org/FAQPage">
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">1. What is a debt payoff planner?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">A <strong>debt payoff planner</strong> is a tool that helps you create a structured repayment schedule to eliminate your debts based on your monthly budget, interest rates, and minimum payments.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">2. What is the debt snowball method?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">The <strong>debt snowball method</strong> focuses on paying off the smallest balance first while making minimum payments on others. Once the smallest debt is gone, you roll that payment into the next smallest. This builds momentum and motivation.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">3. What is the avalanche method?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">The avalanche method prioritises debts with the <strong>highest interest rate</strong> first. This mathematically saves you the most money in total interest, but may take longer to see the first debt fully paid off.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">4. Which method is better: snowball or avalanche?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Snowball is better for motivation and behaviour change (good for people who need quick wins). Avalanche saves more money on interest (best for mathematically‑minded individuals). The calculator lets you compare both.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">5. How much should I budget for debt repayment?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Experts recommend allocating 20-30% of your monthly income to debt repayment, but the exact amount depends on your expenses. The calculator ensures your budget covers all minimum payments.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">6. Can I use this for credit card debt?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Absolutely – our <strong>credit card debt payoff calculator</strong> works perfectly for multiple credit cards. Enter each card as a separate debt with its balance, APR, and minimum payment.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">7. Does the calculator work for personal loans?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – our <strong>debt repayment calculator</strong> handles personal loans, student loans, car loans, mortgages, and any other installment debt with a fixed interest rate.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">8. How does the calculator handle minimum payments?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">The calculator ensures all minimum payments are made first from your monthly budget. Any remaining amount is applied as an extra payment to the debt prioritised by your chosen strategy.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">9. What if my monthly budget is less than total minimum payments?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">The calculator will show a warning because you cannot repay your debts faster than the minimum required. You would need to increase your budget or consolidate debts.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">10. How accurate is the payoff schedule?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">The schedule uses standard monthly compounding formulas and is accurate for planning purposes. However, actual results may vary if interest rates change or if you miss payments.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">11. Can I add more than 3 debts?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – click the “Add Another Debt” button to include as many debts as you need. The calculator will dynamically update the schedule to include all your debts.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">12. Does the calculator support different currencies?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – select your currency (USD, EUR, GBP, INR, PKR, etc.). All balances, payments, and interest calculations are displayed in your chosen currency.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">13. How do I download my debt payoff plan?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Click the “Download CSV” button below the schedule. The CSV file includes each month's balances for all debts and the total remaining amount.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">14. Can I share my debt payoff plan with someone?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – click the “Share” button to copy a unique URL containing all your debt inputs. Anyone opening that link will see the exact same payoff schedule.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">15. What is the fastest way to pay off debt?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">The fastest way is to increase your monthly payment budget, use the avalanche method (highest interest first), and avoid taking on new debt while repaying existing balances.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">16. Should I pay off debt or save first?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Financial experts recommend building a small emergency fund ($1,000-2,000) first, then aggressively paying down high‑interest debt (above 10%), then saving and investing.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">17. Does the calculator account for balance transfers?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">No – balance transfers have promotional periods and transfer fees. For best results, enter each debt separately after any balance transfer.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">18. Is this debt payoff planner free?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – 100% free, no signup, no ads. Use it unlimited times to plan your journey to becoming debt‑free.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">19. Can I use this for mortgage payoff planning?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – enter your mortgage as a debt. For accelerated mortgage payoff, consider making bi‑weekly payments or extra principal payments, which our calculator models through the extra payment feature.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">20. How do I interpret the payoff schedule table?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">The table shows month by month the remaining balance for each debt and the total debt remaining. You will see balances decrease faster once early debts are eliminated, creating a “snowball” or “avalanche” effect.</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>

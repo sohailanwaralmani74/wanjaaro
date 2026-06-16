@@ -1,0 +1,499 @@
+---
+layout: main
+title: "Lump Sum vs SIP Comparison Calculator — Compare Investment Strategies"
+description: "Compare lump sum vs SIP returns for mutual fund investments. See which strategy outperforms with inflation adjustment, step-up SIP, and year-by-year charts."
+keywords: "lump sum vs sip calculator, lump sum vs sip comparison, sip vs lump sum which is better, lumpsum vs sip calculator, mutual fund lump sum vs sip, sip vs lumpsum calculator, compare lump sum and sip, lump sum vs systematic investment plan, investment strategy comparison, lump sum or sip calculator"
+---
+
+
+<div class="tool-page">
+  <!-- ── Tool header ── -->
+  <article itemscope itemtype="https://schema.org/WebApplication">
+    <meta itemprop="name"            content="Compound Interest Calculator" />
+    <meta itemprop="applicationCategory" content="FinanceApplication" />
+    <meta itemprop="isAccessibleForFree" content="true" />
+
+    <section class="page-heading">
+     <h1 style="width: 100%;">Lump Sum vs SIP Comparison Calculator</h1>
+      <p class="tool-subtitle">
+    Compare investing a lump sum once vs spreading it as regular SIP installments.
+    Same money, same rate, same duration — see which strategy wins for you.
+  </p>
+</section>
+ 
+<div class="tool-body">
+ 
+  <!-- ══ LEFT — INPUTS ══ -->
+  <aside class="tool-input-col" aria-label="Calculator inputs">
+    <div class="panel input-panel">
+      <div class="panel-title">Comparison Inputs</div>
+ 
+      <!-- Currency -->
+      <div class="form-group">
+        <label for="currencySearch">Currency</label>
+        <div class="currency-search-wrapper">
+          <input type="text" id="currencySearch"
+            placeholder="Type currency name or code (e.g., USD, euro, yen)"
+            autocomplete="off" />
+          <div id="currencyResults" class="currency-results"></div>
+        </div>
+      </div>
+ 
+      <!-- Total Amount -->
+      <div class="form-group">
+        <label for="totalAmount">Total Amount to Invest</label>
+        <div class="input-addons">
+          <span class="input-addon" id="currencySymbol">$</span>
+          <input type="number" id="totalAmount" value="120000" min="1" step="any"
+            placeholder="120000" inputmode="decimal"
+            aria-describedby="amountHint"
+            oninput="syncSlider('totalAmount'); calculate()" />
+        </div>
+        <span class="field-hint" id="amountHint">
+          This exact amount is used for both strategies
+        </span>
+        <div class="slider-row">
+          <input type="range" id="totalAmountSlider" min="1000" max="10000000"
+            step="1000" value="120000"
+            oninput="syncInput('totalAmount', this.value); calculate()"
+            aria-label="Total amount slider" />
+          <span class="slider-val" id="totalAmountSliderVal">$120k</span>
+        </div>
+      </div>
+ 
+      <!-- Annual Return Rate -->
+      <div class="form-group">
+        <label for="returnRate">Expected Annual Return Rate</label>
+        <div class="input-addons">
+          <input type="number" id="returnRate" value="12" min="0.1" max="50"
+            step="0.1" placeholder="12" inputmode="decimal"
+            oninput="syncSlider('returnRate'); calculate()" />
+          <span class="input-addon input-addon--right">%</span>
+        </div>
+        <span class="field-hint">Same rate applied to both strategies for fair comparison</span>
+        <div class="slider-row">
+          <input type="range" id="returnRateSlider" min="1" max="30" step="0.1"
+            value="12"
+            oninput="syncInput('returnRate', this.value); calculate()"
+            aria-label="Return rate slider" />
+          <span class="slider-val" id="returnRateSliderVal">12%</span>
+        </div>
+      </div>
+ 
+      <!-- Duration -->
+      <div class="form-group">
+        <label for="duration">Investment Duration</label>
+        <div class="input-addons">
+          <input type="number" id="duration" value="10" min="1" max="40"
+            step="1" placeholder="10" inputmode="numeric"
+            oninput="syncSlider('duration'); calculate()" />
+          <span class="input-addon input-addon--right">yrs</span>
+        </div>
+        <div class="slider-row">
+          <input type="range" id="durationSlider" min="1" max="40" step="1"
+            value="10"
+            oninput="syncInput('duration', this.value); calculate()"
+            aria-label="Duration slider" />
+          <span class="slider-val" id="durationSliderVal">10 yrs</span>
+        </div>
+      </div>
+ 
+      <!-- SIP Frequency -->
+      <div class="form-group">
+        <label>SIP Frequency</label>
+        <div class="freq-tabs" role="group" aria-label="SIP frequency">
+          <button class="freq-tab" data-freq="weekly" data-n="52"
+            onclick="setFreq(this)">Weekly</button>
+          <button class="freq-tab active" data-freq="monthly" data-n="12"
+            onclick="setFreq(this)">Monthly</button>
+          <button class="freq-tab" data-freq="quarterly" data-n="4"
+            onclick="setFreq(this)">Quarterly</button>
+        </div>
+        <span class="field-hint" id="sipAmountPreview">
+          SIP amount: $1,000/month (total ÷ duration)
+        </span>
+      </div>
+ 
+      <!-- Start Year -->
+      <div class="form-group">
+        <label for="startYear">Start Year</label>
+        <input type="number" id="startYear" value="2025" min="2000"
+          max="2100" step="1" inputmode="numeric" oninput="calculate()" />
+      </div>
+ 
+      <!-- Step-Up SIP Toggle -->
+      <div class="toggle-row">
+        <label class="toggle-label" for="stepUpToggle">
+          Step-Up SIP
+          <span class="tip">show SIP advantage</span>
+        </label>
+        <label class="toggle" aria-label="Enable step-up SIP">
+          <input type="checkbox" id="stepUpToggle" onchange="toggleStepUp()" />
+          <span class="toggle-track"></span>
+        </label>
+      </div>
+ 
+      <div id="stepUpGroup" style="display:none;">
+        <div class="form-group" style="margin-top:0.75rem;">
+          <label for="stepUpRate">
+            Annual Step-Up Rate
+            <span class="stepup-badge">Top-Up</span>
+          </label>
+          <div class="input-addons">
+            <input type="number" id="stepUpRate" value="10" min="1" max="50"
+              step="0.5" inputmode="decimal" oninput="calculate()" />
+            <span class="input-addon input-addon--right">%</span>
+          </div>
+          <span class="field-hint">SIP amount increases by this % each year</span>
+        </div>
+        <div class="stepup-preview" id="stepUpPreview"></div>
+      </div>
+ 
+      <!-- Inflation Toggle -->
+      <div class="toggle-row">
+        <label class="toggle-label" for="inflationToggle">
+          Inflation Adjustment
+          <span class="tip">real returns</span>
+        </label>
+        <label class="toggle" aria-label="Enable inflation adjustment">
+          <input type="checkbox" id="inflationToggle" onchange="toggleInflation()" />
+          <span class="toggle-track"></span>
+        </label>
+      </div>
+ 
+      <div id="inflationGroup" style="display:none; margin-top:0.75rem;">
+        <div class="form-group">
+          <label for="inflationRate">Inflation Rate</label>
+          <div class="input-addons">
+            <input type="number" id="inflationRate" value="3" min="0"
+              max="20" step="0.1" inputmode="decimal" oninput="calculate()" />
+            <span class="input-addon input-addon--right">%</span>
+          </div>
+        </div>
+      </div>
+ 
+      <div class="calc-actions">
+        <button class="btn btn-ghost" onclick="resetForm()">Reset</button>
+        <button class="btn btn-primary" onclick="shareURL()" id="shareBtn">Share</button>
+      </div>
+ 
+    </div>
+  </aside>
+ 
+  <!-- ══ RIGHT — OUTPUTS ══ -->
+  <section class="tool-output-col" aria-label="Comparison results" aria-live="polite">
+ 
+    <!-- Winner Banner -->
+    <div class="winner-banner" id="winnerBanner" style="display:none;">
+      <span class="winner-icon">🏆</span>
+      <span id="winnerText"></span>
+    </div>
+ 
+    <!-- Side by Side Comparison Cards -->
+    <div class="comparison-grid" id="comparisonGrid">
+ 
+      <!-- Lump Sum -->
+      <div class="compare-card" id="lumpCard">
+        <div class="compare-card-header">
+          <span class="compare-icon">💰</span>
+          <span class="compare-title">Lump Sum</span>
+          <span class="compare-badge" id="lumpBadge"></span>
+        </div>
+        <div class="compare-metric">
+          <div class="compare-metric-label">Final Value</div>
+          <div class="compare-metric-value" id="lumpFinal">—</div>
+        </div>
+        <div class="compare-metric">
+          <div class="compare-metric-label">Total Invested</div>
+          <div class="compare-metric-value compare-metric-value--sm" id="lumpInvested">—</div>
+        </div>
+        <div class="compare-metric">
+          <div class="compare-metric-label">Total Gains</div>
+          <div class="compare-metric-value compare-metric-value--sm" id="lumpGains">—</div>
+        </div>
+        <div class="compare-metric">
+          <div class="compare-metric-label">Return %</div>
+          <div class="compare-metric-value compare-metric-value--sm" id="lumpReturn">—</div>
+        </div>
+        <div class="compare-metric" id="lumpRealRow" style="display:none;">
+          <div class="compare-metric-label">Real Value (Inflation-adj.)</div>
+          <div class="compare-metric-value compare-metric-value--sm" id="lumpReal">—</div>
+        </div>
+      </div>
+ 
+      <!-- VS divider -->
+      <div class="vs-divider" aria-hidden="true">VS</div>
+ 
+      <!-- SIP -->
+      <div class="compare-card" id="sipCard">
+        <div class="compare-card-header">
+          <span class="compare-icon">📅</span>
+          <span class="compare-title">SIP</span>
+          <span class="compare-badge" id="sipBadge"></span>
+        </div>
+        <div class="compare-metric">
+          <div class="compare-metric-label">Final Corpus</div>
+          <div class="compare-metric-value" id="sipFinal">—</div>
+        </div>
+        <div class="compare-metric">
+          <div class="compare-metric-label">Total Invested</div>
+          <div class="compare-metric-value compare-metric-value--sm" id="sipInvested">—</div>
+        </div>
+        <div class="compare-metric">
+          <div class="compare-metric-label">Total Gains</div>
+          <div class="compare-metric-value compare-metric-value--sm" id="sipGains">—</div>
+        </div>
+        <div class="compare-metric">
+          <div class="compare-metric-label">Return %</div>
+          <div class="compare-metric-value compare-metric-value--sm" id="sipReturn">—</div>
+        </div>
+        <div class="compare-metric" id="sipRealRow" style="display:none;">
+          <div class="compare-metric-label">Real Value (Inflation-adj.)</div>
+          <div class="compare-metric-value compare-metric-value--sm" id="sipReal">—</div>
+        </div>
+      </div>
+ 
+    </div>
+ 
+    <!-- Difference Card -->
+    <div class="diff-card" id="diffCard" style="display:none;">
+      <span class="diff-label">Difference</span>
+      <span class="diff-value" id="diffValue">—</span>
+      <span class="diff-sub"  id="diffSub"></span>
+    </div>
+ 
+    <!-- Insight -->
+    <div class="insight-box" id="insightBox" style="display:none;"></div>
+ 
+    <!-- Inflation note -->
+    <div class="inflation-note" id="inflationNote"></div>
+ 
+    <!-- Charts -->
+    <div class="chart-panel">
+      <div class="chart-tabs" role="tablist">
+        <button class="chart-tab active" data-chart="line"
+          onclick="switchChart('line',this)" role="tab">Growth</button>
+        <button class="chart-tab" data-chart="bar"
+          onclick="switchChart('bar',this)" role="tab">Yearly Gains</button>
+        <button class="chart-tab" data-chart="donut"
+          onclick="switchChart('donut',this)" role="tab">Breakdown</button>
+      </div>
+      <div class="chart-wrap">
+        <canvas id="toolChart" role="img"
+          aria-label="Lump sum vs SIP comparison chart"></canvas>
+      </div>
+    </div>
+ 
+    <!-- Action Bar -->
+    <div class="action-bar">
+      <button class="action-btn" onclick="downloadCSV()">⬇ Download CSV</button>
+      <button class="action-btn" onclick="copyResult()" id="copyBtn">📋 Copy Result</button>
+      <button class="action-btn" onclick="window.print()">🖨 Print</button>
+    </div>
+ 
+    <!-- Breakdown Table -->
+    <div class="breakdown-panel">
+      <div class="breakdown-title">Year-by-Year Comparison</div>
+      <div class="table-wrap">
+        <table class="breakdown-table" id="breakdownTable"
+          aria-label="Lump sum vs SIP year by year comparison">
+          <thead id="tableHead"></thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+    </div>
+ 
+  </section>
+</div>
+
+  </article>
+</div>    
+
+
+
+<script src="/assets/js/lump-sum-vs-sip-calculator.js"></script>
+
+<!-- ═══════════════════════════════════════════════════════
+     ON‑PAGE CONTENT (SEO / GEO OPTIMISED) – LUMP SUM VS SIP COMPARISON CALCULATOR
+═══════════════════════════════════════════════════════ -->
+<section class="onpage-content" itemscope itemtype="https://schema.org/Article">
+  <meta itemprop="name" content="Lump Sum vs SIP Comparison – Which Investment Strategy Wins?" />
+  <meta itemprop="description" content="Compare lump sum vs SIP returns with our free comparison calculator. See which strategy outperforms in bull, bear, or sideways markets. Adjust step‑up, inflation, and time horizon." />
+
+  <!-- ── INTRO ── -->
+  <div class="content-block">
+    <h2>Lump Sum vs SIP: Which Investment Strategy Works Better?</h2>
+    <p>When you have a lump sum of money to invest (e.g., a bonus, inheritance, or savings), you face a classic dilemma: invest it all at once (<strong>lump sum</strong>) or spread it out through a <strong>Systematic Investment Plan (SIP)</strong>. The <strong>lump sum vs SIP calculator</strong> helps you compare both strategies side‑by‑side, accounting for market returns, volatility, step‑up SIP, inflation, and investment duration.</p>
+    <p>Conventional wisdom says “time in the market beats timing the market” – which favours lump sum. However, SIP offers <strong>rupee cost averaging</strong> and reduces the risk of investing right before a market crash. Our <strong>lump sum vs SIP comparison</strong> tool shows you the exact numbers for both strategies, helping you decide based on your risk tolerance and market outlook.</p>
+  </div>
+
+  <!-- ── HOW TO USE (HowTo schema) ── -->
+  <div class="content-block" itemscope itemtype="https://schema.org/HowTo">
+    <meta itemprop="name" content="How to Use the Lump Sum vs SIP Comparison Calculator" />
+    <h2>How to Compare Lump Sum and SIP Returns – Step by Step</h2>
+    <div class="howto-steps">
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="1" />
+        <span class="step-number">1</span> <span itemprop="text"><strong>Enter the total investment amount</strong> – this is the lump sum you would invest today, and also the total SIP amount (spread over chosen period).</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="2" />
+        <span class="step-number">2</span> <span itemprop="text"><strong>Set the expected annual return rate</strong> – e.g., 12% for equity mutual funds.</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="3" />
+        <span class="step-number">3</span> <span itemprop="text"><strong>Choose investment duration</strong> – in years or months.</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="4" />
+        <span class="step-number">4</span> <span itemprop="text"><strong>Define the SIP period</strong> – over how many months you want to spread the investment (typically same as duration or shorter).</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="5" />
+        <span class="step-number">5</span> <span itemprop="text"><strong>Add optional step‑up for SIP</strong> – annual increase percentage to simulate rising income.</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="6" />
+        <span class="step-number">6</span> <span itemprop="text"><strong>Enable inflation adjustment</strong> – to see real returns in today’s purchasing power.</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="7" />
+        <span class="step-number">7</span> <span itemprop="text"><strong>Click Calculate</strong> – view side‑by‑side results: final corpus, total invested, interest earned, and a year‑by‑year comparison chart.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DATASET (example comparison table) ── -->
+  <div class="content-block">
+    <h2>Example: Lump Sum vs SIP Comparison (₹10,00,000 invested for 10 years)</h2>
+    <p>Below is a sample comparison using our <strong>lump sum vs SIP calculator</strong>. Assumptions: ₹10,00,000 total investment, 12% annual return, 10 years duration. SIP invests monthly over 10 years (₹8,333/month). No step‑up, no inflation, monthly compounding.</p>
+    <div class="dataset-table-wrap">
+      <table class="dataset-table">
+        <thead>
+          <tr><th>Year</th><th>Lump Sum Corpus (₹)</th><th>SIP Corpus (₹)</th><th>Difference (₹)</th><th>Winner</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>11,27,000</td><td>1,05,700</td><td>10,21,300</td><td>Lump Sum</td></tr>
+          <tr><td>2</td><td>12,70,000</td><td>2,23,500</td><td>10,46,500</td><td>Lump Sum</td></tr>
+          <tr><td>3</td><td>14,31,000</td><td>3,54,800</td><td>10,76,200</td><td>Lump Sum</td></tr>
+          <tr><td>4</td><td>16,13,000</td><td>5,01,200</td><td>11,11,800</td><td>Lump Sum</td></tr>
+          <tr><td>5</td><td>18,18,000</td><td>6,64,500</td><td>11,53,500</td><td>Lump Sum</td></tr>
+          <tr><td>6</td><td>20,49,000</td><td>8,46,700</td><td>12,02,300</td><td>Lump Sum</td></tr>
+          <tr><td>7</td><td>23,10,000</td><td>10,50,100</td><td>12,59,900</td><td>Lump Sum</td></tr>
+          <tr><td>8</td><td>26,03,000</td><td>12,77,500</td><td>13,25,500</td><td>Lump Sum</td></tr>
+          <tr><td>9</td><td>29,34,000</td><td>15,32,100</td><td>14,01,900</td><td>Lump Sum</td></tr>
+          <tr><td>10</td><td>33,07,000</td><td>18,17,200</td><td>14,89,800</td><td>Lump Sum</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="dataset-note">* In a constant return scenario (bull market), lump sum always wins. Use the calculator above to simulate volatile markets – SIP can sometimes outperform due to rupee cost averaging.</p>
+  </div>
+
+  <!-- ── FAQ SECTION (20 questions) ── -->
+  <div class="content-block faq-section">
+    <h2>Frequently Asked Questions About Lump Sum vs SIP Comparison</h2>
+    <div class="faq-list" itemscope itemtype="https://schema.org/FAQPage">
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">1. What is a lump sum vs SIP calculator?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">A <strong>lump sum vs SIP calculator</strong> compares the final returns of investing a large amount all at once versus spreading it as monthly installments over time, using the same expected return rate and duration.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">2. Does lump sum always give higher returns than SIP?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">In a steadily rising market, yes – lump sum wins because all money compounds for the full period. In volatile or falling markets, SIP can outperform due to rupee cost averaging (buying more units when prices are low).</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">3. What is rupee cost averaging in SIP?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Rupee cost averaging means you buy more units when the market is down and fewer when it’s up, automatically lowering your average cost per unit. This reduces risk but may lower returns in a strong bull market.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">4. Which is better for a 10‑year horizon: lump sum or SIP?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Historically, lump sum has outperformed SIP in most 10‑year periods in rising equity markets. However, if you are worried about entering at a market peak, a 6–12 month SIP can reduce timing risk. Use our calculator to compare both scenarios.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">5. Can I add a step‑up to SIP in the comparison?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – our <strong>lump sum vs SIP comparison</strong> tool includes an annual step‑up for SIP, allowing you to simulate increasing your monthly investment each year (e.g., 10% step‑up).</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">6. How does inflation affect lump sum vs SIP?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Inflation reduces the real value of both strategies equally. Our calculator’s inflation adjustment shows the final corpus in today’s purchasing power, making comparison fair and realistic.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">7. What if I have a lump sum but want to invest as SIP?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">You can park your lump sum in a liquid fund or savings account and transfer a fixed amount monthly into an equity SIP. Our comparison calculator models exactly that – lump sum upfront vs SIP from the same total amount.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">8. Does SIP ever beat lump sum in a bull market?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">No – in a consistently rising market, lump sum mathematically wins because later SIP installments have less time to compound. SIP only wins in volatile or sideways markets.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">9. How do I decide between lump sum and SIP?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Consider: (1) Your risk tolerance – lump sum is riskier near market peaks. (2) Market valuation – if markets are overvalued, SIP may be safer. (3) Your cash flow – if you have a one‑time windfall, lump sum is convenient. Run the comparison with different return assumptions.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">10. Can I compare lump sum vs SIP for debt funds?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Absolutely. Simply set a lower expected return (e.g., 7%). Debt funds are less volatile, so lump sum usually wins by a smaller margin.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">11. What is the ideal SIP period when converting a lump sum?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Many financial advisors recommend 6–12 months. Shorter periods (3–6 months) reduce the risk of missing a rally; longer periods (12–24 months) offer more protection against a downturn. Our calculator lets you test different SIP durations.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">12. Does the calculator account for taxes?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">No – it shows pre‑tax returns. For post‑tax comparison, manually reduce the expected return rate (e.g., 12% pre‑tax → ~10.2% after LTCG tax on equity).</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">13. Can I compare lump sum vs SIP for international investments?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – select your currency (USD, EUR, GBP, INR, etc.) and enter expected returns for international markets. The comparison logic remains the same.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">14. How does compounding frequency affect the comparison?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Our calculator allows daily, monthly, quarterly, or annual compounding. Monthly compounding is standard for SIPs; daily gives slightly higher returns but doesn’t change the winner – lump sum still leads in bull markets.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">15. What is the difference between XIRR and CAGR in this comparison?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Lump sum returns are measured by CAGR (single cash flow). SIP returns are measured by XIRR (multiple cash flows). Our calculator shows the effective annualised return for both, making comparison apples‑to‑apples.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">16. Can I use this calculator for a one‑time bonus vs. monthly investing?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – that’s exactly the use case. Enter your bonus amount as the total investment, then compare lump sum (invest all today) versus SIP (spread over 6–12 months).</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">17. How do I download the comparison data?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Click the “Download CSV” button below the chart. The CSV includes year‑by‑year corpus for both lump sum and SIP, total invested, and interest earned.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">18. Is this calculator free?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – 100% free, no signup, no hidden fees. Use it as many times as you need to decide your investment strategy.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">19. Can I compare lump sum vs SIP for a retirement corpus?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Absolutely. Set a long duration (20–30 years) and test both strategies. For retirement, many prefer SIP because it enforces discipline and reduces market timing risk, even if lump sum might give higher mathematical returns.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">20. Does the calculator show which strategy is better for my specific situation?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">It shows the numerical final corpus and a chart comparing both. The “better” strategy depends on your risk tolerance and market outlook. Use the tool to run different scenarios (e.g., lower returns, shorter duration, step‑up) before deciding.</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>

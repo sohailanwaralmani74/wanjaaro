@@ -1,0 +1,377 @@
+---
+layout: main
+title: "CAGR Calculator — Compound Annual Growth Rate Calculator"
+description: "Calculate CAGR (Compound Annual Growth Rate) for any investment. See the smoothed annual return that turns your start value into end value over time. Free online CAGR calculator."
+keywords: "cagr calculator, compound annual growth rate calculator, compound growth rate calculator, cagr formula, cumulative annual growth rate calculator, cagr rate calculator, cagr return calculator, reverse cagr calculator, lump sum cagr calculator"
+---
+<!-- ═══════════════════════════════════════════════════════
+     CAGR Calculator Breadcrumb With Tool Screen 
+═══════════════════════════════════════════════════════ -->
+<div class="tool-page">
+  <!-- ── Tool header ── -->
+  <article itemscope itemtype="https://schema.org/WebApplication">
+    <meta itemprop="name"            content="CAGR Calculator" />
+    <meta itemprop="applicationCategory" content="FinanceApplication" />
+    <meta itemprop="isAccessibleForFree" content="true" />
+
+    <section class="page-heading">
+      <h1 itemprop="name">CAGR Calculator — Measure Your Annualized Growth</h1>
+      <p class="tool-subtitle" itemprop="description">
+        Calculate the Compound Annual Growth Rate for any investment. Enter starting value, ending value, and duration — get instant CAGR, total return, and year-by-year growth breakdown.
+      </p>
+    </section>
+
+    <!-- ═════════════════════════════════════
+         TOOL BODY
+    ═════════════════════════════════════ -->
+    <div class="tool-body">
+
+      <!-- ══ LEFT — INPUTS ══ -->
+      <aside class="tool-input-col" aria-label="Calculator inputs">
+        <div class="panel input-panel">
+
+        <!-- Currency DROPDOWN -->
+        <div class="form-group">
+            <label for="currencySearch">Currency</label>
+            <div class="currency-search-wrapper">
+                <input type="text" id="currencySearch" placeholder="Type currency name or code (e.g., yen, USD, euro)"
+                    autocomplete="off" />
+                <div id="currencyResults" class="currency-results"></div>
+            </div>
+        </div>
+
+        <!-- Starting Value -->
+          <div class="form-group">
+            <label for="startValue">Starting Value</label>
+            <div class="input-addons">
+              <span class="input-addon" id="currencySymbol">$</span>
+              <input type="number" id="startValue" value="10000" min="0.01" step="any"
+                     placeholder="10,000" inputmode="decimal"
+                     aria-describedby="startValueHint" oninput="syncSlider('startValue');calculateCAGR()" />
+            </div>
+            <span class="field-hint" id="startValueHint">Initial investment or starting amount</span>
+            <div class="slider-row">
+              <input type="range" id="startValueSlider" min="100" max="1000000" step="100" value="10000"
+                     oninput="syncInput('startValue',this.value);calculateCAGR()" aria-label="Starting value slider" />
+              <span class="slider-val" id="startValueSliderVal">$10k</span>
+            </div>
+          </div>
+
+          <!-- Ending Value -->
+          <div class="form-group">
+            <label for="endValue">Ending Value</label>
+            <div class="input-addons">
+              <span class="input-addon" id="currencySymbol2">$</span>
+              <input type="number" id="endValue" value="25000" min="0.01" step="any"
+                     placeholder="25,000" inputmode="decimal"
+                     aria-describedby="endValueHint" oninput="syncSlider('endValue');calculateCAGR()" />
+            </div>
+            <span class="field-hint" id="endValueHint">Final value of your investment</span>
+            <div class="slider-row">
+              <input type="range" id="endValueSlider" min="100" max="5000000" step="100" value="25000"
+                     oninput="syncInput('endValue',this.value);calculateCAGR()" aria-label="Ending value slider" />
+              <span class="slider-val" id="endValueSliderVal">$25k</span>
+            </div>
+          </div>
+
+          <!-- Duration -->
+          <div class="form-group">
+            <label for="years">Investment Duration</label>
+            <div class="input-addons">
+              <input type="number" id="years" value="5" min="0.1" max="50" step="0.1"
+                     placeholder="5" inputmode="decimal" oninput="syncSlider('years');calculateCAGR()" />
+              <span class="input-addon input-addon--right">yrs</span>
+            </div>
+            <div class="slider-row">
+              <input type="range" id="yearsSlider" min="1" max="50" step="1" value="5"
+                     oninput="syncInput('years',this.value);calculateCAGR()" aria-label="Years slider" />
+              <span class="slider-val" id="yearsSliderVal">5 yrs</span>
+            </div>
+          </div>
+
+          <!-- Start Year -->
+          <div class="form-group">
+            <label for="startYear">Start Year</label>
+            <input type="number" id="startYear" value="2020" min="1950" max="2100"
+                   step="1" inputmode="numeric" oninput="calculateCAGR()" />
+          </div>
+
+          <!-- Toggles -->
+          <div class="toggle-row">
+            <label class="toggle-label" for="showYearlyToggle">
+              Show Yearly Breakdown
+              <span class="tip">on chart</span>
+            </label>
+            <label class="toggle" aria-label="Show yearly breakdown on chart">
+              <input type="checkbox" id="showYearlyToggle" checked onchange="calculateCAGR()" />
+              <span class="toggle-track"></span>
+            </label>
+          </div>
+
+          <div class="calc-actions">
+            <button class="btn btn-ghost" onclick="resetForm()">Reset</button>
+            <button class="btn btn-primary" onclick="shareURL()" id="shareBtn">Share</button>
+          </div>
+
+        </div><!-- /input-panel -->
+      </aside>
+
+      <!-- ══ RIGHT — OUTPUTS ══ -->
+      <section class="tool-output-col" aria-label="Calculator results" aria-live="polite">
+
+        <!-- Result cards -->
+        <div class="result-cards" id="resultCards">
+          <div class="result-card result-card--primary">
+            <div class="result-label">CAGR</div>
+            <div class="result-value" id="rCAGR">—</div>
+            <div class="result-sub"  id="rCAGRSub">Enter values to calculate</div>
+          </div>
+          <div class="result-card result-card--secondary">
+            <div class="result-label">Total Return</div>
+            <div class="result-value" id="rTotalReturn">—</div>
+            <div class="result-sub">Absolute gain or loss</div>
+          </div>
+          <div class="result-card result-card--secondary">
+            <div class="result-label">Absolute Return</div>
+            <div class="result-value" id="rAbsoluteReturn">—</div>
+            <div class="result-sub">Percentage change</div>
+          </div>
+          <div class="result-card result-card--secondary">
+            <div class="result-label">Starting Value</div>
+            <div class="result-value" id="rStartValue">—</div>
+            <div class="result-sub">Initial investment</div>
+          </div>
+          <div class="result-card result-card--secondary">
+            <div class="result-label">Ending Value</div>
+            <div class="result-value" id="rEndValue">—</div>
+            <div class="result-sub">Final amount</div>
+          </div>
+          <div class="result-card result-card--secondary">
+            <div class="result-label">Investment Period</div>
+            <div class="result-value" id="rPeriod">—</div>
+            <div class="result-sub">Years invested</div>
+          </div>
+        </div>
+
+        <!-- Insight -->
+        <div class="insight-box" id="insightBox" style="display:none;">
+          <span id="insightText"></span>
+        </div>
+
+        <!-- Chart panel -->
+        <div class="chart-panel">
+          <div class="chart-tabs" role="tablist">
+            <button class="chart-tab active" data-chart="growth" onclick="switchChart('growth',this)" role="tab">Growth</button>
+            <button class="chart-tab" data-chart="yearly" onclick="switchChart('yearly',this)" role="tab">Yearly Value</button>
+            <button class="chart-tab" data-chart="comparison" onclick="switchChart('comparison',this)" role="tab">Comparison</button>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="toolChart" role="img" aria-label="CAGR growth chart"></canvas>
+          </div>
+        </div>
+
+        <!-- Action bar -->
+        <div class="action-bar">
+          <button class="action-btn" onclick="downloadCSV()" title="Download year-by-year table as CSV">
+            ⬇ Download CSV
+          </button>
+          <button class="action-btn" onclick="copyResult()" title="Copy result to clipboard" id="copyBtn">
+            📋 Copy Result
+          </button>
+        </div>
+
+        <!-- Breakdown Table -->
+        <div class="breakdown-panel">
+          <div class="breakdown-title" id="tableTitle">Year-by-Year Growth Breakdown</div>
+          <div class="table-wrap">
+            <table class="breakdown-table" id="breakdownTable" aria-label="Year by year CAGR breakdown">
+              <thead id="tableHead"></thead>
+              <tbody id="tableBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+    </div><!-- /tool-body -->
+
+    <!-- Popup definition container (hidden by default) -->
+    <div id="definitionPopup" class="def-popup" style="display: none;"></div>
+
+  </article>
+</div><!-- /tool-page -->
+
+<script src="/assets/js/cagr-calculator.js"></script>
+
+<!-- ═══════════════════════════════════════════════════════
+     ON‑PAGE CONTENT (SEO / GEO OPTIMISED) – CAGR CALCULATOR
+═══════════════════════════════════════════════════════ -->
+<section class="onpage-content" itemscope itemtype="https://schema.org/Article">
+  <meta itemprop="name" content="CAGR Calculator – Compound Annual Growth Rate Tool" />
+  <meta itemprop="description" content="Calculate the Compound Annual Growth Rate (CAGR) of your investments. Enter start value, end value, and years to get the smoothed annual return. Free online CAGR calculator with formula and examples." />
+
+  <!-- ── INTRO ── -->
+  <div class="content-block">
+    <h2>What Is a CAGR Calculator?</h2>
+    <p>A <strong>CAGR calculator</strong> (Compound Annual Growth Rate calculator) measures the mean annual growth rate of an investment over a specified period longer than one year. It represents the rate at which your investment would have grown if it had grown at a steady rate each year – smoothing out volatility. The <strong>compound annual growth rate</strong> is widely used to compare historical returns of different assets (stocks, mutual funds, real estate, etc.) and to project future growth.</p>
+    <p>Unlike simple average returns, CAGR accounts for compounding, giving you a truthful picture of performance. Our <strong>compound growth rate calculator</strong> also includes a <strong>reverse CAGR</strong> function: given an end value and rate, find the required starting amount or years.</p>
+  </div>
+
+  <!-- ── HOW TO USE (HowTo schema) ── -->
+  <div class="content-block" itemscope itemtype="https://schema.org/HowTo">
+    <meta itemprop="name" content="How to Use the CAGR Calculator – Step by Step" />
+    <h2>How to Calculate Compound Annual Growth Rate</h2>
+    <div class="howto-steps">
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="1" />
+        <span class="step-number">1</span> <span itemprop="text"><strong>Enter the beginning value</strong> – the initial investment amount.</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="2" />
+        <span class="step-number">2</span> <span itemprop="text"><strong>Enter the ending value</strong> – the final value of the investment.</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="3" />
+        <span class="step-number">3</span> <span itemprop="text"><strong>Enter the number of years</strong> – the total investment period.</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="4" />
+        <span class="step-number">4</span> <span itemprop="text"><strong>Click Calculate</strong> – the tool shows the CAGR as a percentage and provides a year‑by‑year growth table.</span>
+      </div>
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <meta itemprop="position" content="5" />
+        <span class="step-number">5</span> <span itemprop="text"><strong>Use reverse mode</strong> (if available) – enter any three values (start, end, years, rate) to compute the missing one.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DATASET (example CAGR calculation) ── -->
+  <div class="content-block">
+    <h2>Example: CAGR Calculation on a ₹1,00,000 Investment</h2>
+    <p>Assume you invested ₹1,00,000 in a mutual fund that grew to ₹2,50,000 in 5 years. The CAGR tells you the annualised return, ignoring interim volatility.</p>
+    <div class="dataset-table-wrap">
+      <table class="dataset-table">
+        <thead>
+          <tr><th>Year</th><th>Value (₹)</th><th>Year‑on‑Year Growth</th><th>Remarks</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>0 (Start)</td><td>1,00,000</td><td>—</td><td>Initial investment</td></tr>
+          <tr><td>1</td><td>1,20,000</td><td>+20%</td><td>Actual volatile growth</td></tr>
+          <tr><td>2</td><td>1,30,000</td><td>+8.3%</td><td rowspan="3">Fluctuations</td></tr>
+          <tr><td>3</td><td>1,80,000</td><td>+38.5%</td></tr>
+          <tr><td>4</td><td>2,00,000</td><td>+11.1%</td></tr>
+          <tr><td>5</td><td>2,50,000</td><td>+25%</td><td>Final value</td></tr>
+          <tr><td colspan="4" style="background:#f8fafc; text-align:center"><strong>CAGR = (2,50,000 / 1,00,000)^(1/5) – 1 = 20.1%</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="dataset-note">* The 20.1% CAGR represents the smoothed annual return. The actual yearly returns varied, but the end result is the same as if the investment grew steadily at 20.1% every year.</p>
+  </div>
+
+  <!-- ── FAQ SECTION (20 questions) ── -->
+  <div class="content-block faq-section">
+    <h2>Frequently Asked Questions About CAGR Calculators</h2>
+    <div class="faq-list" itemscope itemtype="https://schema.org/FAQPage">
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">1. What is CAGR?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">CAGR stands for Compound Annual Growth Rate. It is the geometric average annual return that smooths out an investment’s performance over a period, assuming steady growth each year.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">2. How is CAGR calculated?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">The <strong>CAGR formula</strong> is: <code>CAGR = (End Value / Start Value)^(1 / Number of Years) – 1</code>. The result is expressed as a percentage.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">3. What is the difference between CAGR and average annual return?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Average annual return is the arithmetic mean of yearly returns, ignoring compounding. CAGR accounts for compounding and is always lower than or equal to the arithmetic average when returns are volatile.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">4. Can I use CAGR for investments with periodic contributions (SIP)?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">CAGR is designed for lump‑sum investments. For SIPs, use XIRR (Extended Internal Rate of Return). However, our <strong>sip cagr calculator</strong> (separate tool) can estimate CAGR‑like returns for monthly investments.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">5. What is a good CAGR for equity mutual funds?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Historically, Indian equity funds have delivered 12‑15% CAGR over 10‑15 years. Large‑cap funds may give 10‑12%, while mid/small caps can be higher with more risk.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">6. How do I calculate CAGR in Excel?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Use the formula <code>=(End Value/Start Value)^(1/Years)-1</code> or the RRI function: <code>=RRI(Periods, Start Value, End Value)</code>. Our online tool does the same without Excel.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">7. What is reverse CAGR?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Reverse CAGR allows you to compute the starting value, ending value, or period length when the other three variables are known. For instance, "How much do I need to invest today to get ₹10L in 5 years at 12% CAGR?"</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">8. Can CAGR be negative?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes. If the ending value is less than the starting value, CAGR is negative – meaning the investment lost value on an annualised basis.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">9. Is CAGR the same as annualised return?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes. Annualised return and CAGR are often used interchangeably. Both represent the geometric average annual growth rate.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">10. How does inflation affect CAGR?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">CAGR as calculated is nominal. To get real CAGR, adjust the ending value for inflation: <code>Real CAGR = (End Value / (1+inflation)^years / Start Value)^(1/years) – 1</code>.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">11. What is the difference between CAGR and XIRR?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">CAGR assumes a single lump sum at start. XIRR handles multiple cash flows (like SIPs) at irregular intervals. Use CAGR for lump sums, XIRR for periodic investments.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">12. Can I calculate CAGR for stocks using this calculator?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes. Enter the stock’s purchase price as start value, current price as end value, and holding period in years. This gives the annualised return from price appreciation (excluding dividends).</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">13. How accurate is CAGR for short periods?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">CAGR is mathematically precise for any period, but for less than one year you should annualise with caution. Our calculator works for fractions of years (e.g., 0.5 years).</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">14. What is a 5‑year CAGR calculator?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">A <strong>5 year cagr calculator</strong> simply sets the number of years to 5. It shows the annualised return over that specific period – useful for comparing medium‑term fund performance.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">15. Can I use CAGR for a lump sum with reinvested dividends?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – include reinvested dividends in the ending value. The CAGR will reflect total return (price + dividends) as a single growth rate.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">16. Why does CAGR sometimes look lower than the simple average?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Because CAGR accounts for compounding and volatility drag. In volatile series, the arithmetic mean overstates true growth, while CAGR gives a realistic, lower figure.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">17. Does the calculator support decimal years (e.g., 1.5 years)?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – you can enter fractional years (e.g., 1.5 for 18 months). The CAGR formula works with any positive real number.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">18. What is the difference between CAGR and annualised return in mutual funds?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">In mutual funds, “annualised return” is often the CAGR. Fund houses typically report past 1‑year, 3‑year, 5‑year, and 10‑year returns as CAGR.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">19. Is this CAGR calculator free to use?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – it’s completely free, no signup, no ads. Use it unlimited times for personal or professional analysis.</div></div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-question" itemprop="name">20. Can I share my CAGR calculation with others?</div>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – click the “Share” button to copy a URL containing your start value, end value, and years. Anyone opening that link sees the same CAGR result.</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
