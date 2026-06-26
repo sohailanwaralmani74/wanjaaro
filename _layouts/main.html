@@ -53,7 +53,7 @@ layout: default
 
   {% if page.is_catpage %}
     {% comment %} On a category landing page: Home / Converters {% endcomment %}
-    <span class="sep">Home/</span>
+    <span class="current">Home/</span>
     <span class="current" aria-current="page">{{ page.title }}</span>
 
   {% else %}
@@ -62,10 +62,10 @@ layout: default
     {% assign cat = site.data.categories[current_tool.category] %}
 
     {% if cat %}
-      <span class="sep">Home/</span>
+      <span class="current">Home/</span>
       <a href="{{ cat.parent_url }}">{{ cat.parent }}</a>
     {% endif %}
-    <span class="sep">/</span>
+    <span class="current">/</span>
     <span class="current" aria-current="page">{{ current_tool.title }}</span>
   {% endif %}
 </nav>
