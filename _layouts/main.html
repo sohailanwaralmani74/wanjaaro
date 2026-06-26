@@ -1,44 +1,32 @@
 ---
 layout: default
 ---
- <a id="skip-to-content" href="#content" class="skip-link">Skip to the content.</a>
+
+<a id="skip-to-content" href="#content" class="skip-link">Skip to the content.</a>
+
 <header class="site-header">
   <div class="header-inner">
 
     <!-- Logo -->
-    <a href="/" class="logo" style="text-decoration: none; display: inline-block;" title="Wanjaaro — Free Financial & Life Calculators">
-  <span style="
-    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-    font-size: 1.75rem;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    background: linear-gradient(135deg, #0d9488 0%, #0f766e 50%, #99f6e4 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    display: inline-block;
-  ">WANJAARO</span>
-</a>
+    <a href="/" class="logo" style="text-decoration: none; display: inline-block;" title="DataFrog">
+      <img src="assets/img/datafrog.png" alt="DataFrog" width="50px" height="50px" />
+    </a>
 
     <!-- Desktop Navigation -->
     <nav class="desktop-nav" role="navigation" aria-label="Main navigation">
-      <span class="nav-item" data-popup="financeInvesting"  tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">Finance</span>
-      <span class="nav-item" data-popup="creditCardsBanking" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">Banking</span>
-      <span class="nav-item" data-popup="insurance"          tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">Insurance</span>
-      <span class="nav-item" data-popup="legal"              tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">Legal</span>
-      <span class="nav-item" data-popup="automotive"         tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">Automotive</span>
-      <span class="nav-item" data-popup="healthWellness"     tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">Health</span>
-      <span class="nav-item" data-popup="cryptoDefi"         tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">Crypto & DeFi</span>
-      <span class="nav-item" data-popup="aiTech"             tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">AI & Tech</span>
-      <span class="nav-item" data-popup="b2bSaas"            tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">B2B & SaaS</span>
-      <span class="nav-item" data-popup="earning"            tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">Earning</span>
+      <a href="/" class="nav-item">Home</a>
+      <a href="/converters" class="nav-item">Converters</a>
+      <a href="/utilities" class="nav-item">Utilities</a>
+      <a href="/calculators" class="nav-item">Calculators</a>
+      <a href="/blog" class="nav-item">Blog</a>
     </nav>
 
     <!-- Right side actions -->
     <div class="desktop-actions"></div>
 
     <!-- Hamburger (mobile only) -->
-    <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileDrawer">
+    <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false"
+      aria-controls="mobileDrawer">
       <span></span><span></span><span></span>
     </button>
 
@@ -49,792 +37,101 @@ layout: default
   ═══════════════════════════════════════ -->
   <nav class="mobile-drawer" id="mobileDrawer" aria-label="Mobile navigation" aria-hidden="true">
     <ul class="mobile-nav-list">
-
-      <!-- ── Finance & Investing ── -->
-      <li class="mobile-nav-item">
-        <div class="mobile-nav-trigger" data-target="mobileFinance" aria-expanded="false">Finance &amp; Investing</div>
-        <div class="mobile-submenu" id="mobileFinance">
-
-          <span class="mobile-subcat-label">Calculators</span>
-          <a href="/compound-interest-calculator/" title="Calculate compound interest on savings and investments">Compound Interest Calculator</a>
-          <a href="/sip-return-calculator/" title="Calculate SIP mutual fund returns over time">SIP Return Calculator</a>
-          <a href="/lump-sum-vs-sip-calculator/" title="Compare lump sum vs monthly SIP investment">Lump Sum vs SIP Comparison</a>
-          <a href="/inflation-adjusted-return-calculator/" title="Calculate real returns adjusted for inflation">Inflation Adjusted Return</a>
-          <a href="/cagr-calculator/" title="Calculate Compound Annual Growth Rate">CAGR Calculator</a>
-          <a href="/rule-of-72-calculator/" title="Find how long to double your money">Rule of 72 Calculator</a>
-          <a href="/future-value-calculator/" title="Project future value of your investment">Future Value Calculator</a>
-          <a href="/present-value-calculator/" title="Calculate today's value of a future sum">Present Value Calculator</a>
-
-          <span class="mobile-subcat-label">Retirement</span>
-          <a href="/fire-number-calculator/" title="Calculate your FIRE retirement number">FIRE Number Calculator</a>
-          <a href="/retirement-corpus-calculator/" title="Estimate the corpus needed for retirement">Retirement Corpus Calculator</a>
-          <a href="/safe-withdrawal-rate-calculator/" title="Find a safe annual withdrawal rate from savings">Safe Withdrawal Rate Calculator</a>
-          <a href="/401k-growth-projector/" title="Project 401k balance growth to retirement">401k Growth Projector</a>
-
-          <span class="mobile-subcat-label">Stock &amp; Portfolio</span>
-          <a href="/dividend-yield-calculator/" title="Calculate dividend yield on any stock">Dividend Yield Calculator</a>
-          <a href="/stock-return-calculator/" title="Calculate total return on a stock investment">Stock Return Calculator</a>
-          <a href="/dollar-cost-averaging-calculator/" title="Simulate dollar cost averaging into any asset">Dollar-Cost Averaging Calculator</a>
-          <a href="/asset-allocation-planner/" title="Plan your portfolio allocation by risk tolerance">Asset Allocation Planner</a>
-
-          <span class="mobile-subcat-label">Debt &amp; Loans</span>
-          <a href="/loan-emi-calculator/" title="Calculate monthly loan EMI payment">Loan EMI Calculator</a>
-          <a href="/debt-payoff-planner/" title="Create a debt payoff plan with timeline">Debt Payoff Planner</a>
-          <a href="/debt-avalanche-vs-snowball/" title="Compare avalanche vs snowball debt payoff strategies">Avalanche vs Snowball Simulator</a>
-          <a href="/interest-vs-principal-breakdown/" title="See how each EMI splits into interest and principal">Interest vs Principal Breakdown</a>
-
-        </div>
-      </li>
-
-      <!-- ── Credit Cards & Banking ── -->
-      <li class="mobile-nav-item">
-        <div class="mobile-nav-trigger" data-target="mobileBanking" aria-expanded="false">Credit Cards &amp; Banking</div>
-        <div class="mobile-submenu" id="mobileBanking">
-
-          <span class="mobile-subcat-label">Credit Score</span>
-          <a href="/credit-score-estimator/" title="Estimate your credit score range">Credit Score Estimator</a>
-          <a href="/credit-utilization-calculator/" title="Calculate your credit utilization ratio">Credit Utilization Calculator</a>
-          <a href="/time-to-improve-credit-score/" title="Estimate time needed to improve your credit score">Time to Improve Credit Score</a>
-
-          <span class="mobile-subcat-label">Card Comparison</span>
-          <a href="/credit-card-rewards-comparator/" title="Compare credit card rewards across cards">Credit Card Rewards Comparator</a>
-          <a href="/cashback-vs-points-calculator/" title="Calculate cashback vs points card value">Cashback vs Points Calculator</a>
-          <a href="/annual-fee-break-even-tool/" title="Find out if a card annual fee is worth it">Annual Fee Break-Even Tool</a>
-          <a href="/balance-transfer-savings-calculator/" title="Calculate savings from a balance transfer">Balance Transfer Savings Calculator</a>
-          <a href="/0-apr-payoff-planner/" title="Plan payoff before 0% APR intro period ends">0% APR Payoff Planner</a>
-
-          <span class="mobile-subcat-label">Banking</span>
-          <a href="/savings-account-apy-comparator/" title="Compare APY rates across savings accounts">Savings Account APY Comparator</a>
-          <a href="/cd-ladder-builder/" title="Build a CD ladder for better yield and liquidity">CD Ladder Builder</a>
-          <a href="/high-yield-savings-calculator/" title="Project growth in a high-yield savings account">High-Yield Savings Calculator</a>
-
-          <span class="mobile-subcat-label">Budgeting</span>
-          <a href="/monthly-budget-planner/" title="Plan your monthly budget across categories">Monthly Budget Planner</a>
-          <a href="/50-30-20-budget-calculator/" title="Split income with the 50/30/20 budget rule">50/30/20 Budget Calculator</a>
-          <a href="/emergency-fund-calculator/" title="Calculate how much emergency fund you need">Emergency Fund Calculator</a>
-          <a href="/net-worth-tracker/" title="Calculate and track your total net worth">Net Worth Tracker</a>
-
-        </div>
-      </li>
-
-      <!-- ── Insurance ── -->
-      <li class="mobile-nav-item">
-        <div class="mobile-nav-trigger" data-target="mobileInsurance" aria-expanded="false">Insurance</div>
-        <div class="mobile-submenu" id="mobileInsurance">
-
-          <span class="mobile-subcat-label">Life Insurance</span>
-          <a href="/life-cover-need-calculator/" title="Calculate how much life insurance cover you need">Life Cover Need Calculator</a>
-          <a href="/term-vs-whole-life-comparator/" title="Compare term life vs whole life insurance">Term vs Whole Life Comparator</a>
-          <a href="/life-insurance-premium-estimator/" title="Estimate your life insurance premium">Life Insurance Premium Estimator</a>
-          <a href="/income-replacement-calculator/" title="Calculate income replacement lump sum for family">Income Replacement Calculator</a>
-
-          <span class="mobile-subcat-label">Health Insurance</span>
-          <a href="/health-plan-cost-comparator/" title="Compare total annual cost across health plans">Health Plan Cost Comparator</a>
-          <a href="/deductible-break-even-calculator/" title="Find if a high deductible plan saves money">Deductible Break-Even Calculator</a>
-          <a href="/hsa-contribution-optimizer/" title="Optimize your HSA contribution for tax savings">HSA Contribution Optimizer</a>
-          <a href="/out-of-pocket-max-estimator/" title="Estimate your yearly out-of-pocket medical costs">Out-of-Pocket Max Estimator</a>
-
-          <span class="mobile-subcat-label">Auto &amp; Home</span>
-          <a href="/auto-insurance-premium-estimator/" title="Estimate auto insurance premium by profile">Auto Insurance Premium Estimator</a>
-          <a href="/home-insurance-cost-calculator/" title="Calculate home insurance cost by value and coverage">Home Insurance Cost Calculator</a>
-          <a href="/renters-insurance-estimator/" title="Estimate renters insurance for your belongings">Renters Insurance Estimator</a>
-
-          <span class="mobile-subcat-label">Business Insurance</span>
-          <a href="/business-liability-coverage-estimator/" title="Estimate general liability insurance for small business">Business Liability Coverage Estimator</a>
-          <a href="/workers-comp-calculator/" title="Calculate workers compensation insurance premium">Workers Comp Calculator</a>
-
-        </div>
-      </li>
-
-      <!-- ── Legal ── -->
-      <li class="mobile-nav-item">
-        <div class="mobile-nav-trigger" data-target="mobileLegal" aria-expanded="false">Legal</div>
-        <div class="mobile-submenu" id="mobileLegal">
-
-          <span class="mobile-subcat-label">Business Legal</span>
-          <a href="/llc-vs-corp-comparison/" title="Compare LLC vs Corporation for your business">LLC vs Corp Comparison Tool</a>
-          <a href="/business-structure-cost-estimator/" title="Estimate cost of different business structures">Business Structure Cost Estimator</a>
-          <a href="/trademark-filing-cost-estimator/" title="Estimate USPTO trademark application filing cost">Trademark Filing Cost Estimator</a>
-
-          <span class="mobile-subcat-label">Personal Legal</span>
-          <a href="/will-and-estate-cost-estimator/" title="Estimate will and estate planning costs">Will &amp; Estate Cost Estimator</a>
-          <a href="/divorce-settlement-calculator/" title="Estimate divorce asset division and alimony">Divorce Settlement Calculator</a>
-          <a href="/small-claims-limit-checker/" title="Check small claims court limit by US state">Small Claims Limit Checker</a>
-          <a href="/legal-fee-estimator/" title="Estimate attorney fees for common legal matters">Legal Fee Estimator</a>
-
-          <span class="mobile-subcat-label">Employment</span>
-          <a href="/severance-pay-calculator/" title="Calculate expected severance pay by years of service">Severance Pay Calculator</a>
-          <a href="/employee-vs-contractor-classifier/" title="Determine employee vs independent contractor status">Employee vs Contractor Classifier</a>
-
-          <span class="mobile-subcat-label">Real Estate Legal</span>
-          <a href="/closing-cost-breakdown-tool/" title="Estimate buyer and seller closing costs">Closing Cost Breakdown Tool</a>
-          <a href="/title-insurance-calculator/" title="Estimate title insurance premium for a property">Title Insurance Calculator</a>
-          <a href="/lease-vs-buy-legal-cost/" title="Compare legal and transaction costs of leasing vs buying">Lease vs Buy Legal Cost Tool</a>
-
-        </div>
-      </li>
-
-      <!-- ── Automotive ── -->
-      <li class="mobile-nav-item">
-        <div class="mobile-nav-trigger" data-target="mobileAutomotive" aria-expanded="false">Automotive</div>
-        <div class="mobile-submenu" id="mobileAutomotive">
-
-          <span class="mobile-subcat-label">Buying &amp; Selling</span>
-          <a href="/car-loan-emi-calculator/" title="Calculate monthly car loan EMI payment">Car Loan EMI Calculator</a>
-          <a href="/lease-vs-buy-calculator/" title="Compare total cost of leasing vs buying a car">Lease vs Buy Calculator</a>
-          <a href="/true-cost-of-ownership-tool/" title="Estimate 5-year total cost of owning a car">True Cost of Ownership Tool</a>
-          <a href="/car-depreciation-calculator/" title="Calculate how much your car depreciates each year">Car Depreciation Calculator</a>
-          <a href="/trade-in-value-estimator/" title="Estimate your car trade-in value">Trade-In Value Estimator</a>
-
-          <span class="mobile-subcat-label">Running Costs</span>
-          <a href="/fuel-cost-calculator/" title="Calculate monthly and annual fuel cost">Fuel Cost Calculator</a>
-          <a href="/ev-vs-gas-cost-comparator/" title="Compare annual running cost of EV vs petrol car">EV vs Gas Cost Comparator</a>
-          <a href="/annual-car-cost-estimator/" title="Estimate total annual cost of owning a car">Annual Car Cost Estimator</a>
-
-          <span class="mobile-subcat-label">Insurance &amp; Tax</span>
-          <a href="/car-insurance-premium-estimator/" title="Estimate car insurance premium by vehicle and driver">Car Insurance Premium Estimator</a>
-          <a href="/road-tax-calculator/" title="Calculate annual road tax by engine size and fuel type">Road Tax Calculator</a>
-
-          <span class="mobile-subcat-label">EV Tools</span>
-          <a href="/ev-range-calculator/" title="Calculate real-world EV driving range">EV Range Calculator</a>
-          <a href="/ev-charging-cost-calculator/" title="Estimate cost to charge your EV at home or public">EV Charging Cost Calculator</a>
-          <a href="/ev-savings-vs-gas-calculator/" title="Calculate annual fuel savings switching to EV">EV Savings vs Gas Calculator</a>
-          <a href="/home-charger-roi-tool/" title="Estimate payback period for home EV charger install">Home Charger ROI Tool</a>
-          <a href="/ev-tax-credit-estimator/" title="Estimate federal and state EV tax credit eligibility">EV Tax Credit Estimator</a>
-
-        </div>
-      </li>
-
-      <!-- ── Health & Wellness ── -->
-      <li class="mobile-nav-item">
-        <div class="mobile-nav-trigger" data-target="mobileHealth" aria-expanded="false">Health &amp; Wellness</div>
-        <div class="mobile-submenu" id="mobileHealth">
-
-          <span class="mobile-subcat-label">Body Metrics</span>
-          <a href="/bmi-calculator/" title="Calculate Body Mass Index from height and weight">BMI Calculator</a>
-          <a href="/bmr-tdee-calculator/" title="Calculate basal metabolic rate and daily energy needs">BMR &amp; TDEE Calculator</a>
-          <a href="/body-fat-percentage-tool/" title="Estimate body fat percentage using Navy method">Body Fat Percentage Tool</a>
-          <a href="/ideal-weight-calculator/" title="Calculate ideal body weight range by method">Ideal Weight Calculator</a>
-          <a href="/waist-to-hip-ratio-tool/" title="Calculate waist-to-hip ratio and cardiovascular risk">Waist-to-Hip Ratio Tool</a>
-
-          <span class="mobile-subcat-label">Fitness</span>
-          <a href="/calorie-burn-estimator/" title="Estimate calories burned during exercise">Calorie Burn Estimator</a>
-          <a href="/macro-calculator/" title="Calculate daily protein, carb, and fat targets">Macro Calculator</a>
-          <a href="/one-rep-max-calculator/" title="Estimate your one rep max for any lift">1 Rep Max Calculator</a>
-          <a href="/workout-volume-calculator/" title="Calculate total weekly training volume">Workout Volume Calculator</a>
-          <a href="/hydration-calculator/" title="Calculate daily water intake recommendation">Hydration Calculator</a>
-
-          <span class="mobile-subcat-label">Medical Costs</span>
-          <a href="/medical-expense-estimator/" title="Estimate annual out-of-pocket medical costs">Medical Expense Estimator</a>
-          <a href="/health-savings-account-planner/" title="Plan HSA contributions for future medical expenses">Health Savings Account Planner</a>
-          <a href="/prescription-cost-comparator/" title="Compare brand vs generic prescription drug costs">Prescription Cost Comparator</a>
-
-          <span class="mobile-subcat-label">Mental Health</span>
-          <a href="/stress-score-calculator/" title="Calculate your stress score with actionable tips">Stress Score Calculator</a>
-          <a href="/sleep-quality-index/" title="Rate your sleep quality across key dimensions">Sleep Quality Index</a>
-          <a href="/burnout-risk-assessment/" title="Assess your burnout risk level from work habits">Burnout Risk Assessment</a>
-          <a href="/work-life-balance-scorer/" title="Score your work-life balance by life domain">Work-Life Balance Scorer</a>
-
-        </div>
-      </li>
-
-      <!-- ── Crypto & DeFi ── -->
-      <li class="mobile-nav-item">
-        <div class="mobile-nav-trigger" data-target="mobileCrypto" aria-expanded="false">Crypto &amp; DeFi</div>
-        <div class="mobile-submenu" id="mobileCrypto">
-
-          <span class="mobile-subcat-label">Trading</span>
-          <a href="/crypto-profit-loss-calculator/" title="Calculate profit or loss on a crypto trade">Crypto Profit / Loss Calculator</a>
-          <a href="/dca-bitcoin-calculator/" title="Simulate dollar-cost averaging into Bitcoin">DCA Bitcoin Calculator</a>
-          <a href="/crypto-break-even-price-calculator/" title="Find break-even price for your crypto investment">Break-Even Price Calculator</a>
-          <a href="/liquidation-price-estimator/" title="Estimate liquidation price for leveraged crypto position">Liquidation Price Estimator</a>
-          <a href="/crypto-tax-estimator/" title="Estimate capital gains tax on cryptocurrency trades">Crypto Tax Estimator</a>
-
-          <span class="mobile-subcat-label">DeFi</span>
-          <a href="/impermanent-loss-calculator/" title="Calculate impermanent loss from DeFi liquidity pools">Impermanent Loss Calculator</a>
-          <a href="/yield-farming-apy-calculator/" title="Convert APR to APY for yield farming strategies">Yield Farming APY Calculator</a>
-          <a href="/staking-rewards-calculator/" title="Estimate annual staking rewards and income">Staking Rewards Calculator</a>
-          <a href="/gas-fee-estimator/" title="Estimate Ethereum gas fees in USD">Gas Fee Estimator</a>
-
-          <span class="mobile-subcat-label">Portfolio</span>
-          <a href="/crypto-portfolio-tracker/" title="Track your crypto portfolio value and allocation">Crypto Portfolio Tracker</a>
-          <a href="/crypto-allocation-planner/" title="Plan crypto allocation across risk tiers">Crypto Allocation Planner</a>
-          <a href="/crypto-cost-basis-calculator/" title="Calculate average cost basis across crypto purchases">Cost Basis Calculator</a>
-          <a href="/crypto-to-fiat-converter/" title="Convert cryptocurrency amount to fiat currency">Crypto to Fiat Converter</a>
-
-          <span class="mobile-subcat-label">Mining &amp; NFT</span>
-          <a href="/mining-profitability-calculator/" title="Estimate daily crypto mining profit by hash rate">Mining Profitability Calculator</a>
-          <a href="/nft-flip-profit-tool/" title="Calculate net profit from flipping an NFT">NFT Flip Profit Tool</a>
-
-        </div>
-      </li>
-
-      <!-- ── AI & Tech ── -->
-      <li class="mobile-nav-item">
-        <div class="mobile-nav-trigger" data-target="mobileAI" aria-expanded="false">AI &amp; Tech Tools</div>
-        <div class="mobile-submenu" id="mobileAI">
-
-          <span class="mobile-subcat-label">AI Cost</span>
-          <a href="/llm-api-cost-calculator/" title="Estimate monthly LLM API costs for your app">LLM API Cost Calculator</a>
-          <a href="/token-usage-estimator/" title="Convert word count to LLM token count estimate">Token Usage Estimator</a>
-          <a href="/ai-vs-human-cost-comparator/" title="Compare cost of AI automation vs hiring humans">AI vs Human Cost Comparator</a>
-          <a href="/model-cost-comparison-tool/" title="Compare cost per token across major LLM models">Model Cost Comparison Tool</a>
-
-          <span class="mobile-subcat-label">Dev Tools</span>
-          <a href="/cloud-hosting-cost-comparator/" title="Compare cloud hosting costs across AWS GCP and Azure">Cloud Hosting Cost Comparator</a>
-          <a href="/api-rate-limit-planner/" title="Plan API rate limits for your request volume">API Rate Limit Planner</a>
-          <a href="/tech-stack-cost-estimator/" title="Estimate monthly infrastructure cost for a SaaS app">Tech Stack Cost Estimator</a>
-
-          <span class="mobile-subcat-label">Productivity</span>
-          <a href="/automation-roi-calculator/" title="Calculate ROI from automating a manual workflow">Automation ROI Calculator</a>
-          <a href="/time-saved-by-ai-tool/" title="Estimate weekly hours saved using AI tools">Time Saved by AI Tool</a>
-          <a href="/meeting-cost-calculator/" title="Calculate the real dollar cost of a meeting">Meeting Cost Calculator</a>
-          <a href="/no-code-vs-custom-dev-cost/" title="Compare no-code vs custom development cost and time">No-Code vs Custom Dev Cost Tool</a>
-
-          <span class="mobile-subcat-label">Business AI</span>
-          <a href="/chatbot-vs-human-support-cost/" title="Compare AI chatbot vs human customer support cost">Chatbot vs Human Support Cost</a>
-          <a href="/ai-adoption-roi-tool/" title="Estimate ROI from adopting AI in your business">AI Adoption ROI Tool</a>
-          <a href="/ai-content-cost-estimator/" title="Compare cost of AI-generated vs human-written content">AI Content Cost Estimator</a>
-
-        </div>
-      </li>
-
-      <!-- ── B2B & SaaS ── -->
-      <li class="mobile-nav-item">
-        <div class="mobile-nav-trigger" data-target="mobileSaaS" aria-expanded="false">B2B &amp; SaaS</div>
-        <div class="mobile-submenu" id="mobileSaaS">
-
-          <span class="mobile-subcat-label">Pricing &amp; Revenue</span>
-          <a href="/saas-pricing-calculator/" title="Model monthly and annual revenue across pricing tiers">SaaS Pricing Calculator</a>
-          <a href="/mrr-arr-calculator/" title="Calculate Monthly and Annual Recurring Revenue">MRR / ARR Calculator</a>
-          <a href="/revenue-run-rate-tool/" title="Annualize current monthly revenue to full-year run rate">Revenue Run Rate Tool</a>
-          <a href="/freemium-conversion-estimator/" title="Estimate revenue from freemium to paid conversion">Freemium Conversion Estimator</a>
-
-          <span class="mobile-subcat-label">Unit Economics</span>
-          <a href="/cac-calculator/" title="Calculate Customer Acquisition Cost for your SaaS">CAC Calculator</a>
-          <a href="/ltv-calculator/" title="Calculate Customer Lifetime Value for your SaaS">LTV Calculator</a>
-          <a href="/ltv-cac-ratio-tool/" title="Compute LTV to CAC ratio and benchmark against 3:1">LTV:CAC Ratio Tool</a>
-          <a href="/payback-period-calculator/" title="Find months to recover customer acquisition cost">Payback Period Calculator</a>
-          <a href="/burn-rate-calculator/" title="Calculate monthly burn rate and runway in months">Burn Rate Calculator</a>
-
-          <span class="mobile-subcat-label">Growth</span>
-          <a href="/churn-rate-calculator/" title="Calculate monthly and annual customer churn rate">Churn Rate Calculator</a>
-          <a href="/net-revenue-retention-tool/" title="Calculate net revenue retention from existing customers">Net Revenue Retention Tool</a>
-
-          <span class="mobile-subcat-label">ROI Tools</span>
-          <a href="/saas-roi-calculator/" title="Calculate return on investment for a SaaS tool">SaaS ROI Calculator</a>
-          <a href="/productivity-roi-calculator/" title="Estimate dollar value of productivity gains from software">Productivity ROI Calculator</a>
-          <a href="/tool-consolidation-savings-estimator/" title="Calculate savings from replacing multiple tools with one">Tool Consolidation Savings Estimator</a>
-
-        </div>
-      </li>
-
-      <!-- ── Make Money Online / Earning ── -->
-      <li class="mobile-nav-item">
-        <div class="mobile-nav-trigger" data-target="mobileEarning" aria-expanded="false">Make Money Online</div>
-        <div class="mobile-submenu" id="mobileEarning">
-
-          <span class="mobile-subcat-label">Affiliate</span>
-          <a href="/affiliate-commission-calculator/" title="Calculate expected monthly affiliate income">Affiliate Commission Calculator</a>
-          <a href="/niche-revenue-potential-tool/" title="Estimate monthly revenue potential for a content niche">Niche Revenue Potential Tool</a>
-          <a href="/affiliate-vs-display-ad-comparator/" title="Compare affiliate links vs display advertising income">Affiliate vs Display Ad Comparator</a>
-
-          <span class="mobile-subcat-label">Content &amp; SEO</span>
-          <a href="/blog-revenue-estimator/" title="Estimate monthly blog income from pageviews and RPM">Blog Revenue Estimator</a>
-          <a href="/rpm-calculator/" title="Calculate Revenue Per Mille from earnings and impressions">RPM Calculator</a>
-          <a href="/traffic-to-revenue-projector/" title="Project monthly revenue as your site traffic grows">Traffic to Revenue Projector</a>
-          <a href="/keyword-cpm-estimator/" title="Estimate CPM value of a keyword by advertiser competition">Keyword CPM Estimator</a>
-
-          <span class="mobile-subcat-label">Freelance</span>
-          <a href="/freelance-rate-calculator/" title="Calculate minimum hourly rate for your desired income">Freelance Rate Calculator</a>
-          <a href="/project-profit-margin-tool/" title="Calculate net profit on a fixed-price freelance project">Project Profit Margin Tool</a>
-          <a href="/hourly-vs-project-rate-comparator/" title="Decide whether to charge hourly or fixed project rate">Hourly vs Project Rate Comparator</a>
-
-          <span class="mobile-subcat-label">Digital Products</span>
-          <a href="/course-pricing-calculator/" title="Estimate optimal online course price for your revenue goal">Course Pricing Calculator</a>
-          <a href="/membership-site-revenue-projector/" title="Project monthly recurring revenue from a membership site">Membership Site Revenue Projector</a>
-          <a href="/digital-product-profit-calculator/" title="Calculate net profit from digital product sales">Digital Product Profit Calculator</a>
-          <a href="/launch-revenue-goal-planner/" title="Work backwards from a launch revenue goal to traffic needed">Launch Revenue Goal Planner</a>
-
-        </div>
-      </li>
-
+      <li class="mobile-nav-item"><a href="/converters" class="mobile-nav-link">Converters</a></li>
+      <li class="mobile-nav-item"><a href="/utilities" class="mobile-nav-link">Utilities</a></li>
+      <li class="mobile-nav-item"><a href="/calculators" class="mobile-nav-link">Calculators</a></li>
+      <li class="mobile-nav-item"><a href="/blog" class="mobile-nav-link">Blog</a></li>
     </ul>
     <div class="mobile-actions"></div>
   </nav>
   <div class="overlay" id="overlay"></div>
 
-  <!-- ═══════════════════════════════════════
-       DESKTOP MEGA MENUS
-  ═══════════════════════════════════════ -->
-
-  <!-- Finance & Investing -->
-  <div class="popup-grid" id="financeInvesting" role="region" aria-label="Finance and Investing tools">
-
-    <div class="popup-column">
-      <h3>Calculators</h3>
-      <a href="/compound-interest-calculator/" title="Calculate compound interest on savings and investments">Compound Interest Calculator</a>
-      <a href="/sip-return-calculator/" title="Calculate SIP mutual fund returns over time">SIP Return Calculator</a>
-      <a href="/lump-sum-vs-sip-calculator/" title="Compare lump sum vs monthly SIP investment">Lump Sum vs SIP Comparison</a>
-      <a href="/inflation-adjusted-return-calculator/" title="Calculate real returns adjusted for inflation">Inflation Adjusted Return</a>
-      <a href="/cagr-calculator/" title="Calculate Compound Annual Growth Rate">CAGR Calculator</a>
-      <a href="/rule-of-72-calculator/" title="Find how long to double your money">Rule of 72 Calculator</a>
-      <a href="/future-value-calculator/" title="Project future value of your investment">Future Value Calculator</a>
-      <a href="/present-value-calculator/" title="Calculate today's value of a future sum">Present Value Calculator</a>
-    </div>
-
-    <div class="popup-column">
-      <h3>Retirement</h3>
-      <a href="/fire-number-calculator/" title="Calculate your FIRE retirement number">FIRE Number Calculator</a>
-      <a href="/retirement-corpus-calculator/" title="Estimate the corpus needed for retirement">Retirement Corpus Calculator</a>
-      <a href="/safe-withdrawal-rate-calculator/" title="Find a safe annual withdrawal rate from savings">Safe Withdrawal Rate Calculator</a>
-      <a href="/401k-growth-projector/" title="Project 401k balance growth to retirement">401k Growth Projector</a>
-    </div>
-
-    <div class="popup-column">
-      <h3>Stock &amp; Portfolio</h3>
-      <a href="/dividend-yield-calculator/" title="Calculate dividend yield on any stock">Dividend Yield Calculator</a>
-      <a href="/stock-return-calculator/" title="Calculate total return on a stock investment">Stock Return Calculator</a>
-      <a href="/dollar-cost-averaging-calculator/" title="Simulate dollar cost averaging into any asset">Dollar-Cost Averaging Calculator</a>
-      <a href="/asset-allocation-planner/" title="Plan your portfolio allocation by risk tolerance">Asset Allocation Planner</a>
-    </div>
-
-    <div class="popup-column">
-      <h3>Debt &amp; Loans</h3>
-      <a href="/loan-emi-calculator/" title="Calculate monthly loan EMI payment">Loan EMI Calculator</a>
-      <a href="/debt-payoff-planner/" title="Create a debt payoff plan with timeline">Debt Payoff Planner</a>
-      <a href="/debt-avalanche-vs-snowball/" title="Compare avalanche vs snowball debt payoff strategies">Avalanche vs Snowball Simulator</a>
-      <a href="/interest-vs-principal-breakdown/" title="See how each EMI splits into interest and principal">Interest vs Principal Breakdown</a>
-    </div>
-
-  </div>
-
-  <!-- Credit Cards & Banking -->
-  <div class="popup-grid" id="creditCardsBanking" role="region" aria-label="Credit Cards and Banking tools">
-
-    <div class="popup-column">
-      <h3>Credit Score</h3>
-      <a href="/credit-score-estimator/" title="Estimate your credit score range">Credit Score Estimator</a>
-      <a href="/credit-utilization-calculator/" title="Calculate your credit utilization ratio">Credit Utilization Calculator</a>
-      <a href="/time-to-improve-credit-score/" title="Estimate time needed to improve your credit score">Time to Improve Credit Score</a>
-    </div>
-
-    <div class="popup-column">
-      <h3>Card Comparison</h3>
-      <a href="/credit-card-rewards-comparator/" title="Compare credit card rewards across cards">Credit Card Rewards Comparator</a>
-      <a href="/cashback-vs-points-calculator/" title="Calculate cashback vs points card value">Cashback vs Points Calculator</a>
-      <a href="/annual-fee-break-even-tool/" title="Find out if a card annual fee is worth it">Annual Fee Break-Even Tool</a>
-      <a href="/balance-transfer-savings-calculator/" title="Calculate savings from a balance transfer">Balance Transfer Savings Calculator</a>
-      <a href="/0-apr-payoff-planner/" title="Plan payoff before 0% APR intro period ends">0% APR Payoff Planner</a>
-    </div>
-
-    <div class="popup-column">
-      <h3>Banking</h3>
-      <a href="/savings-account-apy-comparator/" title="Compare APY rates across savings accounts">Savings Account APY Comparator</a>
-      <a href="/cd-ladder-builder/" title="Build a CD ladder for better yield and liquidity">CD Ladder Builder</a>
-      <a href="/high-yield-savings-calculator/" title="Project growth in a high-yield savings account">High-Yield Savings Calculator</a>
-    </div>
-
-    <div class="popup-column">
-      <h3>Budgeting</h3>
-      <a href="/monthly-budget-planner/" title="Plan your monthly budget across categories">Monthly Budget Planner</a>
-      <a href="/50-30-20-budget-calculator/" title="Split income with the 50/30/20 budget rule">50/30/20 Budget Calculator</a>
-      <a href="/emergency-fund-calculator/" title="Calculate how much emergency fund you need">Emergency Fund Calculator</a>
-      <a href="/net-worth-tracker/" title="Calculate and track your total net worth">Net Worth Tracker</a>
-    </div>
-
-  </div>
-
-  <!-- Insurance -->
-  <div class="popup-grid" id="insurance" role="region" aria-label="Insurance tools">
-
-    <div class="popup-column">
-      <h3>Life Insurance</h3>
-      <a href="/life-cover-need-calculator/" title="Calculate how much life insurance cover you need">Life Cover Need Calculator</a>
-      <a href="/term-vs-whole-life-comparator/" title="Compare term life vs whole life insurance">Term vs Whole Life Comparator</a>
-      <a href="/life-insurance-premium-estimator/" title="Estimate your life insurance premium">Life Insurance Premium Estimator</a>
-      <a href="/income-replacement-calculator/" title="Calculate income replacement lump sum for family">Income Replacement Calculator</a>
-    </div>
-
-    <div class="popup-column">
-      <h3>Health Insurance</h3>
-      <a href="/health-plan-cost-comparator/" title="Compare total annual cost across health plans">Health Plan Cost Comparator</a>
-      <a href="/deductible-break-even-calculator/" title="Find if a high deductible plan saves money">Deductible Break-Even Calculator</a>
-      <a href="/hsa-contribution-optimizer/" title="Optimize your HSA contribution for tax savings">HSA Contribution Optimizer</a>
-      <a href="/out-of-pocket-max-estimator/" title="Estimate your yearly out-of-pocket medical costs">Out-of-Pocket Max Estimator</a>
-    </div>
-
-    <div class="popup-column">
-      <h3>Auto &amp; Home</h3>
-      <a href="/auto-insurance-premium-estimator/" title="Estimate auto insurance premium by profile">Auto Insurance Premium Estimator</a>
-      <a href="/home-insurance-cost-calculator/" title="Calculate home insurance cost by value and coverage">Home Insurance Cost Calculator</a>
-      <a href="/renters-insurance-estimator/" title="Estimate renters insurance premium for your belongings">Renters Insurance Estimator</a>
-    </div>
-
-    <div class="popup-column">
-      <h3>Business Insurance</h3>
-      <a href="/business-liability-coverage-estimator/" title="Estimate general liability insurance for small business">Business Liability Coverage Estimator</a>
-      <a href="/workers-comp-calculator/" title="Calculate workers compensation insurance premium">Workers Comp Calculator</a>
-    </div>
-
-  </div>
-
-  <!-- Legal -->
-  <div class="popup-grid" id="legal" role="region" aria-label="Legal tools">
-
-    <div class="popup-column">
-      <h3>Business Legal</h3>
-      <a href="/llc-vs-corp-comparison/" title="Compare LLC vs Corporation for your business">LLC vs Corp Comparison Tool</a>
-      <a href="/business-structure-cost-estimator/" title="Estimate cost of different business structures">Business Structure Cost Estimator</a>
-      <a href="/trademark-filing-cost-estimator/" title="Estimate USPTO trademark application filing cost">Trademark Filing Cost Estimator</a>
-    </div>
-
-    <div class="popup-column">
-      <h3>Personal Legal</h3>
-      <a href="/will-and-estate-cost-estimator/" title="Estimate will and estate planning costs">Will &amp; Estate Cost Estimator</a>
-      <a href="/divorce-settlement-calculator/" title="Estimate divorce asset division and alimony">Divorce Settlement Calculator</a>
-      <a href="/small-claims-limit-checker/" title="Check small claims court limit by US state">Small Claims Limit Checker</a>
-      <a href="/legal-fee-estimator/" title="Estimate attorney fees for common legal matters">Legal Fee Estimator</a>
-    </div>
-
-    <div class="popup-column">
-      <h3>Employment</h3>
-      <a href="/severance-pay-calculator/" title="Calculate expected severance pay by years of service">Severance Pay Calculator</a>
-      <a href="/employee-vs-contractor-classifier/" title="Determine employee vs independent contractor status">Employee vs Contractor Classifier</a>
-    </div>
-
-    <div class="popup-column">
-      <h3>Real Estate Legal</h3>
-      <a href="/closing-cost-breakdown-tool/" title="Estimate buyer and seller closing costs">Closing Cost Breakdown Tool</a>
-      <a href="/title-insurance-calculator/" title="Estimate title insurance premium for a property">Title Insurance Calculator</a>
-      <a href="/lease-vs-buy-legal-cost/" title="Compare legal and transaction costs of leasing vs buying">Lease vs Buy Legal Cost Tool</a>
-    </div>
-
-  </div>
-
-  <!-- Automotive -->
-  <div class="popup-grid" id="automotive" role="region" aria-label="Automotive tools">
-
-    <div class="popup-column">
-      <h3>Buying &amp; Selling</h3>
-      <a href="/car-loan-emi-calculator/" title="Calculate monthly car loan EMI payment">Car Loan EMI Calculator</a>
-      <a href="/lease-vs-buy-calculator/" title="Compare total cost of leasing vs buying a car">Lease vs Buy Calculator</a>
-      <a href="/true-cost-of-ownership-tool/" title="Estimate 5-year total cost of owning a car">True Cost of Ownership Tool</a>
-      <a href="/car-depreciation-calculator/" title="Calculate how much your car depreciates each year">Car Depreciation Calculator</a>
-      <a href="/trade-in-value-estimator/" title="Estimate your car trade-in value">Trade-In Value Estimator</a>
-    </div>
-
-    <div class="popup-column">
-      <h3>Running Costs</h3>
-      <a href="/fuel-cost-calculator/" title="Calculate monthly and annual fuel cost">Fuel Cost Calculator</a>
-      <a href="/ev-vs-gas-cost-comparator/" title="Compare annual running cost of EV vs petrol car">EV vs Gas Cost Comparator</a>
-      <a href="/annual-car-cost-estimator/" title="Estimate total annual cost of owning a car">Annual Car Cost Estimator</a>
-    </div>
-
-    <div class="popup-column">
-      <h3>Insurance &amp; Tax</h3>
-      <a href="/car-insurance-premium-estimator/" title="Estimate car insurance premium by vehicle and driver">Car Insurance Premium Estimator</a>
-      <a href="/road-tax-calculator/" title="Calculate annual road tax by engine size and fuel type">Road Tax Calculator</a>
-    </div>
-
-    <div class="popup-column">
-      <h3>EV Tools</h3>
-      <a href="/ev-range-calculator/" title="Calculate real-world EV driving range">EV Range Calculator</a>
-      <a href="/ev-charging-cost-calculator/" title="Estimate cost to charge your EV at home or public">EV Charging Cost Calculator</a>
-      <a href="/ev-savings-vs-gas-calculator/" title="Calculate annual fuel savings switching to EV">EV Savings vs Gas Calculator</a>
-      <a href="/home-charger-roi-tool/" title="Estimate payback period for home EV charger install">Home Charger ROI Tool</a>
-      <a href="/ev-tax-credit-estimator/" title="Estimate federal and state EV tax credit eligibility">EV Tax Credit Estimator</a>
-    </div>
-
-  </div>
-
-  <!-- Health & Wellness -->
-  <div class="popup-grid" id="healthWellness" role="region" aria-label="Health and Wellness tools">
-
-    <div class="popup-column">
-      <h3>Body Metrics</h3>
-      <a href="/bmi-calculator/" title="Calculate Body Mass Index from height and weight">BMI Calculator</a>
-      <a href="/bmr-tdee-calculator/" title="Calculate basal metabolic rate and daily energy needs">BMR &amp; TDEE Calculator</a>
-      <a href="/body-fat-percentage-tool/" title="Estimate body fat percentage using Navy method">Body Fat Percentage Tool</a>
-      <a href="/ideal-weight-calculator/" title="Calculate ideal body weight range by method">Ideal Weight Calculator</a>
-      <a href="/waist-to-hip-ratio-tool/" title="Calculate waist-to-hip ratio and cardiovascular risk">Waist-to-Hip Ratio Tool</a>
-    </div>
-
-    <div class="popup-column">
-      <h3>Fitness</h3>
-      <a href="/calorie-burn-estimator/" title="Estimate calories burned during exercise">Calorie Burn Estimator</a>
-      <a href="/macro-calculator/" title="Calculate daily protein, carb, and fat targets">Macro Calculator</a>
-      <a href="/one-rep-max-calculator/" title="Estimate your one rep max for any lift">1 Rep Max Calculator</a>
-      <a href="/workout-volume-calculator/" title="Calculate total weekly training volume">Workout Volume Calculator</a>
-      <a href="/hydration-calculator/" title="Calculate daily water intake recommendation">Hydration Calculator</a>
-    </div>
-
-    <div class="popup-column">
-      <h3>Medical Costs</h3>
-      <a href="/medical-expense-estimator/" title="Estimate annual out-of-pocket medical costs">Medical Expense Estimator</a>
-      <a href="/health-savings-account-planner/" title="Plan HSA contributions for future medical expenses">Health Savings Account Planner</a>
-      <a href="/prescription-cost-comparator/" title="Compare brand vs generic prescription drug costs">Prescription Cost Comparator</a>
-    </div>
-
-    <div class="popup-column">
-      <h3>Mental Health</h3>
-      <a href="/stress-score-calculator/" title="Calculate your stress score with actionable tips">Stress Score Calculator</a>
-      <a href="/sleep-quality-index/" title="Rate your sleep quality across key dimensions">Sleep Quality Index</a>
-      <a href="/burnout-risk-assessment/" title="Assess your burnout risk level from work habits">Burnout Risk Assessment</a>
-      <a href="/work-life-balance-scorer/" title="Score your work-life balance by life domain">Work-Life Balance Scorer</a>
-    </div>
-
-  </div>
-
-  <!-- Crypto & DeFi -->
-  <div class="popup-grid" id="cryptoDefi" role="region" aria-label="Cryptocurrency and DeFi tools">
-
-    <div class="popup-column">
-      <h3>Trading</h3>
-      <a href="/crypto-profit-loss-calculator/" title="Calculate profit or loss on a crypto trade">Crypto Profit / Loss Calculator</a>
-      <a href="/dca-bitcoin-calculator/" title="Simulate dollar-cost averaging into Bitcoin">DCA Bitcoin Calculator</a>
-      <a href="/crypto-break-even-price-calculator/" title="Find break-even price for your crypto investment">Break-Even Price Calculator</a>
-      <a href="/liquidation-price-estimator/" title="Estimate liquidation price for leveraged crypto position">Liquidation Price Estimator</a>
-      <a href="/crypto-tax-estimator/" title="Estimate capital gains tax on cryptocurrency trades">Crypto Tax Estimator</a>
-    </div>
-
-    <div class="popup-column">
-      <h3>DeFi</h3>
-      <a href="/impermanent-loss-calculator/" title="Calculate impermanent loss from DeFi liquidity pools">Impermanent Loss Calculator</a>
-      <a href="/yield-farming-apy-calculator/" title="Convert APR to APY for yield farming strategies">Yield Farming APY Calculator</a>
-      <a href="/staking-rewards-calculator/" title="Estimate annual staking rewards and income">Staking Rewards Calculator</a>
-      <a href="/gas-fee-estimator/" title="Estimate Ethereum gas fees in USD">Gas Fee Estimator</a>
-    </div>
-
-    <div class="popup-column">
-      <h3>Portfolio</h3>
-      <a href="/crypto-portfolio-tracker/" title="Track your crypto portfolio value and allocation">Crypto Portfolio Tracker</a>
-      <a href="/crypto-allocation-planner/" title="Plan crypto allocation across risk tiers">Crypto Allocation Planner</a>
-      <a href="/crypto-cost-basis-calculator/" title="Calculate average cost basis across crypto purchases">Cost Basis Calculator</a>
-      <a href="/crypto-to-fiat-converter/" title="Convert cryptocurrency amount to fiat currency">Crypto to Fiat Converter</a>
-    </div>
-
-    <div class="popup-column">
-      <h3>Mining &amp; NFT</h3>
-      <a href="/mining-profitability-calculator/" title="Estimate daily crypto mining profit by hash rate">Mining Profitability Calculator</a>
-      <a href="/nft-flip-profit-tool/" title="Calculate net profit from flipping an NFT">NFT Flip Profit Tool</a>
-    </div>
-
-  </div>
-
-  <!-- AI & Tech -->
-  <div class="popup-grid" id="aiTech" role="region" aria-label="AI and Tech tools">
-
-    <div class="popup-column">
-      <h3>AI Cost</h3>
-      <a href="/llm-api-cost-calculator/" title="Estimate monthly LLM API costs for your app">LLM API Cost Calculator</a>
-      <a href="/token-usage-estimator/" title="Convert word count to LLM token count estimate">Token Usage Estimator</a>
-      <a href="/ai-vs-human-cost-comparator/" title="Compare cost of AI automation vs hiring humans">AI vs Human Cost Comparator</a>
-      <a href="/model-cost-comparison-tool/" title="Compare cost per token across major LLM models">Model Cost Comparison Tool</a>
-    </div>
-
-    <div class="popup-column">
-      <h3>Dev Tools</h3>
-      <a href="/cloud-hosting-cost-comparator/" title="Compare cloud hosting costs across AWS GCP and Azure">Cloud Hosting Cost Comparator</a>
-      <a href="/api-rate-limit-planner/" title="Plan API rate limits for your request volume">API Rate Limit Planner</a>
-      <a href="/tech-stack-cost-estimator/" title="Estimate monthly infrastructure cost for a SaaS app">Tech Stack Cost Estimator</a>
-    </div>
-
-    <div class="popup-column">
-      <h3>Productivity</h3>
-      <a href="/automation-roi-calculator/" title="Calculate ROI from automating a manual workflow">Automation ROI Calculator</a>
-      <a href="/time-saved-by-ai-tool/" title="Estimate weekly hours saved using AI tools">Time Saved by AI Tool</a>
-      <a href="/meeting-cost-calculator/" title="Calculate the real dollar cost of a meeting">Meeting Cost Calculator</a>
-      <a href="/no-code-vs-custom-dev-cost/" title="Compare no-code vs custom development cost and time">No-Code vs Custom Dev Cost Tool</a>
-    </div>
-
-    <div class="popup-column">
-      <h3>Business AI</h3>
-      <a href="/chatbot-vs-human-support-cost/" title="Compare AI chatbot vs human customer support cost">Chatbot vs Human Support Cost</a>
-      <a href="/ai-adoption-roi-tool/" title="Estimate ROI from adopting AI in your business">AI Adoption ROI Tool</a>
-      <a href="/ai-content-cost-estimator/" title="Compare cost of AI-generated vs human-written content">AI Content Cost Estimator</a>
-    </div>
-
-  </div>
-
-  <!-- B2B & SaaS -->
-  <div class="popup-grid" id="b2bSaas" role="region" aria-label="B2B and SaaS tools">
-
-    <div class="popup-column">
-      <h3>Pricing &amp; Revenue</h3>
-      <a href="/saas-pricing-calculator/" title="Model monthly and annual revenue across pricing tiers">SaaS Pricing Calculator</a>
-      <a href="/mrr-arr-calculator/" title="Calculate Monthly and Annual Recurring Revenue">MRR / ARR Calculator</a>
-      <a href="/revenue-run-rate-tool/" title="Annualize current monthly revenue to full-year run rate">Revenue Run Rate Tool</a>
-      <a href="/freemium-conversion-estimator/" title="Estimate revenue from freemium to paid conversion">Freemium Conversion Estimator</a>
-    </div>
-
-    <div class="popup-column">
-      <h3>Unit Economics</h3>
-      <a href="/cac-calculator/" title="Calculate Customer Acquisition Cost for your SaaS">CAC Calculator</a>
-      <a href="/ltv-calculator/" title="Calculate Customer Lifetime Value for your SaaS">LTV Calculator</a>
-      <a href="/ltv-cac-ratio-tool/" title="Compute LTV to CAC ratio and benchmark against 3:1">LTV:CAC Ratio Tool</a>
-      <a href="/payback-period-calculator/" title="Find months to recover customer acquisition cost">Payback Period Calculator</a>
-      <a href="/burn-rate-calculator/" title="Calculate monthly burn rate and runway in months">Burn Rate Calculator</a>
-    </div>
-
-    <div class="popup-column">
-      <h3>Growth</h3>
-      <a href="/churn-rate-calculator/" title="Calculate monthly and annual customer churn rate">Churn Rate Calculator</a>
-      <a href="/net-revenue-retention-tool/" title="Calculate net revenue retention from existing customers">Net Revenue Retention Tool</a>
-    </div>
-
-    <div class="popup-column">
-      <h3>ROI Tools</h3>
-      <a href="/saas-roi-calculator/" title="Calculate return on investment for a SaaS tool">SaaS ROI Calculator</a>
-      <a href="/productivity-roi-calculator/" title="Estimate dollar value of productivity gains from software">Productivity ROI Calculator</a>
-      <a href="/tool-consolidation-savings-estimator/" title="Calculate savings from replacing multiple tools with one">Tool Consolidation Savings Estimator</a>
-    </div>
-
-  </div>
-
-  <!-- Make Money Online / Earning -->
-  <div class="popup-grid" id="earning" role="region" aria-label="Make Money Online and Earning tools">
-
-    <div class="popup-column">
-      <h3>Affiliate</h3>
-      <a href="/affiliate-commission-calculator/" title="Calculate expected monthly affiliate income">Affiliate Commission Calculator</a>
-      <a href="/niche-revenue-potential-tool/" title="Estimate monthly revenue potential for a content niche">Niche Revenue Potential Tool</a>
-      <a href="/affiliate-vs-display-ad-comparator/" title="Compare affiliate links vs display advertising income">Affiliate vs Display Ad Comparator</a>
-    </div>
-
-    <div class="popup-column">
-      <h3>Content &amp; SEO</h3>
-      <a href="/blog-revenue-estimator/" title="Estimate monthly blog income from pageviews and RPM">Blog Revenue Estimator</a>
-      <a href="/rpm-calculator/" title="Calculate Revenue Per Mille from earnings and impressions">RPM Calculator</a>
-      <a href="/traffic-to-revenue-projector/" title="Project monthly revenue as your site traffic grows">Traffic to Revenue Projector</a>
-      <a href="/keyword-cpm-estimator/" title="Estimate CPM value of a keyword by advertiser competition">Keyword CPM Estimator</a>
-    </div>
-
-    <div class="popup-column">
-      <h3>Freelance</h3>
-      <a href="/freelance-rate-calculator/" title="Calculate minimum hourly rate for your desired income">Freelance Rate Calculator</a>
-      <a href="/project-profit-margin-tool/" title="Calculate net profit on a fixed-price freelance project">Project Profit Margin Tool</a>
-      <a href="/hourly-vs-project-rate-comparator/" title="Decide whether to charge hourly or fixed project rate">Hourly vs Project Rate Comparator</a>
-    </div>
-
-    <div class="popup-column">
-      <h3>Digital Products</h3>
-      <a href="/course-pricing-calculator/" title="Estimate optimal online course price for your revenue goal">Course Pricing Calculator</a>
-      <a href="/membership-site-revenue-projector/" title="Project monthly recurring revenue from a membership site">Membership Site Revenue Projector</a>
-      <a href="/digital-product-profit-calculator/" title="Calculate net profit from digital product sales">Digital Product Profit Calculator</a>
-      <a href="/launch-revenue-goal-planner/" title="Work backwards from a launch revenue goal to traffic needed">Launch Revenue Goal Planner</a>
-    </div>
-
-  </div>
-
 </header>
 
+<nav class="breadcrumb" aria-label="breadcrumb">
+  
+
+  {% if page.is_catpage %}
+    {% comment %} On a category landing page: Home / Converters {% endcomment %}
+    <span class="sep">Home/</span>
+    <span class="current" aria-current="page">{{ page.title }}</span>
+
+  {% else %}
+    {% comment %} On a tool page: Home / Converters / Tool Name {% endcomment %}
+    {% assign current_tool = site.data.tools | where: "url", page.url | first %}
+    {% assign cat = site.data.categories[current_tool.category] %}
+
+    {% if cat %}
+      <span class="sep">Home/</span>
+      <a href="{{ cat.parent_url }}">{{ cat.parent }}</a>
+    {% endif %}
+    <span class="sep">/</span>
+    <span class="current" aria-current="page">{{ current_tool.title }}</span>
+  {% endif %}
+</nav>
+
+{% if page.is_homepage %}
+
+<!-- Homepage: no tool-grid, just render content full width -->
 <main id="content" role="main">
-  {{content}}
+  {{ content }}
 </main>
 
+{% else %}
+
+<div class="tool-grid">
+
+  <div class="tool-main">
+    <main id="content" role="main">
+      {{ content }}
+    </main>
+  </div>
+
+  <div class="tool-sidebar">
+
+    <div class="sidebar-ad">
+
+    </div>
+    <div class="sidebar-card">
+      <h4>🔗 Related Tools</h4>
+      {% assign related_tools = site.data.tools | where: "category", page.category %}
+      {% assign count = 0 %}
+      {% for tool in related_tools %}
+      {% if tool.url != page.url and count < 10 %} <a href="{{ tool.url }}">{{ tool.title }}</a>
+        {% assign count = count | plus: 1 %}
+        {% endif %}
+        {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endif %}
 
 <script>
-    (function() {
-      const hamburger = document.getElementById('hamburger');
-      const drawer = document.getElementById('mobileDrawer');
-      const overlay = document.getElementById('overlay');
-      
-      function closeDrawer() {
-        hamburger.classList.remove('active');
-        drawer.classList.remove('active');
-        overlay.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-      function openDrawer() {
-        hamburger.classList.add('active');
-        drawer.classList.add('active');
-        overlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
-      
-      hamburger.addEventListener('click', (e) => {
-        e.stopPropagation();
-        if (drawer.classList.contains('active')) closeDrawer();
-        else openDrawer();
-      });
-      overlay.addEventListener('click', closeDrawer);
-      
-      // Mobile accordion (tap to expand)
-      const mobTriggers = document.querySelectorAll('.mobile-nav-trigger');
-      mobTriggers.forEach(trigger => {
-        trigger.addEventListener('click', (e) => {
-          e.preventDefault();
-          const targetId = trigger.dataset.target;
-          const submenu = document.getElementById(targetId);
-          if (submenu) {
-            trigger.classList.toggle('open');
-            submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
-          }
-        });
-      });
-      
-      // ----- DESKTOP MEGA MENU (click to toggle) -----
-      const desktopTriggers = document.querySelectorAll('.desktop-nav .nav-item');
-      const popups = document.querySelectorAll('.popup-grid');
-      
-      function hideAllPopups(exceptId = null) {
-        popups.forEach(popup => {
-          if (exceptId === null || popup.id !== exceptId) {
-            popup.style.display = 'none';
-            const relatedTrigger = Array.from(desktopTriggers).find(t => t.dataset.popup === popup.id);
-            if (relatedTrigger) relatedTrigger.setAttribute('aria-expanded', 'false');
-          }
-        });
-      }
-      
-      function positionPopup(trigger, popup) {
-        popup.style.display = 'grid';
-        popup.style.visibility = 'hidden';
-        const rect = trigger.getBoundingClientRect();
-        const popupRect = popup.getBoundingClientRect();
-        let left = rect.left + (rect.width / 2) - (popupRect.width / 2);
-        left = Math.max(10, Math.min(left, window.innerWidth - popupRect.width - 10));
-        popup.style.left = left + 'px';
-        popup.style.top = (rect.bottom + 5) + 'px';
-        popup.style.visibility = 'visible';
-      }
-      
-      // Click handler for each nav item
-      desktopTriggers.forEach(trigger => {
-        const popupId = trigger.dataset.popup;
-        const popup = document.getElementById(popupId);
-        if (!popup) return;
-        
-        trigger.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const isOpen = popup.style.display === 'grid';
-          hideAllPopups(isOpen ? null : popupId);
-          
-          if (!isOpen) {
-            positionPopup(trigger, popup);
-            trigger.setAttribute('aria-expanded', 'true');
-          } else {
-            trigger.setAttribute('aria-expanded', 'false');
-          }
-        });
-      });
-      
-      // Click outside to close all popups
-      document.addEventListener('click', (e) => {
-        if (!e.target.closest('.desktop-nav .nav-item') && !e.target.closest('.popup-grid')) {
-          hideAllPopups();
-        }
-      });
-      
-      // Reposition on resize (only for visible popups)
-      window.addEventListener('resize', () => {
-        popups.forEach(popup => {
-          if (popup.style.display === 'grid') {
-            const activeTrigger = Array.from(desktopTriggers).find(t => t.dataset.popup === popup.id);
-            if (activeTrigger) positionPopup(activeTrigger, popup);
-          }
-        });
-      });
-    })();
+  (function () {
+    const hamburger = document.getElementById('hamburger');
+    const drawer = document.getElementById('mobileDrawer');
+    const overlay = document.getElementById('overlay');
+
+    function closeDrawer() {
+      hamburger.classList.remove('active');
+      drawer.classList.remove('active');
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    function openDrawer() {
+      hamburger.classList.add('active');
+      drawer.classList.add('active');
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    hamburger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (drawer.classList.contains('active')) closeDrawer();
+      else openDrawer();
+    });
+    overlay.addEventListener('click', closeDrawer);
+
+  })();
 </script>

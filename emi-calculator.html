@@ -1,0 +1,582 @@
+---
+layout: main
+title: "EMI Calculator – Calculate Equated Monthly Installment"
+description: "Calculate your Equated Monthly Installment (EMI) for any loan. See total interest and full amortization schedule. Works in USD, EUR, INR, PKR & 170+ currencies."
+keywords: "emi calculator, equated monthly installment calculator, loan emi calculator, monthly installment calculator, emi loan calculator"
+category: loans
+---
+<!-- ═══════════════════════════════════════════════════════
+     JSON‑LD SCHEMAS — EMI Calculator
+═══════════════════════════════════════════════════════ -->
+
+<!-- 1. WebApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "EMI Calculator – Free Online Tool | Calculate Equated Monthly Installment",
+  "description": "Calculate your Equated Monthly Installment (EMI) for any loan. See total interest and full amortization schedule. Works in 170+ currencies.",
+  "url": "https://datafrog.tools/emi-calculator/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+
+<!-- 2. BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://datafrog.tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "EMI Calculator",
+      "item": "https://datafrog.tools/emi-calculator/"
+    }
+  ]
+}
+</script>
+
+<!-- 3. HowTo -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use the EMI Calculator",
+  "description": "Step by step guide to calculate Equated Monthly Installment for any loan.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Select your currency",
+      "text": "Choose from 170+ global currencies including USD, EUR, INR, PKR, AED, and more."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Enter the loan amount",
+      "text": "Enter the total amount you plan to borrow."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Set your interest rate",
+      "text": "Enter the annual percentage rate on the loan."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Choose the loan term in months",
+      "text": "Enter how many months you have to repay the loan."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "View your EMI",
+      "text": "See your monthly EMI, total interest, and full amortization schedule."
+    }
+  ]
+}
+</script>
+
+<!-- 4. FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does EMI stand for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "EMI stands for Equated Monthly Installment — the fixed amount you pay each month to repay a loan, covering both principal and interest."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is EMI calculated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "EMI is calculated using the formula: EMI = P × (r × (1 + r)^n) / ((1 + r)^n − 1). This monthly EMI calculator does the math for you instantly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What factors affect my EMI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Three factors determine your EMI: the loan amount, the interest rate, and the loan term."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is an amortization schedule?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An amortization schedule is a complete breakdown of every EMI payment over the life of the loan, showing principal, interest, and remaining balance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I pay more than my EMI amount?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Making extra payments reduces your principal faster, which means you pay less total interest and can pay off your loan early."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the loan term affect my EMI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A longer loan term means lower EMI payments but more total interest. A shorter term means higher EMI payments but less total interest."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this EMI calculator accurate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. This equated monthly installment calculator uses the standard EMI formula and is accurate for planning."
+      }
+    }
+  ]
+}
+</script>
+<div class="tool-page">
+  <article >
+    <meta  content="EMI Calculator" />
+    
+    
+
+    <section class="page-heading">
+      <h1 >EMI Calculator — Equated Monthly Installment</h1>
+      <p class="tool-subtitle">
+        Calculate your <strong>Equated Monthly Installment (EMI)</strong> for any loan. See the full <strong>amortization schedule</strong>, total interest, and total payment — instantly in <strong>your currency</strong> with support for 170+ currencies.
+      </p>
+    </section>
+
+    <div class="tool-body">
+      <!-- LEFT COLUMN – INPUT PANEL -->
+      <aside class="tool-input-col" aria-label="Calculator inputs">
+        <div class="panel input-panel">
+
+          <!-- Currency Selector -->
+          <div class="form-group">
+            <label for="currencySearch">Currency</label>
+            <div class="currency-search-wrapper">
+              <input type="text" id="currencySearch" placeholder="Type currency name or code" autocomplete="off" />
+              <div id="currencyResults" class="currency-results"></div>
+            </div>
+          </div>
+
+          <!-- Loan Amount -->
+          <div class="form-group">
+            <label for="loanAmount">Loan Amount</label>
+            <div class="input-addons">
+              <span class="input-addon" id="currencySymbol">$</span>
+              <input type="number" id="loanAmount" value="100000" min="0" step="500" oninput="syncSlider('loanAmount');calculate()" />
+            </div>
+            <div class="slider-row">
+              <input type="range" id="loanAmountSlider" min="0" max="10000000" step="500" value="100000" oninput="syncInput('loanAmount',this.value);calculate()" />
+              <span class="slider-val" id="loanAmountSliderVal">$100,000</span>
+            </div>
+            <span class="field-hint">Total amount you want to borrow</span>
+          </div>
+
+          <!-- Interest Rate -->
+          <div class="form-group">
+            <label for="rate">Annual Interest Rate (%)</label>
+            <div class="input-addons">
+              <input type="number" id="rate" value="8" min="0" max="30" step="0.1" oninput="syncSlider('rate');calculate()" />
+              <span class="input-addon input-addon--right">%</span>
+            </div>
+            <div class="slider-row">
+              <input type="range" id="rateSlider" min="0" max="30" step="0.1" value="8" oninput="syncInput('rate',this.value);calculate()" />
+              <span class="slider-val" id="rateSliderVal">8.0%</span>
+            </div>
+            <span class="field-hint">Annual interest rate on the loan</span>
+          </div>
+
+          <!-- Loan Term (Months) -->
+          <div class="form-group">
+            <label for="loanTermMonths">Loan Term (Months)</label>
+            <div class="input-addons">
+              <input type="number" id="loanTermMonths" value="60" min="1" max="600" step="1" oninput="syncSlider('loanTermMonths');calculate()" />
+              <span class="input-addon input-addon--right">mo</span>
+            </div>
+            <div class="slider-row">
+              <input type="range" id="loanTermMonthsSlider" min="1" max="600" step="1" value="60" oninput="syncInput('loanTermMonths',this.value);calculate()" />
+              <span class="slider-val" id="loanTermMonthsSliderVal">60 mo</span>
+            </div>
+            <span class="field-hint">Total loan repayment period in months</span>
+          </div>
+
+          <div class="calc-actions">
+            <button class="btn btn-ghost" onclick="resetForm()">Reset</button>
+            <button class="btn btn-primary" onclick="shareURL()" id="shareBtn">Share</button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- RIGHT COLUMN – RESULTS PANEL -->
+      <section class="tool-output-col" aria-label="Calculator results" aria-live="polite">
+
+        <!-- Result Cards -->
+        <div class="result-cards">
+          <div class="result-card">
+            <div class="result-label">Monthly EMI</div>
+            <div class="result-value" id="monthlyEmi">—</div>
+            <div class="result-sub">Fixed monthly payment</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Total Interest</div>
+            <div class="result-value" id="totalInterest">—</div>
+            <div class="result-sub">Cost of borrowing</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Total Payment</div>
+            <div class="result-value" id="totalPayment">—</div>
+            <div class="result-sub">Principal + Interest</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Principal</div>
+            <div class="result-value" id="principalAmount">—</div>
+            <div class="result-sub">Amount borrowed</div>
+          </div>
+        </div>
+
+        <!-- Insights Panel -->
+        <div class="insights-panel" id="insightsPanel">
+          <div class="insights-grid" id="insightsGrid">
+            <!-- Populated by JavaScript -->
+          </div>
+        </div>
+
+        <!-- Chart Panel -->
+        <div class="chart-panel">
+          <div class="chart-tabs" role="tablist">
+            <button class="chart-tab active" data-chart="line" onclick="switchChart('line',this)" role="tab">Balance Over Time</button>
+            <button class="chart-tab" data-chart="bar" onclick="switchChart('bar',this)" role="tab">Principal vs Interest</button>
+            <button class="chart-tab" data-chart="donut" onclick="switchChart('donut',this)" role="tab">Cost Breakdown</button>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="toolChart" role="img" aria-label="EMI amortization chart"></canvas>
+          </div>
+        </div>
+
+        <!-- Action Bar -->
+        <div class="action-bar">
+          <button class="action-btn" onclick="downloadCSV()" title="Download data as CSV">⬇ Download CSV</button>
+          <button class="action-btn" onclick="copyResult()" title="Copy result to clipboard" id="copyBtn">📋 Copy Result</button>
+          <button class="action-btn" onclick="exportChart()" title="Export chart as PNG">🖼️ Export Chart</button>
+        </div>
+
+        <!-- Amortization Table -->
+        <div class="breakdown-panel">
+          <div class="breakdown-title">Amortization Schedule</div>
+          <div class="table-wrap">
+            <table class="breakdown-table" id="breakdownTable" aria-label="EMI amortization schedule">
+              <thead id="tableHead"></thead>
+              <tbody id="tableBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+    </div>
+  </article>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     ON‑PAGE CONTENT — SEO & GEO OPTIMISED
+═══════════════════════════════════════════════════════ -->
+<section class="onpage-content" >
+  <meta  content="EMI Calculator – How to Calculate Equated Monthly Installment" />
+  <meta  content="Learn how to calculate EMI, total interest, and amortization schedule for any loan. Free tool works in USD, EUR, INR, PKR & 170+ currencies." />
+
+  <!-- ─────────────────────────────────────────────────────
+       WHY EMI MATTERS
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>Why Understanding Your EMI Matters</h2>
+    <p>
+      <strong>Equated Monthly Installment (EMI)</strong> is the fixed amount you pay each month to repay a loan. Understanding your <strong>EMI</strong> helps you plan your monthly budget, compare loan offers, and avoid over‑borrowing.
+    </p>
+    <p>
+      This <strong>EMI calculator</strong> shows you exactly how much you'll pay each month, how much interest you'll pay over the life of the loan, and provides a full <strong>amortization schedule</strong> — all in <strong>your local currency</strong>.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       WHO IS THIS CALCULATOR FOR
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>Who Can Use This EMI Calculator</h2>
+    <p>
+      This <strong>loan EMI calculator</strong> is designed for anyone planning to borrow money:
+    </p>
+    <ul class="content-list">
+      <li><strong>Home buyers</strong> – calculating home loan EMIs</li>
+      <li><strong>Car buyers</strong> – estimating auto loan EMIs</li>
+      <li><strong>Students</strong> – planning education loan repayments</li>
+      <li><strong>Business owners</strong> – evaluating business loan EMIs</li>
+      <li><strong>Anyone taking a loan</strong> – seeing the true cost of borrowing</li>
+    </ul>
+    <p>
+      This tool works for <strong>everyone</strong> — regardless of country or currency. With support for <strong>170+ currencies</strong>, you can calculate in <strong>USD, EUR, GBP, INR, PKR, AED, SAR, CAD, AUD, SGD, MYR, PHP, TRY, ZAR</strong>, and many more.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       HOW TO USE
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>How to Use This EMI Calculator</h2>
+    <div class="howto-steps">
+      <div class="step">
+        <span class="step-number">1</span>
+        <span><strong>Select your currency</strong> – from 170+ global currencies.</span>
+      </div>
+      <div class="step">
+        <span class="step-number">2</span>
+        <span><strong>Enter the loan amount</strong> – the total amount you plan to borrow.</span>
+      </div>
+      <div class="step">
+        <span class="step-number">3</span>
+        <span><strong>Set your interest rate</strong> – the annual percentage rate on the loan.</span>
+      </div>
+      <div class="step">
+        <span class="step-number">4</span>
+        <span><strong>Choose the loan term in months</strong> – how many months you have to repay.</span>
+      </div>
+      <div class="step">
+        <span class="step-number">5</span>
+        <span><strong>View your EMI</strong> – see your monthly payment, total interest, and full amortization schedule.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       THE FORMULA
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>The EMI Formula</h2>
+    <p>
+      The <strong>equated monthly installment formula</strong> calculates your fixed monthly payment based on the loan amount, interest rate, and loan term:
+    </p>
+    <div class="formula-box">
+      EMI = P × (r × (1 + r)<sup>n</sup>) / ((1 + r)<sup>n</sup> − 1)
+      <span class="formula-note">
+        Where: <strong>EMI</strong> = Equated Monthly Installment, <strong>P</strong> = principal (loan amount), <strong>r</strong> = monthly interest rate, <strong>n</strong> = total number of months
+      </span>
+    </div>
+    <p>
+      For example, if you borrow $100,000 at 8% for 60 months, your <strong>monthly EMI</strong> would be approximately $2,028 — and you'd pay $21,658 in total interest over the life of the loan.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       AMORTIZATION EXPLAINED
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>What Is Amortization?</h2>
+    <p>
+      <strong>Amortization</strong> is the process of spreading out a loan into a series of fixed payments over time. Each EMI payment covers both <strong>principal</strong> (the amount you borrowed) and <strong>interest</strong> (the cost of borrowing).
+    </p>
+    <p>
+      Early in the loan term, a larger portion of each EMI goes toward interest. Over time, as the principal decreases, more of your payment goes toward the principal. This <strong>EMI amortization calculator</strong> shows you the full schedule of how your loan balance decreases over time.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       EXPECTED RESULTS
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>What Results Can You Expect from This EMI Calculator</h2>
+    <div class="example-grid">
+      <div class="example-card">
+        <h3>📊 Monthly EMI</h3>
+        <p>The fixed amount you'll pay each month — including both principal and interest.</p>
+      </div>
+      <div class="example-card">
+        <h3>💰 Total Interest</h3>
+        <p>The total cost of borrowing — how much you'll pay in interest over the life of the loan.</p>
+      </div>
+      <div class="example-card">
+        <h3>📈 Total Payment</h3>
+        <p>The total amount you'll pay over the life of the loan — principal + interest.</p>
+      </div>
+      <div class="example-card">
+        <h3>📋 Amortization Schedule</h3>
+        <p>A complete breakdown of every EMI payment, showing principal, interest, and remaining balance.</p>
+      </div>
+      <div class="example-card">
+        <h3>📊 Interactive Charts</h3>
+        <p>Visual representations of how your loan balance decreases over time.</p>
+      </div>
+    </div>
+
+    <h3>Example Scenarios</h3>
+    <div class="example-grid">
+      <div class="example-card">
+        <h4>Scenario 1: $100,000 at 8% for 60 Months</h4>
+        <ul>
+          <li><strong>Monthly EMI:</strong> $2,028</li>
+          <li><strong>Total Interest:</strong> $21,658</li>
+          <li><strong>Total Payment:</strong> $121,658</li>
+        </ul>
+      </div>
+      <div class="example-card">
+        <h4>Scenario 2: ₹50,00,000 at 9% for 240 Months</h4>
+        <ul>
+          <li><strong>Monthly EMI:</strong> ₹44,986</li>
+          <li><strong>Total Interest:</strong> ₹57,96,640</li>
+          <li><strong>Total Payment:</strong> ₹1,07,96,640</li>
+        </ul>
+      </div>
+      <div class="example-card">
+        <h4>Scenario 3: $30,000 at 6% for 36 Months</h4>
+        <ul>
+          <li><strong>Monthly EMI:</strong> $913</li>
+          <li><strong>Total Interest:</strong> $2,868</li>
+          <li><strong>Total Payment:</strong> $32,868</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       FIXED VS REDUCING BALANCE
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>Fixed vs Reducing Balance EMI — What's the Difference?</h2>
+    <table class="example-table">
+      <thead>
+        <tr><th>Method</th><th>Description</th><th>Interest Calculation</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Reducing Balance</strong></td>
+          <td>Interest is calculated on the outstanding principal</td>
+          <td>Interest decreases as principal is repaid</td>
+        </tr>
+        <tr>
+          <td><strong>Fixed / Flat Rate</strong></td>
+          <td>Interest is calculated on the full principal for the entire term</td>
+          <td>Interest remains constant throughout the loan</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="dataset-note">
+      * This <strong>EMI calculator online</strong> uses the <strong>reducing balance method</strong>, which is the standard for most loans worldwide.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       FAQ SECTION
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block faq-section">
+    <h2>Frequently Asked Questions About EMI</h2>
+
+    <div class="faq-list" >
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          1. What does EMI stand for?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            <strong>EMI</strong> stands for <strong>Equated Monthly Installment</strong> — the fixed amount you pay each month to repay a loan, covering both principal and interest.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          2. How is EMI calculated?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            <strong>EMI</strong> is calculated using the formula: <code>EMI = P × (r × (1 + r)^n) / ((1 + r)^n − 1)</code>. This <strong>monthly EMI calculator</strong> does the math for you instantly.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          3. What factors affect my EMI?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            Three factors determine your <strong>EMI</strong>: the <strong>loan amount</strong> (higher amount = higher EMI), the <strong>interest rate</strong> (higher rate = higher EMI), and the <strong>loan term</strong> (shorter term = higher EMI, but less total interest).
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          4. What is an amortization schedule?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            An <strong>amortization schedule</strong> is a complete breakdown of every EMI payment over the life of the loan. It shows how much of each payment goes toward principal and interest, and what your remaining balance is after each payment.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          5. Can I pay more than my EMI amount?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            Yes. Making <strong>extra payments</strong> reduces your principal faster, which means you pay less total interest and can pay off your loan early. Check with your lender for any prepayment penalties.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          6. How does the loan term affect my EMI?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            A longer <strong>loan term</strong> means lower EMI payments but more total interest. A shorter term means higher EMI payments but less total interest. Use this <strong>EMI loan calculator</strong> to compare different terms.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          7. Is this EMI calculator accurate?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            Yes. This <strong>equated monthly installment calculator</strong> uses the standard EMI formula and is accurate for planning. However, actual loan terms may vary — always check with your lender for final numbers.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+<!-- ==========================================================
+     LOAD SCRIPTS
+     ========================================================== -->
+<script src="/assets/js/emi-calculator.js"></script>

@@ -1,430 +1,600 @@
-// =============================================================================
-// PRESENT VALUE CALCULATOR — Full JS
-// Same structure as future-value.js, adjusted for discounting
-// =============================================================================
+// ============================================================
+// PRESENT VALUE CALCULATOR
+// ============================================================
 
-// --- Currency data (fallback if currencies.js not loaded) ---
-const DEFAULT_CURRENCIES = [
-  { code: "USD", symbol: "$", name: "US Dollar" },
-  { code: "EUR", symbol: "€", name: "Euro" },
-  { code: "GBP", symbol: "£", name: "British Pound" },
-  { code: "JPY", symbol: "¥", name: "Japanese Yen" },
-  { code: "INR", symbol: "₹", name: "Indian Rupee" },
-  { code: "PKR", symbol: "₨", name: "Pakistani Rupee" },
-  { code: "CAD", symbol: "C$", name: "Canadian Dollar" },
-  { code: "AUD", symbol: "A$", name: "Australian Dollar" },
-  { code: "CHF", symbol: "Fr", name: "Swiss Franc" },
-  { code: "CNY", symbol: "¥", name: "Chinese Yuan" },
-  { code: "BRL", symbol: "R$", name: "Brazilian Real" },
-  { code: "ZAR", symbol: "R", name: "South African Rand" }
-];
+(function() {
+  'use strict';
 
-let allCurrencies = window.allCurrencies || DEFAULT_CURRENCIES;
-// Deduplicate and sort
-if (!window.allCurrencies) {
-  const seen = new Set();
-  allCurrencies = DEFAULT_CURRENCIES.filter(c => {
-    if (seen.has(c.code)) return false;
-    seen.add(c.code);
-    return true;
-  });
-}
-allCurrencies.sort((a,b) => a.code.localeCompare(b.code));
+  // ── Ensure data exists ──
+  var currencies = window.currencies || [];
+  var ranges = window.ranges || {};
 
-// --- Global state ---
-let currentCurrency = allCurrencies.find(c => c.code === 'USD') || allCurrencies[0];
-let chartInstance = null;
-let currentChartType = 'line';
+  // ── DOM References ──
+  var currencySearch = document.getElementById('currencySearch');
+  var currencyResults = document.getElementById('currencyResults');
+  var currencySymbols = document.querySelectorAll('[id^="currencySymbol"]');
 
-// Helper: format compact (k, M, B)
-function formatCompact(num) {
-  const val = isFinite(parseFloat(num)) ? parseFloat(num) : 0;
-  const s = currentCurrency.symbol;
-  if (val >= 1e9) return s + (val / 1e9).toFixed(1) + 'B';
-  if (val >= 1e6) return s + (val / 1e6).toFixed(1) + 'M';
-  if (val >= 1e3) return s + (val / 1e3).toFixed(1) + 'k';
-  return s + val.toFixed(0);
-}
-function formatCurrency(num) {
-  const val = isFinite(parseFloat(num)) ? parseFloat(num) : 0;
-  return currentCurrency.symbol + val.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-}
+  var futureValue = document.getElementById('futureValue');
+  var futureValueSlider = document.getElementById('futureValueSlider');
+  var rate = document.getElementById('rate');
+  var rateSlider = document.getElementById('rateSlider');
+  var years = document.getElementById('years');
+  var yearsSlider = document.getElementById('yearsSlider');
+  var compounding = document.getElementById('compounding');
 
-// Slider helpers (reuse same field names)
-function syncSlider(id) {
-  const input = document.getElementById(id);
-  const slider = document.getElementById(id + 'Slider');
-  const display = document.getElementById(id + 'SliderVal');
-  if (!input || !slider) return;
-  const val = parseFloat(input.value) || 0;
-  slider.value = val;
-  if (display) {
-    if (id === 'futureValue') display.textContent = formatCompact(val);
-    else if (id === 'rate') display.textContent = val + '%';
-    else if (id === 'years') display.textContent = val + ' yrs';
-    else display.textContent = val;
+  var presentValue = document.getElementById('presentValue');
+  var totalDiscount = document.getElementById('totalDiscount');
+  var discountRate = document.getElementById('discountRate');
+  var pvFactor = document.getElementById('pvFactor');
+  var insightsGrid = document.getElementById('insightsGrid');
+  var tableHead = document.getElementById('tableHead');
+  var tableBody = document.getElementById('tableBody');
+  var toolChart = document.getElementById('toolChart');
+
+  var chartInstance = null;
+  var selectedCurrency = { code: 'USD', symbol: '$' };
+  var currentChartType = 'line';
+
+  // ── Helper: Check if Chart.js is loaded ──
+  function isChartJsLoaded() {
+    return typeof Chart !== 'undefined';
   }
-}
-function syncInput(id, val) {
-  const input = document.getElementById(id);
-  const display = document.getElementById(id + 'SliderVal');
-  if (!input) return;
-  input.value = val;
-  if (display) {
-    const num = parseFloat(val) || 0;
-    if (id === 'futureValue') display.textContent = formatCompact(num);
-    else if (id === 'rate') display.textContent = num + '%';
-    else if (id === 'years') display.textContent = num + ' yrs';
-    else display.textContent = num;
+
+  // ── Formatting ──
+  function formatNumber(num) {
+    if (!isFinite(num)) return '—';
+    return num.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
   }
-}
 
-// Currency search (same as future-value)
-function setupCurrencySearch() {
-  const searchInput = document.getElementById('currencySearch');
-  const resultsDiv = document.getElementById('currencyResults');
-  if (!searchInput || !resultsDiv) return;
-  searchInput.value = currentCurrency.code + ' — ' + currentCurrency.name;
-  searchInput.addEventListener('focus', () => {
-    resultsDiv.classList.add('show');
-    renderCurrencyResults(allCurrencies);
-  });
-  searchInput.addEventListener('input', (e) => {
-    const q = e.target.value.toLowerCase();
-    const filtered = allCurrencies.filter(c => c.code.toLowerCase().includes(q) || c.name.toLowerCase().includes(q));
-    renderCurrencyResults(filtered);
-    resultsDiv.classList.add('show');
-  });
-  document.addEventListener('click', (e) => {
-    if (!e.target.closest('.currency-search-wrapper')) resultsDiv.classList.remove('show');
-  });
-}
-function renderCurrencyResults(list) {
-  const div = document.getElementById('currencyResults');
-  if (!div) return;
-  if (!list.length) {
-    div.innerHTML = '<div class="currency-option"><span class="curr-name">No currencies found</span></div>';
-    return;
+  function formatCurrency(num) {
+    if (!isFinite(num)) return '—';
+    return selectedCurrency.symbol + formatNumber(Math.round(num));
   }
-  div.innerHTML = list.map(c => `<div class="currency-option" onclick="selectCurrency('${c.code}')">
-    <span class="curr-code">${c.code}</span><span class="curr-name">${c.name}</span>
-  </div>`).join('');
-}
-function selectCurrency(code) {
-  currentCurrency = allCurrencies.find(c => c.code === code) || allCurrencies[0];
-  const searchInput = document.getElementById('currencySearch');
-  const resultsDiv = document.getElementById('currencyResults');
-  if (searchInput) searchInput.value = currentCurrency.code + ' — ' + currentCurrency.name;
-  if (resultsDiv) resultsDiv.classList.remove('show');
-  document.querySelectorAll('[id^="currencySymbol"]').forEach(s => s.textContent = currentCurrency.symbol);
-  calculate();
-}
 
-// --- Core present value logic ---
-function calculate() {
-  // Get inputs
-  const futureLump = parseFloat(document.getElementById('futureValue')?.value) || 0;
-  const rate = parseFloat(document.getElementById('rate')?.value) || 0;
-  const years = parseInt(document.getElementById('years')?.value) || 1;
-  const compound = parseInt(document.getElementById('compound')?.value) || 12;
-  const monthlyFuture = parseFloat(document.getElementById('monthly')?.value) || 0;
-  const inflationToggle = document.getElementById('inflationToggle')?.checked || false;
-  const inflationRate = parseFloat(document.getElementById('inflationRate')?.value) || 0;
+  function formatPercent(num) {
+    if (!isFinite(num)) return '—';
+    return num.toFixed(2) + '%';
+  }
 
-  // Show/hide inflation group
-  const inflationGroup = document.getElementById('inflationRateGroup');
-  if (inflationGroup) inflationGroup.style.display = inflationToggle ? 'block' : 'none';
-  const realCard = document.getElementById('realValueCard');
-  if (realCard) realCard.style.display = inflationToggle ? 'flex' : 'none';
+  // ── Currency Picker ──
+  function renderCurrencyOptions(filter) {
+    if (!currencyResults || !currencies.length) return;
+    var q = (filter || '').toLowerCase().trim();
+    var matches = currencies.filter(function(c) {
+      return c.code.toLowerCase().includes(q) ||
+             c.name.toLowerCase().includes(q) ||
+             c.symbol.includes(q);
+    });
 
-  const r = rate / 100;
-  const n = compound;
-  const t = years;
-
-  // Discount factor for lump sum: PV = FV / (1 + r/n)^(n*t)
-  let pvLump = 0;
-  if (r === 0) pvLump = futureLump;
-  else pvLump = futureLump / Math.pow(1 + r / n, n * t);
-
-  // Present value of future monthly contributions (end of period? start? assume start)
-  // Formula: PV of an annuity due = PMT * [1 - (1 + r_monthly)^(-N)] / r_monthly * (1+r_monthly)
-  // where monthly rate = r/12, N = total months = 12*years
-  let pvContrib = 0;
-  if (monthlyFuture > 0 && r > 0) {
-    const monthlyRate = r / 12;
-    const totalMonths = 12 * t;
-    if (monthlyRate > 0) {
-      pvContrib = monthlyFuture * (1 - Math.pow(1 + monthlyRate, -totalMonths)) / monthlyRate * (1 + monthlyRate);
-    } else {
-      pvContrib = monthlyFuture * totalMonths; // no discount
+    if (matches.length === 0) {
+      currencyResults.innerHTML = '<div class="currency-option" style="color:#94a3b8;cursor:default;">No currencies found</div>';
+      currencyResults.style.display = 'block';
+      return;
     }
-  } else if (monthlyFuture > 0 && r === 0) {
-    pvContrib = monthlyFuture * 12 * t;
+
+    var html = '';
+    matches.forEach(function(c) {
+      html += '<div class="currency-option" data-code="' + c.code + '" data-symbol="' + c.symbol + '">' +
+                '<span><span class="code">' + c.code + '</span> – ' + c.name + '</span>' +
+                '<span class="symbol">' + c.symbol + '</span>' +
+              '</div>';
+    });
+    currencyResults.innerHTML = html;
+    currencyResults.style.display = 'block';
+
+    currencyResults.querySelectorAll('.currency-option').forEach(function(opt) {
+      opt.addEventListener('click', function() {
+        var code = this.dataset.code;
+        var symbol = this.dataset.symbol;
+        selectCurrency(code, symbol);
+      });
+    });
   }
 
-  const presentValue = pvLump + pvContrib;
-  const totalFutureContrib = futureLump + monthlyFuture * 12 * t;
-  const discountAmount = totalFutureContrib - presentValue;
-  const apy = (Math.pow(1 + r / n, n) - 1) * 100;
-  const multiple = presentValue > 0 ? totalFutureContrib / presentValue : 1;
+  function selectCurrency(code, symbol) {
+    var found = currencies.find(function(c) { return c.code === code; });
+    selectedCurrency = { code: code, symbol: symbol };
+    if (currencySearch) {
+      currencySearch.value = code + ' – ' + (found ? found.name : code);
+    }
+    if (currencyResults) {
+      currencyResults.style.display = 'none';
+    }
+    currencySymbols.forEach(function(el) {
+      el.textContent = symbol;
+    });
+    window.calculate();
+  }
 
-  // Update result cards
-  document.getElementById('rPresentValue').textContent = formatCurrency(presentValue);
-  document.getElementById('rTotalFutureContributed').textContent = formatCurrency(totalFutureContrib);
-  document.getElementById('rDiscountEarned').textContent = formatCurrency(discountAmount);
-  document.getElementById('rAPY').textContent = apy.toFixed(2) + '%';
-  document.getElementById('rMultiple').textContent = multiple.toFixed(1) + '×';
+  // ── Init Currency Picker ──
+  function initCurrencyPicker() {
+    if (!currencySearch) return;
 
-  if (inflationToggle) {
-    // Real present value: discount future cash flows using real rate = (1+r)/(1+infl) -1
-    const realRate = (1 + r) / (1 + inflationRate/100) - 1;
-    let realPV = 0;
-    if (realRate <= 0) {
-      realPV = totalFutureContrib / Math.pow(1 + inflationRate/100, t);
-    } else {
-      const realR = realRate;
-      realPV = futureLump / Math.pow(1 + realR / n, n * t);
-      if (monthlyFuture > 0) {
-        const monthlyReal = realR / 12;
-        const totalMonths = 12 * t;
-        if (monthlyReal > 0) {
-          realPV += monthlyFuture * (1 - Math.pow(1 + monthlyReal, -totalMonths)) / monthlyReal * (1 + monthlyReal);
-        } else {
-          realPV += monthlyFuture * totalMonths;
-        }
+    currencySearch.addEventListener('input', function() {
+      var val = this.value;
+      if (val.length === 0) {
+        if (currencyResults) currencyResults.style.display = 'none';
+        return;
       }
+      renderCurrencyOptions(val);
+    });
+
+    currencySearch.addEventListener('focus', function() {
+      if (this.value.length > 0) {
+        renderCurrencyOptions(this.value);
+      }
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.currency-search-wrapper')) {
+        if (currencyResults) currencyResults.style.display = 'none';
+      }
+    });
+
+    var defaultCurrency = currencies.find(function(c) { return c.code === 'USD'; }) || currencies[0];
+    if (defaultCurrency) {
+      selectCurrency(defaultCurrency.code, defaultCurrency.symbol);
+    } else {
+      selectCurrency('USD', '$');
     }
-    document.getElementById('rRealValue').textContent = formatCurrency(realPV);
   }
 
-  // Insight box
-  const insightBox = document.getElementById('insightBox');
-  const insightText = document.getElementById('insightText');
-  if (insightBox && insightText) {
-    insightBox.style.display = 'block';
-    let text = `A future lump sum of ${formatCurrency(futureLump)} `;
-    if (monthlyFuture > 0) text += `plus future contributions of ${formatCurrency(monthlyFuture)}/month `;
-    text += `in ${years} years is worth ${formatCurrency(presentValue)} today at a ${rate}% discount rate. `;
-    text += `That's a discount of ${formatCurrency(discountAmount)}. `;
-    if (inflationToggle) text += `After ${inflationRate}% inflation, the real present value is ${document.getElementById('rRealValue').textContent}.`;
-    insightText.textContent = text;
+  // ── Slider Sync ──
+  window.syncInput = function(inputId, value) {
+    var input = document.getElementById(inputId);
+    if (input) {
+      input.value = value;
+      updateSliderLabel(inputId, value);
+    }
+  };
+
+  window.syncSlider = function(inputId) {
+    var input = document.getElementById(inputId);
+    var slider = document.getElementById(inputId + 'Slider');
+    if (input && slider) {
+      slider.value = input.value;
+      updateSliderLabel(inputId, input.value);
+    }
+  };
+
+  function updateSliderLabel(inputId, value) {
+    var label = document.getElementById(inputId + 'SliderVal');
+    if (!label) return;
+    var num = parseFloat(value);
+    if (isNaN(num)) return;
+
+    switch (inputId) {
+      case 'futureValue':
+        label.textContent = selectedCurrency.symbol + formatNumber(num);
+        break;
+      case 'rate':
+        label.textContent = num + '%';
+        break;
+      case 'years':
+        label.textContent = num + ' yr' + (num > 1 ? 's' : '');
+        break;
+      default:
+        label.textContent = num;
+    }
   }
 
-  renderTable(presentValue, totalFutureContrib, discountAmount, years, rate, compound, monthlyFuture, inflationToggle, inflationRate);
-  renderChart(presentValue, futureLump, monthlyFuture, years, rate, compound, inflationToggle, inflationRate);
-}
+  // ── Core Calculation ──
+  function calculatePresentValue(FV, r, t, n) {
+    var rate = r / 100;
+    var periodicRate = rate / n;
+    var totalPeriods = n * t;
+    return FV / Math.pow(1 + periodicRate, totalPeriods);
+  }
 
-// --- Table: year-by-year discounted values ---
-function renderTable(presentValue, totalFuture, discount, years, rate, compound, monthlyFuture, inflationToggle, inflationRate) {
-  const thead = document.getElementById('tableHead');
-  const tbody = document.getElementById('tableBody');
-  if (!thead || !tbody) return;
+  // ── Main Calculate ──
+  window.calculate = function() {
+    var FV = parseFloat(futureValue ? futureValue.value : 0) || 0;
+    var r = parseFloat(rate ? rate.value : 0) || 0;
+    var t = parseFloat(years ? years.value : 0) || 0;
+    var n = parseInt(compounding ? compounding.value : 12) || 12;
 
-  const r = rate / 100;
-  const n = compound;
-  const monthlyRate = r / 12;
+    if (FV <= 0 || t <= 0) {
+      if (presentValue) presentValue.textContent = '—';
+      if (totalDiscount) totalDiscount.textContent = '—';
+      if (discountRate) discountRate.textContent = '—';
+      if (pvFactor) pvFactor.textContent = '—';
+      if (insightsGrid) insightsGrid.innerHTML = '';
+      if (tableHead) tableHead.innerHTML = '';
+      if (tableBody) tableBody.innerHTML = '';
+      return;
+    }
 
-  thead.innerHTML = inflationToggle
-    ? '<tr><th>Year</th><th>Future Value</th><th>Discounted Present</th><th>Cumulative Discount</th><th>Real Present (Adj.)</th></tr>'
-    : '<tr><th>Year</th><th>Future Value</th><th>Discounted Present</th><th>Cumulative Discount</th></tr>';
+    var PV = calculatePresentValue(FV, r, t, n);
+    var discount = FV - PV;
+    var factor = PV / FV;
 
-  let rows = '';
-  for (let yr = 1; yr <= years; yr++) {
-    const futureLumpAtYr = parseFloat(document.getElementById('futureValue').value) || 0;
-    const monthlyTotal = (parseFloat(document.getElementById('monthly').value) || 0) * 12 * yr;
-    const futureVal = futureLumpAtYr + monthlyTotal;
-    let discFactor = 1;
-    if (r > 0) discFactor = Math.pow(1 + r / n, n * yr);
-    else discFactor = 1;
-    const discounted = futureVal / discFactor;
-    const cumDiscount = futureVal - discounted;
-    const realDiscounted = inflationToggle ? discounted / Math.pow(1 + inflationRate/100, yr) : null;
+    if (presentValue) presentValue.textContent = formatCurrency(PV);
+    if (totalDiscount) totalDiscount.textContent = formatCurrency(discount);
+    if (discountRate) discountRate.textContent = formatPercent(r);
+    if (pvFactor) pvFactor.textContent = factor.toFixed(4);
 
-    rows += '<tr>' +
-      '<td>' + yr + '</td>' +
-      '<td>' + formatCurrency(futureVal) + '</td>' +
-      '<td>' + formatCurrency(discounted) + '</td>' +
-      '<td>' + formatCurrency(cumDiscount) + '</td>' +
-      (inflationToggle ? '<td>' + formatCurrency(realDiscounted) + '</td>' : '') +
+    generateInsights(FV, PV, r, t, n, discount, factor);
+    generateBreakdown(FV, r, t, n);
+    updateChart(FV, r, t, n);
+    updateShareURL();
+  };
+
+  // ── Generate Insights ──
+  function generateInsights(FV, PV, r, t, n, discount, factor) {
+    if (!insightsGrid) return;
+    var insights = [];
+
+    if (PV > 0 && FV > 0) {
+      var discountPct = ((FV - PV) / FV) * 100;
+      insights.push({
+        icon: '📉',
+        text: 'Discount: <strong>' + formatCurrency(discount) + '</strong> (' + discountPct.toFixed(1) + '% of future value)'
+      });
+    }
+
+    if (factor > 0 && factor < 1) {
+      insights.push({
+        icon: '🔢',
+        text: 'PV Factor: <strong>' + factor.toFixed(4) + '</strong> — every $1 future = $' + factor.toFixed(2) + ' today'
+      });
+    }
+
+    if (r > 0 && t > 0) {
+      insights.push({
+        icon: '⏱️',
+        text: 'At <strong>' + r + '%</strong> discount rate, value halves in ~<strong>' + (72 / r).toFixed(1) + ' years</strong> (Rule of 72)'
+      });
+    }
+
+    if (discount > 0) {
+      var annualDiscount = discount / t;
+      insights.push({
+        icon: '📊',
+        text: 'Value decreases by an average of <strong>' + formatCurrency(annualDiscount) + '</strong> per year'
+      });
+    }
+
+    if (insights.length === 0) {
+      insights.push({
+        icon: '💡',
+        text: 'Present value shows what future money is worth in today\'s purchasing power'
+      });
+    }
+
+    insightsGrid.innerHTML = insights.slice(0, 6).map(function(insight) {
+      return '<div class="insight-item">' +
+               '<span class="insight-icon">' + insight.icon + '</span>' +
+               '<span class="insight-text">' + insight.text + '</span>' +
+             '</div>';
+    }).join('');
+  }
+
+  // ── Generate Breakdown Table ──
+  function generateBreakdown(FV, r, t, n) {
+    if (!tableHead || !tableBody) return;
+    var rate = r / 100;
+    var periodicRate = rate / n;
+    var rows = '';
+
+    tableHead.innerHTML = '<tr><th>Year</th><th>Future Value at Year End</th><th>Present Value Today</th><th>Discount</th><th>PV Factor</th></tr>';
+
+    for (var year = 0; year <= t; year++) {
+      var periods = n * year;
+      var pvAtYear = FV / Math.pow(1 + periodicRate, periods);
+      var discAtYear = FV - pvAtYear;
+      var factorAtYear = pvAtYear / FV;
+
+      var isLastRow = (year === t);
+      rows += '<tr class="' + (isLastRow ? 'highlight-row' : '') + '">' +
+        '<td><strong>' + (year === 0 ? 'Today' : year) + '</strong></td>' +
+        '<td>' + formatCurrency(FV) + '</td>' +
+        '<td>' + formatCurrency(pvAtYear) + '</td>' +
+        '<td>' + formatCurrency(discAtYear) + '</td>' +
+        '<td>' + factorAtYear.toFixed(4) + '</td>' +
       '</tr>';
-  }
-  tbody.innerHTML = rows;
-}
-
-// --- Chart: line (PV over time), bar (annual discount), donut (composition of future value)---
-function renderChart(presentValue, futureLump, monthlyFuture, years, rate, compound, inflationToggle, inflationRate) {
-  const canvas = document.getElementById('toolChart');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  if (chartInstance) chartInstance.destroy();
-
-  const r = rate / 100;
-  const n = compound;
-  const monthlyRate = r / 12;
-  const totalFuture = futureLump + monthlyFuture * 12 * years;
-
-  if (currentChartType === 'line') {
-    // Show discounted value curve (present value as each future year is discounted)
-    const labels = [];
-    const pvData = [];
-    for (let yr = 0; yr <= years; yr++) {
-      const futureVal = futureLump + monthlyFuture * 12 * yr;
-      let discFactor = 1;
-      if (r > 0) discFactor = Math.pow(1 + r / n, n * yr);
-      const pv = futureVal / discFactor;
-      labels.push(yr);
-      pvData.push(pv);
     }
-    chartInstance = new Chart(ctx, {
-      type: 'line',
+
+    tableBody.innerHTML = rows;
+  }
+
+  // ── Chart Functions ──
+  window.switchChart = function(type, btn) {
+    currentChartType = type;
+    var tabs = document.querySelectorAll('.chart-tab');
+    tabs.forEach(function(tab) { tab.classList.remove('active'); });
+    if (btn) btn.classList.add('active');
+    var FV = parseFloat(futureValue ? futureValue.value : 0) || 0;
+    var r = parseFloat(rate ? rate.value : 0) || 0;
+    var t = parseFloat(years ? years.value : 0) || 0;
+    var n = parseInt(compounding ? compounding.value : 12) || 12;
+    updateChart(FV, r, t, n);
+  };
+
+  function updateChart(FV, r, t, n) {
+    if (!toolChart) return;
+    if (!isChartJsLoaded()) {
+      var ctx = toolChart.getContext('2d');
+      ctx.clearRect(0, 0, toolChart.width, toolChart.height);
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '14px system-ui, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('Chart.js library not loaded.', toolChart.width/2, toolChart.height/2);
+      return;
+    }
+
+    var ctx = toolChart.getContext('2d');
+    if (chartInstance) chartInstance.destroy();
+
+    if (FV <= 0 || t <= 0) {
+      chartInstance = new Chart(ctx, {
+        type: 'line',
+        data: { labels: [], datasets: [] },
+        options: { plugins: { legend: { display: false } } }
+      });
+      return;
+    }
+
+    var rate = r / 100;
+    var periodicRate = rate / n;
+    var labels = [];
+    var pvData = [];
+    var discountData = [];
+
+    for (var year = 0; year <= t; year++) {
+      labels.push(year === 0 ? 'Today' : year);
+      var periods = n * year;
+      var pv = FV / Math.pow(1 + periodicRate, periods);
+      pvData.push(pv);
+      discountData.push(FV - pv);
+    }
+
+    var currencySymbol = selectedCurrency.symbol;
+
+    var chartConfig = {
+      type: currentChartType === 'bar' ? 'bar' : (currentChartType === 'donut' ? 'doughnut' : 'line'),
       data: {
         labels: labels,
-        datasets: [{ label: 'Present Value of Future Sum', data: pvData, borderColor: '#0d9488', backgroundColor: 'rgba(13,148,136,0.1)', fill: true, tension: 0.4 }]
+        datasets: []
       },
       options: {
         responsive: true,
-        maintainAspectRatio: false,
-        plugins: { legend: { display: false }, tooltip: { callbacks: { label: (ctx) => formatCurrency(ctx.parsed.y) } } },
-        scales: { y: { beginAtZero: true, ticks: { callback: v => formatCompact(v) } } }
-      }
-    });
-  } else if (currentChartType === 'bar') {
-    // Show discount amount per year
-    const yearsArr = [], discountPerYear = [];
-    for (let yr = 1; yr <= years; yr++) {
-      const futureVal = futureLump + monthlyFuture * 12 * yr;
-      const prevFuture = futureLump + monthlyFuture * 12 * (yr-1);
-      const discFactorYr = Math.pow(1 + r / n, n * yr);
-      const discFactorPrev = Math.pow(1 + r / n, n * (yr-1));
-      const pvYr = futureVal / discFactorYr;
-      const pvPrev = prevFuture / discFactorPrev;
-      discountPerYear.push(pvPrev - pvYr); // positive if discount increases
-      yearsArr.push(yr);
-    }
-    chartInstance = new Chart(ctx, {
-      type: 'bar',
-      data: { labels: yearsArr, datasets: [{ label: 'Discount Applied This Year', data: discountPerYear, backgroundColor: '#0d9488', borderRadius: 6 }] },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: { tooltip: { callbacks: { label: (ctx) => formatCurrency(ctx.parsed.y) } } },
-        scales: { y: { beginAtZero: true, ticks: { callback: v => formatCompact(v) } } }
-      }
-    });
-  } else { // donut: composition of future value (lump sum vs contributions)
-    const lumpSumPortion = futureLump;
-    const contribPortion = monthlyFuture * 12 * years;
-    chartInstance = new Chart(ctx, {
-      type: 'doughnut',
-      data: {
-        labels: ['Future Lump Sum', 'Future Contributions'],
-        datasets: [{ data: [lumpSumPortion, contribPortion], backgroundColor: ['#0d9488', '#5eead4'], borderWidth: 0, hoverOffset: 4 }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        cutout: '60%',
+        maintainAspectRatio: true,
         plugins: {
-          legend: { position: 'bottom', labels: { color: '#475569', font: { size: 12 } } },
-          tooltip: { callbacks: { label: (ctx) => ctx.label + ': ' + formatCurrency(ctx.parsed) + ' (' + ((ctx.parsed / totalFuture)*100).toFixed(1) + '%)' } }
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                if (currentChartType === 'donut') {
+                  return context.label + ': ' + currencySymbol + context.parsed.toLocaleString('en-US', { maximumFractionDigits: 0 });
+                }
+                return context.dataset.label + ': ' + currencySymbol + context.parsed.y.toLocaleString('en-US', { maximumFractionDigits: 0 });
+              }
+            }
+          }
         }
       }
+    };
+
+    if (currentChartType === 'line') {
+      chartConfig.data.datasets = [
+        {
+          label: 'Present Value',
+          data: pvData,
+          borderColor: '#0d9488',
+          backgroundColor: 'rgba(13, 148, 136, 0.1)',
+          fill: true,
+          tension: 0.3,
+          pointRadius: 3
+        },
+        {
+          label: 'Discount',
+          data: discountData,
+          borderColor: '#ef4444',
+          backgroundColor: 'rgba(239, 68, 68, 0.05)',
+          fill: false,
+          tension: 0.3,
+          borderDash: [5, 5],
+          pointRadius: 3
+        }
+      ];
+      chartConfig.options.scales = {
+        y: {
+          beginAtZero: true,
+          ticks: {
+            callback: function(value) {
+              return currencySymbol + value.toLocaleString('en-US', { maximumFractionDigits: 0 });
+            }
+          }
+        }
+      };
+    } else if (currentChartType === 'bar') {
+      chartConfig.data.labels = ['Future Value', 'Present Value', 'Discount'];
+      chartConfig.data.datasets = [{
+        label: 'Amount',
+        data: [FV, pvData[t], discountData[t]],
+        backgroundColor: ['#6366f1', '#0d9488', '#ef4444'],
+        borderRadius: 4
+      }];
+      chartConfig.options.scales = {
+        y: {
+          beginAtZero: true,
+          ticks: {
+            callback: function(value) {
+              return currencySymbol + value.toLocaleString('en-US', { maximumFractionDigits: 0 });
+            }
+          }
+        }
+      };
+      chartConfig.options.plugins.legend = { display: false };
+    } else if (currentChartType === 'donut') {
+      chartConfig.data.labels = ['Present Value', 'Discount'];
+      chartConfig.data.datasets = [{
+        data: [pvData[t], discountData[t]],
+        backgroundColor: ['#0d9488', '#ef4444'],
+        borderWidth: 2,
+        borderColor: '#ffffff'
+      }];
+      chartConfig.options.plugins.legend = { position: 'bottom' };
+      chartConfig.options.plugins.tooltip.callbacks.label = function(context) {
+        var total = context.dataset.data.reduce(function(a, b) { return a + b; }, 0);
+        var percentage = total > 0 ? ((context.parsed / total) * 100).toFixed(1) : 0;
+        return context.label + ': ' + currencySymbol + context.parsed.toLocaleString('en-US', { maximumFractionDigits: 0 }) + ' (' + percentage + '%)';
+      };
+    }
+
+    chartInstance = new Chart(ctx, chartConfig);
+  }
+
+  // ── Share URL ──
+  function updateShareURL() {
+    var params = new URLSearchParams();
+    if (futureValue) params.set('f', futureValue.value);
+    if (rate) params.set('r', rate.value);
+    if (years) params.set('y', years.value);
+    if (compounding) params.set('c', compounding.value);
+
+    var shareBtn = document.getElementById('shareBtn');
+    if (shareBtn) {
+      shareBtn.dataset.url = window.location.pathname + '?' + params.toString();
+    }
+  }
+
+  window.shareURL = function() {
+    var shareBtn = document.getElementById('shareBtn');
+    if (shareBtn && shareBtn.dataset.url) {
+      var url = window.location.origin + shareBtn.dataset.url;
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(url).then(function() {
+          var original = shareBtn.textContent;
+          shareBtn.textContent = '✓ Copied!';
+          setTimeout(function() { shareBtn.textContent = original; }, 2000);
+        });
+      } else {
+        prompt('Copy this URL to share:', url);
+      }
+    }
+  };
+
+  // ── Download CSV ──
+  window.downloadCSV = function() {
+    var table = document.getElementById('breakdownTable');
+    if (!table) return;
+    var csv = '';
+    var rows = table.querySelectorAll('tr');
+    rows.forEach(function(row) {
+      var cells = row.querySelectorAll('th, td');
+      var rowData = [];
+      cells.forEach(function(cell) {
+        var text = cell.textContent.trim();
+        text = text.replace(/[^0-9.,\-]/g, '');
+        rowData.push(text);
+      });
+      csv += rowData.join(',') + '\n';
     });
+    var blob = new Blob([csv], { type: 'text/csv' });
+    var url = window.URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'present-value-breakdown.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
+  };
+
+  // ── Copy Result ──
+  window.copyResult = function() {
+    var pv = presentValue ? presentValue.textContent : '';
+    var disc = totalDiscount ? totalDiscount.textContent : '';
+    var factor = pvFactor ? pvFactor.textContent : '';
+    var text = 'Present Value Result:\nPresent Value: ' + pv + '\nTotal Discount: ' + disc + '\nPV Factor: ' + factor;
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(text).then(function() {
+        var btn = document.getElementById('copyBtn');
+        if (btn) {
+          var original = btn.textContent;
+          btn.textContent = '✓ Copied!';
+          setTimeout(function() { btn.textContent = original; }, 2000);
+        }
+      });
+    } else {
+      prompt('Copy this result:', text);
+    }
+  };
+
+  // ── Export Chart ──
+  window.exportChart = function() {
+    var canvas = document.getElementById('toolChart');
+    if (!canvas) return;
+    var link = document.createElement('a');
+    link.download = 'present-value-chart.png';
+    link.href = canvas.toDataURL('image/png');
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  // ── Reset ──
+  window.resetForm = function() {
+    var defaultFV = 100000;
+    var defaultR = 8;
+    var defaultY = 10;
+
+    if (futureValue) { futureValue.value = defaultFV; if (futureValueSlider) futureValueSlider.value = defaultFV; }
+    if (rate) { rate.value = defaultR; if (rateSlider) rateSlider.value = defaultR; }
+    if (years) { years.value = defaultY; if (yearsSlider) yearsSlider.value = defaultY; }
+    if (compounding) compounding.value = '12';
+
+    updateSliderLabel('futureValue', defaultFV);
+    updateSliderLabel('rate', defaultR);
+    updateSliderLabel('years', defaultY);
+    window.calculate();
+  };
+
+  // ── Load URL params ──
+  function loadFromURL() {
+    var params = new URLSearchParams(window.location.search);
+    if (params.has('f')) {
+      var fVal = parseFloat(params.get('f'));
+      if (!isNaN(fVal) && fVal >= 0) {
+        if (futureValue) { futureValue.value = fVal; if (futureValueSlider) futureValueSlider.value = fVal; }
+        updateSliderLabel('futureValue', fVal);
+      }
+    }
+    if (params.has('r')) {
+      var rVal = parseFloat(params.get('r'));
+      if (!isNaN(rVal) && rVal >= 0) {
+        if (rate) { rate.value = rVal; if (rateSlider) rateSlider.value = rVal; }
+        updateSliderLabel('rate', rVal);
+      }
+    }
+    if (params.has('y')) {
+      var yVal = parseFloat(params.get('y'));
+      if (!isNaN(yVal) && yVal > 0) {
+        if (years) { years.value = yVal; if (yearsSlider) yearsSlider.value = yVal; }
+        updateSliderLabel('years', yVal);
+      }
+    }
+    if (params.has('c')) {
+      var cVal = parseInt(params.get('c'));
+      if (!isNaN(cVal) && compounding) compounding.value = cVal;
+    }
+    window.calculate();
   }
-}
 
-function switchChart(type, btn) {
-  currentChartType = type;
-  document.querySelectorAll('.chart-tab').forEach(t => t.classList.remove('active'));
-  if (btn) btn.classList.add('active');
-  calculate();
-}
-
-function downloadCSV() {
-  const rows = document.querySelectorAll('#breakdownTable tbody tr');
-  if (!rows.length) return;
-  let csv = '';
-  const headers = document.querySelectorAll('#breakdownTable thead th');
-  csv += Array.from(headers).map(h => '"' + h.textContent.replace(/"/g, '""') + '"').join(',') + '\n';
-  rows.forEach(row => {
-    const cells = Array.from(row.querySelectorAll('td')).map(c => '"' + c.textContent.replace(/"/g, '""').trim() + '"');
-    csv += cells.join(',') + '\n';
+  // ── Init ──
+  document.addEventListener('DOMContentLoaded', function() {
+    initCurrencyPicker();
+    loadFromURL();
+    window.addEventListener('resize', function() {
+      if (chartInstance) chartInstance.resize();
+    });
   });
-  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = 'present-value-breakdown.csv';
-  a.click();
-  URL.revokeObjectURL(url);
-}
 
-function copyResult() {
-  const cards = document.querySelectorAll('#resultCards .result-card');
-  let text = '';
-  cards.forEach(c => {
-    const label = c.querySelector('.result-label')?.textContent || '';
-    const value = c.querySelector('.result-value')?.textContent || '';
-    if (label && value) text += label + ': ' + value + '\n';
-  });
-  if (!text.trim()) return;
-  navigator.clipboard.writeText(text.trim()).then(() => {
-    const btn = document.getElementById('copyBtn');
-    if (btn) {
-      const orig = btn.textContent;
-      btn.textContent = '✓ Copied!';
-      setTimeout(() => btn.textContent = orig, 2000);
-    }
-  }).catch(() => alert('Copy failed — copy manually.'));
-}
+})();
 
-function shareURL() {
-  const params = new URLSearchParams();
-  document.querySelectorAll('.input-panel input:not([type="range"]), .input-panel select').forEach(el => {
-    if (el.id) params.set(el.id, el.value);
-  });
-  params.set('currency', currentCurrency.code);
-  const url = window.location.origin + window.location.pathname + '?' + params.toString();
-  navigator.clipboard.writeText(url).then(() => {
-    const btn = document.getElementById('shareBtn');
-    if (btn) {
-      const orig = btn.textContent;
-      btn.textContent = '✓ Link Copied!';
-      setTimeout(() => btn.textContent = orig, 2000);
-    }
-  }).catch(() => alert('Could not copy link — copy from address bar.'));
+// ── Safety fallback ──
+if (typeof window.calculate === 'undefined') {
+  window.calculate = function() {
+    console.warn('Present Value Calculator not loaded yet.');
+  };
 }
-
-function loadFromURL() {
-  const params = new URLSearchParams(window.location.search);
-  document.querySelectorAll('.input-panel input:not([type="range"]), .input-panel select').forEach(el => {
-    if (params.has(el.id)) el.value = params.get(el.id);
-  });
-  if (params.has('currency')) {
-    const c = allCurrencies.find(x => x.code === params.get('currency'));
-    if (c) {
-      currentCurrency = c;
-      document.querySelectorAll('[id^="currencySymbol"]').forEach(s => s.textContent = currentCurrency.symbol);
-    }
-  }
-}
-
-function resetForm() {
-  document.getElementById('futureValue').value = 10000;
-  document.getElementById('rate').value = 7;
-  document.getElementById('years').value = 20;
-  document.getElementById('compound').value = 12;
-  document.getElementById('monthly').value = 0;
-  document.getElementById('inflationToggle').checked = false;
-  document.getElementById('inflationRate').value = 3;
-  ['futureValue', 'rate', 'years'].forEach(id => syncSlider(id));
-  calculate();
-}
-
-// Initialisation
-document.addEventListener('DOMContentLoaded', () => {
-  loadFromURL();
-  setupCurrencySearch();
-  ['futureValue', 'rate', 'years'].forEach(id => syncSlider(id));
-  calculate();
-});

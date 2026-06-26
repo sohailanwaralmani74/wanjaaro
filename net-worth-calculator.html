@@ -1,0 +1,664 @@
+---
+layout: main
+title: "Net Worth Calculator – Track Your Assets & Liabilities | Free Tool"
+description: "Calculate your net worth by tracking all assets and liabilities. See your financial health at a glance. Works in USD, EUR, INR, PKR & 170+ currencies."
+keywords: "net worth calculator, assets liabilities calculator, net worth tracker, personal finance calculator, financial health calculator, wealth tracker"
+category: budget
+---
+<!-- ═══════════════════════════════════════════════════════
+     JSON‑LD SCHEMAS — Net Worth Calculator
+═══════════════════════════════════════════════════════ -->
+
+<!-- 1. WebApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Net Worth Calculator – Track Your Assets & Liabilities | Free Tool",
+  "description": "Calculate your net worth by tracking all assets and liabilities. See your financial health at a glance. Works in 170+ currencies.",
+  "url": "https://datafrog.tools/net-worth-calculator/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+
+<!-- 2. BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://datafrog.tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Net Worth Calculator",
+      "item": "https://datafrog.tools/net-worth-calculator/"
+    }
+  ]
+}
+</script>
+
+<!-- 3. HowTo -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use the Net Worth Calculator",
+  "description": "Step by step guide to calculate your net worth by tracking assets and liabilities.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Select your currency",
+      "text": "Choose from 170+ global currencies including USD, EUR, INR, PKR, AED, and more."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Add your assets",
+      "text": "Add savings, home value, investments, car value, and other assets."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Add your liabilities",
+      "text": "Add mortgages, loans, credit card balances, and other debts."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "View your net worth",
+      "text": "See total assets, total liabilities, and your net worth instantly."
+    }
+  ]
+}
+</script>
+
+<!-- 4. FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is net worth?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Net worth is the total value of everything you own (assets) minus everything you owe (liabilities). It's a snapshot of your financial health."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate my net worth?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use the net worth formula: Net Worth = Total Assets − Total Liabilities. Or use this net worth calculator instantly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a good net worth?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A 'good' net worth depends on your age, income, and goals. Generally, a positive net worth that grows over time is the goal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What assets should I include in my net worth?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Include all major assets: savings, home value, investments, retirement funds, car value, and other property."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I include my mortgage in my net worth?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Your mortgage is a liability. Subtract it from your assets when calculating your net worth."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often should I calculate my net worth?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Review your net worth monthly or quarterly. Regular tracking helps you stay motivated and adjust your financial plan."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How accurate is this net worth calculator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This net worth tracker is as accurate as the data you enter. For the best results, include all your assets and liabilities with current values."
+      }
+    }
+  ]
+}
+</script>
+<div class="tool-page">
+  <article >
+    <meta  content="Net Worth Calculator" />
+    
+    
+
+    <section class="page-heading">
+      <h1 >Net Worth Calculator — Track Your Financial Health</h1>
+      <p class="tool-subtitle">
+        Calculate your <strong>net worth</strong> by tracking all assets and liabilities. See your <strong>financial health</strong> at a glance — instantly in <strong>your currency</strong> with support for 170+ currencies.
+      </p>
+    </section>
+
+    <div class="tool-body">
+      <!-- LEFT COLUMN – INPUT PANEL -->
+      <aside class="tool-input-col" aria-label="Calculator inputs">
+        <div class="panel input-panel">
+
+          <!-- Currency Row with Gear on Right -->
+          <div class="form-group currency-group">
+            <div class="currency-row">
+              <label for="currencySearch">Currency</label>
+              <button class="settings-btn" id="settingsToggle" aria-label="Open settings" title="Settings">
+                ⚙️
+              </button>
+            </div>
+            <div class="currency-search-wrapper">
+              <input type="text" id="currencySearch" placeholder="Type currency name or code" autocomplete="off" />
+              <div id="currencyResults" class="currency-results"></div>
+            </div>
+          </div>
+
+          <!-- Assets Section -->
+          <div class="budget-section">
+            <h3 class="budget-section-title" style="color:var(--primary, #0d9488); margin-top: 5px">🏠 Assets</h3>
+            <div id="assetList" class="budget-list">
+              <!-- Asset rows rendered by JavaScript (empty by default) -->
+            </div>
+            <button class="btn btn-secondary" id="addAssetBtn" style="margin-top:0.5rem;width:100%;">+ Add Asset</button>
+          </div>
+
+          <!-- Liabilities Section -->
+          <div class="budget-section">
+            <h3 class="budget-section-title" style="color:#dc2626; margin-top: 5px;">💳 Liabilities</h3>
+            <div id="liabilityList" class="budget-list">
+              <!-- Liability rows rendered by JavaScript (empty by default) -->
+            </div>
+            <button class="btn btn-secondary" id="addLiabilityBtn" style="margin-top:0.5rem;width:100%;">+ Add Liability</button>
+          </div>
+
+          <div class="calc-actions">
+            <button class="btn btn-ghost" onclick="resetForm()">Reset</button>
+            <button class="btn btn-primary" onclick="shareURL()" id="shareBtn">Share</button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- RIGHT COLUMN – RESULTS PANEL -->
+      <section class="tool-output-col" aria-label="Calculator results" aria-live="polite">
+
+        <!-- Result Cards -->
+        <div class="result-cards">
+          <div class="result-card assets-card">
+            <div class="result-label">Total Assets</div>
+            <div class="result-value" id="totalAssets">—</div>
+            <div class="result-sub">All assets combined</div>
+          </div>
+          <div class="result-card liabilities-card">
+            <div class="result-label">Total Liabilities</div>
+            <div class="result-value" id="totalLiabilities">—</div>
+            <div class="result-sub">All debts combined</div>
+          </div>
+          <div class="result-card net-worth-card">
+            <div class="result-label">Net Worth</div>
+            <div class="result-value" id="netWorth">—</div>
+            <div class="result-sub">Assets − Liabilities</div>
+          </div>
+        </div>
+
+        <!-- Net Worth Status -->
+        <div class="net-worth-status" id="netWorthStatus">
+          <div class="status-icon" id="statusIcon">📊</div>
+          <div class="status-text" id="statusText">Enter your assets and liabilities to see your net worth</div>
+        </div>
+
+        <!-- Insights Panel -->
+        <div class="insights-panel" id="insightsPanel">
+          <div class="insights-grid" id="insightsGrid">
+            <!-- Populated by JavaScript -->
+          </div>
+        </div>
+
+        <!-- Chart Panel -->
+        <div class="chart-panel">
+          <div class="chart-tabs" role="tablist">
+            <button class="chart-tab active" data-chart="donut" onclick="switchChart('donut',this)" role="tab">Asset Breakdown</button>
+            <button class="chart-tab" data-chart="bar" onclick="switchChart('bar',this)" role="tab">Assets vs Liabilities</button>
+            <button class="chart-tab" data-chart="line" onclick="switchChart('line',this)" role="tab">Net Worth Trend</button>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="toolChart" role="img" aria-label="Net worth chart"></canvas>
+          </div>
+        </div>
+
+        <!-- Action Bar -->
+        <div class="action-bar">
+          <button class="action-btn" onclick="downloadCSV()" title="Download data as CSV">⬇ Download CSV</button>
+          <button class="action-btn" onclick="copyResult()" title="Copy result to clipboard" id="copyBtn">📋 Copy Result</button>
+          <button class="action-btn" onclick="exportChart()" title="Export chart as PNG">🖼️ Export Chart</button>
+        </div>
+
+        <!-- Breakdown Table -->
+        <div class="breakdown-panel">
+          <div class="breakdown-title">Net Worth Breakdown</div>
+          <div class="table-wrap">
+            <table class="breakdown-table" id="breakdownTable" aria-label="Net worth breakdown">
+              <thead id="tableHead"></thead>
+              <tbody id="tableBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+    </div>
+  </article>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     SETTINGS POPUP
+═══════════════════════════════════════════════════════ -->
+<div class="settings-overlay" id="settingsOverlay">
+  <div class="settings-popup" role="dialog" aria-label="Settings">
+    <div class="settings-header">
+      <h2>⚙️ Settings</h2>
+      <button class="settings-close" id="settingsClose">✕</button>
+    </div>
+
+    <div class="settings-body">
+
+      <!-- Number Format -->
+      <div class="form-group">
+        <label>Number Format</label>
+        <div class="settings-toggle-group" id="numberFormatGroup">
+          <button class="settings-toggle active" data-value="us">1,234.56</button>
+          <button class="settings-toggle" data-value="eu">1.234,56</button>
+          <button class="settings-toggle" data-value="in">1,23,456.78</button>
+        </div>
+        <span class="field-hint">How numbers are displayed</span>
+      </div>
+
+      <!-- Theme -->
+      <div class="form-group">
+        <label>Theme</label>
+        <div class="settings-toggle-group" id="themeGroup">
+          <button class="settings-toggle active" data-value="light">☀️ Light</button>
+          <button class="settings-toggle" data-value="dark">🌙 Dark</button>
+          <button class="settings-toggle" data-value="system">💻 System</button>
+        </div>
+        <span class="field-hint">Appearance preference</span>
+      </div>
+
+      <!-- Default Asset Categories -->
+      <div class="form-group">
+        <label>Default Asset Categories</label>
+        <input type="text" id="defaultAssets" value="Savings Account, Home Value, Car Value, Investments, Retirement Fund" placeholder="Comma separated" />
+        <span class="field-hint">These will appear when adding assets</span>
+      </div>
+
+      <!-- Default Liability Categories -->
+      <div class="form-group">
+        <label>Default Liability Categories</label>
+        <input type="text" id="defaultLiabilities" value="Mortgage, Car Loan, Credit Card, Student Loan, Personal Loan" placeholder="Comma separated" />
+        <span class="field-hint">These will appear when adding liabilities</span>
+      </div>
+
+    </div>
+
+    <div class="settings-footer">
+      <button class="btn btn-ghost" id="settingsCancel">Cancel</button>
+      <button class="btn btn-primary" id="settingsSave">Save Settings</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     TYPE SELECTOR POPUP (Asset / Liability)
+═══════════════════════════════════════════════════════ -->
+<div class="type-selector-overlay" id="typeSelectorOverlay">
+  <div class="type-selector-popup" role="dialog" aria-label="Select type">
+    <div class="type-selector-header">
+      <h2 id="typeSelectorTitle">Select Asset Type</h2>
+      <button class="type-selector-close" id="typeSelectorClose">✕</button>
+    </div>
+
+    <div class="type-selector-body">
+      <div id="typeList" class="type-list">
+        <!-- Types rendered by JavaScript -->
+      </div>
+      <div class="type-custom-input">
+        <label for="customTypeInput">Or enter custom name:</label>
+        <div class="type-custom-row">
+          <input type="text" id="customTypeInput" placeholder="e.g. Bonus, Side Hustle..." />
+          <button class="btn btn-secondary" id="addCustomTypeBtn">Add</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="type-selector-footer">
+      <button class="btn btn-ghost" id="typeSelectorCancel">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     ON‑PAGE CONTENT — SEO & GEO OPTIMISED
+═══════════════════════════════════════════════════════ -->
+<section class="onpage-content" >
+  <meta  content="Net Worth Calculator – How to Calculate Your Net Worth" />
+  <meta  content="Learn how to calculate your net worth by tracking assets and liabilities. Free tool works in USD, EUR, INR, PKR & 170+ currencies." />
+
+  <!-- ─────────────────────────────────────────────────────
+       WHAT IS NET WORTH
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>What Is Net Worth and Why Does It Matter?</h2>
+    <p>
+      Your <strong>net worth</strong> is the total value of everything you own (assets) minus everything you owe (liabilities). It's the clearest picture of your financial health — a snapshot of where you stand today.
+    </p>
+    <p>
+      Tracking your <strong>net worth</strong> helps you measure progress toward financial goals, identify areas for improvement, and stay motivated. This <strong>net worth calculator</strong> makes it easy to calculate and track your financial health — in <strong>your local currency</strong> with support for 170+ currencies.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       WHY THIS CALCULATOR STANDS OUT
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>Why This Net Worth Calculator Stands Out</h2>
+    <ul class="content-list">
+      <li><strong>Track everything</strong> — assets and liabilities in one place</li>
+      <li><strong>Real‑time updates</strong> — see your net worth change instantly</li>
+      <li><strong>Visual breakdowns</strong> — see where your money is and where you owe</li>
+      <li><strong>170+ currencies</strong> — works in USD, EUR, GBP, INR, PKR, AED, and more</li>
+      <li><strong>Smart insights</strong> — get personalized feedback on your financial health</li>
+      <li><strong>No signup, no uploads</strong> — everything runs in your browser</li>
+    </ul>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       WHO IS THIS CALCULATOR FOR
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>Who Can Use This Net Worth Calculator</h2>
+    <p>
+      This <strong>personal net worth calculator</strong> is designed for anyone who wants to understand their financial health:
+    </p>
+    <ul class="content-list">
+      <li><strong>Individuals</strong> – tracking personal finances</li>
+      <li><strong>Couples</strong> – understanding combined finances</li>
+      <li><strong>Financial planners</strong> – helping clients assess their position</li>
+      <li><strong>Anyone building wealth</strong> – measuring progress over time</li>
+      <li><strong>Students</strong> – learning about personal finance</li>
+    </ul>
+    <p>
+      This tool works for <strong>everyone</strong> — regardless of country or currency. With support for <strong>170+ currencies</strong>, you can calculate in <strong>USD, EUR, GBP, INR, PKR, AED, SAR, CAD, AUD, SGD, MYR, PHP, TRY, ZAR</strong>, and many more.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       HOW TO USE
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>How to Use This Net Worth Calculator</h2>
+    <div class="howto-steps">
+      <div class="step">
+        <span class="step-number">1</span>
+        <span><strong>Select your currency</strong> – from 170+ global currencies.</span>
+      </div>
+      <div class="step">
+        <span class="step-number">2</span>
+        <span><strong>Add your assets</strong> – savings, home value, investments, etc.</span>
+      </div>
+      <div class="step">
+        <span class="step-number">3</span>
+        <span><strong>Add your liabilities</strong> – mortgage, loans, credit card balances, etc.</span>
+      </div>
+      <div class="step">
+        <span class="step-number">4</span>
+        <span><strong>View your net worth</strong> – see total assets, total liabilities, and net worth instantly.</span>
+      </div>
+    </div>
+    <p>
+      Results update in <strong>real‑time</strong> as you add or adjust values. View your <strong>net worth</strong>, <strong>financial status</strong>, <strong>insights</strong>, and <strong>interactive charts</strong> instantly.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       THE FORMULA
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>The Net Worth Formula</h2>
+    <p>
+      The <strong>net worth formula</strong> is simple:
+    </p>
+    <div class="formula-box">
+      Net Worth = Total Assets − Total Liabilities
+    </div>
+    <p>
+      For example, if your assets total $365,000 and your liabilities total $208,000, your <strong>net worth</strong> is $157,000.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       EXPECTED RESULTS
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>What Results Can You Expect from This Net Worth Calculator</h2>
+    <div class="example-grid">
+      <div class="example-card">
+        <h3>🏠 Total Assets</h3>
+        <p>The sum of everything you own — savings, home, investments, etc.</p>
+      </div>
+      <div class="example-card">
+        <h3>💳 Total Liabilities</h3>
+        <p>The sum of everything you owe — mortgages, loans, credit card balances, etc.</p>
+      </div>
+      <div class="example-card">
+        <h3>📊 Net Worth</h3>
+        <p>Assets minus liabilities — your true financial position.</p>
+      </div>
+      <div class="example-card">
+        <h3>📋 Status & Insights</h3>
+        <p>Personalized feedback on your financial health.</p>
+      </div>
+      <div class="example-card">
+        <h3>📋 Breakdown Table</h3>
+        <p>A detailed breakdown of all assets and liabilities.</p>
+      </div>
+      <div class="example-card">
+        <h3>📊 Interactive Charts</h3>
+        <p>Visual representations of your financial position.</p>
+      </div>
+    </div>
+
+    <h3>Example Scenarios</h3>
+    <div class="example-grid">
+      <div class="example-card">
+        <h4>Scenario 1: $365,000 Assets, $208,000 Liabilities</h4>
+        <ul>
+          <li><strong>Total Assets:</strong> $365,000</li>
+          <li><strong>Total Liabilities:</strong> $208,000</li>
+          <li><strong>Net Worth:</strong> $157,000 ✅ Positive</li>
+        </ul>
+      </div>
+      <div class="example-card">
+        <h4>Scenario 2: ₹50,00,000 Assets, ₹70,00,000 Liabilities</h4>
+        <ul>
+          <li><strong>Total Assets:</strong> ₹50,00,000</li>
+          <li><strong>Total Liabilities:</strong> ₹70,00,000</li>
+          <li><strong>Net Worth:</strong> −₹20,00,000 ⚠️ Negative</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       WHAT COUNTS AS ASSETS AND LIABILITIES
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>What Counts as Assets and Liabilities?</h2>
+    <table class="example-table">
+      <thead>
+        <tr><th>Assets</th><th>Liabilities</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Savings and checking accounts</td>
+          <td>Mortgage</td>
+        </tr>
+        <tr>
+          <td>Home value</td>
+          <td>Car loans</td>
+        </tr>
+        <tr>
+          <td>Car value</td>
+          <td>Credit card balances</td>
+        </tr>
+        <tr>
+          <td>Investments and retirement funds</td>
+          <td>Student loans</td>
+        </tr>
+        <tr>
+          <td>Business equity</td>
+          <td>Personal loans</td>
+        </tr>
+        <tr>
+          <td>Other property</td>
+          <td>Other debts</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       TIPS FOR IMPROVING YOUR NET WORTH
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>Tips for Improving Your Net Worth</h2>
+    <ul class="content-list">
+      <li><strong>Increase assets</strong> — save more, invest wisely, grow your income</li>
+      <li><strong>Reduce liabilities</strong> — pay down high‑interest debt first</li>
+      <li><strong>Track regularly</strong> — review your net worth monthly or quarterly</li>
+      <li><strong>Set goals</strong> — aim for a specific net worth target by a certain age</li>
+      <li><strong>Use this tracker</strong> — update your numbers as they change</li>
+    </ul>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       FAQ SECTION (7 Questions)
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block faq-section">
+    <h2>Frequently Asked Questions About Net Worth</h2>
+
+    <div class="faq-list" >
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          1. What is net worth?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            <strong>Net worth</strong> is the total value of everything you own (assets) minus everything you owe (liabilities). It's a snapshot of your financial health.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          2. How do I calculate my net worth?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            Use the <strong>net worth formula</strong>: Net Worth = Total Assets − Total Liabilities. Or simply use this <strong>net worth calculator</strong> — it does the math for you instantly.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          3. What is a good net worth?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            A "good" <strong>net worth</strong> depends on your age, income, and goals. Generally, a positive net worth that grows over time is the goal. Use this <strong>personal net worth calculator</strong> to track your progress.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          4. What assets should I include in my net worth?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            Include all major assets: savings, home value, investments, retirement funds, car value, and other property. This <strong>net worth tracker</strong> helps you list and value everything.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          5. Should I include my mortgage in my net worth?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            Yes. Your <strong>mortgage</strong> is a liability. Subtract it from your assets when calculating your net worth. The <strong>net worth formula</strong> includes all debts.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          6. How often should I calculate my net worth?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            Review your <strong>net worth</strong> monthly or quarterly. Regular tracking helps you stay motivated and adjust your financial plan. This <strong>net worth estimator</strong> makes it easy to update your numbers.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          7. How accurate is this net worth calculator?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            This <strong>net worth tracker</strong> is as accurate as the data you enter. For the best results, include all your assets and liabilities with current values.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<!-- ==========================================================
+     LOAD SCRIPTS
+     ========================================================== -->
+<script src="/assets/js/net-worth-calculator.js"></script>

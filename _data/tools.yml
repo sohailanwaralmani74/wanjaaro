@@ -1,0 +1,545 @@
+# ============================================
+# _data/tools.yml
+# Master list of all tools, used to render
+# dynamic "Related Tools" sidebar via Liquid.
+# Each tool needs: title, url, category
+# ============================================
+
+# ----- Excel Converter -----
+- title: "Excel to JSON"
+  url: /excel-to-json
+  category: excel
+
+- title: "Excel to HTML"
+  url: /excel-to-html
+  category: excel
+
+- title: "Excel to TXT"
+  url: /excel-to-txt
+  category: excel
+
+- title: "Excel to PDF"
+  url: /xlsx-to-pdf
+  category: excel
+
+- title: "Excel to SQL"
+  url: /xlsx-to-sql-converter
+  category: excel
+
+- title: "Excel to CSV"
+  url: /convert-xlsx-to-csv
+  category: excel
+
+- title: "Excel to XML"
+  url: /convert-xlsx-to-xml
+  category: excel
+
+# ----- CSV Converter -----
+- title: "CSV to Excel"
+  url: /convert-csv-to-excel
+  category: csv
+
+- title: "CSV to HTML"
+  url: /convert-csv-to-html
+  category: csv
+
+- title: "CSV to JSON"
+  url: /convert-csv-to-json
+  category: csv
+
+- title: "CSV to PDF"
+  url: /convert-csv-to-pdf
+  category: csv
+
+- title: "CSV to TXT"
+  url: /convert-csv-to-txt
+  category: csv
+
+- title: "CSV to XML"
+  url: /convert-csv-to-xml
+  category: csv
+
+- title: "CSV to SQL"
+  url: /csv-to-sql
+  category: csv
+
+# ----- JSON Converter -----
+- title: "JSON String to JSON Object"
+  url: /json-string-to-json-object
+  category: json
+
+- title: "JSON to CSV"
+  url: /json-to-csv
+  category: json
+
+- title: "JSON to Excel"
+  url: /json-to-excel
+  category: json
+
+- title: "JSON to JSON Schema"
+  url: /json-to-json-schema
+  category: json
+
+- title: "JSON to PDF"
+  url: /json-to-pdf
+  category: json
+
+- title: "JSON to SQL"
+  url: /json-to-sql
+  category: json
+
+- title: "JSON to TXT"
+  url: /json-to-txt
+  category: json
+
+- title: "JSON to XML"
+  url: /json-to-xml
+  category: json
+
+- title: "JSON to YAML"
+  url: /json-to-yaml
+  category: json
+
+# ----- XML Converter -----
+- title: "XML to JSON"
+  url: /xml-to-json
+  category: xml
+
+- title: "XML to XSD"
+  url: /xml-to-xsd-generator
+  category: xml
+
+# ----- SQL Converter -----
+- title: "SQL to CSV"
+  url: /sql-to-csv
+  category: sql
+
+- title: "SQL to Excel"
+  url: /sql-to-excel
+  category: sql
+
+- title: "SQL to XML"
+  url: /sql-to-xml
+  category: sql
+
+# ----- PDF -----
+- title: "PPTX to PDF"
+  url: /pptx-to-pdf
+  category: pdf
+
+- title: "PDF to PPTX"
+  url: /pdf-to-powerpoint
+  category: pdf
+
+# ----- Others -----
+- title: "Recordset Converter"
+  url: /recordset-converter
+  category: others
+
+# ----- YAML -----
+- title: "YAML to JSON"
+  url: /yaml-to-json
+  category: others
+
+# ----- QIF Converter -----
+- title: "QIF to CSV"
+  url: /qif-to-csv
+  category: qif
+
+- title: "QIF to Excel"
+  url: /qif-to-excel
+  category: qif
+
+- title: "QIF to QBO"
+  url: /qif-to-qbo
+  category: qif
+
+# ----- Data Formatter -----
+- title: "Minify and Prettify JSON"
+  url: /json-minify-prettify
+  category: formatter
+
+- title: "XML Formatter"
+  url: /xml-formatter
+  category: formatter
+
+- title: "HTML Beautifier"
+  url: /html-beautifier
+  category: formatter
+
+# ----- DB Formatter -----
+- title: "SQL Formatter"
+  url: /sql-formatter
+  category: formatter
+
+# ----- Validator: Analyze -----
+- title: "Analyze Excel"
+  url: /analyze-excel
+  category: validator
+
+# ----- Validator: Remove Duplicates -----
+- title: "Remove Duplicates in SQL"
+  url: /remove-duplicates-in-sql
+  category: validator
+
+- title: "Remove CSV Duplicates"
+  url: /remove-csv-duplicates
+  category: validator
+
+- title: "Remove Excel Duplicates"
+  url: /remove-excel-duplicates
+  category: validator
+
+# ----- Utilities: Code Generators -----
+- title: "JSON to Dart"
+  url: /json-to-dart
+  category: coding
+
+- title: "JSON to HTML"
+  url: /json-to-html
+  category: coding
+
+- title: "JSON to TypeScript"
+  url: /json-to-ts
+  category: coding
+
+- title: "JSON to Java"
+  url: /json-to-java
+  category: coding
+
+- title: "JSON to C#"
+  url: /json-to-c-sharp
+  category: coding
+
+- title: "JSON to Go Structs"
+  url: /json-to-go
+  category: coding
+
+# ----- Utilities: Data Generator -----
+- title: "UUID Generator"
+  url: /uuid-generator
+  category: utilities
+
+- title: "Epoch Converter"
+  url: /convert-epoch
+  category: utilities
+
+- title: "Case Converter"
+  url: /case-converter
+  category: utilities
+
+# ----- Utilities: Encoding | Hashing -----
+- title: "Base64 Encoder/Decoder"
+  url: /base64
+  category: utilities
+
+- title: "Hash Generator"
+  url: /hash-generator
+  category: utilities
+
+- title: "JWT Decoder"
+  url: /jwt-decoder
+  category: utilities
+
+- title: "Decode A URL"
+  url: /decode-a-url
+  category: utilities
+
+# ----- Utilities: Writing & Editing -----
+- title: "Word Counter"
+  url: /word-counter
+  category: utilities
+
+# ------- blog posts ------
+- title: "How to Convert Excel to JSON"
+  url: /how-to-convert-excel-to-json
+  category: excelblog
+
+- title: "How to Convert JSON to CSV"
+  url: /how-to-convert-json-to-csv
+  category: jsonblog
+
+- title: "How to Convert JSON to PDF"
+  url: /how-to-convert-json-to-pdf
+  category: jsonblog
+
+- title: "How to Convert JSON to XML"
+  url: /how-to-convert-json-to-xml
+  category: jsonblog
+
+- title: "How to Open JSON File in Excel"
+  url: /how-to-open-json-file-in-excel
+  category: jsonblog
+
+- title: "How To Generate UUID Online"
+  url: /how-to-generate-uuid
+  category: datageneration 
+
+# ------- finance tools ------
+- title: "MT940 to Excel"
+  url: /mt940-to-excel
+  category: mt940Finance
+
+- title: "MT940 to CSV"
+  url: /mt940-to-csv
+  category: mt940Finance
+
+- title: "MT940 to QIF"
+  url: /mt940-to-qif
+  category: mt940Finance
+
+- title: "MT940 to QBO"
+  url: /mt940-to-qbo
+  category: mt940Finance
+
+- title: "MT940 to QFX"
+  url: /mt940-to-qfx
+  category: mt940Finance
+
+- title: "QIF to CSV"
+  url: /qif-to-csv
+  category: qifFinance
+
+- title: "QIF to Excel"
+  url: /qif-to-excel
+  category: qifFinance
+
+- title: "QIF to QBO"
+  url: /qif-to-qbo
+  category: qifFinance
+
+- title: "QIF to MT940"
+  url: /qif-to-mt940
+  category: qifFinance
+
+- title: "QIF to QFX"
+  url: /qif-to-qfx
+  category: qifFinance
+
+- title: "CSV to QIF"
+  url: /csv-to-qif
+  category: csvFinance
+
+- title: "CSV to QBO"
+  url: /csv-to-qbo
+  category: csvFinance
+
+- title: "CSV to QFX"
+  url: /csv-to-qfx
+  category: csvFinance
+
+- title: "CSV to MT940"
+  url: /csv-to-mt940
+  category: csvFinance
+
+- title: "Excel to QIF"
+  url: /excel-to-qif
+  category: excelFinance
+
+- title: "Excel to QBO"
+  url: /excel-to-qbo
+  category: excelFinance
+
+- title: "Excel to QFX"
+  url: /excel-to-qfx
+  category: excelFinance
+
+- title: "Excel to MT940"
+  url: /excel-to-mt940
+  category: excelFinance
+
+- title: "QBO to CSV"
+  url: /qbo-to-csv
+  category: qboFinance
+
+- title: "QBO to QIF"
+  url: /qbo-to-qif
+  category: qboFinance
+
+- title: "QBO to Excel"
+  url: /qbo-to-excel
+  category: qboFinance
+
+- title: "QBO to QFX"
+  url: /qbo-to-qfx
+  category: qboFinance
+
+- title: "QBO to MT940"
+  url: /qbo-to-mt940
+  category: qboFinance
+
+- title: "MT942 to CSV"
+  url: /mt942-to-csv
+  category: mt942Finance
+
+- title: "MT942 to Excel"
+  url: /mt942-to-excel
+  category: mt942Finance
+
+- title: "QFX to CSV"
+  url: /qfx-to-csv
+  category: qfxFinance
+
+- title: "QFX to QIF"
+  url: /qfx-to-qif
+  category: qfxFinance
+
+- title: "QFX to Excel"
+  url: /qfx-to-excel
+  category: qfxFinance
+
+- title: "QFX to MT940"
+  url: /qfx-to-mt940
+  category: qfxFinance
+
+- title: "SQLite Viewer Online"
+  url: /sqlite-viewer-online
+  category: queryTools
+
+- title: "Query CSV"
+  url: /query-csv-online
+  category: queryTools
+
+- title: "Query Excel"
+  url: /query-excel-online
+  category: queryTools  
+  
+# ─────────────────────────────────────────────────────────────
+# 💰 FINANCE – Investing
+# ─────────────────────────────────────────────────────────────
+
+- title: "Compound Interest Calculator"
+  url: /compound-interest-calculator
+  category: investing
+
+- title: "CAGR Calculator"
+  url: /cagr-calculator
+  category: investing
+
+- title: "ROI Calculator"
+  url: /roi-calculator
+  category: investing
+
+- title: "Investment Return Calculator"
+  url: /investment-return-calculator
+  category: investing
+
+- title: "Future Value Calculator"
+  url: /future-value-calculator
+  category: investing
+
+- title: "Present Value Calculator"
+  url: /present-value-calculator
+  category: investing
+
+- title: "Inflation Calculator"
+  url: /inflation-calculator
+  category: investing
+
+- title: "Dollar Cost Averaging Calculator"
+  url: /dollar-cost-averaging-calculator
+  category: investing
+
+# ─────────────────────────────────────────────────────────────
+# 💰 FINANCE – Debt & Loans
+# ─────────────────────────────────────────────────────────────
+
+- title: "Loan Calculator"
+  url: /loan-calculator
+  category: loans
+
+- title: "EMI Calculator"
+  url: /emi-calculator
+  category: loans
+
+- title: "Mortgage Calculator"
+  url: /mortgage-calculator
+  category: loans
+
+- title: "Debt Payoff Calculator"
+  url: /debt-payoff-calculator
+  category: loans
+
+- title: "Avalanche vs Snowball Calculator"
+  url: /avalanche-vs-snowball-calculator
+  category: loans
+
+- title: "Credit Card Payoff Calculator"
+  url: /credit-card-payoff-calculator
+  category: loans
+
+- title: "Interest Calculator"
+  url: /interest-calculator
+  category: loans
+
+- title: "Amortization Calculator"
+  url: /amortization-calculator
+  category: loans
+
+# ─────────────────────────────────────────────────────────────
+# 💰 FINANCE – Budget & Wealth
+# ─────────────────────────────────────────────────────────────
+
+- title: "Budget Calculator"
+  url: /budget-calculator
+  category: budget
+
+- title: "50/30/20 Calculator"
+  url: /50-30-20-calculator
+  category: budget
+
+- title: "Savings Goal Calculator"
+  url: /savings-goal-calculator
+  category: budget
+
+- title: "Net Worth Calculator"
+  url: /net-worth-calculator
+  category: budget
+
+- title: "Emergency Fund Calculator"
+  url: /emergency-fund-calculator
+  category: budget
+
+- title: "FIRE Calculator"
+  url: /fire-calculator
+  category: budget
+
+- title: "Coast FIRE Calculator"
+  url: /coast-fire-calculator
+  category: budget
+
+- title: "Barista FIRE Calculator"
+  url: /barista-fire-calculator
+  category: budget
+
+- title: "Retirement Calculator"
+  url: /retirement-calculator
+  category: budget
+
+# ─────────────────────────────────────────────────────────────
+# 💰 FINANCE – Tax & Income
+# ─────────────────────────────────────────────────────────────
+
+- title: "Income Tax Calculator"
+  url: /income-tax-calculator
+  category: tax
+
+- title: "Salary Calculator"
+  url: /salary-calculator
+  category: tax
+
+- title: "Take Home Pay Calculator"
+  url: /take-home-pay-calculator
+  category: tax
+
+- title: "Hourly to Salary Calculator"
+  url: /hourly-to-salary-calculator
+  category: tax
+
+- title: "Tax Bracket Calculator"
+  url: /tax-bracket-calculator
+  category: tax
+
+- title: "Capital Gains Calculator"
+  url: /capital-gains-calculator
+  category: tax

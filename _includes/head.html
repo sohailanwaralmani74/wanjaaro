@@ -1,21 +1,20 @@
 <head>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <link rel="stylesheet" href="/assets/css/style.css">
   <meta charset="utf-8">
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="-1" />
   <title>{% if page.title %}{{page.title}}{% else %}{{site.title}}{% endif %}</title>
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <link rel="icon" href="/assets/img/wanjaaro.png" type="image/x-icon">
+  <link rel="icon" href="/assets/img/datafrog.png" type="image/x-icon">
   <meta name="robots" content="index, follow">
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=6">
-  <link rel="shortcut icon" href="{{ " /assets/img/wanjaaro.png" | prepend: site.baseurl }}" type="image/x-icon">
-  <link rel="apple-touch-icon" href="{{ " /assets/img/wanjaaro.png" | prepend: site.baseurl }}">
-  <link rel="apple-touch-icon" sizes="72x72" href="{{ " /assets/img/wanjaaro.png" | prepend:
+  <link rel="shortcut icon" href="{{ " /assets/img/datafrog.png" | prepend: site.baseurl }}" type="image/x-icon">
+  <link rel="apple-touch-icon" href="{{ " /assets/img/datafrog.png" | prepend: site.baseurl }}">
+  <link rel="apple-touch-icon" sizes="72x72" href="{{ " /assets/img/datafrog.png" | prepend:
     site.baseurl }}">
-  <link rel="apple-touch-icon" sizes="144x144" href="{{ " /assets/img/wanjaaro.png" | prepend:
+  <link rel="apple-touch-icon" sizes="144x144" href="{{ " /assets/img/datafrog.png" | prepend:
     site.baseurl }}">
   <!-- Chrome, Firefox OS and Opera -->
   <meta name="theme-color" content="#263959">
@@ -48,21 +47,21 @@
 {% elsif site.url %}
   <link rel="canonical" href="{{ site.url | absolute_url }}">
 {% else %}
-  <link rel="canonical" href="https://wanjaaro.tools">
+  <link rel="canonical" href="https://datafrog.tools">
 {% endif %}
 
 <!-- Open Graph Tags -->
 <meta property="og:type" content="website" />
 
-<meta property="og:title" content="{% if page.title %}{{ page.title | escape }}{% elsif site.title %}{{ site.title | escape }}{% else %}wanjaaro{% endif %}">
+<meta property="og:title" content="{% if page.title %}{{ page.title | escape }}{% elsif site.title %}{{ site.title | escape }}{% else %}DataFrog{% endif %}">
 <meta property="og:description" content="{% if page.description %}{{ page.description | escape }}{% elsif site.description %}{{ site.description | escape }}{% else %}Online Converters & Blog{% endif %}">
-<meta property="og:url" content="{% if page.url %}{{ page.url | absolute_url }}{% elsif site.url %}{{ site.url | absolute_url }}{% else %}https://wanjaaro.tools{% endif %}">
-<meta property="og:image" content="{% if page.image %}{{ page.image | absolute_url }}{% elsif site.image %}{{ site.image | absolute_url }}{% else %}/assets/img/wanjaaro.png{% endif %}">
+<meta property="og:url" content="{% if page.url %}{{ page.url | absolute_url }}{% elsif site.url %}{{ site.url | absolute_url }}{% else %}https://datafrog.tools{% endif %}">
+<meta property="og:image" content="{% if page.image %}{{ page.image | absolute_url }}{% elsif site.image %}{{ site.image | absolute_url }}{% else %}https://datafrog.tools/assets/img/datafrog.png{% endif %}">
 
 <!-- Twitter Card Tags -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{% if page.title %}{{ page.title | escape }}{% elsif site.title %}{{ site.title | escape }}{% else %}wanjaaro{% endif %}">
+<meta name="twitter:title" content="{% if page.title %}{{ page.title | escape }}{% elsif site.title %}{{ site.title | escape }}{% else %}DataFrog{% endif %}">
 <meta name="twitter:description" content="{% if page.description %}{{ page.description | escape }}{% elsif site.description %}{{ site.description | escape }}{% else %}Convert you files online and read pristegious Blog posts{% endif %}">
-<meta name="twitter:image" content="{% if page.image %}{{ page.image | absolute_url }}{% elsif site.image %}{{ site.image | absolute_url }}{% else %}/assets/img/wanjaaro.png{% endif %}">
+<meta name="twitter:image" content="{% if page.image %}{{ page.image | absolute_url }}{% elsif site.image %}{{ site.image | absolute_url }}{% else %}https://datafrog.tools/assets/img/datafrog.png{% endif %}">
  
 </head>

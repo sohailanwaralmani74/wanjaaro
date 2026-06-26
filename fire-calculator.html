@@ -1,0 +1,671 @@
+---
+layout: main
+title: "FIRE Calculator – Financial Independence Retire Early | Free Tool"
+description: "Calculate your FIRE number, years to retirement, and monthly savings needed to achieve financial independence. Plan your early retirement with this free calculator."
+keywords: "FIRE calculator, financial independence retire early, FIRE number calculator, early retirement calculator, FI calculator, retire early planner"
+category: budget
+---
+<!-- ═══════════════════════════════════════════════════════
+     JSON‑LD SCHEMAS — Coast FIRE Calculator
+═══════════════════════════════════════════════════════ -->
+
+<!-- 1. WebApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Coast FIRE Calculator – Financial Independence Without Saving",
+  "description": "Calculate how much you need to save today to coast to financial independence. See if you've reached Coast FIRE and how long it takes.",
+  "url": "https://datafrog.tools/coast-fire-calculator/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+
+<!-- 2. BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://datafrog.tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Coast FIRE Calculator",
+      "item": "https://datafrog.tools/coast-fire-calculator/"
+    }
+  ]
+}
+</script>
+
+<!-- 3. HowTo -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use the Coast FIRE Calculator",
+  "description": "Step by step guide to calculate your Coast FIRE number.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Select your currency",
+      "text": "Choose from 170+ global currencies."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Enter your current savings",
+      "text": "Enter the amount you have invested today."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Set your target retirement age",
+      "text": "When you plan to retire."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Enter your expected return",
+      "text": "The annual growth rate of your investments."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "Choose your safe withdrawal rate",
+      "text": "Typically 4%."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 6,
+      "name": "View your Coast FIRE number",
+      "text": "See if you've already reached it."
+    }
+  ]
+}
+</script>
+
+<!-- 4. FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Coast FIRE?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Coast FIRE is a financial independence strategy where you save enough early in life so that your investments grow to cover your retirement without needing additional contributions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate my Coast FIRE number?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use the Coast FIRE formula: Coast FIRE Number = FIRE Number / (1 + r)^n. This Coast FIRE calculator does the math for you instantly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Coast FIRE realistic?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — Coast FIRE is a realistic goal for many people. It requires aggressive saving early in your career."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens after I reach Coast FIRE?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can stop saving for retirement. Your existing investments will grow to cover your FIRE number by your target retirement age."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between Coast FIRE and Barista FIRE?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Coast FIRE means you don't need to save another dollar for retirement. Barista FIRE means you work part-time to cover some expenses."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What return rate should I use for Coast FIRE?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most Coast FIRE calculations use a conservative 7% average annual return after inflation. You can adjust the rate based on your risk tolerance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How accurate is this Coast FIRE calculator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This Coast FIRE number calculator uses standard financial formulas and is accurate for planning. Actual returns may vary."
+      }
+    }
+  ]
+}
+</script>
+
+<div class="tool-page">
+  <article >
+    <meta  content="FIRE Calculator" />
+    
+    
+
+    <section class="page-heading">
+      <h1 >FIRE Calculator — Financial Independence, Retire Early</h1>
+      <p class="tool-subtitle">
+        Calculate your <strong>FIRE number</strong>, years to retirement, and monthly savings needed to achieve <strong>financial independence</strong>. Plan your early retirement with the <strong>4% rule</strong> — instantly in <strong>your currency</strong> with support for 170+ currencies.
+      </p>
+    </section>
+
+    <div class="tool-body">
+      <!-- LEFT COLUMN – INPUT PANEL -->
+      <aside class="tool-input-col" aria-label="Calculator inputs">
+        <div class="panel input-panel">
+
+          <!-- Currency Selector -->
+          <div class="form-group">
+            <label for="currencySearch">Currency</label>
+            <div class="currency-search-wrapper">
+              <input type="text" id="currencySearch" placeholder="Type currency name or code" autocomplete="off" />
+              <div id="currencyResults" class="currency-results"></div>
+            </div>
+          </div>
+
+          <!-- Current Age -->
+          <div class="form-group">
+            <label for="currentAge">Current Age</label>
+            <div class="input-addons">
+              <input type="number" id="currentAge" value="30" min="18" max="80" step="1" oninput="syncSlider('currentAge');calculate()" />
+              <span class="input-addon input-addon--right">yr</span>
+            </div>
+            <div class="slider-row">
+              <input type="range" id="currentAgeSlider" min="18" max="80" step="1" value="30" oninput="syncInput('currentAge',this.value);calculate()" />
+              <span class="slider-val" id="currentAgeSliderVal">30 yr</span>
+            </div>
+            <span class="field-hint">Your current age</span>
+          </div>
+
+          <!-- Annual Expenses -->
+          <div class="form-group">
+            <label for="annualExpenses">Annual Expenses</label>
+            <div class="input-addons">
+              <span class="input-addon" id="currencySymbol">$</span>
+              <input type="number" id="annualExpenses" value="40000" min="0" step="500" oninput="syncSlider('annualExpenses');calculate()" />
+            </div>
+            <div class="slider-row">
+              <input type="range" id="annualExpensesSlider" min="0" max="500000" step="500" value="40000" oninput="syncInput('annualExpenses',this.value);calculate()" />
+              <span class="slider-val" id="annualExpensesSliderVal">$40,000</span>
+            </div>
+            <span class="field-hint">Your total annual spending in retirement</span>
+          </div>
+
+          <!-- Current Savings -->
+          <div class="form-group">
+            <label for="currentSavings">Current Savings</label>
+            <div class="input-addons">
+              <span class="input-addon" id="currencySymbol2">$</span>
+              <input type="number" id="currentSavings" value="50000" min="0" step="1000" oninput="syncSlider('currentSavings');calculate()" />
+            </div>
+            <div class="slider-row">
+              <input type="range" id="currentSavingsSlider" min="0" max="10000000" step="1000" value="50000" oninput="syncInput('currentSavings',this.value);calculate()" />
+              <span class="slider-val" id="currentSavingsSliderVal">$50,000</span>
+            </div>
+            <span class="field-hint">Total savings and investments you already have</span>
+          </div>
+
+          <!-- Monthly Contribution -->
+          <div class="form-group">
+            <label for="monthlyContribution">Monthly Contribution</label>
+            <div class="input-addons">
+              <span class="input-addon" id="currencySymbol3">$</span>
+              <input type="number" id="monthlyContribution" value="1500" min="0" step="100" oninput="syncSlider('monthlyContribution');calculate()" />
+            </div>
+            <div class="slider-row">
+              <input type="range" id="monthlyContributionSlider" min="0" max="50000" step="100" value="1500" oninput="syncInput('monthlyContribution',this.value);calculate()" />
+              <span class="slider-val" id="monthlyContributionSliderVal">$1,500</span>
+            </div>
+            <span class="field-hint">Amount you save each month</span>
+          </div>
+
+          <!-- Expected Return -->
+          <div class="form-group">
+            <label for="expectedReturn">Expected Annual Return (%)</label>
+            <div class="input-addons">
+              <input type="number" id="expectedReturn" value="7" min="0" max="20" step="0.5" oninput="syncSlider('expectedReturn');calculate()" />
+              <span class="input-addon input-addon--right">%</span>
+            </div>
+            <div class="slider-row">
+              <input type="range" id="expectedReturnSlider" min="0" max="20" step="0.5" value="7" oninput="syncInput('expectedReturn',this.value);calculate()" />
+              <span class="slider-val" id="expectedReturnSliderVal">7%</span>
+            </div>
+            <span class="field-hint">Average annual return on your investments</span>
+          </div>
+
+          <!-- Inflation Rate -->
+          <div class="form-group">
+            <label for="inflationRate">Inflation Rate (%) <span class="optional-badge">Optional</span></label>
+            <div class="input-addons">
+              <input type="number" id="inflationRate" value="3" min="0" max="15" step="0.5" oninput="syncSlider('inflationRate');calculate()" />
+              <span class="input-addon input-addon--right">%</span>
+            </div>
+            <div class="slider-row">
+              <input type="range" id="inflationRateSlider" min="0" max="15" step="0.5" value="3" oninput="syncInput('inflationRate',this.value);calculate()" />
+              <span class="slider-val" id="inflationRateSliderVal">3%</span>
+            </div>
+            <span class="field-hint">Expected annual inflation rate</span>
+          </div>
+
+          <!-- Safe Withdrawal Rate -->
+          <div class="form-group">
+            <label for="withdrawalRate">Safe Withdrawal Rate (%)</label>
+            <div class="input-addons">
+              <input type="number" id="withdrawalRate" value="4" min="2" max="8" step="0.1" oninput="syncSlider('withdrawalRate');calculate()" />
+              <span class="input-addon input-addon--right">%</span>
+            </div>
+            <div class="slider-row">
+              <input type="range" id="withdrawalRateSlider" min="2" max="8" step="0.1" value="4" oninput="syncInput('withdrawalRate',this.value);calculate()" />
+              <span class="slider-val" id="withdrawalRateSliderVal">4%</span>
+            </div>
+            <span class="field-hint">Annual withdrawal rate (standard is 4%)</span>
+          </div>
+
+          <div class="calc-actions">
+            <button class="btn btn-ghost" onclick="resetForm()">Reset</button>
+            <button class="btn btn-primary" onclick="shareURL()" id="shareBtn">Share</button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- RIGHT COLUMN – RESULTS PANEL -->
+      <section class="tool-output-col" aria-label="Calculator results" aria-live="polite">
+
+        <!-- Result Cards -->
+        <div class="result-cards">
+          <div class="result-card">
+            <div class="result-label">FIRE Number</div>
+            <div class="result-value" id="fireNumber">—</div>
+            <div class="result-sub">Total needed to retire</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Years to FIRE</div>
+            <div class="result-value" id="yearsToFire">—</div>
+            <div class="result-sub">Until financial independence</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Retirement Age</div>
+            <div class="result-value" id="retirementAge">—</div>
+            <div class="result-sub">When you can retire</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Progress</div>
+            <div class="result-value" id="fireProgress">—</div>
+            <div class="result-sub">Towards FIRE number</div>
+          </div>
+        </div>
+
+
+        <!-- FIRE Age Timeline -->
+        <div class="insights-panel" id="fireTimeline" style="display:none;">
+          <div class="timeline-marker" id="timelineMarker" style="left:0%;">
+            <span class="insights-grid" id="progressLabel" style="color: rgb(4, 70, 70);">0% to FIRE</span>
+            <span class="insights-grid" id="timelineLabel" style="color: rgb(4, 70, 70);">FIRE at 65</span>
+          </div>
+        </div>
+
+        <!-- Insights Panel -->
+        <div class="insights-panel" id="insightsPanel">
+          <div class="insights-grid" id="insightsGrid">
+            <!-- Populated by JavaScript -->
+          </div>
+        </div>
+
+        <!-- Chart Panel -->
+        <div class="chart-panel">
+          <div class="chart-tabs" role="tablist">
+            <button class="chart-tab active" data-chart="line" onclick="switchChart('line',this)" role="tab">Wealth Over Time</button>
+            <button class="chart-tab" data-chart="bar" onclick="switchChart('bar',this)" role="tab">Savings vs FIRE</button>
+            <button class="chart-tab" data-chart="donut" onclick="switchChart('donut',this)" role="tab">Progress Breakdown</button>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="toolChart" role="img" aria-label="FIRE growth chart"></canvas>
+          </div>
+        </div>
+
+        <!-- Action Bar -->
+        <div class="action-bar">
+          <button class="action-btn" onclick="downloadCSV()" title="Download data as CSV">⬇ Download CSV</button>
+          <button class="action-btn" onclick="copyResult()" title="Copy result to clipboard" id="copyBtn">📋 Copy Result</button>
+          <button class="action-btn" onclick="exportChart()" title="Export chart as PNG">🖼️ Export Chart</button>
+        </div>
+
+        <!-- Breakdown Table -->
+        <div class="breakdown-panel">
+          <div class="breakdown-title">Year‑by‑Year Projection</div>
+          <div class="table-wrap">
+            <table class="breakdown-table" id="breakdownTable" aria-label="FIRE projection">
+              <thead id="tableHead"></thead>
+              <tbody id="tableBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+    </div>
+  </article>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     ON‑PAGE CONTENT — SEO & GEO OPTIMISED
+═══════════════════════════════════════════════════════ -->
+<section class="onpage-content" >
+  <meta  content="Coast FIRE Calculator – How to Coast to Financial Independence" />
+  <meta  content="Learn how to calculate your Coast FIRE number and understand the Coast FIRE strategy. Free tool works in USD, EUR, INR, PKR & 170+ currencies." />
+
+  <!-- ─────────────────────────────────────────────────────
+       WHAT IS COAST FIRE
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>What Is Coast FIRE?</h2>
+    <p>
+      <strong>Coast FIRE</strong> is a financial independence strategy where you save enough money early in life so that your investments grow on their own to cover your retirement — without needing to save another dollar. Once you reach your <strong>Coast FIRE number</strong>, you can "coast" through the rest of your career without additional retirement savings.
+    </p>
+    <p>
+      This <strong>Coast FIRE calculator</strong> helps you determine exactly how much you need to save today to reach your Coast FIRE number — in <strong>your local currency</strong> with support for 170+ currencies.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       WHY CHOOSE COAST FIRE
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>Why Choose Coast FIRE?</h2>
+    <ul class="content-list">
+      <li><strong>Reduce financial stress</strong> — knowing you're already on track for retirement</li>
+      <li><strong>More career flexibility</strong> — switch to a lower‑paying, more fulfilling job</li>
+      <li><strong>Work less</strong> — go part‑time or freelance without worrying about savings</li>
+      <li><strong>Enjoy the journey</strong> — spend your income on what matters most today</li>
+      <li><strong>Compound growth works for you</strong> — your investments do the heavy lifting</li>
+    </ul>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       WHO IS THIS CALCULATOR FOR
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>Who Can Use This Coast FIRE Calculator</h2>
+    <p>
+      This <strong>Coast FIRE calculator</strong> is designed for anyone considering the Coast FIRE strategy:
+    </p>
+    <ul class="content-list">
+      <li><strong>Young professionals</strong> — with decades of compounding ahead</li>
+      <li><strong>Career changers</strong> — planning to move to a lower‑paying role</li>
+      <li><strong>Parents</strong> — wanting to spend more time with family</li>
+      <li><strong>Anyone wanting to reduce financial stress</strong> — knowing you're on track</li>
+      <li><strong>Financial planners</strong> — helping clients understand the Coast FIRE path</li>
+    </ul>
+    <p>
+      This tool works for <strong>everyone</strong> — regardless of country or currency. With support for <strong>170+ currencies</strong>, you can calculate in <strong>USD, EUR, GBP, INR, PKR, AED, SAR, CAD, AUD, SGD, MYR, PHP, TRY, ZAR</strong>, and many more.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       HOW TO USE
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>How to Use This Coast FIRE Calculator</h2>
+    <div class="howto-steps">
+      <div class="step">
+        <span class="step-number">1</span>
+        <span><strong>Select your currency</strong> – from 170+ global currencies.</span>
+      </div>
+      <div class="step">
+        <span class="step-number">2</span>
+        <span><strong>Enter your current savings</strong> – the amount you have invested today.</span>
+      </div>
+      <div class="step">
+        <span class="step-number">3</span>
+        <span><strong>Set your target retirement age</strong> – when you plan to retire.</span>
+      </div>
+      <div class="step">
+        <span class="step-number">4</span>
+        <span><strong>Enter your expected return</strong> – the annual growth rate of your investments.</span>
+      </div>
+      <div class="step">
+        <span class="step-number">5</span>
+        <span><strong>Choose your safe withdrawal rate</strong> – typically 4%.</span>
+      </div>
+      <div class="step">
+        <span class="step-number">6</span>
+        <span><strong>View your Coast FIRE number</strong> – see if you've already reached it.</span>
+      </div>
+    </div>
+    <p>
+      Results update in <strong>real‑time</strong> as you adjust values. View your <strong>Coast FIRE number</strong>, <strong>current savings</strong>, <strong>gap to Coast FIRE</strong>, and <strong>projected growth</strong> instantly.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       THE FORMULA
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>The Coast FIRE Formula</h2>
+    <p>
+      The <strong>Coast FIRE formula</strong> calculates how much you need today so your investments grow to your FIRE number by retirement:
+    </p>
+    <div class="formula-box">
+      Coast FIRE Number = FIRE Number / (1 + r)<sup>n</sup>
+      <br />
+      FIRE Number = Annual Expenses / Safe Withdrawal Rate
+    </div>
+    <p>
+      For example, if your annual expenses are <strong>$40,000</strong>, you're <strong>30 years</strong> from retirement, expect <strong>7%</strong> returns, and use a <strong>4%</strong> withdrawal rate:
+    </p>
+    <ul class="content-list">
+      <li><strong>FIRE Number:</strong> $40,000 / 4% = <strong>$1,000,000</strong></li>
+      <li><strong>Coast FIRE Number:</strong> $1,000,000 / (1.07)<sup>30</sup> = <strong>$131,367</strong></li>
+    </ul>
+    <p>
+      If you already have <strong>$131,367</strong> invested today, you've reached Coast FIRE — you never need to save another dollar for retirement.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       EXPECTED RESULTS
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>What Results Can You Expect from This Coast FIRE Calculator</h2>
+    <div class="example-grid">
+      <div class="example-card">
+        <h3>🏦 Coast FIRE Number</h3>
+        <p>The amount you need invested today to coast to financial independence.</p>
+      </div>
+      <div class="example-card">
+        <h3>📊 Current Savings</h3>
+        <p>What you already have invested today.</p>
+      </div>
+      <div class="example-card">
+        <h3>📈 Gap / Surplus</h3>
+        <p>How much more you need (or how much you've exceeded your goal).</p>
+      </div>
+      <div class="example-card">
+        <h3>🎯 Coast FIRE Age</h3>
+        <p>The earliest age you could reach Coast FIRE with your current savings rate.</p>
+      </div>
+      <div class="example-card">
+        <h3>📋 Projected Growth</h3>
+        <p>See how your investments grow over time.</p>
+      </div>
+      <div class="example-card">
+        <h3>📊 Interactive Charts</h3>
+        <p>Visual representations of your Coast FIRE journey.</p>
+      </div>
+    </div>
+
+    <h3>Example Scenarios</h3>
+    <div class="example-grid">
+      <div class="example-card">
+        <h4>Scenario 1: $40k Expenses, 30 Years, 7% Return</h4>
+        <ul>
+          <li><strong>Coast FIRE Number:</strong> $131,367</li>
+          <li><strong>FIRE Number:</strong> $1,000,000</li>
+          <li><strong>Status:</strong> Coast FIRE at 30 years</li>
+        </ul>
+      </div>
+      <div class="example-card">
+        <h4>Scenario 2: $50k Expenses, 25 Years, 8% Return</h4>
+        <ul>
+          <li><strong>Coast FIRE Number:</strong> $182,496</li>
+          <li><strong>FIRE Number:</strong> $1,250,000</li>
+          <li><strong>Status:</strong> Coast FIRE at 25 years</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       COAST FIRE VS STANDARD FIRE
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>Coast FIRE vs Standard FIRE — What's the Difference?</h2>
+    <table class="example-table">
+      <thead>
+        <tr><th>Feature</th><th>Coast FIRE</th><th>Standard FIRE</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Savings Strategy</strong></td>
+          <td>Save aggressively early, then stop</td>
+          <td>Save consistently throughout career</td>
+        </tr>
+        <tr>
+          <td><strong>Goal</strong></td>
+          <td>Investments grow to FIRE number on their own</td>
+          <td>Save until you reach FIRE number</td>
+        </tr>
+        <tr>
+          <td><strong>Career</strong></td>
+          <td>Can switch to lower‑paying, more fulfilling work</td>
+          <td>Continue working until reaching FIRE</td>
+        </tr>
+        <tr>
+          <td><strong>Mindset</strong></td>
+          <td>"Coast" through the rest of your career</td>
+          <td>"Push" until you reach the finish line</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       FAQ SECTION (7 Questions)
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block faq-section">
+    <h2>Frequently Asked Questions About Coast FIRE</h2>
+
+    <div class="faq-list" >
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          1. What is Coast FIRE?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            <strong>Coast FIRE</strong> is a financial independence strategy where you save enough early in life so that your investments grow to cover your retirement without needing additional contributions.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          2. How do I calculate my Coast FIRE number?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            Use the <strong>Coast FIRE formula</strong>: <code>Coast FIRE Number = FIRE Number / (1 + r)^n</code>. This <strong>Coast FIRE calculator</strong> does the math for you instantly.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          3. Is Coast FIRE realistic?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            Yes — <strong>Coast FIRE</strong> is a realistic goal for many people. It requires aggressive saving early in your career, but after reaching your Coast FIRE number, you can reduce or stop retirement savings and focus on enjoying your work.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          4. What happens after I reach Coast FIRE?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            Once you reach <strong>Coast FIRE</strong>, you can stop saving for retirement. Your existing investments will grow to cover your FIRE number by your target retirement age. You can then spend your income on other priorities.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          5. What's the difference between Coast FIRE and Barista FIRE?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            <strong>Coast FIRE</strong> means you don't need to save another dollar for retirement — your investments will grow on their own. <strong>Barista FIRE</strong> means you work part‑time to cover some expenses while your investments cover the rest. This <strong>Coast FIRE calculator</strong> focuses on the Coast FIRE path.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          6. What return rate should I use for Coast FIRE?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            Most <strong>Coast FIRE</strong> calculations use a conservative <strong>7% average annual return</strong> after inflation. However, you can adjust the rate in this <strong>Coast FIRE retirement calculator</strong> based on your risk tolerance and portfolio mix.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          7. How accurate is this Coast FIRE calculator?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            This <strong>Coast FIRE number calculator</strong> uses standard financial formulas and is accurate for planning. However, actual returns may vary — use it as a guide, not a guarantee.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+<!-- ==========================================================
+     LOAD SCRIPTS
+     ========================================================== -->
+<script src="/assets/js/fire-calculator.js"></script>

@@ -1,0 +1,588 @@
+---
+layout: main
+title: "Debt Payoff Calculator – Free Online Tool | Pay Off Your Debts Faster"
+description: "Calculate how long it takes to pay off your debts with a fixed monthly payment. See total interest, payoff date, and amortization schedule. Works in USD, EUR, INR, PKR & 170+ currencies."
+keywords: "debt payoff calculator, debt repayment calculator, pay off debt calculator, monthly debt payment calculator, debt amortization calculator"
+category: loans
+---
+<!-- ═══════════════════════════════════════════════════════
+     JSON‑LD SCHEMAS — Debt Payoff Calculator
+═══════════════════════════════════════════════════════ -->
+
+<!-- 1. WebApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Debt Payoff Calculator – Free Online Tool | Plan Your Path to Freedom",
+  "description": "Calculate how long it takes to pay off your debts with a fixed monthly payment. See total interest, payoff date, and amortization schedule. Works in 170+ currencies.",
+  "url": "https://datafrog.tools/debt-payoff-calculator/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+
+<!-- 2. BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://datafrog.tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Debt Payoff Calculator",
+      "item": "https://datafrog.tools/debt-payoff-calculator/"
+    }
+  ]
+}
+</script>
+
+<!-- 3. HowTo -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use the Debt Payoff Calculator",
+  "description": "Step by step guide to calculate your debt payoff timeline and total interest.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Select your currency",
+      "text": "Choose from 170+ global currencies including USD, EUR, INR, PKR, AED, and more."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Enter your total debt balance",
+      "text": "Enter the total amount you owe."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Set your interest rate",
+      "text": "Enter the annual percentage rate on your debt."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Enter your monthly payment",
+      "text": "Enter the fixed amount you can pay each month."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "View your results",
+      "text": "See your payoff timeline, total interest, and amortization schedule."
+    }
+  ]
+}
+</script>
+
+<!-- 4. FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does making extra payments affect my debt payoff?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Making extra payments reduces your principal faster, which lowers the total interest you'll pay and can shorten your debt payoff timeline by months or even years."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a good monthly payment for paying off debt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A 'good' monthly payment is one that exceeds your minimum payment and fits your budget. The higher your payment, the faster you'll become debt free and the less interest you'll pay."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is an amortization schedule?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An amortization schedule is a complete breakdown of every monthly payment over the life of your debt, showing principal, interest, and remaining balance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I pay off debt or save money first?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Generally, pay off high‑interest debt (above 10%) as quickly as possible. For low‑interest debt (below 5%), consider saving and investing while making regular payments."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the interest rate affect my debt payoff timeline?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A higher interest rate means more of your payment goes toward interest, which slows down your payoff. A lower rate accelerates your payoff and reduces total interest."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this calculator for different types of debt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. This calculator works for any fixed‑rate debt — including credit cards, personal loans, student loans, car loans, and mortgages."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How accurate is this debt payoff calculator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This calculator uses standard financial formulas and is accurate for planning. However, actual results may vary if interest rates change or if you miss payments."
+      }
+    }
+  ]
+}
+</script>
+<div class="tool-page">
+  <article >
+    <meta  content="Debt Payoff Calculator" />
+    
+    
+
+    <section class="page-heading">
+      <h1 >Debt Payoff Calculator — Plan Your Path to Freedom</h1>
+      <p class="tool-subtitle">
+        Calculate how long it takes to <strong>pay off your debts</strong> with a fixed monthly payment. See total interest, payoff date, and a complete <strong>amortization schedule</strong> — instantly in <strong>your currency</strong> with support for 170+ currencies.
+      </p>
+    </section>
+
+    <div class="tool-body">
+      <!-- LEFT COLUMN – INPUT PANEL -->
+      <aside class="tool-input-col" aria-label="Calculator inputs">
+        <div class="panel input-panel">
+
+          <!-- Currency Selector -->
+          <div class="form-group">
+            <label for="currencySearch">Currency</label>
+            <div class="currency-search-wrapper">
+              <input type="text" id="currencySearch" placeholder="Type currency name or code" autocomplete="off" />
+              <div id="currencyResults" class="currency-results"></div>
+            </div>
+          </div>
+
+          <!-- Total Debt -->
+          <div class="form-group">
+            <label for="totalDebt">Total Debt Balance</label>
+            <div class="input-addons">
+              <span class="input-addon" id="currencySymbol">$</span>
+              <input type="number" id="totalDebt" value="10000" min="0" step="100" oninput="syncSlider('totalDebt');calculate()" />
+            </div>
+            <div class="slider-row">
+              <input type="range" id="totalDebtSlider" min="0" max="1000000" step="100" value="10000" oninput="syncInput('totalDebt',this.value);calculate()" />
+              <span class="slider-val" id="totalDebtSliderVal">$10,000</span>
+            </div>
+            <span class="field-hint">Total amount of debt you owe</span>
+          </div>
+
+          <!-- Interest Rate -->
+          <div class="form-group">
+            <label for="rate">Annual Interest Rate (%)</label>
+            <div class="input-addons">
+              <input type="number" id="rate" value="18" min="0" max="30" step="0.5" oninput="syncSlider('rate');calculate()" />
+              <span class="input-addon input-addon--right">%</span>
+            </div>
+            <div class="slider-row">
+              <input type="range" id="rateSlider" min="0" max="30" step="0.5" value="18" oninput="syncInput('rate',this.value);calculate()" />
+              <span class="slider-val" id="rateSliderVal">18.0%</span>
+            </div>
+            <span class="field-hint">Annual interest rate on your debt</span>
+          </div>
+
+          <!-- Monthly Payment -->
+          <div class="form-group">
+            <label for="monthlyPayment">Monthly Payment</label>
+            <div class="input-addons">
+              <span class="input-addon" id="currencySymbol2">$</span>
+              <input type="number" id="monthlyPayment" value="500" min="0" step="50" oninput="syncSlider('monthlyPayment');calculate()" />
+            </div>
+            <div class="slider-row">
+              <input type="range" id="monthlyPaymentSlider" min="0" max="50000" step="50" value="500" oninput="syncInput('monthlyPayment',this.value);calculate()" />
+              <span class="slider-val" id="monthlyPaymentSliderVal">$500</span>
+            </div>
+            <span class="field-hint">Fixed amount you pay each month</span>
+          </div>
+
+          <div class="calc-actions">
+            <button class="btn btn-ghost" onclick="resetForm()">Reset</button>
+            <button class="btn btn-primary" onclick="shareURL()" id="shareBtn">Share</button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- RIGHT COLUMN – RESULTS PANEL -->
+      <section class="tool-output-col" aria-label="Calculator results" aria-live="polite">
+
+        <!-- Result Cards -->
+        <div class="result-cards">
+          <div class="result-card">
+            <div class="result-label">Payoff Time</div>
+            <div class="result-value" id="payoffTime">—</div>
+            <div class="result-sub">Months to debt free</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Total Interest</div>
+            <div class="result-value" id="totalInterest">—</div>
+            <div class="result-sub">Cost of borrowing</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Total Payment</div>
+            <div class="result-value" id="totalPayment">—</div>
+            <div class="result-sub">Principal + Interest</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Payoff Date</div>
+            <div class="result-value" id="payoffDate">—</div>
+            <div class="result-sub">Estimated completion</div>
+          </div>
+        </div>
+
+        <!-- Insights Panel -->
+        <div class="insights-panel" id="insightsPanel">
+          <div class="insights-grid" id="insightsGrid">
+            <!-- Populated by JavaScript -->
+          </div>
+        </div>
+
+        <!-- Chart Panel -->
+        <div class="chart-panel">
+          <div class="chart-tabs" role="tablist">
+            <button class="chart-tab active" data-chart="line" onclick="switchChart('line',this)" role="tab">Balance Over Time</button>
+            <button class="chart-tab" data-chart="bar" onclick="switchChart('bar',this)" role="tab">Principal vs Interest</button>
+            <button class="chart-tab" data-chart="donut" onclick="switchChart('donut',this)" role="tab">Cost Breakdown</button>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="toolChart" role="img" aria-label="Debt payoff chart"></canvas>
+          </div>
+        </div>
+
+        <!-- Action Bar -->
+        <div class="action-bar">
+          <button class="action-btn" onclick="downloadCSV()" title="Download data as CSV">⬇ Download CSV</button>
+          <button class="action-btn" onclick="copyResult()" title="Copy result to clipboard" id="copyBtn">📋 Copy Result</button>
+          <button class="action-btn" onclick="exportChart()" title="Export chart as PNG">🖼️ Export Chart</button>
+        </div>
+
+        <!-- Amortization Table -->
+        <div class="breakdown-panel">
+          <div class="breakdown-title">Amortization Schedule</div>
+          <div class="table-wrap">
+            <table class="breakdown-table" id="breakdownTable" aria-label="Debt amortization schedule">
+              <thead id="tableHead"></thead>
+              <tbody id="tableBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+    </div>
+  </article>
+</div>
+<!-- ═══════════════════════════════════════════════════════
+     ON‑PAGE CONTENT — SEO & GEO OPTIMISED
+═══════════════════════════════════════════════════════ -->
+<section class="onpage-content" >
+  <meta  content="Debt Payoff Calculator – Plan Your Path to Financial Freedom" />
+  <meta  content="Learn how to calculate your debt payoff timeline, total interest, and amortization schedule. Free tool works in USD, EUR, INR, PKR & 170+ currencies." />
+
+  <!-- ─────────────────────────────────────────────────────
+       WHY DEBT PAYOFF MATTERS
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>Why Knowing Your Debt Payoff Timeline Matters</h2>
+    <p>
+      Carrying debt can feel overwhelming, but understanding exactly how long it will take to become debt free — and how much interest you'll pay — is the first step toward financial freedom. A <strong>debt payoff calculator</strong> gives you clarity, motivation, and a clear plan.
+    </p>
+    <p>
+      This <strong>debt repayment calculator</strong> shows you exactly how long it will take to pay off your debt with a fixed monthly payment, how much interest you'll pay over time, and provides a full <strong>amortization schedule</strong> — all in <strong>your local currency</strong> with support for 170+ currencies.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       WHO IS THIS CALCULATOR FOR
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>Who Can Use This Debt Payoff Calculator</h2>
+    <p>
+      This <strong>debt payment calculator</strong> is designed for anyone looking to take control of their debt:
+    </p>
+    <ul class="content-list">
+      <li><strong>Credit card holders</strong> – planning to eliminate high‑interest balances</li>
+      <li><strong>Student loan borrowers</strong> – understanding repayment timelines</li>
+      <li><strong>Personal loan holders</strong> – calculating early payoff options</li>
+      <li><strong>Homeowners</strong> – planning mortgage payoff strategies</li>
+      <li><strong>Anyone with debt</strong> – creating a realistic path to becoming debt free</li>
+    </ul>
+    <p>
+      This tool works for <strong>everyone</strong> — regardless of country or currency. With support for <strong>170+ currencies</strong>, you can calculate in <strong>USD, EUR, GBP, INR, PKR, AED, SAR, CAD, AUD, SGD, MYR, PHP, TRY, ZAR</strong>, and many more.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       HOW TO USE
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>How to Use This Debt Payoff Calculator</h2>
+    <div class="howto-steps">
+      <div class="step">
+        <span class="step-number">1</span>
+        <span><strong>Select your currency</strong> – from 170+ global currencies.</span>
+      </div>
+      <div class="step">
+        <span class="step-number">2</span>
+        <span><strong>Enter your total debt balance</strong> – the total amount you owe.</span>
+      </div>
+      <div class="step">
+        <span class="step-number">3</span>
+        <span><strong>Set your interest rate</strong> – the annual percentage rate on your debt.</span>
+      </div>
+      <div class="step">
+        <span class="step-number">4</span>
+        <span><strong>Enter your monthly payment</strong> – the fixed amount you can pay each month.</span>
+      </div>
+      <div class="step">
+        <span class="step-number">5</span>
+        <span><strong>View your results</strong> – see your payoff timeline, total interest, and full amortization schedule.</span>
+      </div>
+    </div>
+    <p>
+      Results update in <strong>real‑time</strong> as you adjust the sliders or type values. View your <strong>payoff time</strong>, <strong>total interest</strong>, <strong>total payment</strong>, and <strong>estimated payoff date</strong> instantly.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       THE FORMULA
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>The Debt Payoff Formula</h2>
+    <p>
+      The <strong>debt payoff formula</strong> calculates how long it takes to eliminate your debt based on your monthly payment and interest rate:
+    </p>
+    <div class="formula-box">
+      n = −log(1 − (r × P) / M) / log(1 + r)
+      <span class="formula-note">
+        Where: <strong>n</strong> = number of months, <strong>r</strong> = monthly interest rate, <strong>P</strong> = principal (total debt), <strong>M</strong> = monthly payment
+      </span>
+    </div>
+    <p>
+      For example, if you owe $10,000 at 18% interest and pay $500 per month, you'll be debt free in approximately 24 months — and you'll pay $1,988 in total interest.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       AMORTIZATION EXPLAINED
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>What Is Amortization?</h2>
+    <p>
+      <strong>Amortization</strong> is the process of paying off debt through regular monthly payments. Each payment covers both <strong>principal</strong> (the amount you borrowed) and <strong>interest</strong> (the cost of borrowing).
+    </p>
+    <p>
+      Early in your debt repayment, a larger portion of each payment goes toward interest. Over time, as the principal decreases, more of your payment goes toward the principal. An <strong>amortization schedule</strong> shows this breakdown month by month — and this <strong>debt repayment calculator</strong> generates it instantly.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       EXPECTED RESULTS
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>What Results Can You Expect from This Debt Payoff Calculator</h2>
+    <div class="example-grid">
+      <div class="example-card">
+        <h3>📊 Payoff Time</h3>
+        <p>The number of months it will take to become debt free with your current payment plan.</p>
+      </div>
+      <div class="example-card">
+        <h3>💰 Total Interest</h3>
+        <p>The total amount of interest you'll pay over the life of your debt.</p>
+      </div>
+      <div class="example-card">
+        <h3>📈 Total Payment</h3>
+        <p>The total amount you'll pay — principal + interest — over the life of your debt.</p>
+      </div>
+      <div class="example-card">
+        <h3>📋 Payoff Date</h3>
+        <p>The estimated date when your debt will be fully paid off.</p>
+      </div>
+      <div class="example-card">
+        <h3>📋 Amortization Schedule</h3>
+        <p>A complete breakdown of every monthly payment, showing principal, interest, and remaining balance.</p>
+      </div>
+      <div class="example-card">
+        <h3>📊 Interactive Charts</h3>
+        <p>Visual representations of how your debt balance decreases over time.</p>
+      </div>
+    </div>
+
+    <h3>Example Scenarios</h3>
+    <div class="example-grid">
+      <div class="example-card">
+        <h4>Scenario 1: $10,000 at 18% with $500/month</h4>
+        <ul>
+          <li><strong>Payoff Time:</strong> 24 months</li>
+          <li><strong>Total Interest:</strong> $1,988</li>
+          <li><strong>Total Payment:</strong> $11,988</li>
+        </ul>
+      </div>
+      <div class="example-card">
+        <h4>Scenario 2: ₹5,00,000 at 15% with ₹15,000/month</h4>
+        <ul>
+          <li><strong>Payoff Time:</strong> 44 months</li>
+          <li><strong>Total Interest:</strong> ₹1,52,040</li>
+          <li><strong>Total Payment:</strong> ₹6,52,040</li>
+        </ul>
+      </div>
+      <div class="example-card">
+        <h4>Scenario 3: $25,000 at 12% with $800/month</h4>
+        <ul>
+          <li><strong>Payoff Time:</strong> 39 months</li>
+          <li><strong>Total Interest:</strong> $5,855</li>
+          <li><strong>Total Payment:</strong> $30,855</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       FIXED VS VARIABLE RATES
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>Fixed vs Variable Interest Rates</h2>
+    <table class="example-table">
+      <thead>
+        <tr><th>Rate Type</th><th>Description</th><th>Best For</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Fixed Rate</strong></td>
+          <td>Interest rate stays the same for the entire repayment period</td>
+          <td>Stability and predictable payments</td>
+        </tr>
+        <tr>
+          <td><strong>Variable Rate</strong></td>
+          <td>Interest rate can change based on market conditions</td>
+          <td>Risk‑tolerant borrowers expecting rates to fall</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="dataset-note">
+      * This <strong>debt payoff estimator</strong> uses fixed‑rate calculations. For variable rates, use the current rate as an estimate.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       FAQ SECTION (7 Questions)
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block faq-section">
+    <h2>Frequently Asked Questions About Debt Payoff</h2>
+
+    <div class="faq-list" >
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          1. How does making extra payments affect my debt payoff?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            Making <strong>extra payments</strong> reduces your principal faster, which lowers the total interest you'll pay and can shorten your debt payoff timeline by months or even years. This <strong>debt payoff calculator</strong> shows you the impact of different payment amounts.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          2. What is a good monthly payment for paying off debt?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            A "good" monthly payment is one that exceeds your minimum payment and fits your budget. The higher your payment, the faster you'll become debt free and the less interest you'll pay. Use this <strong>pay down debt calculator</strong> to find the right balance for your situation.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          3. What is an amortization schedule?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            An <strong>amortization schedule</strong> is a complete breakdown of every monthly payment over the life of your debt. It shows how much of each payment goes toward principal and interest, and what your remaining balance is after each payment.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          4. Should I pay off debt or save money first?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            Generally, pay off <strong>high‑interest debt</strong> (above 10%) as quickly as possible. For low‑interest debt (below 5%), you might consider saving and investing while making regular payments. Use this <strong>debt repayment calculator</strong> to see the true cost of your debt.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          5. How does the interest rate affect my debt payoff timeline?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            A higher <strong>interest rate</strong> means more of your payment goes toward interest, which slows down your payoff and increases total interest. A lower rate accelerates your payoff and reduces total interest. This <strong>debt payoff estimator</strong> helps you see the difference.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          6. Can I use this calculator for different types of debt?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            Yes. This <strong>debt payment calculator</strong> works for any fixed‑rate debt — including credit cards, personal loans, student loans, car loans, and mortgages. Enter your balance, interest rate, and monthly payment to see your plan.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          7. How accurate is this debt payoff calculator?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            This <strong>debt payoff planner</strong> uses standard financial formulas and is accurate for planning. However, actual results may vary if interest rates change or if you miss payments. Always check with your lender for final numbers.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+<!-- ==========================================================
+     LOAD SCRIPTS
+     ========================================================== -->
+<script src="/assets/js/debt-payoff-calculator.js"></script>

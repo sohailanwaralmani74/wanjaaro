@@ -1,33 +1,201 @@
 <footer class="site-footer" role="contentinfo">
   <div class="footer-inner">
 
-    <!-- Top links row -->
-    <div class="footer-links" role="navigation" aria-label="Footer navigation">
-      <a href="/privacy-policy/" title="Read our Privacy Policy">🔒 Privacy Policy</a>
-      <a href="/contact-us/" title="Get in touch with Wanjaaro">📞 Contact Us</a>
-      <a href="/about-us/" title="Learn about Wanjaaro">ℹ️ About Us</a>
-      <a href="/terms-of-service/" title="Read our Terms of Service">⚖️ Terms of Service</a>
-      <a href="/sitemap/" title="Browse all Wanjaaro tools">🗺️ Sitemap</a>
-      <a href="/404" title="Test 404 page">🔍 404 Test Page</a>
-    </div>
+    <div class="footer-grid">
 
-    <!-- Bottom row -->
-    <div class="footer-bottom">
-
-      <div class="footer-brand">
-        <h3><a href="/" title="Wanjaaro Home">Wanjaaro</a></h3>
+      <!-- Left Column — About DataFrog -->
+      <div class="footer-about">
+        <h3>
+          <a href="/" title="DataFrog Home">DataFrog</a>
+        </h3>
         <p>
-          <strong>Wanjaaro</strong> offers <strong>free, browser-based calculators</strong>
-          for finance, credit, insurance, legal, SaaS, crypto, health &amp; auto —
-          no signup, no uploads, no server.
+          <strong>DataFrog</strong> offers <strong>100% free, browser-based tools</strong>
+          — no signup, no file uploads, no server processing. Everything runs locally in your browser
+          for maximum privacy and security.
+        </p>
+        <p>
+          Convert between JSON, Excel, CSV, XML, QIF, SQL, PDF, and more formats instantly.
+          Use financial calculators, developer utilities, and data conversion tools.
+          No account required, no installation, and no usage limits.
         </p>
       </div>
 
-      <div class="footer-copy">
-        <p>&copy; {{ site.time | date: "%Y" }} Wanjaaro &mdash; Life is a journey. Wanjaaro gives you the tools to navigate it smarter.</p>
+      <!-- Right Column — Two Columns -->
+      <div class="footer-right">
+
+        <!-- Column 1: Category Pages -->
+        <div class="footer-col">
+          <h4>Tools</h4>
+          <ul class="footer-list">
+            <li><a href="/converters">Converters</a></li>
+            <li><a href="/utilities">Utilities</a></li>
+            <li><a href="/calculators">Calculators</a></li>
+            <li><a href="/blog">Blog</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 2: Legal Pages -->
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul class="footer-list">
+            <li><a href="/about-us">About Us</a></li>
+            <li><a href="/contact-us">Contact Us</a></li>
+            <li><a href="/privacy-policy">Privacy Policy</a></li>
+            <li><a href="/terms-of-service">Terms of Service</a></li>
+            <li><a href="/sitemap">Sitemap</a></li>
+          </ul>
+        </div>
+
       </div>
 
+    </div>
+
+    <!-- Footer Bottom — Copyright -->
+    <div class="footer-copy">
+      <p>
+        &copy; {{ site.time | date: "%Y" }} DataFrog.
+        Free browser-based tools for anyone who works with data.
+      </p>
     </div>
 
   </div>
 </footer>
+<style>
+
+  /* ════════════════════════════════════════
+   24. FOOTER (UPDATED)
+════════════════════════════════════════ */
+
+.site-footer {
+  background: var(--bg-soft);
+  border-top: 1px solid var(--border-default);
+  padding: 40px 0 20px;
+  font-family: var(--font-sans);
+  margin-top: 3rem;
+}
+
+.footer-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Footer Grid: 50/50 split ── */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* ── Left Column: About ── */
+.footer-about h3 {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.footer-about h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.footer-about h3 a:hover {
+  color: var(--primary);
+}
+
+.footer-about p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+  max-width: none;
+}
+
+.footer-about p:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Right Column: Two columns ── */
+.footer-right {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.footer-col h4 {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-light);
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--border-default);
+}
+
+.footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-list li {
+  margin-bottom: 0.35rem;
+}
+
+.footer-list a {
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.footer-list a:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+/* ── Footer Bottom: Copyright ── */
+.footer-copy {
+  border-top: 1px solid var(--border-default);
+  padding-top: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.footer-copy p {
+  font-size: 12px;
+  color: var(--text-light);
+  margin: 0;
+  max-width: none;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .footer-right {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .footer-inner {
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-right {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .footer-copy p {
+    font-size: 11px;
+    text-align: center;
+  }
+}
+</style>

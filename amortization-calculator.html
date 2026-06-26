@@ -1,0 +1,619 @@
+---
+layout: main
+title: "Amortization Calculator – Free Online Tool | Loan Amortization Schedule"
+description: "Calculate your loan amortization schedule with monthly payments, total interest, and full payment breakdown. Works in USD, EUR, INR, PKR & 170+ currencies."
+keywords: "amortization calculator, loan amortization schedule, amortization schedule calculator, monthly payment calculator, loan amortization, amortization table"
+category: loans
+---
+<!-- ═══════════════════════════════════════════════════════
+     JSON‑LD SCHEMAS — Amortization Calculator
+═══════════════════════════════════════════════════════ -->
+
+<!-- 1. WebApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Amortization Calculator – Free Online Tool | Loan Amortization Schedule",
+  "description": "Generate a complete loan amortization schedule with monthly payments, total interest, and full payment breakdown. Works in 170+ currencies.",
+  "url": "https://datafrog.tools/amortization-calculator/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+
+<!-- 2. BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://datafrog.tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Amortization Calculator",
+      "item": "https://datafrog.tools/amortization-calculator/"
+    }
+  ]
+}
+</script>
+
+<!-- 3. HowTo -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use the Amortization Calculator",
+  "description": "Step by step guide to generate a complete loan amortization schedule.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Select your currency",
+      "text": "Choose from 170+ global currencies including USD, EUR, INR, PKR, AED, and more."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Enter the loan amount",
+      "text": "Enter the total amount you want to borrow."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Set your interest rate",
+      "text": "Enter the annual percentage rate on the loan."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Choose the loan term",
+      "text": "Enter how many years you have to repay the loan."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "View your amortization schedule",
+      "text": "See the full month-by-month breakdown of principal, interest, and balance."
+    }
+  ]
+}
+</script>
+
+<!-- 4. FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is amortization?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Amortization is the process of paying off a loan through regular monthly payments over a fixed period. Each payment covers both principal and interest, with the balance decreasing over time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is an amortization schedule?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An amortization schedule is a complete table showing every monthly payment over the life of a loan, breaking down principal, interest, and remaining balance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does an amortization schedule work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Each payment in an amortization schedule is split between principal and interest. Early in the loan, a larger portion goes toward interest, and over time, more goes toward principal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate my monthly payment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use the amortization formula: M = P × (r × (1 + r)^n) / ((1 + r)^n − 1). Or use this amortization calculator instantly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I pay off my loan early?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Making extra payments reduces your principal faster, which lowers the total interest you'll pay and can shorten your loan term."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the loan term affect my amortization schedule?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A longer loan term means lower monthly payments but more total interest. A shorter term means higher payments but less total interest."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How accurate is this amortization calculator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This amortization table calculator uses standard financial formulas and is accurate for planning. However, actual loan terms may vary — always check with your lender."
+      }
+    }
+  ]
+}
+</script>
+<div class="tool-page">
+  <article >
+
+    <section class="page-heading">
+      <h1 >Amortization Calculator — Loan Payment Schedule</h1>
+      <p class="tool-subtitle">
+        Calculate your <strong>loan amortization schedule</strong> with monthly payments, total interest, and a complete <strong>payment breakdown</strong> — instantly in <strong>your currency</strong> with support for 170+ currencies.
+      </p>
+    </section>
+
+    <div class="tool-body">
+      <!-- LEFT COLUMN – INPUT PANEL -->
+      <aside class="tool-input-col" aria-label="Calculator inputs">
+        <div class="panel input-panel">
+
+          <!-- Currency Selector -->
+          <div class="form-group">
+            <label for="currencySearch">Currency</label>
+            <div class="currency-search-wrapper">
+              <input type="text" id="currencySearch" placeholder="Type currency name or code" autocomplete="off" />
+              <div id="currencyResults" class="currency-results"></div>
+            </div>
+          </div>
+
+          <!-- Loan Amount -->
+          <div class="form-group">
+            <label for="loanAmount">Loan Amount</label>
+            <div class="input-addons">
+              <span class="input-addon" id="currencySymbol">$</span>
+              <input type="number" id="loanAmount" value="100000" min="0" step="500" oninput="syncSlider('loanAmount');calculate()" />
+            </div>
+            <div class="slider-row">
+              <input type="range" id="loanAmountSlider" min="0" max="10000000" step="500" value="100000" oninput="syncInput('loanAmount',this.value);calculate()" />
+              <span class="slider-val" id="loanAmountSliderVal">$100,000</span>
+            </div>
+            <span class="field-hint">Total amount you want to borrow</span>
+          </div>
+
+          <!-- Interest Rate -->
+          <div class="form-group">
+            <label for="rate">Annual Interest Rate (%)</label>
+            <div class="input-addons">
+              <input type="number" id="rate" value="7" min="0" max="30" step="0.1" oninput="syncSlider('rate');calculate()" />
+              <span class="input-addon input-addon--right">%</span>
+            </div>
+            <div class="slider-row">
+              <input type="range" id="rateSlider" min="0" max="30" step="0.1" value="7" oninput="syncInput('rate',this.value);calculate()" />
+              <span class="slider-val" id="rateSliderVal">7.0%</span>
+            </div>
+            <span class="field-hint">Annual interest rate on the loan</span>
+          </div>
+
+          <!-- Loan Term (Years) -->
+          <div class="form-group">
+            <label for="loanTerm">Loan Term (Years)</label>
+            <div class="input-addons">
+              <input type="number" id="loanTerm" value="10" min="1" max="50" step="1" oninput="syncSlider('loanTerm');calculate()" />
+              <span class="input-addon input-addon--right">yr</span>
+            </div>
+            <div class="slider-row">
+              <input type="range" id="loanTermSlider" min="1" max="50" step="1" value="10" oninput="syncInput('loanTerm',this.value);calculate()" />
+              <span class="slider-val" id="loanTermSliderVal">10 yrs</span>
+            </div>
+            <span class="field-hint">Total loan repayment period</span>
+          </div>
+
+          <div class="calc-actions">
+            <button class="btn btn-ghost" onclick="resetForm()">Reset</button>
+            <button class="btn btn-primary" onclick="shareURL()" id="shareBtn">Share</button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- RIGHT COLUMN – RESULTS PANEL -->
+      <section class="tool-output-col" aria-label="Calculator results" aria-live="polite">
+
+        <!-- Result Cards -->
+        <div class="result-cards">
+          <div class="result-card">
+            <div class="result-label">Monthly Payment</div>
+            <div class="result-value" id="monthlyPayment">—</div>
+            <div class="result-sub">Fixed monthly payment</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Total Interest</div>
+            <div class="result-value" id="totalInterest">—</div>
+            <div class="result-sub">Cost of borrowing</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Total Payment</div>
+            <div class="result-value" id="totalPayment">—</div>
+            <div class="result-sub">Principal + Interest</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Number of Payments</div>
+            <div class="result-value" id="numPayments">—</div>
+            <div class="result-sub">Total months</div>
+          </div>
+        </div>
+
+        <!-- Insights Panel -->
+        <div class="insights-panel" id="insightsPanel">
+          <div class="insights-grid" id="insightsGrid">
+            <!-- Populated by JavaScript -->
+          </div>
+        </div>
+
+        <!-- Chart Panel -->
+        <div class="chart-panel">
+          <div class="chart-tabs" role="tablist">
+            <button class="chart-tab active" data-chart="line" onclick="switchChart('line',this)" role="tab">Balance Over Time</button>
+            <button class="chart-tab" data-chart="bar" onclick="switchChart('bar',this)" role="tab">Principal vs Interest</button>
+            <button class="chart-tab" data-chart="donut" onclick="switchChart('donut',this)" role="tab">Cost Breakdown</button>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="toolChart" role="img" aria-label="Amortization chart"></canvas>
+          </div>
+        </div>
+
+        <!-- Action Bar -->
+        <div class="action-bar">
+          <button class="action-btn" onclick="downloadCSV()" title="Download data as CSV">⬇ Download CSV</button>
+          <button class="action-btn" onclick="copyResult()" title="Copy result to clipboard" id="copyBtn">📋 Copy Result</button>
+          <button class="action-btn" onclick="exportChart()" title="Export chart as PNG">🖼️ Export Chart</button>
+        </div>
+
+        <!-- Amortization Table -->
+        <div class="breakdown-panel">
+          <div class="breakdown-title">Amortization Schedule</div>
+          <div class="table-wrap">
+            <table class="breakdown-table" id="breakdownTable" aria-label="Amortization schedule">
+              <thead id="tableHead"></thead>
+              <tbody id="tableBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+    </div>
+  </article>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     ON‑PAGE CONTENT — SEO & GEO OPTIMISED
+═══════════════════════════════════════════════════════ -->
+<section class="onpage-content" >
+  <meta  content="Amortization Calculator – How to Generate a Loan Amortization Schedule" />
+  <meta  content="Learn how to generate a complete loan amortization schedule, see examples, and understand your monthly payment breakdown. Free tool works in USD, EUR, INR, PKR & 170+ currencies." />
+
+  <!-- ─────────────────────────────────────────────────────
+       WHY AMORTIZATION MATTERS
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>Why Amortization Matters for Your Loan</h2>
+    <p>
+      <strong>Amortization</strong> is the process of paying off a loan through regular monthly payments over a fixed period. Each payment covers both <strong>principal</strong> (the amount you borrowed) and <strong>interest</strong> (the cost of borrowing). Understanding your <strong>amortization schedule</strong> helps you see exactly how your loan balance decreases over time and how much interest you'll pay.
+    </p>
+    <p>
+      This <strong>amortization calculator</strong> generates a complete <strong>loan amortization schedule</strong> showing every payment — principal, interest, and remaining balance — all in <strong>your local currency</strong> with support for 170+ currencies.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       HOW AMORTIZATION WORKS
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>How Amortization Works</h2>
+    <p>
+      In a standard amortizing loan, each monthly payment is split into two parts:
+    </p>
+    <ul class="content-list">
+      <li><strong>Interest portion</strong> – calculated on the current outstanding balance. Early in the loan term, a larger portion of your payment goes toward interest.</li>
+      <li><strong>Principal portion</strong> – reduces the outstanding balance. Over time, as the balance decreases, more of your payment goes toward principal.</li>
+    </ul>
+    <p>
+      This <strong>amortization schedule calculator</strong> shows you this breakdown month by month, helping you understand exactly how your loan is being paid off.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       WHO IS THIS CALCULATOR FOR
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>Who Can Use This Amortization Calculator</h2>
+    <p>
+      This <strong>loan amortization calculator</strong> is designed for anyone with a fixed‑rate loan:
+    </p>
+    <ul class="content-list">
+      <li><strong>Home buyers</strong> – understanding mortgage amortization</li>
+      <li><strong>Car buyers</strong> – seeing auto loan payment breakdowns</li>
+      <li><strong>Students</strong> – learning about loan amortization</li>
+      <li><strong>Financial planners</strong> – helping clients understand loan costs</li>
+      <li><strong>Business owners</strong> – evaluating business loan terms</li>
+      <li><strong>Anyone with a fixed‑rate loan</strong> – seeing the full payment picture</li>
+    </ul>
+    <p>
+      This tool works for <strong>everyone</strong> — regardless of country or currency. With support for <strong>170+ currencies</strong>, you can calculate in <strong>USD, EUR, GBP, INR, PKR, AED, SAR, CAD, AUD, SGD, MYR, PHP, TRY, ZAR</strong>, and many more.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       HOW TO USE
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>How to Use This Amortization Calculator</h2>
+    <div class="howto-steps">
+      <div class="step">
+        <span class="step-number">1</span>
+        <span><strong>Select your currency</strong> – from 170+ global currencies.</span>
+      </div>
+      <div class="step">
+        <span class="step-number">2</span>
+        <span><strong>Enter the loan amount</strong> – the total amount you want to borrow.</span>
+      </div>
+      <div class="step">
+        <span class="step-number">3</span>
+        <span><strong>Set your interest rate</strong> – the annual percentage rate on the loan.</span>
+      </div>
+      <div class="step">
+        <span class="step-number">4</span>
+        <span><strong>Choose the loan term</strong> – how many years you have to repay.</span>
+      </div>
+      <div class="step">
+        <span class="step-number">5</span>
+        <span><strong>View your amortization schedule</strong> – see the full month‑by‑month breakdown.</span>
+      </div>
+    </div>
+    <p>
+      Results update in <strong>real‑time</strong> as you adjust the sliders or type values. View your <strong>monthly payment</strong>, <strong>total interest</strong>, <strong>total payment</strong>, and the complete <strong>amortization schedule</strong> instantly.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       THE FORMULA
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>The Amortization Formula</h2>
+    <p>
+      The <strong>amortization formula</strong> calculates your fixed monthly payment based on the loan amount, interest rate, and loan term:
+    </p>
+    <div class="formula-box">
+      M = P × (r × (1 + r)<sup>n</sup>) / ((1 + r)<sup>n</sup> − 1)
+      <span class="formula-note">
+        Where: <strong>M</strong> = monthly payment, <strong>P</strong> = loan principal, <strong>r</strong> = monthly interest rate, <strong>n</strong> = total number of months
+      </span>
+    </div>
+    <p>
+      For example, a $100,000 loan at 7% for 10 years results in a <strong>monthly payment</strong> of approximately $1,161 — and a total interest of $39,344. This <strong>amortization schedule calculator</strong> shows you every payment in detail.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       AMORTIZATION TABLE EXPLANATION
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>Understanding Your Amortization Schedule</h2>
+    <p>
+      An <strong>amortization schedule</strong> is a complete table showing every payment over the life of your loan. It includes:
+    </p>
+    <ul class="content-list">
+      <li><strong>Payment number</strong> – the month of the payment</li>
+      <li><strong>Payment amount</strong> – the fixed monthly payment</li>
+      <li><strong>Principal portion</strong> – how much of the payment goes toward the loan balance</li>
+      <li><strong>Interest portion</strong> – how much of the payment goes toward interest</li>
+      <li><strong>Remaining balance</strong> – the outstanding loan balance after each payment</li>
+    </ul>
+    <p>
+      This <strong>loan amortization schedule</strong> generated by this <strong>amortization table calculator</strong> helps you see exactly how your loan is paid off over time.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       EXPECTED RESULTS
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>What Results Can You Expect from This Amortization Calculator</h2>
+    <div class="example-grid">
+      <div class="example-card">
+        <h3>📊 Monthly Payment</h3>
+        <p>The fixed amount you'll pay each month — including principal and interest.</p>
+      </div>
+      <div class="example-card">
+        <h3>💰 Total Interest</h3>
+        <p>The total interest you'll pay over the life of the loan.</p>
+      </div>
+      <div class="example-card">
+        <h3>📈 Total Payment</h3>
+        <p>The total amount you'll pay — principal + interest — over the life of the loan.</p>
+      </div>
+      <div class="example-card">
+        <h3>📋 Number of Payments</h3>
+        <p>The total number of monthly payments over the life of the loan.</p>
+      </div>
+      <div class="example-card">
+        <h3>📋 Amortization Schedule</h3>
+        <p>A complete breakdown of every monthly payment, showing principal, interest, and remaining balance.</p>
+      </div>
+      <div class="example-card">
+        <h3>📊 Interactive Charts</h3>
+        <p>Visual representations of how your loan balance decreases over time.</p>
+      </div>
+    </div>
+
+    <h3>Example Scenarios</h3>
+    <div class="example-grid">
+      <div class="example-card">
+        <h4>Scenario 1: $100,000 at 7% for 10 Years</h4>
+        <ul>
+          <li><strong>Monthly Payment:</strong> $1,161</li>
+          <li><strong>Total Interest:</strong> $39,344</li>
+          <li><strong>Total Payment:</strong> $139,344</li>
+          <li><strong>Number of Payments:</strong> 120</li>
+        </ul>
+      </div>
+      <div class="example-card">
+        <h4>Scenario 2: ₹50,00,000 at 8% for 20 Years</h4>
+        <ul>
+          <li><strong>Monthly Payment:</strong> ₹41,822</li>
+          <li><strong>Total Interest:</strong> ₹50,37,280</li>
+          <li><strong>Total Payment:</strong> ₹1,00,37,280</li>
+          <li><strong>Number of Payments:</strong> 240</li>
+        </ul>
+      </div>
+      <div class="example-card">
+        <h4>Scenario 3: $30,000 at 6% for 5 Years</h4>
+        <ul>
+          <li><strong>Monthly Payment:</strong> $580</li>
+          <li><strong>Total Interest:</strong> $4,799</li>
+          <li><strong>Total Payment:</strong> $34,799</li>
+          <li><strong>Number of Payments:</strong> 60</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       AMORTIZATION VS OTHER METHODS
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>Amortization vs Interest‑Only vs Negative Amortization</h2>
+    <table class="example-table">
+      <thead>
+        <tr><th>Method</th><th>Description</th><th>Best For</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Amortization</strong></td>
+          <td>Fixed payments covering principal + interest; balance decreases over time</td>
+          <td>Standard loans (mortgages, auto, personal)</td>
+        </tr>
+        <tr>
+          <td><strong>Interest‑Only</strong></td>
+          <td>Payments cover only interest; principal remains unchanged</td>
+          <td>Short‑term financing, investment properties</td>
+        </tr>
+        <tr>
+          <td><strong>Negative Amortization</strong></td>
+          <td>Payments are less than interest; balance increases over time</td>
+          <td>Should be avoided in most cases</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="dataset-note">
+      * This <strong>amortization schedule calculator</strong> uses the standard amortization method — the most common for fixed‑rate loans worldwide.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       FAQ SECTION (7 Questions)
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block faq-section">
+    <h2>Frequently Asked Questions About Amortization</h2>
+
+    <div class="faq-list" >
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          1. What is amortization?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            <strong>Amortization</strong> is the process of paying off a loan through regular monthly payments over a fixed period. Each payment covers both <strong>principal</strong> and <strong>interest</strong>, with the balance decreasing over time.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          2. What is an amortization schedule?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            An <strong>amortization schedule</strong> is a complete table showing every monthly payment over the life of a loan. It breaks down how much of each payment goes toward principal and interest, and shows the remaining balance after each payment. This <strong>amortization schedule calculator</strong> generates it instantly.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          3. How does an amortization schedule work?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            Each payment in an <strong>amortization schedule</strong> is split between principal and interest. Early in the loan, a larger portion goes toward interest. Over time, as the balance decreases, more of the payment goes toward principal. This <strong>loan amortization calculator</strong> shows you this breakdown month by month.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          4. How do I calculate my monthly payment?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            Use the <strong>amortization formula</strong>: <code>M = P × (r × (1 + r)^n) / ((1 + r)^n − 1)</code>. Or simply use this <strong>amortization calculator</strong> — it does the math for you instantly.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          5. Can I pay off my loan early?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            Yes. Making <strong>extra payments</strong> reduces your principal faster, which lowers the total interest you'll pay and can shorten your loan term. Use this <strong>amortization schedule calculator</strong> to see how extra payments affect your schedule.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          6. How does the loan term affect my amortization schedule?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            A longer <strong>loan term</strong> means lower monthly payments but more total interest and a longer amortization schedule. A shorter term means higher monthly payments but less total interest and a shorter schedule. This <strong>loan amortization calculator</strong> lets you compare different terms.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          7. How accurate is this amortization calculator?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            This <strong>amortization table calculator</strong> uses standard financial formulas and is accurate for planning. However, actual loan terms may vary — always check with your lender for final numbers.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+<!-- ==========================================================
+     LOAD SCRIPTS
+     ========================================================== -->
+<script src="/assets/js/amortization-calculator.js"></script>

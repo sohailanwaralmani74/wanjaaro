@@ -1,0 +1,600 @@
+---
+layout: main
+title: "Loan Calculator – Calculate Monthly Payments & Interest"
+description: "Calculate monthly loan payments, total interest, and amortization schedule for any loan type. Free tool works in USD, EUR, INR, PKR & 170+ currencies."
+keywords: "loan calculator, monthly payment calculator, loan amortization calculator, mortgage calculator, EMI calculator, personal loan calculator"
+category: loans
+---
+<!-- ═══════════════════════════════════════════════════════
+     JSON‑LD SCHEMAS — Loan Calculator
+═══════════════════════════════════════════════════════ -->
+
+<!-- 1. WebApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Loan Calculator – Calculate Monthly Payments & Interest",
+  "description": "Calculate monthly loan payments, total interest, and amortization schedule for any loan type. Works in 170+ currencies.",
+  "url": "https://datafrog.tools/loan-calculator/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+
+<!-- 2. BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://datafrog.tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Loan Calculator",
+      "item": "https://datafrog.tools/loan-calculator/"
+    }
+  ]
+}
+</script>
+
+<!-- 3. HowTo -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use the Loan Calculator",
+  "description": "Step by step guide to calculate monthly loan payments and amortization.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Select your currency",
+      "text": "Choose from 170+ global currencies including USD, EUR, INR, PKR, AED, and more."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Enter the loan amount",
+      "text": "Enter the total amount you plan to borrow."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Set your interest rate",
+      "text": "Enter the annual percentage rate on the loan."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Choose the loan term",
+      "text": "Enter how many years you have to repay the loan."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "Add extra payments (optional)",
+      "text": "Enter any additional amount to see how it reduces interest and shortens the loan term."
+    }
+  ]
+}
+</script>
+
+<!-- 4. FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between principal and interest?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Principal is the amount of money you borrow. Interest is the cost of borrowing that money. Your monthly payment covers both."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does making extra payments affect my loan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Making extra payments reduces your principal faster, which means you pay less total interest and can pay off your loan early."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is an amortization schedule?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An amortization schedule is a complete breakdown of every payment over the life of the loan, showing principal, interest, and remaining balance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate my monthly loan payment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use the loan payment formula: PMT = P × (r × (1 + r)^n) / ((1 + r)^n − 1). Or use this loan calculator instantly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between APR and interest rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The interest rate is the cost of borrowing principal. APR includes fees and other costs, giving a complete picture of the total loan cost."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long should my loan term be?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A longer loan term means lower monthly payments but more total interest. A shorter term means higher payments but less total interest."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this calculator for any type of loan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. This calculator works for any fixed-rate loan — mortgages, auto loans, personal loans, student loans, and business loans."
+      }
+    }
+  ]
+}
+</script>
+<div class="tool-page">
+  <article >
+    <meta  content="Loan Calculator" />
+    
+    
+
+    <section class="page-heading">
+      <h1 >Loan Calculator — Monthly Payments & Amortization</h1>
+      <p class="tool-subtitle">
+        Calculate your <strong>monthly loan payments</strong>, total interest, and full <strong>amortization schedule</strong>. See how extra payments can save you money — instantly in <strong>your currency</strong> with support for 170+ currencies.
+      </p>
+    </section>
+
+    <div class="tool-body">
+      <!-- LEFT COLUMN – INPUT PANEL -->
+      <aside class="tool-input-col" aria-label="Calculator inputs">
+        <div class="panel input-panel">
+
+          <!-- Currency Selector -->
+          <div class="form-group">
+            <label for="currencySearch">Currency</label>
+            <div class="currency-search-wrapper">
+              <input type="text" id="currencySearch" placeholder="Type currency name or code" autocomplete="off" />
+              <div id="currencyResults" class="currency-results"></div>
+            </div>
+          </div>
+
+          <!-- Loan Amount -->
+          <div class="form-group">
+            <label for="loanAmount">Loan Amount</label>
+            <div class="input-addons">
+              <span class="input-addon" id="currencySymbol">$</span>
+              <input type="number" id="loanAmount" value="100000" min="0" step="500" oninput="syncSlider('loanAmount');calculate()" />
+            </div>
+            <div class="slider-row">
+              <input type="range" id="loanAmountSlider" min="0" max="10000000" step="500" value="100000" oninput="syncInput('loanAmount',this.value);calculate()" />
+              <span class="slider-val" id="loanAmountSliderVal">$100,000</span>
+            </div>
+            <span class="field-hint">Total amount you want to borrow</span>
+          </div>
+
+          <!-- Interest Rate -->
+          <div class="form-group">
+            <label for="rate">Annual Interest Rate (%)</label>
+            <div class="input-addons">
+              <input type="number" id="rate" value="7" min="0" max="30" step="0.1" oninput="syncSlider('rate');calculate()" />
+              <span class="input-addon input-addon--right">%</span>
+            </div>
+            <div class="slider-row">
+              <input type="range" id="rateSlider" min="0" max="30" step="0.1" value="7" oninput="syncInput('rate',this.value);calculate()" />
+              <span class="slider-val" id="rateSliderVal">7.0%</span>
+            </div>
+            <span class="field-hint">Annual interest rate on the loan</span>
+          </div>
+
+          <!-- Loan Term -->
+          <div class="form-group">
+            <label for="loanTerm">Loan Term (Years)</label>
+            <div class="input-addons">
+              <input type="number" id="loanTerm" value="10" min="1" max="50" step="1" oninput="syncSlider('loanTerm');calculate()" />
+              <span class="input-addon input-addon--right">yr</span>
+            </div>
+            <div class="slider-row">
+              <input type="range" id="loanTermSlider" min="1" max="50" step="1" value="10" oninput="syncInput('loanTerm',this.value);calculate()" />
+              <span class="slider-val" id="loanTermSliderVal">10 yrs</span>
+            </div>
+            <span class="field-hint">Total loan repayment period</span>
+          </div>
+
+          <!-- Extra Payment (Optional) -->
+          <div class="form-group">
+            <label for="extraPayment">Extra Monthly Payment <span class="optional-badge">Optional</span></label>
+            <div class="input-addons">
+              <span class="input-addon" id="currencySymbol2">$</span>
+              <input type="number" id="extraPayment" value="0" min="0" step="50" oninput="syncSlider('extraPayment');calculate()" />
+            </div>
+            <div class="slider-row">
+              <input type="range" id="extraPaymentSlider" min="0" max="5000" step="50" value="0" oninput="syncInput('extraPayment',this.value);calculate()" />
+              <span class="slider-val" id="extraPaymentSliderVal">$0</span>
+            </div>
+            <span class="field-hint">Additional amount paid each month to reduce interest</span>
+          </div>
+
+          <div class="calc-actions">
+            <button class="btn btn-ghost" onclick="resetForm()">Reset</button>
+            <button class="btn btn-primary" onclick="shareURL()" id="shareBtn">Share</button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- RIGHT COLUMN – RESULTS PANEL -->
+      <section class="tool-output-col" aria-label="Calculator results" aria-live="polite">
+
+        <!-- Result Cards -->
+        <div class="result-cards">
+          <div class="result-card">
+            <div class="result-label">Monthly Payment</div>
+            <div class="result-value" id="monthlyPayment">—</div>
+            <div class="result-sub">Principal + Interest</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Total Interest</div>
+            <div class="result-value" id="totalInterest">—</div>
+            <div class="result-sub">Cost of borrowing</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Total Payment</div>
+            <div class="result-value" id="totalPayment">—</div>
+            <div class="result-sub">Principal + Interest</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Payoff Date</div>
+            <div class="result-value" id="payoffDate">—</div>
+            <div class="result-sub">With extra payments</div>
+          </div>
+        </div>
+
+        <!-- Insights Panel -->
+        <div class="insights-panel" id="insightsPanel">
+          <div class="insights-grid" id="insightsGrid">
+            <!-- Populated by JavaScript -->
+          </div>
+        </div>
+
+        <!-- Chart Panel -->
+        <div class="chart-panel">
+          <div class="chart-tabs" role="tablist">
+            <button class="chart-tab active" data-chart="line" onclick="switchChart('line',this)" role="tab">Balance Over Time</button>
+            <button class="chart-tab" data-chart="bar" onclick="switchChart('bar',this)" role="tab">Principal vs Interest</button>
+            <button class="chart-tab" data-chart="donut" onclick="switchChart('donut',this)" role="tab">Cost Breakdown</button>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="toolChart" role="img" aria-label="Loan amortization chart"></canvas>
+          </div>
+        </div>
+
+        <!-- Action Bar -->
+        <div class="action-bar">
+          <button class="action-btn" onclick="downloadCSV()" title="Download data as CSV">⬇ Download CSV</button>
+          <button class="action-btn" onclick="copyResult()" title="Copy result to clipboard" id="copyBtn">📋 Copy Result</button>
+          <button class="action-btn" onclick="exportChart()" title="Export chart as PNG">🖼️ Export Chart</button>
+        </div>
+
+        <!-- Amortization Table -->
+        <div class="breakdown-panel">
+          <div class="breakdown-title">Amortization Schedule</div>
+          <div class="table-wrap">
+            <table class="breakdown-table" id="breakdownTable" aria-label="Loan amortization schedule">
+              <thead id="tableHead"></thead>
+              <tbody id="tableBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+    </div>
+  </article>
+</div>
+<!-- ═══════════════════════════════════════════════════════
+     ON‑PAGE CONTENT — SEO & GEO OPTIMISED
+═══════════════════════════════════════════════════════ -->
+<section class="onpage-content" >
+  <meta  content="Loan Calculator – How to Calculate Monthly Payments & Interest" />
+  <meta  content="Learn how to calculate loan payments, total interest, and amortization schedules. Free tool works in USD, EUR, INR, PKR & 170+ currencies." />
+
+  <!-- ─────────────────────────────────────────────────────
+       WHY LOANS MATTER
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>Why Understanding Your Loan Payments Matters</h2>
+    <p>
+      Taking out a loan is a major financial decision. Whether you're financing a home, a business, or a major purchase, understanding your <strong>monthly payments</strong>, <strong>total interest</strong>, and the full <strong>amortization schedule</strong> helps you make informed borrowing decisions.
+    </p>
+    <p>
+      This <strong>loan calculator</strong> shows you exactly how much you'll pay each month, how much interest you'll pay over the life of the loan, and how extra payments can save you money — all in <strong>your local currency</strong>.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       WHO IS THIS CALCULATOR FOR
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>Who Can Use This Loan Calculator</h2>
+    <p>
+      This <strong>loan payment calculator</strong> is designed for anyone considering borrowing money:
+    </p>
+    <ul class="content-list">
+      <li><strong>Home buyers</strong> – understanding mortgage payments</li>
+      <li><strong>Car buyers</strong> – estimating auto loan payments</li>
+      <li><strong>Students</strong> – planning student loan repayments</li>
+      <li><strong>Business owners</strong> – evaluating business loan options</li>
+      <li><strong>Financial planners</strong> – comparing loan scenarios</li>
+      <li><strong>Anyone considering a loan</strong> – seeing the true cost of borrowing</li>
+    </ul>
+    <p>
+      This tool works for <strong>everyone</strong> — regardless of country or currency. With support for <strong>170+ currencies</strong>, you can calculate in <strong>USD, EUR, GBP, INR, PKR, AED, SAR, CAD, AUD, SGD, MYR, PHP, TRY, ZAR</strong>, and many more.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       HOW TO USE
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>How to Use This Loan Calculator</h2>
+    <div class="howto-steps">
+      <div class="step">
+        <span class="step-number">1</span>
+        <span><strong>Select your currency</strong> – from 170+ global currencies.</span>
+      </div>
+      <div class="step">
+        <span class="step-number">2</span>
+        <span><strong>Enter the loan amount</strong> – the total amount you plan to borrow.</span>
+      </div>
+      <div class="step">
+        <span class="step-number">3</span>
+        <span><strong>Set your interest rate</strong> – the annual percentage rate (APR) on the loan.</span>
+      </div>
+      <div class="step">
+        <span class="step-number">4</span>
+        <span><strong>Choose the loan term</strong> – how many years you have to repay the loan.</span>
+      </div>
+      <div class="step">
+        <span class="step-number">5</span>
+        <span><strong>(Optional) Add extra payments</strong> – see how additional payments reduce interest and shorten the loan term.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       THE FORMULA
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>The Loan Payment Formula</h2>
+    <p>
+      The <strong>loan payment formula</strong> calculates your monthly payment based on the loan amount, interest rate, and loan term:
+    </p>
+    <div class="formula-box">
+      PMT = P × (r × (1 + r)<sup>n</sup>) / ((1 + r)<sup>n</sup> − 1)
+      <span class="formula-note">
+        Where: <strong>PMT</strong> = monthly payment, <strong>P</strong> = principal (loan amount), <strong>r</strong> = monthly interest rate, <strong>n</strong> = total number of months
+      </span>
+    </div>
+    <p>
+      For example, if you borrow $100,000 at 7% for 10 years, your monthly payment would be approximately $1,161 — and you'd pay $39,344 in total interest over the life of the loan.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       AMORTIZATION EXPLAINED
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>What Is Amortization?</h2>
+    <p>
+      <strong>Amortization</strong> is the process of spreading out a loan into a series of fixed payments over time. Each payment covers both <strong>principal</strong> (the amount you borrowed) and <strong>interest</strong> (the cost of borrowing).
+    </p>
+    <p>
+      Early in the loan term, a larger portion of each payment goes toward interest. Over time, as the principal decreases, more of your payment goes toward the principal. This <strong>amortization calculator</strong> shows you the full schedule of how your loan balance decreases over time.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       EXPECTED RESULTS
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>What Results Can You Expect from This Loan Calculator</h2>
+    <div class="example-grid">
+      <div class="example-card">
+        <h3>📊 Monthly Payment</h3>
+        <p>The fixed amount you'll pay each month — including both principal and interest.</p>
+      </div>
+      <div class="example-card">
+        <h3>💰 Total Interest</h3>
+        <p>The total cost of borrowing — how much you'll pay in interest over the life of the loan.</p>
+      </div>
+      <div class="example-card">
+        <h3>📈 Total Payment</h3>
+        <p>The total amount you'll pay over the life of the loan — principal + interest.</p>
+      </div>
+      <div class="example-card">
+        <h3>📋 Payoff Date</h3>
+        <p>When the loan will be fully repaid — including savings from extra payments.</p>
+      </div>
+      <div class="example-card">
+        <h3>📋 Amortization Schedule</h3>
+        <p>A complete breakdown of every payment, showing principal, interest, and remaining balance.</p>
+      </div>
+      <div class="example-card">
+        <h3>📊 Interactive Charts</h3>
+        <p>Visual representations of how your loan balance decreases over time.</p>
+      </div>
+    </div>
+
+    <h3>Example Scenarios</h3>
+    <div class="example-grid">
+      <div class="example-card">
+        <h4>Scenario 1: $100,000 at 7% for 10 Years</h4>
+        <ul>
+          <li><strong>Monthly Payment:</strong> $1,161</li>
+          <li><strong>Total Interest:</strong> $39,344</li>
+          <li><strong>Total Payment:</strong> $139,344</li>
+        </ul>
+      </div>
+      <div class="example-card">
+        <h4>Scenario 2: ₹50,00,000 at 8% for 20 Years</h4>
+        <ul>
+          <li><strong>Monthly Payment:</strong> ₹41,822</li>
+          <li><strong>Total Interest:</strong> ₹50,37,280</li>
+          <li><strong>Total Payment:</strong> ₹1,00,37,280</li>
+        </ul>
+      </div>
+      <div class="example-card">
+        <h4>Scenario 3: $200,000 at 6% for 15 Years</h4>
+        <ul>
+          <li><strong>Monthly Payment:</strong> $1,688</li>
+          <li><strong>Total Interest:</strong> $103,840</li>
+          <li><strong>Total Payment:</strong> $303,840</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       FIXED VS VARIABLE RATES
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>Fixed vs Variable Interest Rates — What's the Difference?</h2>
+    <table class="example-table">
+      <thead>
+        <tr><th>Rate Type</th><th>Description</th><th>Best For</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Fixed Rate</strong></td>
+          <td>Interest rate stays the same for the entire loan term</td>
+          <td>Stability and predictable payments</td>
+        </tr>
+        <tr>
+          <td><strong>Variable Rate</strong></td>
+          <td>Interest rate can change based on market conditions</td>
+          <td>Risk-tolerant borrowers expecting rates to fall</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="dataset-note">
+      * This <strong>loan repayment calculator</strong> uses fixed‑rate calculations. For variable rates, use the fixed rate as an estimate or check with your lender.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       FAQ SECTION
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block faq-section">
+    <h2>Frequently Asked Questions About Loans</h2>
+
+    <div class="faq-list" >
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          1. What is the difference between principal and interest?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            <strong>Principal</strong> is the amount of money you borrow. <strong>Interest</strong> is the cost of borrowing that money. Your monthly payment covers both — principal reduces the loan balance, while interest is the fee charged by the lender.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          2. How does making extra payments affect my loan?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            Making <strong>extra payments</strong> reduces your principal faster, which means you pay less total interest and can pay off your loan early. This <strong>loan amortization calculator</strong> shows you exactly how much you can save.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          3. What is an amortization schedule?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            An <strong>amortization schedule</strong> is a complete breakdown of every payment over the life of the loan. It shows how much of each payment goes toward principal and interest, and what your remaining balance is after each payment.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          4. How do I calculate my monthly loan payment?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            Use the <strong>loan payment formula</strong>: PMT = P × (r × (1 + r)^n) / ((1 + r)^n − 1). Or simply use this <strong>loan calculator</strong> — it does the math for you instantly.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          5. What's the difference between APR and interest rate?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            The <strong>interest rate</strong> is the cost of borrowing principal. <strong>APR</strong> (Annual Percentage Rate) includes fees and other costs, giving you a more complete picture of the total cost of the loan.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          6. How long should my loan term be?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            A longer <strong>loan term</strong> means lower monthly payments but more total interest. A shorter term means higher monthly payments but less total interest. Use this <strong>loan payment calculator</strong> to compare different terms.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          7. Can I use this calculator for any type of loan?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            Yes. This <strong>loan amortization calculator</strong> works for any fixed‑rate loan — including mortgages, auto loans, personal loans, student loans, and business loans. Just enter the loan amount, rate, and term.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+<!-- ==========================================================
+     LOAD SCRIPTS
+     ========================================================== -->
+<script src="/assets/js/loan-calculator.js"></script>

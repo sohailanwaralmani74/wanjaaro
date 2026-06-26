@@ -1,0 +1,739 @@
+---
+layout: main
+title: "Free Online Data Converter — 50+ Formats | DataFrog"
+description: "Convert JSON, Excel, CSV, MT940, QIF, QBO, QFX, XML, SQL, PDF, YAML, and more instantly. 100% private, browser-based, no sign-up, no file uploads."
+keywords: "free online data converter, JSON to Excel, CSV to QIF, MT940 to CSV, Excel to JSON, QBO to Excel, XML to JSON, SQL to CSV, YAML to JSON"
+is_homepage: true
+is_catpage: true
+---
+
+<!-- ═══════════════════════════════════════════════════
+     JSON-LD — WebSite
+═══════════════════════════════════════════════════ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "DataFrog",
+  "url": "https://datafrog.tools",
+  "description": "Free, private, offline-first data conversion tools. Convert between JSON, CSV, Excel, XML, YAML, SQL, QIF, MT940, QBO, QFX, PDF and more.",
+  "inLanguage": "en"
+}
+</script>
+
+<!-- ═══════════════════════════════════════════════════
+     SCHEMA — Organization
+═══════════════════════════════════════════════════ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "DataFrog",
+  "url": "https://datafrog.tools",
+  "logo": "https://datafrog.tools/assets/img/datafrog-logo.png",
+  "description": "DataFrog offers 50+ free, browser-based data conversion tools with 100% privacy. No signup, no uploads. Convert JSON, Excel, CSV, XML, YAML, SQL, QIF, MT940, QBO, QFX, PDF and more.",
+  "foundingDate": "2023",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Customer Support",
+    "email": "support@datafrog.tools",
+    "availableLanguage": "English"
+  }
+}
+</script>
+
+<!-- ═══════════════════════════════════════════════════
+     SCHEMA — WebApplication
+═══════════════════════════════════════════════════ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "DataFrog — Free Data Conversion Tools",
+  "url": "https://datafrog.tools",
+  "description": "50+ free browser-based data conversion tools. No signup required. Convert JSON, Excel, CSV, XML, MT940, QIF, QBO, QFX, PDF, YAML, SQL and more.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript. Works on Chrome, Firefox, Safari, Edge.",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock"
+  }
+}
+</script>
+
+<!-- ═══════════════════════════════════════════════════
+     SCHEMA — FAQPage
+═══════════════════════════════════════════════════ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Are DataFrog conversion tools free to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, all DataFrog tools are 100% free. No signup required, no account creation, no usage limits. Convert as many files as you want without any cost."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do my files get uploaded to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. All processing happens entirely in your browser using JavaScript. Your files and data never leave your device. DataFrog is completely private and runs entirely offline after your first visit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which data formats does DataFrog support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "DataFrog supports conversion between JSON, CSV, Excel (XLSX/XLS), XML, YAML, SQL, QIF, MT940, QBO, QFX, PDF, HTML, TXT, and more. New converters are added regularly."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- ═══════════════════════════════════════════════════
+     SCHEMA — ItemList
+═══════════════════════════════════════════════════ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "DataFrog Data Conversion Tools",
+  "description": "Complete collection of free browser-based tools for converting and transforming data between JSON, CSV, Excel, XML, YAML, SQL, QIF, MT940, QBO, QFX, PDF, and more.",
+  "url": "https://datafrog.tools/converters",
+  "numberOfItems": 53,
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Excel to JSON","url":"https://datafrog.tools/excel-to-json"},
+    {"@type":"ListItem","position":2,"name":"Excel to HTML","url":"https://datafrog.tools/excel-to-html"},
+    {"@type":"ListItem","position":3,"name":"Excel to TXT","url":"https://datafrog.tools/excel-to-txt"},
+    {"@type":"ListItem","position":4,"name":"Excel to PDF","url":"https://datafrog.tools/xlsx-to-pdf"},
+    {"@type":"ListItem","position":5,"name":"Excel to SQL","url":"https://datafrog.tools/xlsx-to-sql-converter"},
+    {"@type":"ListItem","position":6,"name":"Excel to CSV","url":"https://datafrog.tools/convert-xlsx-to-csv"},
+    {"@type":"ListItem","position":7,"name":"Excel to XML","url":"https://datafrog.tools/convert-xlsx-to-xml"},
+    {"@type":"ListItem","position":8,"name":"Excel to QIF","url":"https://datafrog.tools/excel-to-qif"},
+    {"@type":"ListItem","position":9,"name":"Excel to QBO","url":"https://datafrog.tools/excel-to-qbo"},
+    {"@type":"ListItem","position":10,"name":"Excel to QFX","url":"https://datafrog.tools/excel-to-qfx"},
+    {"@type":"ListItem","position":11,"name":"Excel to MT940","url":"https://datafrog.tools/excel-to-mt940"},
+    {"@type":"ListItem","position":12,"name":"CSV to Excel","url":"https://datafrog.tools/convert-csv-to-excel"},
+    {"@type":"ListItem","position":13,"name":"CSV to HTML","url":"https://datafrog.tools/convert-csv-to-html"},
+    {"@type":"ListItem","position":14,"name":"CSV to JSON","url":"https://datafrog.tools/convert-csv-to-json"},
+    {"@type":"ListItem","position":15,"name":"CSV to PDF","url":"https://datafrog.tools/convert-csv-to-pdf"},
+    {"@type":"ListItem","position":16,"name":"CSV to TXT","url":"https://datafrog.tools/convert-csv-to-txt"},
+    {"@type":"ListItem","position":17,"name":"CSV to XML","url":"https://datafrog.tools/convert-csv-to-xml"},
+    {"@type":"ListItem","position":18,"name":"CSV to SQL","url":"https://datafrog.tools/csv-to-sql"},
+    {"@type":"ListItem","position":19,"name":"CSV to QIF","url":"https://datafrog.tools/csv-to-qif"},
+    {"@type":"ListItem","position":20,"name":"CSV to QBO","url":"https://datafrog.tools/csv-to-qbo"},
+    {"@type":"ListItem","position":21,"name":"CSV to QFX","url":"https://datafrog.tools/csv-to-qfx"},
+    {"@type":"ListItem","position":22,"name":"CSV to MT940","url":"https://datafrog.tools/csv-to-mt940"},
+    {"@type":"ListItem","position":23,"name":"JSON String to Object","url":"https://datafrog.tools/json-string-to-json-object"},
+    {"@type":"ListItem","position":24,"name":"JSON to CSV","url":"https://datafrog.tools/json-to-csv"},
+    {"@type":"ListItem","position":25,"name":"JSON to Excel","url":"https://datafrog.tools/json-to-excel"},
+    {"@type":"ListItem","position":26,"name":"JSON to JSON Schema","url":"https://datafrog.tools/json-to-json-schema"},
+    {"@type":"ListItem","position":27,"name":"JSON to PDF","url":"https://datafrog.tools/json-to-pdf"},
+    {"@type":"ListItem","position":28,"name":"JSON to SQL","url":"https://datafrog.tools/json-to-sql"},
+    {"@type":"ListItem","position":29,"name":"JSON to TXT","url":"https://datafrog.tools/json-to-txt"},
+    {"@type":"ListItem","position":30,"name":"JSON to XML","url":"https://datafrog.tools/json-to-xml"},
+    {"@type":"ListItem","position":31,"name":"JSON to YAML","url":"https://datafrog.tools/json-to-yaml"},
+    {"@type":"ListItem","position":32,"name":"MT940 to Excel","url":"https://datafrog.tools/mt940-to-excel"},
+    {"@type":"ListItem","position":33,"name":"MT940 to CSV","url":"https://datafrog.tools/mt940-to-csv"},
+    {"@type":"ListItem","position":34,"name":"MT940 to QIF","url":"https://datafrog.tools/mt940-to-qif"},
+    {"@type":"ListItem","position":35,"name":"MT940 to QBO","url":"https://datafrog.tools/mt940-to-qbo"},
+    {"@type":"ListItem","position":36,"name":"MT940 to QFX","url":"https://datafrog.tools/mt940-to-qfx"},
+    {"@type":"ListItem","position":37,"name":"QIF to CSV","url":"https://datafrog.tools/qif-to-csv"},
+    {"@type":"ListItem","position":38,"name":"QIF to Excel","url":"https://datafrog.tools/qif-to-excel"},
+    {"@type":"ListItem","position":39,"name":"QIF to QBO","url":"https://datafrog.tools/qif-to-qbo"},
+    {"@type":"ListItem","position":40,"name":"QIF to MT940","url":"https://datafrog.tools/qif-to-mt940"},
+    {"@type":"ListItem","position":41,"name":"QIF to QFX","url":"https://datafrog.tools/qif-to-qfx"},
+    {"@type":"ListItem","position":42,"name":"QBO to CSV","url":"https://datafrog.tools/qbo-to-csv"},
+    {"@type":"ListItem","position":43,"name":"QBO to QIF","url":"https://datafrog.tools/qbo-to-qif"},
+    {"@type":"ListItem","position":44,"name":"QBO to Excel","url":"https://datafrog.tools/qbo-to-excel"},
+    {"@type":"ListItem","position":45,"name":"QBO to QFX","url":"https://datafrog.tools/qbo-to-qfx"},
+    {"@type":"ListItem","position":46,"name":"QBO to MT940","url":"https://datafrog.tools/qbo-to-mt940"},
+    {"@type":"ListItem","position":47,"name":"QFX to CSV","url":"https://datafrog.tools/qfx-to-csv"},
+    {"@type":"ListItem","position":48,"name":"QFX to QIF","url":"https://datafrog.tools/qfx-to-qif"},
+    {"@type":"ListItem","position":49,"name":"QFX to Excel","url":"https://datafrog.tools/qfx-to-excel"},
+    {"@type":"ListItem","position":50,"name":"QFX to MT940","url":"https://datafrog.tools/qfx-to-mt940"},
+    {"@type":"ListItem","position":51,"name":"MT942 to CSV","url":"https://datafrog.tools/mt942-to-csv"},
+    {"@type":"ListItem","position":52,"name":"MT942 to Excel","url":"https://datafrog.tools/mt942-to-excel"},
+    {"@type":"ListItem","position":53,"name":"XML to JSON","url":"https://datafrog.tools/xml-to-json"},
+    {"@type":"ListItem","position":54,"name":"XML to XSD","url":"https://datafrog.tools/xml-to-xsd-generator"},
+    {"@type":"ListItem","position":55,"name":"SQL to CSV","url":"https://datafrog.tools/sql-to-csv"},
+    {"@type":"ListItem","position":56,"name":"SQL to Excel","url":"https://datafrog.tools/sql-to-excel"},
+    {"@type":"ListItem","position":57,"name":"SQL to XML","url":"https://datafrog.tools/sql-to-xml"},
+    {"@type":"ListItem","position":58,"name":"PPTX to PDF","url":"https://datafrog.tools/pptx-to-pdf"},
+    {"@type":"ListItem","position":59,"name":"PDF to PPTX","url":"https://datafrog.tools/pdf-to-powerpoint"},
+    {"@type":"ListItem","position":60,"name":"Recordset Converter","url":"https://datafrog.tools/recordset-converter"},
+    {"@type":"ListItem","position":61,"name":"YAML to JSON","url":"https://datafrog.tools/yaml-to-json"}
+  ]
+}
+</script>
+
+<!-- ═══════════════════════════════════════════════════
+     PAGE HEADER
+═══════════════════════════════════════════════════ -->
+<div class="home-hero" aria-label="Converters page heading">
+  <h1>Free Online Data Converter — 50+ Formats Supported</h1>
+  <p>Convert between JSON, Excel, CSV, MT940, QIF, QBO, QFX, XML, SQL, PDF, YAML, and more. 100% client-side — your data never leaves your device. No sign-up, no uploads, completely private.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     SEARCH
+═══════════════════════════════════════════════════ -->
+<div class="home-search" role="search">
+    <input
+      type="search"
+      id="toolSearch"
+      name="q"
+      placeholder="Search converters... (e.g. Excel to JSON, CSV to QIF, MT940 to Excel)"
+      aria-label="Search all converters"
+      autocomplete="off"
+      spellcheck="false"
+    />
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     CATEGORY FILTER TABS
+═══════════════════════════════════════════════════ -->
+<section class="filter-section" aria-label="Filter converters by category">
+  <div class="filter-tabs" role="tablist" aria-label="Converter categories">
+    <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">All Tools</button>
+    <button class="filter-tab" data-filter="excel" role="tab" aria-selected="false">Excel</button>
+    <button class="filter-tab" data-filter="csv" role="tab" aria-selected="false">CSV</button>
+    <button class="filter-tab" data-filter="json" role="tab" aria-selected="false">JSON</button>
+    <button class="filter-tab" data-filter="mt940" role="tab" aria-selected="false">MT940</button>
+    <button class="filter-tab" data-filter="qif" role="tab" aria-selected="false">QIF</button>
+    <button class="filter-tab" data-filter="qbo" role="tab" aria-selected="false">QBO</button>
+    <button class="filter-tab" data-filter="qfx" role="tab" aria-selected="false">QFX</button>
+    <button class="filter-tab" data-filter="mt942" role="tab" aria-selected="false">MT942</button>
+    <button class="filter-tab" data-filter="xml" role="tab" aria-selected="false">XML</button>
+    <button class="filter-tab" data-filter="sql" role="tab" aria-selected="false">SQL</button>
+    <button class="filter-tab" data-filter="pdf" role="tab" aria-selected="false">PDF</button>
+    <button class="filter-tab" data-filter="yaml" role="tab" aria-selected="false">YAML</button>
+    <button class="filter-tab" data-filter="others" role="tab" aria-selected="false">Others</button>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     TOOL GRID
+═══════════════════════════════════════════════════ -->
+<section id="toolGrid" class="tool-grid-section" aria-label="All conversion tools" aria-live="polite">
+
+  <!-- No results message -->
+  <div class="no-results" id="noResults" hidden aria-live="assertive">
+    <p>No converters found for "<span id="searchQuery"></span>". Try a different keyword.</p>
+  </div>
+
+  <!-- ── Excel Converters ── -->
+  <div class="cat-block" data-category="excel">
+    <h2 class="cat-block-title"><span class="cat-icon">📊</span> Excel Converters</h2>
+    <div class="tools-grid">
+      <a class="tool-card" href="/excel-to-json" data-cat="excel" data-tags="excel json xlsx convert">
+        <span class="tool-card-title">Excel to JSON</span>
+        <span class="tool-card-desc">Convert XLSX/XLS files to clean JSON objects. Perfect for API integration and data processing.</span>
+        <span class="tool-card-tag">Excel</span>
+      </a>
+      <a class="tool-card" href="/excel-to-html" data-cat="excel" data-tags="excel html table web">
+        <span class="tool-card-title">Excel to HTML</span>
+        <span class="tool-card-desc">Generate ready‑to‑use HTML tables from Excel sheets. Ideal for embedding data in web pages.</span>
+        <span class="tool-card-tag">Excel</span>
+      </a>
+      <a class="tool-card" href="/excel-to-txt" data-cat="excel" data-tags="excel txt text export">
+        <span class="tool-card-title">Excel to TXT</span>
+        <span class="tool-card-desc">Export spreadsheets as plain text with aligned columns. Perfect for legacy systems and logs.</span>
+        <span class="tool-card-tag">Excel</span>
+      </a>
+      <a class="tool-card" href="/xlsx-to-pdf" data-cat="excel" data-tags="excel pdf convert print">
+        <span class="tool-card-title">Excel to PDF</span>
+        <span class="tool-card-desc">Convert Excel tables to printable PDF documents. Great for reports and client presentations.</span>
+        <span class="tool-card-tag">Excel</span>
+      </a>
+      <a class="tool-card" href="/xlsx-to-sql-converter" data-cat="excel" data-tags="excel sql insert database">
+        <span class="tool-card-title">Excel to SQL</span>
+        <span class="tool-card-desc">Convert Excel rows to INSERT statements. Supports MySQL, PostgreSQL, and SQLite.</span>
+        <span class="tool-card-tag">Excel</span>
+      </a>
+      <a class="tool-card" href="/convert-xlsx-to-csv" data-cat="excel" data-tags="excel csv save convert">
+        <span class="tool-card-title">Excel to CSV</span>
+        <span class="tool-card-desc">Save Excel sheets as standard CSV files. Preserve data types and encoding.</span>
+        <span class="tool-card-tag">Excel</span>
+      </a>
+      <a class="tool-card" href="/convert-xlsx-to-xml" data-cat="excel" data-tags="excel xml transform hierarchy">
+        <span class="tool-card-title">Excel to XML</span>
+        <span class="tool-card-desc">Transform Excel data into hierarchical XML. Perfect for web services and data exchange.</span>
+        <span class="tool-card-tag">Excel</span>
+      </a>
+      <a class="tool-card" href="/excel-to-qif" data-cat="excel" data-tags="excel qif finance bank quicken">
+        <span class="tool-card-title">Excel to QIF</span>
+        <span class="tool-card-desc">Convert Excel spreadsheets to QIF (Quicken Interchange Format). Ideal for financial data import.</span>
+        <span class="tool-card-tag">Excel</span>
+      </a>
+      <a class="tool-card" href="/excel-to-qbo" data-cat="excel" data-tags="excel qbo quickbooks online finance">
+        <span class="tool-card-title">Excel to QBO</span>
+        <span class="tool-card-desc">Convert Excel to QuickBooks Online (QBO) import format. Perfect for accounting professionals.</span>
+        <span class="tool-card-tag">Excel</span>
+      </a>
+      <a class="tool-card" href="/excel-to-qfx" data-cat="excel" data-tags="excel qfx ofx finance bank">
+        <span class="tool-card-title">Excel to QFX</span>
+        <span class="tool-card-desc">Convert Excel spreadsheets to QFX (OFX) financial format. Standard for banking data exchange.</span>
+        <span class="tool-card-tag">Excel</span>
+      </a>
+      <a class="tool-card" href="/excel-to-mt940" data-cat="excel" data-tags="excel mt940 swift bank statement">
+        <span class="tool-card-title">Excel to MT940</span>
+        <span class="tool-card-desc">Convert Excel to SWIFT MT940 bank statement format. Used by banking professionals worldwide.</span>
+        <span class="tool-card-tag">Excel</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── CSV Converters ── -->
+  <div class="cat-block" data-category="csv">
+    <h2 class="cat-block-title"><span class="cat-icon">📄</span> CSV Converters</h2>
+    <div class="tools-grid">
+      <a class="tool-card" href="/convert-csv-to-excel" data-cat="csv" data-tags="csv excel xlsx convert">
+        <span class="tool-card-title">CSV to Excel</span>
+        <span class="tool-card-desc">Convert CSV files to XLSX/XLS. Preserve data types and formatting.</span>
+        <span class="tool-card-tag">CSV</span>
+      </a>
+      <a class="tool-card" href="/convert-csv-to-html" data-cat="csv" data-tags="csv html table web">
+        <span class="tool-card-title">CSV to HTML</span>
+        <span class="tool-card-desc">Generate HTML tables from CSV. Perfect for web publishing and data dashboards.</span>
+        <span class="tool-card-tag">CSV</span>
+      </a>
+      <a class="tool-card" href="/convert-csv-to-json" data-cat="csv" data-tags="csv json convert arrays">
+        <span class="tool-card-title">CSV to JSON</span>
+        <span class="tool-card-desc">Transform CSV rows into JSON arrays of objects. Great for API consumption.</span>
+        <span class="tool-card-tag">CSV</span>
+      </a>
+      <a class="tool-card" href="/convert-csv-to-pdf" data-cat="csv" data-tags="csv pdf table report">
+        <span class="tool-card-title">CSV to PDF</span>
+        <span class="tool-card-desc">Turn CSV data into professional PDF tables. Ideal for reports and documentation.</span>
+        <span class="tool-card-tag">CSV</span>
+      </a>
+      <a class="tool-card" href="/convert-csv-to-txt" data-cat="csv" data-tags="csv txt text convert">
+        <span class="tool-card-title">CSV to TXT</span>
+        <span class="tool-card-desc">Convert CSV to plain text with aligned columns. Perfect for logs and terminal output.</span>
+        <span class="tool-card-tag">CSV</span>
+      </a>
+      <a class="tool-card" href="/convert-csv-to-xml" data-cat="csv" data-tags="csv xml convert elements">
+        <span class="tool-card-title">CSV to XML</span>
+        <span class="tool-card-desc">Convert CSV rows to XML elements. Great for web services and data exchange.</span>
+        <span class="tool-card-tag">CSV</span>
+      </a>
+      <a class="tool-card" href="/csv-to-sql" data-cat="csv" data-tags="csv sql insert database">
+        <span class="tool-card-title">CSV to SQL</span>
+        <span class="tool-card-desc">Generate INSERT statements from CSV rows. Supports multiple database formats.</span>
+        <span class="tool-card-tag">CSV</span>
+      </a>
+      <a class="tool-card" href="/csv-to-qif" data-cat="csv" data-tags="csv qif finance quicken convert">
+        <span class="tool-card-title">CSV to QIF</span>
+        <span class="tool-card-desc">Convert CSV rows to QIF (Quicken) transaction format. Perfect for financial imports.</span>
+        <span class="tool-card-tag">CSV</span>
+      </a>
+      <a class="tool-card" href="/csv-to-qbo" data-cat="csv" data-tags="csv qbo quickbooks finance">
+        <span class="tool-card-title">CSV to QBO</span>
+        <span class="tool-card-desc">Convert CSV files to QuickBooks Online (QBO) format. Used by accounting professionals.</span>
+        <span class="tool-card-tag">CSV</span>
+      </a>
+      <a class="tool-card" href="/csv-to-qfx" data-cat="csv" data-tags="csv qfx ofx bank finance">
+        <span class="tool-card-title">CSV to QFX</span>
+        <span class="tool-card-desc">Convert CSV data to QFX (OFX) financial exchange format. Standard for banking data.</span>
+        <span class="tool-card-tag">CSV</span>
+      </a>
+      <a class="tool-card" href="/csv-to-mt940" data-cat="csv" data-tags="csv mt940 swift bank statement">
+        <span class="tool-card-title">CSV to MT940</span>
+        <span class="tool-card-desc">Convert CSV to SWIFT MT940 bank statement format. Used by banking professionals.</span>
+        <span class="tool-card-tag">CSV</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── JSON Converters ── -->
+  <div class="cat-block" data-category="json">
+    <h2 class="cat-block-title"><span class="cat-icon">📋</span> JSON Converters</h2>
+    <div class="tools-grid">
+      <a class="tool-card" href="/json-string-to-json-object" data-cat="json" data-tags="json string parse escape">
+        <span class="tool-card-title">JSON String to Object</span>
+        <span class="tool-card-desc">Parse escaped JSON strings into valid objects. Debug and validate JSON data easily.</span>
+        <span class="tool-card-tag">JSON</span>
+      </a>
+      <a class="tool-card" href="/json-to-csv" data-cat="json" data-tags="json csv convert flatten">
+        <span class="tool-card-title">JSON to CSV</span>
+        <span class="tool-card-desc">Turn JSON data into CSV with automatic flattening of nested objects. Great for analysis.</span>
+        <span class="tool-card-tag">JSON</span>
+      </a>
+      <a class="tool-card" href="/json-to-excel" data-cat="json" data-tags="json excel xlsx export">
+        <span class="tool-card-title">JSON to Excel</span>
+        <span class="tool-card-desc">Convert JSON arrays or objects to XLSX/XLS files. Preserve nested structures.</span>
+        <span class="tool-card-tag">JSON</span>
+      </a>
+      <a class="tool-card" href="/json-to-json-schema" data-cat="json" data-tags="json schema generate draft">
+        <span class="tool-card-title">JSON to JSON Schema</span>
+        <span class="tool-card-desc">Auto‑generate JSON Schema Draft‑07 from sample JSON. Perfect for validation.</span>
+        <span class="tool-card-tag">JSON</span>
+      </a>
+      <a class="tool-card" href="/json-to-pdf" data-cat="json" data-tags="json pdf report print">
+        <span class="tool-card-title">JSON to PDF</span>
+        <span class="tool-card-desc">Generate printable, formatted PDF reports from JSON data. Great for documentation.</span>
+        <span class="tool-card-tag">JSON</span>
+      </a>
+      <a class="tool-card" href="/json-to-sql" data-cat="json" data-tags="json sql insert database">
+        <span class="tool-card-title">JSON to SQL</span>
+        <span class="tool-card-desc">Generate INSERT statements from JSON arrays. Supports MySQL, PostgreSQL, SQLite.</span>
+        <span class="tool-card-tag">JSON</span>
+      </a>
+      <a class="tool-card" href="/json-to-txt" data-cat="json" data-tags="json txt text plain export">
+        <span class="tool-card-title">JSON to TXT</span>
+        <span class="tool-card-desc">Convert JSON data to plain text format with aligned output. Clean and readable.</span>
+        <span class="tool-card-tag">JSON</span>
+      </a>
+      <a class="tool-card" href="/json-to-xml" data-cat="json" data-tags="json xml transform api">
+        <span class="tool-card-title">JSON to XML</span>
+        <span class="tool-card-desc">Transform JSON objects into well-formed XML documents. Great for web services.</span>
+        <span class="tool-card-tag">JSON</span>
+      </a>
+      <a class="tool-card" href="/json-to-yaml" data-cat="json" data-tags="json yaml kubernetes docker config">
+        <span class="tool-card-title">JSON to YAML</span>
+        <span class="tool-card-desc">Convert JSON to human‑readable YAML. Perfect for Kubernetes, Docker, and config files.</span>
+        <span class="tool-card-tag">JSON</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── MT940 Converters ── -->
+  <div class="cat-block" data-category="mt940">
+    <h2 class="cat-block-title"><span class="cat-icon">🏛️</span> MT940 Converters</h2>
+    <div class="tools-grid">
+      <a class="tool-card" href="/mt940-to-excel" data-cat="mt940" data-tags="mt940 excel swift bank convert">
+        <span class="tool-card-title">MT940 to Excel</span>
+        <span class="tool-card-desc">Convert SWIFT MT940 bank statements to Excel spreadsheets. Perfect for financial analysis.</span>
+        <span class="tool-card-tag">MT940</span>
+      </a>
+      <a class="tool-card" href="/mt940-to-csv" data-cat="mt940" data-tags="mt940 csv swift convert">
+        <span class="tool-card-title">MT940 to CSV</span>
+        <span class="tool-card-desc">Convert MT940 statements to CSV format. Ideal for import into other systems.</span>
+        <span class="tool-card-tag">MT940</span>
+      </a>
+      <a class="tool-card" href="/mt940-to-qif" data-cat="mt940" data-tags="mt940 qif quicken convert">
+        <span class="tool-card-title">MT940 to QIF</span>
+        <span class="tool-card-desc">Convert MT940 to Quicken Interchange Format (QIF). For personal finance software.</span>
+        <span class="tool-card-tag">MT940</span>
+      </a>
+      <a class="tool-card" href="/mt940-to-qbo" data-cat="mt940" data-tags="mt940 qbo quickbooks convert">
+        <span class="tool-card-title">MT940 to QBO</span>
+        <span class="tool-card-desc">Convert MT940 statements to QuickBooks Online (QBO) format. For accounting professionals.</span>
+        <span class="tool-card-tag">MT940</span>
+      </a>
+      <a class="tool-card" href="/mt940-to-qfx" data-cat="mt940" data-tags="mt940 qfx ofx convert">
+        <span class="tool-card-title">MT940 to QFX</span>
+        <span class="tool-card-desc">Convert MT940 to QFX (OFX) financial data format. Standard for banking exchange.</span>
+        <span class="tool-card-tag">MT940</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── QIF Converters ── -->
+  <div class="cat-block" data-category="qif">
+    <h2 class="cat-block-title"><span class="cat-icon">🏦</span> QIF Converters</h2>
+    <div class="tools-grid">
+      <a class="tool-card" href="/qif-to-csv" data-cat="qif" data-tags="qif csv finance convert">
+        <span class="tool-card-title">QIF to CSV</span>
+        <span class="tool-card-desc">Convert QIF transactions to CSV for any spreadsheet. Perfect for financial data analysis.</span>
+        <span class="tool-card-tag">QIF</span>
+      </a>
+      <a class="tool-card" href="/qif-to-excel" data-cat="qif" data-tags="qif excel finance bank">
+        <span class="tool-card-title">QIF to Excel</span>
+        <span class="tool-card-desc">Turn QIF bank transactions into XLSX spreadsheets. Ideal for financial reporting.</span>
+        <span class="tool-card-tag">QIF</span>
+      </a>
+      <a class="tool-card" href="/qif-to-qbo" data-cat="qif" data-tags="qif qbo quickbooks convert">
+        <span class="tool-card-title">QIF to QBO</span>
+        <span class="tool-card-desc">Generate QuickBooks‑ready QBO files from Quicken exports. For accounting professionals.</span>
+        <span class="tool-card-tag">QIF</span>
+      </a>
+      <a class="tool-card" href="/qif-to-mt940" data-cat="qif" data-tags="qif mt940 swift convert">
+        <span class="tool-card-title">QIF to MT940</span>
+        <span class="tool-card-desc">Convert QIF files to SWIFT MT940 bank format. For banking and financial institutions.</span>
+        <span class="tool-card-tag">QIF</span>
+      </a>
+      <a class="tool-card" href="/qif-to-qfx" data-cat="qif" data-tags="qif qfx ofx convert">
+        <span class="tool-card-title">QIF to QFX</span>
+        <span class="tool-card-desc">Convert QIF to QFX (OFX) financial exchange format. Standard for banking data.</span>
+        <span class="tool-card-tag">QIF</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── QBO Converters ── -->
+  <div class="cat-block" data-category="qbo">
+    <h2 class="cat-block-title"><span class="cat-icon">📈</span> QBO Converters</h2>
+    <div class="tools-grid">
+      <a class="tool-card" href="/qbo-to-csv" data-cat="qbo" data-tags="qbo csv quickbooks convert">
+        <span class="tool-card-title">QBO to CSV</span>
+        <span class="tool-card-desc">Convert QuickBooks Online (QBO) files to CSV. For analysis and reporting.</span>
+        <span class="tool-card-tag">QBO</span>
+      </a>
+      <a class="tool-card" href="/qbo-to-qif" data-cat="qbo" data-tags="qbo qif quicken convert">
+        <span class="tool-card-title">QBO to QIF</span>
+        <span class="tool-card-desc">Convert QBO to Quicken Interchange Format (QIF). For personal finance software.</span>
+        <span class="tool-card-tag">QBO</span>
+      </a>
+      <a class="tool-card" href="/qbo-to-excel" data-cat="qbo" data-tags="qbo excel quickbooks convert">
+        <span class="tool-card-title">QBO to Excel</span>
+        <span class="tool-card-desc">Convert QBO files to Excel spreadsheets. Perfect for financial analysis.</span>
+        <span class="tool-card-tag">QBO</span>
+      </a>
+      <a class="tool-card" href="/qbo-to-qfx" data-cat="qbo" data-tags="qbo qfx ofx convert">
+        <span class="tool-card-title">QBO to QFX</span>
+        <span class="tool-card-desc">Convert QBO to QFX (OFX) format. Standard for banking data exchange.</span>
+        <span class="tool-card-tag">QBO</span>
+      </a>
+      <a class="tool-card" href="/qbo-to-mt940" data-cat="qbo" data-tags="qbo mt940 swift convert">
+        <span class="tool-card-title">QBO to MT940</span>
+        <span class="tool-card-desc">Convert QBO files to SWIFT MT940 statements. For banking and finance professionals.</span>
+        <span class="tool-card-tag">QBO</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── QFX Converters ── -->
+  <div class="cat-block" data-category="qfx">
+    <h2 class="cat-block-title"><span class="cat-icon">💳</span> QFX Converters</h2>
+    <div class="tools-grid">
+      <a class="tool-card" href="/qfx-to-csv" data-cat="qfx" data-tags="qfx csv ofx convert">
+        <span class="tool-card-title">QFX to CSV</span>
+        <span class="tool-card-desc">Convert QFX (OFX) files to CSV format. Perfect for data analysis.</span>
+        <span class="tool-card-tag">QFX</span>
+      </a>
+      <a class="tool-card" href="/qfx-to-qif" data-cat="qfx" data-tags="qfx qif quicken convert">
+        <span class="tool-card-title">QFX to QIF</span>
+        <span class="tool-card-desc">Convert QFX to Quicken Interchange Format (QIF). For personal finance software.</span>
+        <span class="tool-card-tag">QFX</span>
+      </a>
+      <a class="tool-card" href="/qfx-to-excel" data-cat="qfx" data-tags="qfx excel ofx convert">
+        <span class="tool-card-title">QFX to Excel</span>
+        <span class="tool-card-desc">Convert QFX financial data to Excel spreadsheets. For financial analysis and reporting.</span>
+        <span class="tool-card-tag">QFX</span>
+      </a>
+      <a class="tool-card" href="/qfx-to-mt940" data-cat="qfx" data-tags="qfx mt940 swift convert">
+        <span class="tool-card-title">QFX to MT940</span>
+        <span class="tool-card-desc">Convert QFX files to SWIFT MT940 statements. For banking and finance professionals.</span>
+        <span class="tool-card-tag">QFX</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── MT942 Converters ── -->
+  <div class="cat-block" data-category="mt942">
+    <h2 class="cat-block-title"><span class="cat-icon">🔄</span> MT942 Converters</h2>
+    <div class="tools-grid">
+      <a class="tool-card" href="/mt942-to-csv" data-cat="mt942" data-tags="mt942 csv swift convert">
+        <span class="tool-card-title">MT942 to CSV</span>
+        <span class="tool-card-desc">Convert SWIFT MT942 interim transaction reports to CSV. For banking professionals.</span>
+        <span class="tool-card-tag">MT942</span>
+      </a>
+      <a class="tool-card" href="/mt942-to-excel" data-cat="mt942" data-tags="mt942 excel swift convert">
+        <span class="tool-card-title">MT942 to Excel</span>
+        <span class="tool-card-desc">Convert MT942 statements to Excel spreadsheets. For financial analysis.</span>
+        <span class="tool-card-tag">MT942</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── XML Converters ── -->
+  <div class="cat-block" data-category="xml">
+    <h2 class="cat-block-title"><span class="cat-icon">📝</span> XML Converters</h2>
+    <div class="tools-grid">
+      <a class="tool-card" href="/xml-to-json" data-cat="xml" data-tags="xml json parse convert">
+        <span class="tool-card-title">XML to JSON</span>
+        <span class="tool-card-desc">Parse XML into clean JSON objects. Handles attributes and nested elements automatically.</span>
+        <span class="tool-card-tag">XML</span>
+      </a>
+      <a class="tool-card" href="/xml-to-xsd-generator" data-cat="xml" data-tags="xml xsd schema generate">
+        <span class="tool-card-title">XML to XSD</span>
+        <span class="tool-card-desc">Automatically infer XML Schema Definition from any XML document. Perfect for validation.</span>
+        <span class="tool-card-tag">XML</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── SQL Converters ── -->
+  <div class="cat-block" data-category="sql">
+    <h2 class="cat-block-title"><span class="cat-icon">🗄️</span> SQL Converters</h2>
+    <div class="tools-grid">
+      <a class="tool-card" href="/sql-to-csv" data-cat="sql" data-tags="sql csv export convert">
+        <span class="tool-card-title">SQL to CSV</span>
+        <span class="tool-card-desc">Convert SQL INSERT statements to CSV format. Extract data from SQL scripts.</span>
+        <span class="tool-card-tag">SQL</span>
+      </a>
+      <a class="tool-card" href="/sql-to-excel" data-cat="sql" data-tags="sql excel export sheet">
+        <span class="tool-card-title">SQL to Excel</span>
+        <span class="tool-card-desc">Transform SQL INSERT statements to multi‑sheet Excel files. For data analysis.</span>
+        <span class="tool-card-tag">SQL</span>
+      </a>
+      <a class="tool-card" href="/sql-to-xml" data-cat="sql" data-tags="sql xml convert elements">
+        <span class="tool-card-title">SQL to XML</span>
+        <span class="tool-card-desc">Convert SQL INSERT statements to XML. Great for data exchange and web services.</span>
+        <span class="tool-card-tag">SQL</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── PDF Converters ── -->
+  <div class="cat-block" data-category="pdf">
+    <h2 class="cat-block-title"><span class="cat-icon">📕</span> PDF Converters</h2>
+    <div class="tools-grid">
+      <a class="tool-card" href="/pptx-to-pdf" data-cat="pdf" data-tags="pptx pdf powerpoint convert">
+        <span class="tool-card-title">PPTX to PDF</span>
+        <span class="tool-card-desc">Convert PowerPoint presentations to high‑quality PDF documents. Preserve formatting.</span>
+        <span class="tool-card-tag">PDF</span>
+      </a>
+      <a class="tool-card" href="/pdf-to-powerpoint" data-cat="pdf" data-tags="pdf pptx powerpoint convert">
+        <span class="tool-card-title">PDF to PPTX</span>
+        <span class="tool-card-desc">Convert PDF pages to editable PPTX slides. Perfect for repurposing content.</span>
+        <span class="tool-card-tag">PDF</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── YAML Converters ── -->
+  <div class="cat-block" data-category="yaml">
+    <h2 class="cat-block-title"><span class="cat-icon">📄</span> YAML Converters</h2>
+    <div class="tools-grid">
+      <a class="tool-card" href="/yaml-to-json" data-cat="yaml" data-tags="yaml json config convert">
+        <span class="tool-card-title">YAML to JSON</span>
+        <span class="tool-card-desc">Convert YAML configuration files to JSON instantly. Perfect for Kubernetes and DevOps.</span>
+        <span class="tool-card-tag">YAML</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── Others / Recordset ── -->
+  <div class="cat-block" data-category="others">
+    <h2 class="cat-block-title"><span class="cat-icon">🧩</span> Other Converters</h2>
+    <div class="tools-grid">
+      <a class="tool-card" href="/recordset-converter" data-cat="others" data-tags="recordset dataset convert transform">
+        <span class="tool-card-title">Recordset Converter</span>
+        <span class="tool-card-desc">Convert recordset data between various formats. Supports JSON, CSV, XML, HTML, and more.</span>
+        <span class="tool-card-tag">Others</span>
+      </a>
+    </div>
+  </div>
+
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     SEO CONTENT BLOCK
+═══════════════════════════════════════════════════ -->
+<section class="seo-block" aria-labelledby="about-converters">
+  <h2 id="about-converters">Convert Data Formats Instantly — 50+ Conversion Tools</h2>
+
+  <p>
+    DataFrog offers a comprehensive suite of <strong>free online data converters</strong> covering every major data format. Whether you're a developer, data analyst, financial professional, or business owner — you'll find the conversion tools you need, all running locally in your browser with 100% privacy.
+  </p>
+
+  <h3>Why Use DataFrog Converters?</h3>
+  <p>
+    All converters run <strong>100% client-side</strong> — your data never leaves your device. There are no uploads, no sign-ups, and no data sharing. Every conversion is private, secure, and completely free. Use them as many times as you want, with no limits.
+  </p>
+
+  <h3>Complete Format Coverage</h3>
+  <p>
+    Our converters handle <strong>50+ formats</strong> including JSON, Excel (XLSX/XLS), CSV, XML, SQL, PDF, YAML, and financial standards like MT940, QIF, QBO, and QFX. Transform API responses, bank statements, spreadsheets, and database exports without uploading a single file.
+  </p>
+
+  <h3>Financial Data Conversion</h3>
+  <p>
+    Specialized support for banking and financial formats: <strong>MT940</strong>, <strong>MT942</strong>, <strong>QIF</strong>, <strong>QBO</strong>, and <strong>QFX</strong>. Perfect for accounting professionals, banking institutions, and financial analysts.
+  </p>
+
+  <p>
+    <strong>DataFrog converters are trusted by professionals worldwide</strong> — from data engineers and software developers to financial analysts and business owners. No matter your industry, if you work with data, DataFrog has a converter for your task.
+  </p>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     JAVASCRIPT — Search + Filter
+═══════════════════════════════════════════════════ -->
+<script>
+(function () {
+  'use strict';
+
+  const searchInput  = document.getElementById('toolSearch');
+  const filterTabs   = document.querySelectorAll('.filter-tab');
+  const catBlocks    = document.querySelectorAll('.cat-block');
+  const noResults    = document.getElementById('noResults');
+  const searchQuery  = document.getElementById('searchQuery');
+
+  let activeFilter = 'all';
+
+  /* ── Category filter ── */
+  filterTabs.forEach(tab => {
+    tab.addEventListener('click', function () {
+      filterTabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+      this.classList.add('active');
+      this.setAttribute('aria-selected', 'true');
+      activeFilter = this.dataset.filter;
+      applyFilters();
+    });
+  });
+
+  /* ── Search ── */
+  searchInput.addEventListener('input', function () {
+    applyFilters();
+  });
+
+  /* ── Apply both filters ── */
+  function applyFilters () {
+    const query = searchInput.value.trim().toLowerCase();
+    let visibleCount = 0;
+
+    catBlocks.forEach(block => {
+      const cat      = block.dataset.category;
+      const catMatch = (activeFilter === 'all') || (activeFilter === cat);
+      let   blockHasVisible = false;
+
+      const cards = block.querySelectorAll('.tool-card');
+      cards.forEach(card => {
+        const title = card.querySelector('.tool-card-title').textContent.toLowerCase();
+        const desc  = card.querySelector('.tool-card-desc').textContent.toLowerCase();
+        const tags  = (card.dataset.tags || '').toLowerCase();
+        const textMatch = !query || title.includes(query) || desc.includes(query) || tags.includes(query);
+        const show  = catMatch && textMatch;
+
+        card.style.display = show ? '' : 'none';
+        if (show) { blockHasVisible = true; visibleCount++; }
+      });
+
+      block.style.display = (catMatch && blockHasVisible) ? '' : 'none';
+    });
+
+    /* No results */
+    if (visibleCount === 0 && query) {
+      noResults.hidden = false;
+      searchQuery.textContent = query;
+    } else {
+      noResults.hidden = true;
+    }
+  }
+
+  /* ── URL search param support (?q=json) ── */
+  const urlParams = new URLSearchParams(window.location.search);
+  const qParam    = urlParams.get('q');
+  if (qParam) {
+    searchInput.value = qParam;
+    applyFilters();
+  }
+
+})();
+</script>

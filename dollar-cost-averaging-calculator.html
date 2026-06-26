@@ -1,26 +1,183 @@
 ---
 layout: main
-title: "Dollar Cost Averaging Calculator — DCA Investment Strategy Tool"
-description: "Calculate the average cost basis and total return of regular periodic investments. Compare DCA vs lump sum, see how volatility affects your portfolio, and plan your investment schedule."
-keywords: "dollar cost averaging calculator, dca calculator, cost averaging formula, dca investment calculator, stock dca calculator, average dollar cost calculator, periodic investment calculator, dca vs lump sum"
+title: "DCA Calculator - Calculate Dollar Cost Averaging"
+description: "With Dollar Cost Averaging (DCA), See how regular investments perform over time. Works in USD, EUR, INR, PKR & 170+ currencies."
+keywords: "dollar cost averaging calculator, dca calculator, dollar average calculator, dca investment calculator, dollar cost average formula, cost averaging formula"
+category: investing
 ---
 
+<!-- ═══════════════════════════════════════════════════════
+     JSON‑LD SCHEMAS — Dollar Cost Averaging Calculator
+═══════════════════════════════════════════════════════ -->
+
+<!-- 1. WebApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Dollar Cost Averaging Calculator – Free Online Tool | DCA Calculator",
+  "description": "Compare Dollar Cost Averaging (DCA) vs Lump Sum investing. See how regular investments perform over time. Works in 170+ currencies.",
+  "url": "https://datafrog.tools/dollar-cost-averaging-calculator/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+
+<!-- 2. BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://datafrog.tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Dollar Cost Averaging Calculator",
+      "item": "https://datafrog.tools/dollar-cost-averaging-calculator/"
+    }
+  ]
+}
+</script>
+
+<!-- 3. HowTo -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use the Dollar Cost Averaging Calculator",
+  "description": "Step by step guide to compare DCA vs Lump Sum investing.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Select your currency",
+      "text": "Choose from 170+ global currencies including USD, EUR, INR, PKR, AED, and more."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Enter your total investment amount",
+      "text": "Enter the total money you want to invest."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Set the investment period",
+      "text": "Enter the number of months over which to spread the investment."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Choose your expected annual return",
+      "text": "Enter the expected annual growth rate."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "Compare the results",
+      "text": "See which strategy performs better — DCA or Lump Sum."
+    }
+  ]
+}
+</script>
+
+<!-- 4. FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Dollar Cost Averaging (DCA)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dollar Cost Averaging is an investment strategy where you invest a fixed amount of money at regular intervals — regardless of market conditions. This reduces the impact of volatility by buying more shares when prices are low and fewer when prices are high."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does DCA perform better than lump sum investing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Historically, lump sum investing tends to outperform DCA in rising markets, while DCA can reduce downside risk in volatile or declining markets."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the advantages of Dollar Cost Averaging?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "DCA reduces the risk of investing a large sum at a market peak, encourages disciplined investing, and can lower the average cost per share over time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When should I use DCA instead of lump sum?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "DCA is recommended when you have a large sum to invest but are concerned about market volatility, or when you want to build a disciplined investment habit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the formula for Dollar Cost Averaging?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The dollar cost average formula calculates the final value of regular investments: FV = PMT × Σ (1 + r/n)^(n×(t−i)). This DCA investment calculator does the math for you instantly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many months should I spread my DCA over?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Common DCA periods range from 6 to 24 months. A longer period smooths out more volatility but can also reduce returns in rising markets."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What investments are suitable for Dollar Cost Averaging?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "DCA works well with volatile assets like stocks, mutual funds, and ETFs. It's commonly used for retirement accounts, index fund investments, and building a long-term portfolio."
+      }
+    }
+  ]
+}
+</script>
+
 <div class="tool-page">
-  <article itemscope itemtype="https://schema.org/WebApplication">
-    <meta itemprop="name" content="Dollar Cost Averaging Calculator" />
-    <meta itemprop="applicationCategory" content="FinanceApplication" />
-    <meta itemprop="isAccessibleForFree" content="true" />
+  <article >
+    <meta  content="Dollar Cost Averaging Calculator" />
+    
+    
 
     <section class="page-heading">
-      <h1 itemprop="name">Dollar Cost Averaging Calculator — DCA Investment Strategy Tool</h1>
-      <p class="tool-subtitle">Simulate regular periodic investments into a stock or ETF. See average cost per share, total shares acquired, and compare DCA against a lump sum investment.</p>
+      <h1 >Dollar Cost Averaging Calculator - Calculate DCA Instantly</h1>
+      <p class="tool-subtitle">
+        Calculate the <strong>future value</strong> of your regular investments. See how <strong>monthly contributions</strong> and <strong>compounding</strong> grow your wealth over time — instantly in <strong>your currency</strong> with support for 170+ currencies.
+      </p>
     </section>
 
     <div class="tool-body">
+      <!-- LEFT COLUMN – INPUT PANEL -->
       <aside class="tool-input-col" aria-label="Calculator inputs">
         <div class="panel input-panel">
 
-          <!-- Currency -->
+          <!-- Currency Selector -->
           <div class="form-group">
             <label for="currencySearch">Currency</label>
             <div class="currency-search-wrapper">
@@ -29,54 +186,74 @@ keywords: "dollar cost averaging calculator, dca calculator, cost averaging form
             </div>
           </div>
 
-          <!-- Regular Investment Amount -->
+          <!-- Initial Capital -->
           <div class="form-group">
-            <label for="investmentAmount">Regular Investment Amount</label>
+            <label for="initialCapital">Initial Capital</label>
             <div class="input-addons">
               <span class="input-addon" id="currencySymbol">$</span>
-              <input type="number" id="investmentAmount" value="100" min="1" step="10" oninput="syncSlider('investmentAmount');calculate()" />
+              <input type="number" id="initialCapital" value="10000" min="0" step="100" oninput="syncSlider('initialCapital');calculate()" />
             </div>
             <div class="slider-row">
-              <input type="range" id="investmentAmountSlider" min="1" max="1000" step="10" value="100" oninput="syncInput('investmentAmount',this.value);calculate()" />
-              <span class="slider-val" id="investmentAmountSliderVal">$100</span>
+              <input type="range" id="initialCapitalSlider" min="0" max="10000000" step="100" value="10000" oninput="syncInput('initialCapital',this.value);calculate()" />
+              <span class="slider-val" id="initialCapitalSliderVal">$10,000</span>
             </div>
+            <span class="field-hint">Starting amount invested upfront</span>
           </div>
 
-          <!-- Investment Frequency -->
+          <!-- Monthly Investment -->
           <div class="form-group">
-            <label for="frequency">Investment Frequency</label>
-            <select id="frequency" onchange="calculate()">
-              <option value="monthly" selected>Monthly</option>
-              <option value="quarterly">Quarterly</option>
-              <option value="yearly">Yearly</option>
+            <label for="monthlyInvestment">Monthly Investment</label>
+            <div class="input-addons">
+              <span class="input-addon" id="currencySymbol2">$</span>
+              <input type="number" id="monthlyInvestment" value="1000" min="0" step="50" oninput="syncSlider('monthlyInvestment');calculate()" />
+            </div>
+            <div class="slider-row">
+              <input type="range" id="monthlyInvestmentSlider" min="0" max="50000" step="50" value="1000" oninput="syncInput('monthlyInvestment',this.value);calculate()" />
+              <span class="slider-val" id="monthlyInvestmentSliderVal">$1,000</span>
+            </div>
+            <span class="field-hint">Fixed amount added each month</span>
+          </div>
+
+          <!-- Annual Return -->
+          <div class="form-group">
+            <label for="rate">Annual Return (%)</label>
+            <div class="input-addons">
+              <input type="number" id="rate" value="8" min="0" max="30" step="0.5" oninput="syncSlider('rate');calculate()" />
+              <span class="input-addon input-addon--right">%</span>
+            </div>
+            <div class="slider-row">
+              <input type="range" id="rateSlider" min="0" max="30" step="0.5" value="8" oninput="syncInput('rate',this.value);calculate()" />
+              <span class="slider-val" id="rateSliderVal">8%</span>
+            </div>
+            <span class="field-hint">Expected annual growth rate</span>
+          </div>
+
+          <!-- Period (Years) -->
+          <div class="form-group">
+            <label for="years">Period (Years)</label>
+            <div class="input-addons">
+              <input type="number" id="years" value="20" min="1" max="50" step="1" oninput="syncSlider('years');calculate()" />
+              <span class="input-addon input-addon--right">yr</span>
+            </div>
+            <div class="slider-row">
+              <input type="range" id="yearsSlider" min="1" max="50" step="1" value="20" oninput="syncInput('years',this.value);calculate()" />
+              <span class="slider-val" id="yearsSliderVal">20 yrs</span>
+            </div>
+            <span class="field-hint">How long you plan to invest</span>
+          </div>
+
+          <!-- Compounding Frequency -->
+          <div class="form-group">
+            <label for="compounding">Compounding Frequency</label>
+            <select id="compounding" onchange="calculate()">
+              <option value="365">Daily</option>
+              <option value="52">Weekly</option>
+              <option value="12" selected>Monthly</option>
+              <option value="4">Quarterly</option>
+              <option value="2">Semi-annually</option>
+              <option value="1">Annually</option>
             </select>
-          </div>
-
-          <!-- Number of Periods -->
-          <div class="form-group">
-            <label for="periods">Number of Periods</label>
-            <input type="number" id="periods" value="12" min="1" max="120" step="1" oninput="calculate()" />
-          </div>
-
-          <!-- Asset Prices (comma separated list) -->
-          <div class="form-group">
-            <label for="priceList">Asset Prices (comma separated)</label>
-            <textarea id="priceList" rows="3" placeholder="e.g., 100, 95, 102, 108, 97, 105, 110, 98, 103, 106, 109, 112" style="width:100%; padding:0.5rem; border-radius:12px; border:1px solid #e2e8f0;" oninput="calculate()"></textarea>
-            <span class="field-hint">Enter prices in order of each investment period (same number as periods). Leave empty for random walk simulation.</span>
-          </div>
-
-          <!-- Generate Random Prices Button -->
-          <div class="form-group">
-            <button type="button" class="btn btn-secondary" onclick="generateRandomPrices()" style="width:100%;">Generate Random Price Walk</button>
-          </div>
-
-          <!-- Lump Sum Comparison Toggle -->
-          <div class="toggle-row">
-            <label class="toggle-label" for="lumpSumToggle">Compare with Lump Sum</label>
-            <label class="toggle">
-              <input type="checkbox" id="lumpSumToggle" onchange="calculate()" />
-              <span class="toggle-track"></span>
-            </label>
+            <span class="field-hint">How often interest is compounded</span>
           </div>
 
           <div class="calc-actions">
@@ -86,315 +263,311 @@ keywords: "dollar cost averaging calculator, dca calculator, cost averaging form
         </div>
       </aside>
 
+      <!-- RIGHT COLUMN – RESULTS PANEL -->
       <section class="tool-output-col" aria-label="Calculator results" aria-live="polite">
-        <div class="result-cards" id="resultCards">
-          <div class="result-card result-card--primary">
-            <div class="result-label">Average Cost per Share</div>
-            <div class="result-value" id="rAvgCost">—</div>
-            <div class="result-sub">Total invested / total shares</div>
+
+        <!-- Result Cards -->
+        <div class="result-cards">
+          <div class="result-card">
+            <div class="result-label">Final Asset Value</div>
+            <div class="result-value" id="finalAssetValue">—</div>
+            <div class="result-sub">Total future worth</div>
           </div>
-          <div class="result-card result-card--secondary">
-            <div class="result-label">Total Shares Acquired</div>
-            <div class="result-value" id="rTotalShares">—</div>
-            <div class="result-sub">From periodic investments</div>
-          </div>
-          <div class="result-card result-card--secondary">
+          <div class="result-card">
             <div class="result-label">Total Invested</div>
-            <div class="result-value" id="rTotalInvested">—</div>
-            <div class="result-sub">Sum of all contributions</div>
+            <div class="result-value" id="totalInvested">—</div>
+            <div class="result-sub">Initial + all monthly contributions</div>
           </div>
-          <div class="result-card result-card--secondary">
-            <div class="result-label">Final Value (at last price)</div>
-            <div class="result-value" id="rFinalValue">—</div>
-            <div class="result-sub">Total shares × last price</div>
+          <div class="result-card">
+            <div class="result-label">Total Return</div>
+            <div class="result-value" id="totalReturn">—</div>
+            <div class="result-sub">Profit percentage</div>
           </div>
-          <div class="result-card result-card--secondary">
-            <div class="result-label">Total Return ($)</div>
-            <div class="result-value" id="rTotalReturn">—</div>
-            <div class="result-sub">Final value minus total invested</div>
+          <div class="result-card">
+            <div class="result-label">Total Profit</div>
+            <div class="result-value" id="totalProfit">—</div>
+            <div class="result-sub">Absolute gain</div>
           </div>
         </div>
 
-        <!-- COMPARISON SECTION (Lump Sum vs DCA) – appears only when toggle is ON -->
-                <!-- COMPARISON SECTION (Lump Sum vs DCA) – appears only when toggle is ON -->
-        <div id="compareSection" style="display: none;">
-          <div class="comparison-grid" id="comparisonGrid">
-            <!-- DCA Card -->
-            <div class="compare-card" id="dcaCard">
-              <div class="compare-card-header">
-                <span class="compare-icon">📅</span>
-                <span class="compare-title">Dollar Cost Averaging (DCA)</span>
-                <span class="compare-badge" id="dcaBadge"></span>
-              </div>
-              <div class="compare-metric">
-                <div class="compare-metric-label">Final Value</div>
-                <div class="compare-metric-value" id="dcaFinal">—</div>
-              </div>
-              <div class="compare-metric">
-                <div class="compare-metric-label">Total Invested</div>
-                <div class="compare-metric-value compare-metric-value--sm" id="dcaInvested">—</div>
-              </div>
-              <div class="compare-metric">
-                <div class="compare-metric-label">Total Gains</div>
-                <div class="compare-metric-value compare-metric-value--sm" id="dcaGains">—</div>
-              </div>
-              <div class="compare-metric">
-                <div class="compare-metric-label">Return %</div>
-                <div class="compare-metric-value compare-metric-value--sm" id="dcaReturnPct">—</div>
-              </div>
-            </div>
-
-            <!-- VS Divider -->
-            <div class="vs-divider" aria-hidden="true">VS</div>
-
-            <!-- Lump Sum Card -->
-            <div class="compare-card" id="lumpCard">
-              <div class="compare-card-header">
-                <span class="compare-icon">💰</span>
-                <span class="compare-title">Lump Sum</span>
-                <span class="compare-badge" id="lumpBadge"></span>
-              </div>
-              <div class="compare-metric">
-                <div class="compare-metric-label">Final Value</div>
-                <div class="compare-metric-value" id="lumpFinal">—</div>
-              </div>
-              <div class="compare-metric">
-                <div class="compare-metric-label">Total Invested</div>
-                <div class="compare-metric-value compare-metric-value--sm" id="lumpInvested">—</div>
-              </div>
-              <div class="compare-metric">
-                <div class="compare-metric-label">Total Gains</div>
-                <div class="compare-metric-value compare-metric-value--sm" id="lumpGains">—</div>
-              </div>
-              <div class="compare-metric">
-                <div class="compare-metric-label">Return %</div>
-                <div class="compare-metric-value compare-metric-value--sm" id="lumpReturnPct">—</div>
-              </div>
-            </div>
+        <!-- Insights Panel -->
+        <div class="insights-panel" id="insightsPanel">
+          <div class="insights-grid" id="insightsGrid">
+            <!-- Populated by JavaScript -->
           </div>
-          <div class="compare-summary" id="compareSummary"></div>
         </div>
 
-        <div class="insight-box" id="insightBox" style="display:none;">
-          <span id="insightText"></span>
-        </div>
-
+        <!-- Chart Panel -->
         <div class="chart-panel">
           <div class="chart-tabs" role="tablist">
-            <button class="chart-tab active" data-chart="line" onclick="switchChart('line',this)" role="tab">Price & Avg Cost</button>
-            <button class="chart-tab" data-chart="bar" onclick="switchChart('bar',this)" role="tab">Shares Purchased</button>
+            <button class="chart-tab active" data-chart="line" onclick="switchChart('line',this)" role="tab">Growth Over Time</button>
+            <button class="chart-tab" data-chart="bar" onclick="switchChart('bar',this)" role="tab">Contributions vs Returns</button>
+            <button class="chart-tab" data-chart="donut" onclick="switchChart('donut',this)" role="tab">Breakdown</button>
           </div>
           <div class="chart-wrap">
-            <canvas id="toolChart" role="img" aria-label="DCA simulation chart"></canvas>
+            <canvas id="toolChart" role="img" aria-label="DCA growth chart"></canvas>
           </div>
         </div>
 
+        <!-- Action Bar -->
         <div class="action-bar">
-          <button class="action-btn" onclick="downloadCSV()" title="Download transaction history as CSV">⬇ Download CSV</button>
+          <button class="action-btn" onclick="downloadCSV()" title="Download data as CSV">⬇ Download CSV</button>
           <button class="action-btn" onclick="copyResult()" title="Copy result to clipboard" id="copyBtn">📋 Copy Result</button>
+          <button class="action-btn" onclick="exportChart()" title="Export chart as PNG">🖼️ Export Chart</button>
         </div>
 
+        <!-- Breakdown Table -->
         <div class="breakdown-panel">
-          <div class="breakdown-title" id="tableTitle">Transaction History</div>
+          <div class="breakdown-title">Year‑by‑Year Breakdown</div>
           <div class="table-wrap">
-            <table class="breakdown-table" id="breakdownTable" aria-label="Period by period DCA breakdown">
+            <table class="breakdown-table" id="breakdownTable" aria-label="Annual DCA breakdown">
               <thead id="tableHead"></thead>
               <tbody id="tableBody"></tbody>
             </table>
           </div>
         </div>
+
       </section>
     </div>
   </article>
 </div>
 
-<script src="/assets/js/dca-calculator.js"></script>
-
-
-
 <!-- ═══════════════════════════════════════════════════════
-     ON‑PAGE CONTENT (SEO / GEO OPTIMISED) – DOLLAR COST AVERAGING CALCULATOR
+     ON‑PAGE CONTENT — SEO & GEO OPTIMISED
 ═══════════════════════════════════════════════════════ -->
-<section class="onpage-content" itemscope itemtype="https://schema.org/Article">
-  <meta itemprop="name" content="Dollar Cost Averaging Calculator – Reduce Market Timing Risk" />
-  <meta itemprop="description" content="Use our DCA calculator to see how regular investments can lower your average cost per share. Compare dollar cost averaging against lump sum investing over any period." />
+<section class="onpage-content" >
+    <meta  content="Dollar Cost Averaging Calculator – DCA vs Lump Sum" />
+    <meta 
+        content="Learn how Dollar Cost Averaging works and compare it against lump sum investing. Free tool works in USD, EUR, INR, PKR & 170+ currencies." />
 
-  <!-- ── INTRO ── -->
-  <div class="content-block">
-    <h2>What Is a Dollar Cost Averaging Calculator?</h2>
-    <p>A <strong>dollar cost averaging calculator</strong> (DCA calculator) models the outcome of investing a fixed amount of money at regular intervals (e.g., monthly, quarterly) into a stock, ETF, or any asset that fluctuates in price. The strategy, known as <strong>dollar cost averaging</strong>, reduces the impact of volatility by buying more shares when prices are low and fewer when prices are high, resulting in an average cost per share that is often lower than the average price over the period.</p>
-    <p>Our <strong>DCA investment calculator</strong> allows you to input a regular investment amount, investment frequency, a series of historical or projected prices, and the number of periods. It then computes the total shares accumulated, the average cost per share, the total invested, and the final portfolio value (assuming you sell at the last price). Additionally, you can compare the DCA strategy against a lump sum investment made at the start, helping you decide which approach suits your risk tolerance and market outlook.</p>
-  </div>
-
-  <!-- ── HOW TO USE (HowTo schema) ── -->
-  <div class="content-block" itemscope itemtype="https://schema.org/HowTo">
-    <meta itemprop="name" content="How to Calculate Dollar Cost Averaging – Step by Step" />
-    <h2>How to Use This Dollar Cost Averaging Calculator</h2>
-    <div class="howto-steps">
-      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
-        <meta itemprop="position" content="1" />
-        <span class="step-number">1</span> <span itemprop="text"><strong>Enter the regular investment amount</strong> – the fixed dollar amount you invest each period.</span>
-      </div>
-      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
-        <meta itemprop="position" content="2" />
-        <span class="step-number">2</span> <span itemprop="text"><strong>Choose the investment frequency</strong> – monthly, quarterly, or custom intervals (e.g., weekly).</span>
-      </div>
-      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
-        <meta itemprop="position" content="3" />
-        <span class="step-number">3</span> <span itemprop="text"><strong>Enter the asset prices</strong> – you can input a list of historical or projected prices for each investment date. Or use the “generate random walk” feature for simulated prices (if available).</span>
-      </div>
-      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
-        <meta itemprop="position" content="4" />
-        <span class="step-number">4</span> <span itemprop="text"><strong>Set the number of investment periods</strong> – e.g., 24 months.</span>
-      </div>
-      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
-        <meta itemprop="position" content="5" />
-        <span class="step-number">5</span> <span itemprop="text"><strong>Click Calculate</strong> – view total shares acquired, average cost per share, total invested, and final value (based on the last price).</span>
-      </div>
-      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
-        <meta itemprop="position" content="6" />
-        <span class="step-number">6</span> <span itemprop="text"><strong>Compare with lump sum</strong> – optionally see what would have happened if you invested the same total amount at the start.</span>
-      </div>
+    <!-- ─────────────────────────────────────────────────────
+       WHY DCA MATTERS
+       ───────────────────────────────────────────────────── -->
+    <div class="content-block">
+        <h2>Why Dollar Cost Averaging Matters for Your Investment Strategy</h2>
+        <p>
+            <strong>Dollar Cost Averaging (DCA)</strong> is an investment strategy where you invest a fixed amount of
+            money at regular intervals — regardless of market conditions. This approach reduces the impact of market
+            volatility by spreading your purchases over time, potentially lowering your average cost per share.
+        </p>
+        <p>
+            This <strong>DCA calculator</strong> compares <strong>Dollar Cost Averaging</strong> against a <strong>lump
+                sum investment</strong>, showing you which strategy performs better based on your assumptions — all in
+            <strong>your local currency</strong>.
+        </p>
     </div>
-  </div>
 
-  <!-- ── DATASET (example DCA vs Lump Sum comparison) ── -->
-  <div class="content-block">
-    <h2>Example: Dollar Cost Averaging Into a Volatile Stock (12 Months)</h2>
-    <p>Assume you invest $100 every month for 12 months into a stock with fluctuating prices. The table below shows how DCA lowers your average cost compared to the average price, and how it performs relative to a lump sum investment at the start.</p>
-    <div class="dataset-table-wrap">
-      <table class="dataset-table">
-        <thead>
-          <tr><th>Month</th><th>Investment ($)</th><th>Price ($)</th><th>Shares Purchased</th><th>Cumulative Shares</th><th>Average Cost ($)</th></tr>
-        </thead>
-        <tbody>
-          <tr><td colspan="6" style="background:#f8fafc; text-align:center">(Sample price series: volatile)</th</tr>
-          <tr><td>1</td><td>100</td><td>10.00</td><td>10.00</td><td>10.00</td><td>10.00</td></tr>
-          <tr><td>2</td><td>100</td><td>12.00</td><td>8.33</td><td>18.33</td><td>10.91</td></tr>
-          <tr><td>3</td><td>100</td><td>8.00</td><td>12.50</td><td>30.83</td><td>9.73</td></tr>
-          <tr><td>4</td><td>100</td><td>9.00</td><td>11.11</td><td>41.94</td><td>9.53</td></tr>
-          <tr><td>5</td><td>100</td><td>7.00</td><td>14.29</td><td>56.23</td><td>8.89</td></tr>
-          <tr><td>6</td><td>100</td><td>11.00</td><td>9.09</td><td>65.32</td><td>9.18</td></tr>
-          <tr><td>7</td><td>100</td><td>13.00</td><td>7.69</td><td>73.01</td><td>9.59</td></tr>
-          <tr><td>8</td><td>100</td><td>10.00</td><td>10.00</td><td>83.01</td><td>9.63</td></tr>
-          <tr><td>9</td><td>100</td><td>12.00</td><td>8.33</td><td>91.34</td><td>9.85</td></tr>
-          <tr><td>10</td><td>100</td><td>14.00</td><td>7.14</td><td>98.48</td><td>10.15</td></tr>
-          <tr><td>11</td><td>100</td><td>15.00</td><td>6.67</td><td>105.15</td><td>10.45</td></tr>
-          <tr><td>12</td><td>100</td><td>11.00</td><td>9.09</td><td>114.24</td><td>10.51</td></tr>
-        </tbody>
-        <tfoot>
-          <tr><td colspan="2"><strong>Totals</strong></td><td>—</td><td>114.24 shares</td><td>Average cost = $10.51</td><td>Final price = $11.00</td></tr>
-        </tfoot>
-      </table>
+    <!-- ─────────────────────────────────────────────────────
+       WHO IS THIS CALCULATOR FOR
+       ───────────────────────────────────────────────────── -->
+    <div class="content-block">
+        <h2>Who Can Use This Dollar Cost Averaging Calculator</h2>
+        <p>
+            This <strong>DCA investment calculator</strong> is designed for anyone considering a regular investment
+            strategy:
+        </p>
+        <ul class="content-list">
+            <li><strong>Long‑term investors</strong> – building wealth through regular contributions</li>
+            <li><strong>Retirement savers</strong> – contributing monthly to 401k or IRA</li>
+            <li><strong>New investors</strong> – learning the <strong>dollar cost average formula</strong></li>
+            <li><strong>Financial advisors</strong> – demonstrating DCA to clients</li>
+            <li><strong>Anyone with recurring income</strong> – investing a portion of each paycheck</li>
+        </ul>
+        <p>
+            This tool works for <strong>everyone</strong> — regardless of country or currency. With support for
+            <strong>170+ currencies</strong>, you can calculate in <strong>USD, EUR, GBP, INR, PKR, AED, SAR, CAD, AUD,
+                SGD, MYR, PHP, TRY, ZAR</strong>, and many more.
+        </p>
     </div>
-    <p class="dataset-note">* Total invested: $1,200. Final value: $1,256.64 (gain of 4.7%). If you had invested $1,200 as a lump sum at month 1 price of $10, you would have 120 shares worth $1,320 (gain of 10%). In this rising market, lump sum won. But in a volatile or falling market, DCA often outperforms. Use the calculator to test different scenarios.</p>
-  </div>
 
-  <!-- ── FAQ SECTION (20 questions) ── -->
-  <div class="content-block faq-section">
-    <h2>Frequently Asked Questions About Dollar Cost Averaging Calculators</h2>
-    <div class="faq-list" itemscope itemtype="https://schema.org/FAQPage">
-
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <div class="faq-question" itemprop="name">1. What is dollar cost averaging (DCA)?</div>
-        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">DCA is an investment strategy where you invest a fixed amount of money at regular intervals, regardless of the asset’s price. This reduces the risk of investing a large lump sum at the wrong time.</div></div>
-      </div>
-
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <div class="faq-question" itemprop="name">2. How does a dollar cost averaging calculator work?</div>
-        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">It divides your fixed investment by the price at each period to calculate shares purchased. It then sums shares, computes average cost per share, and multiplies by the final price to get portfolio value.</div></div>
-      </div>
-
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <div class="faq-question" itemprop="name">3. Does DCA always beat lump sum investing?</div>
-        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">No. In a consistently rising market, lump sum outperforms because all money is invested earlier. In volatile or falling markets, DCA can reduce losses and lower average cost.</div></div>
-      </div>
-
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <div class="faq-question" itemprop="name">4. Can I use DCA for ETFs or mutual funds?</div>
-        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – DCA works for any tradeable asset. Most brokerages offer automatic investment plans for ETFs and mutual funds.</div></div>
-      </div>
-
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <div class="faq-question" itemprop="name">5. What is the difference between DCA and value averaging?</div>
-        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">DCA invests a fixed dollar amount each period. Value averaging adjusts the investment amount to target a specific portfolio growth – more complex. Our calculator focuses on classic DCA.</div></div>
-      </div>
-
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <div class="faq-question" itemprop="name">6. What is the formula for dollar cost averaging?</div>
-        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Average cost per share = Total amount invested ÷ Total shares purchased. Shares purchased each period = Fixed investment ÷ Price that period.</div></div>
-      </div>
-
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <div class="faq-question" itemprop="name">7. How do I choose the investment frequency?</div>
-        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Monthly is most common for salary‑based investors. Weekly can smooth out more noise, but increases transaction costs. Choose a frequency that aligns with your cash flow.</div></div>
-      </div>
-
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <div class="faq-question" itemprop="name">8. Can I use historical stock prices to backtest DCA?</div>
-        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – enter actual historical prices for each period. The calculator will show what your DCA returns would have been.</div></div>
-      </div>
-
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <div class="faq-question" itemprop="name">9. Does DCA guarantee a lower average cost than the average price?</div>
-        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Not always. If prices are constantly rising, the average cost will be higher than the average price. But DCA still reduces the risk of buying at a single peak.</div></div>
-      </div>
-
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <div class="faq-question" itemprop="name">10. Does the calculator work for any currency?</div>
-        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – select your currency (USD, EUR, GBP, INR, etc.). The investment amount and prices should be entered in that currency.</div></div>
-      </div>
-
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <div class="faq-question" itemprop="name">11. Can I use DCA for cryptocurrency?</div>
-        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Absolutely. DCA is very popular for volatile assets like crypto. Enter the price series and regular investment amount to see the effect.</div></div>
-      </div>
-
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <div class="faq-question" itemprop="name">12. What is the difference between DCA and a SIP (Systematic Investment Plan)?</div>
-        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">In the context of mutual funds, SIP is essentially DCA – investing a fixed amount monthly. Our DCA calculator can be used for SIP analysis.</div></div>
-      </div>
-
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <div class="faq-question" itemprop="name">13. How does DCA handle dividend reinvestment?</div>
-        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">This basic DCA calculator focuses on price and purchases. For dividend reinvestment, you would add the dividend amounts to the investment each period, increasing shares.</div></div>
-      </div>
-
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <div class="faq-question" itemprop="name">14. Is DCA suitable for retirement accounts like 401(k)?</div>
-        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – 401(k) contributions are a form of DCA: you invest a fixed percentage of your salary each paycheck. Our calculator helps you project the growth.</div></div>
-      </div>
-
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <div class="faq-question" itemprop="name">15. Can I save my DCA calculation or share it?</div>
-        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – use the “Share” button to copy a URL containing your inputs. You can also download the transaction history as CSV.</div></div>
-      </div>
-
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <div class="faq-question" itemprop="name">16. How accurate is the calculator for long periods?</div>
-        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">It is mathematically precise given the inputs. However, future prices are unknown – use it for planning with hypothetical or historical data.</div></div>
-      </div>
-
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <div class="faq-question" itemprop="name">17. Does DCA reduce risk?</div>
-        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes, by spreading purchases over time, you avoid the risk of investing a large sum just before a market crash. However, it does not eliminate market risk entirely.</div></div>
-      </div>
-
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <div class="faq-question" itemprop="name">18. Can I use DCA for a portfolio of multiple stocks?</div>
-        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">You would need to run separate calculations for each asset, or use a weighted average. This tool focuses on a single asset.</div></div>
-      </div>
-
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <div class="faq-question" itemprop="name">19. Is this calculator free?</div>
-        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – 100% free, no signup, no ads. Use it for personal or educational purposes.</div></div>
-      </div>
-
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <div class="faq-question" itemprop="name">20. Can I compare DCA against a lump sum investment?</div>
-        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – after entering your DCA parameters, the tool shows a side‑by‑side comparison: investing the same total amount as a lump sum at the start.</div></div>
-      </div>
-
+    <!-- ─────────────────────────────────────────────────────
+       HOW TO USE
+       ───────────────────────────────────────────────────── -->
+    <div class="content-block">
+        <h2>How to Use This DCA Calculator</h2>
+        <div class="howto-steps">
+            <div class="step">
+                <span class="step-number">1</span>
+                <span><strong>Select your currency</strong> – from 170+ global currencies.</span>
+            </div>
+            <div class="step">
+                <span class="step-number">2</span>
+                <span><strong>Enter your total investment amount</strong> – the total money you want to invest.</span>
+            </div>
+            <div class="step">
+                <span class="step-number">3</span>
+                <span><strong>Set the investment period</strong> – number of months over which to spread the
+                    investment.</span>
+            </div>
+            <div class="step">
+                <span class="step-number">4</span>
+                <span><strong>Choose your expected annual return</strong> – the average growth rate.</span>
+            </div>
+            <div class="step">
+                <span class="step-number">5</span>
+                <span><strong>Compare DCA vs Lump Sum</strong> – see which strategy performs better.</span>
+            </div>
+        </div>
     </div>
-  </div>
+
+    <!-- ─────────────────────────────────────────────────────
+       THE FORMULA
+       ───────────────────────────────────────────────────── -->
+    <div class="content-block">
+        <h2>The Dollar Cost Averaging Formula</h2>
+        <p>
+            The <strong>dollar cost average formula</strong> calculates the final value of regular investments over
+            time:
+        </p>
+        <div class="formula-box">
+            FV = PMT × Σ (1 + r/n)<sup>n×(t−i)</sup>
+            <span class="formula-note">
+                Where: <strong>PMT</strong> = monthly investment, <strong>r</strong> = annual return, <strong>n</strong>
+                = compounding frequency, <strong>t</strong> = total months, <strong>i</strong> = month of contribution
+            </span>
+        </div>
+        <p>
+            For example, if you invest $12,000 over 12 months ($1,000/month) with 8% annual return, your DCA strategy
+            grows to approximately $12,515 — compared to a lump sum of $12,800.
+        </p>
+    </div>
+
+    <!-- ─────────────────────────────────────────────────────
+       DCA VS LUMP SUM
+       ───────────────────────────────────────────────────── -->
+    <div class="content-block">
+        <h2>DCA vs Lump Sum — Which Strategy Is Better?</h2>
+        <table class="example-table">
+            <thead>
+                <tr>
+                    <th>Strategy</th>
+                    <th>Description</th>
+                    <th>Best For</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Dollar Cost Averaging</strong></td>
+                    <td>Investing fixed amounts at regular intervals</td>
+                    <td>Reducing volatility risk, disciplined investing</td>
+                </tr>
+                <tr>
+                    <td><strong>Lump Sum</strong></td>
+                    <td>Investing the entire amount upfront</td>
+                    <td>Maximising returns in rising markets</td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="dataset-note">
+            * Historical data shows that lump sum investing tends to outperform DCA in rising markets, while DCA can
+            reduce downside risk in volatile or declining markets.
+        </p>
+    </div>
+
+    <!-- ─────────────────────────────────────────────────────
+       FAQ SECTION
+       ───────────────────────────────────────────────────── -->
+    <div class="content-block faq-section">
+        <h2>Frequently Asked Questions About Dollar Cost Averaging</h2>
+
+        <div class="faq-list" >
+
+            <div class="faq-item"  >
+                <div class="faq-question" >
+                    1. What is Dollar Cost Averaging (DCA)?
+                </div>
+                <div class="faq-answer" >
+                    <div >
+                        <strong>Dollar Cost Averaging</strong> is an investment strategy where you invest a fixed amount
+                        of money at regular intervals — regardless of market conditions. This reduces the impact of
+                        volatility by buying more shares when prices are low and fewer when prices are high.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item"  >
+                <div class="faq-question" >
+                    2. Does DCA perform better than lump sum investing?
+                </div>
+                <div class="faq-answer" >
+                    <div >
+                        Historically, <strong>lump sum investing</strong> tends to outperform DCA in rising markets,
+                        while DCA can reduce downside risk in volatile or declining markets. Use this <strong>DCA
+                            calculator</strong> to compare both strategies with your own numbers.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item"  >
+                <div class="faq-question" >
+                    3. What are the advantages of Dollar Cost Averaging?
+                </div>
+                <div class="faq-answer" >
+                    <div >
+                        DCA reduces the risk of investing a large sum at a market peak, encourages disciplined
+                        investing, and can lower the average cost per share over time. It's particularly beneficial for
+                        investors with regular income who invest a portion of each paycheck.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item"  >
+                <div class="faq-question" >
+                    4. When should I use DCA instead of lump sum?
+                </div>
+                <div class="faq-answer" >
+                    <div >
+                        DCA is recommended when you have a large sum to invest but are concerned about market
+                        volatility, or when you want to build a disciplined investment habit. Lump sum is generally
+                        better in strongly rising markets.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item"  >
+                <div class="faq-question" >
+                    5. What's the formula for Dollar Cost Averaging?
+                </div>
+                <div class="faq-answer" >
+                    <div >
+                        The <strong>dollar cost average formula</strong> calculates the final value of regular
+                        investments: <code>FV = PMT × Σ (1 + r/n)^(n×(t−i))</code>. This <strong>DCA investment
+                            calculator</strong> does the math for you instantly.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item"  >
+                <div class="faq-question" >
+                    6. How many months should I spread my DCA over?
+                </div>
+                <div class="faq-answer" >
+                    <div >
+                        Common DCA periods range from 6 to 24 months. A longer period smooths out more volatility but
+                        can also reduce returns in rising markets. Test different periods with this <strong>Dollar Cost
+                            Averaging calculator</strong> to find what works for you.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item"  >
+                <div class="faq-question" >
+                    7. What investments are suitable for Dollar Cost Averaging?
+                </div>
+                <div class="faq-answer" >
+                    <div >
+                        DCA works well with volatile assets like stocks, mutual funds, and ETFs. It's commonly used for
+                        retirement accounts, index fund investments, and building a long‑term portfolio. This
+                        <strong>DCA calculator</strong> helps you project potential outcomes for any investment.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
 </section>
+<!-- ==========================================================
+     LOAD SCRIPTS
+     ========================================================== -->
+<script src="/assets/js/dollar-cost-averaging-calculator.js"></script>

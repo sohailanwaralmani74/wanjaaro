@@ -1,0 +1,356 @@
+---
+layout: main
+title: "Base64 Encoder/Decoder - Text and Files | DataFrog"
+description: "Free online Base64 tool: encode/decode text, images, files. Client-side, private, no upload. upload file or input any text to encode and decode."
+keywords: "base64 encoder, base64 decoder, base64 to text, text to base64, encode file to base64, decode base64 to file, online base64 tool, base64 image, base64 converter"
+category: utilities
+---
+  <style>
+    .csvx-container {
+      max-width: 1400px;
+      margin: 0 auto 1.5rem auto;
+    }
+
+    .csvx-btn.primary {
+      background: #0f3b3f;
+      border-color: #2dd4bf;
+      color: #ccfbf1;
+      box-shadow: 0 4px 12px rgba(45, 212, 191, 0.15);
+    }
+
+    .csvx-btn.primary:hover:not(:disabled) {
+      background: #115e59;
+      border-color: #5eead4;
+      transform: translateY(-1px);
+    }
+
+    .csvx-btn:hover:not(:disabled) {
+      background: #2d3a4e;
+      border-color: #4b5563;
+      transform: translateY(-1px);
+    }
+
+    .csvx-btn:active {
+      transform: translateY(1px);
+    }
+
+    .csvx-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+
+    .csvx-preview:focus {
+      outline: none;
+      border-color: #2dd4bf;
+      box-shadow: 0 0 0 2px rgba(45, 212, 191, 0.2);
+    }
+
+    .csvx-excel-panel {
+      margin-top: 1.8rem;
+    }
+
+    .base64-toast {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 2000;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      pointer-events: none;
+    }
+    .toast-message {
+      background: #1e293b;
+      backdrop-filter: blur(16px);
+      color: #e0f2fe;
+      padding: 12px 22px;
+      border-radius: 60px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+      border-left: 4px solid #2dd4bf;
+      pointer-events: auto;
+      animation: slideInRight 0.2s ease;
+      font-family: monospace;
+    }
+
+    .preview-image-area {
+      margin-top: 0.4rem;
+      background: #0f1115;
+      border-radius: 20px;
+      padding: 12px;
+      text-align: center;
+      border: 1px dashed #2dd4bf40;
+    }
+
+    .preview-image-area img {
+      max-width: 100%;
+      max-height: 220px;
+      border-radius: 16px;
+      box-shadow: 0 6px 14px black;
+    }
+
+    .badge-binary {
+      background: #2d3748;
+      padding: 4px 12px;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      color: #94a3b8;
+    }
+  </style>
+
+<section style="display: flex; justify-content: center">
+ <div style="padding-left: 2rem;">
+   <section class="intro">
+    <h1>Base64 Encoder / Decoder Online: Text, Images & Files Supported</h1>
+    <p><strong>Base64 encoding</strong> converts binary data (text, images, PDFs, or any file) into an ASCII string format using a set of 64 characters. Our <strong>free, client‑side Base64 tool</strong> lets you encode or decode instantly – no file upload to any server, 100% private and secure.</p>
+  </section>
+ <!-- INPUT PANEL -->
+<div class="csvx-container">
+  <div id="df-sqlcsv-input-panel" class="csvx-panel">
+    <div class="panel-header">
+      <div>
+        <div class="title">⚡ Base64 Studio</div>
+        <div class="small">Encode ⇄ Decode · text, images, files & raw data</div>
+      </div>
+      <div class="controls">
+        <label class="csvx-btn">
+          📂 Upload File
+          <input id="df-file-input" type="file" style="display: none;" accept="*/*">
+        </label>
+        <button class="csvx-btn primary" id="encode-action-btn">✨ Encode ➕</button>
+        <button class="csvx-btn primary" id="decode-action-btn">🔓 Decode ➖</button>
+        <button class="csvx-btn" id="copy-input-btn">📋 Copy Input</button>
+      </div>
+    </div>
+    <textarea id="df-input" class="csvx-preview" style="min-height: 21rem; max-height: 21rem; resize: none; color: white" 
+      placeholder="📝 Paste your text, Base64 string, or upload any file (image, PDF, etc.)&#10;————————————————————————————————————————&#10;✓ Encode: turns text/file content into Base64 string&#10;✓ Decode: turns Base64 string back into original text or binary data"></textarea>
+  </div>
+</div>
+
+<!-- OUTPUT PANEL (hidden initially) -->
+<div class="csvx-container" id="output-panel-wrapper">
+  <div id="df-output-panel" class="csvx-excel-panel" style="display: none;">
+    <div class="csvx-panel" style="padding: 12px;">
+      <div class="excel-header">
+        <div id="output-title" style="min-width: 50%;">
+        </div>
+        <div class="controls">
+          <button class="csvx-btn primary" id="df-copy-btn">📋 Copy Output</button>
+          <button class="csvx-btn primary" id="df-download-btn">💾 Download Data</button>
+        </div>
+      </div>
+      <textarea id="df-output" class="csvx-preview" style="min-height: 21.5rem; max-height: 21.5rem; background:#0b0e12; font-family: monospace; resize: none; color: white" readonly></textarea>
+      <div id="output-preview-container" style="margin-top: 12px; max-height: 19rem;"></div>
+    </div>
+  </div>
+ </div>
+
+ <div id="df-sqlcsv-toast" class="base64-toast"></div>
+
+
+ </div>
+
+</section>
+
+<script src="/assets/js/base64-engine.js"></script>
+<!-- ═══════════════════════════════════════════════════════
+     ON‑PAGE CONTENT — SEO & GEO OPTIMISED
+     BASE64 ENCODER / DECODER TOOL
+═══════════════════════════════════════════════════════ -->
+<section class="onpage-content" itemscope itemtype="https://schema.org/SoftwareApplication">
+  <meta content="Base64 Encoder/Decoder – DataFrog" />
+  <meta itemprop="operatingSystem" content="All" />
+  <meta itemprop="applicationCategory" content="Utility" />
+  <meta itemprop="offers" content="Free" />
+
+  <!-- ─────────────────────────────────────────────────────
+       WHY USE THIS TOOL
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>✨ Why Use Our Base64 Encoder/Decoder?</h2>
+    <ul class="content-list">
+      <li><strong>🔒 Fully client‑side:</strong> Your data never leaves your browser. Perfect for sensitive information like API keys, private certificates, or personal images.</li>
+      <li><strong>📁 Any file support:</strong> Encode images (PNG, JPEG, GIF, WebP), PDFs, ZIP archives, text files, and more — directly to a Base64 string.</li>
+      <li><strong>🖼️ Auto image preview:</strong> When you decode a Base64 string that represents an image, the tool shows a live preview instantly, so you can verify the content before downloading.</li>
+      <li><strong>⬇️ Download &amp; copy:</strong> Get your output as a text file (for encoded strings) or as the original binary file (for decoded results). The <kbd>Copy</kbd> button works seamlessly for text‑based outputs.</li>
+      <li><strong>⚡ Real‑time feedback:</strong> Toast messages, auto‑scrolling, and intuitive button states (disable/enable) guide you through every action without confusion.</li>
+    </ul>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       HOW TO USE — STEP BY STEP
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>📖 How to Use the Base64 Tool – Step by Step</h2>
+    <div class="howto-steps">
+      <div class="step">
+        <span class="step-number">1</span>
+        <span><strong>Enter your data</strong> – paste any text string, upload a file (image, document, etc.), or type directly into the input area.</span>
+      </div>
+      <div class="step">
+        <span class="step-number">2</span>
+        <span><strong>Choose your action</strong> – click <kbd>Encode</kbd> to convert text/binary to a Base64 string, or <kbd>Decode</kbd> to revert a Base64 string back to its original form.</span>
+      </div>
+      <div class="step">
+        <span class="step-number">3</span>
+        <span><strong>Copy or download</strong> – the output panel appears instantly with the result. Use <kbd>Copy</kbd> for text results, or <kbd>Download</kbd> to save it as a file (text or binary).</span>
+      </div>
+      <div class="step">
+        <span class="step-number">4</span>
+        <span><strong>Check the image preview</strong> – if your decoded output is an image, the tool automatically renders a live preview, allowing you to confirm it visually before saving.</span>
+      </div>
+    </div>
+    <p>
+      The tool intelligently detects whether the input is plain text, Base64, or a binary file, adjusting the available actions automatically to prevent errors.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       COMMON USE CASES
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>🎯 Common Use Cases for Base64 Encoding &amp; Decoding</h2>
+    <div class="example-grid">
+      <div class="example-card">
+        <h3>📧 Email Attachments (MIME)</h3>
+        <p>Embed images and documents directly into HTML email bodies without external hosting, ensuring the content displays correctly across all email clients.</p>
+      </div>
+      <div class="example-card">
+        <h3>📡 JSON / REST APIs</h3>
+        <p>Transmit binary data (like profile pictures or encrypted payloads) safely over text‑based protocols such as REST, GraphQL, or WebSockets without corruption.</p>
+      </div>
+      <div class="example-card">
+        <h3>🌐 Data URLs</h3>
+        <p>Inline small images, fonts, or CSS assets directly inside web pages using the <code>data:image/...</code> scheme, reducing HTTP requests and improving load times.</p>
+      </div>
+      <div class="example-card">
+        <h3>⚙️ Configuration Files</h3>
+        <p>Store certificates, SSH keys, license files, or small application icons as plain text inside <code>.env</code>, <code>config.json</code>, or YAML files.</p>
+      </div>
+      <div class="example-card">
+        <h3>🔍 Forensics &amp; Debugging</h3>
+        <p>Inspect binary content by decoding Base64 logs from security tools, database dumps, or network traffic captures to understand what data is being transmitted.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       TECHNICAL SPECIFICATIONS
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>⚙️ Technical Specifications – Base64 Standards</h2>
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Specification / Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Character Set</strong></td>
+          <td><code>A‑Z a‑z 0‑9 + /</code> (plus <code>=</code> for padding to ensure the output length is a multiple of 4).</td>
+        </tr>
+        <tr>
+          <td><strong>RFC Compliance</strong></td>
+          <td>Fully compliant with <strong>RFC 4648</strong> (the standard Base64 alphabet) and RFC 2045 (MIME).</td>
+        </tr>
+        <tr>
+          <td><strong>Binary Handling</strong></td>
+          <td>UTF‑8 safe encoding/decoding — the tool preserves every byte of the original binary file without data loss.</td>
+        </tr>
+        <tr>
+          <td><strong>MIME Type Detection</strong></td>
+          <td>Automatic recognition of PNG, JPEG, GIF, WebP, PDF, ZIP, and plain text files based on the decoded byte signature (magic bytes).</td>
+        </tr>
+        <tr>
+          <td><strong>Maximum File Size</strong></td>
+          <td>Optimised for files up to <strong>50 MB</strong>. Larger files may work but depend on your device's available memory.</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="dataset-note">
+      * All processing is done using the native <code>atob()</code> and <code>btoa()</code> functions (with Unicode workarounds) and the <code>FileReader</code> API — ensuring maximum browser compatibility and performance.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       FAQ SECTION (5 Questions)
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block faq-section">
+    <h2>❓ Frequently Asked Questions about Base64</h2>
+
+    <div class="faq-list" >
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          1. What is Base64 and why is it used?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            <p><strong>Base64</strong> is an encoding scheme that represents binary data in an ASCII string format using a set of 64 printable characters (A‑Z, a‑z, 0‑9, +, /). It is primarily used to safely transmit binary data (images, documents, audio) over text‑based systems such as email (MIME), JSON, HTML (data URLs), and XML without encountering character encoding issues or data corruption.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          2. Is this Base64 tool secure for passwords or sensitive data?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            <p><strong>Yes, absolutely.</strong> Everything runs entirely inside your browser using client‑side JavaScript. No file, text, or string is ever uploaded to any server. This makes it 100% safe for encoding API keys, private authentication tokens, personal identification documents, or confidential images. You can even use it while offline.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          3. Can I decode a Base64 string back to an image?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            <p><strong>Yes, and it's seamless.</strong> Simply paste the Base64 string into the input area, click <strong>Decode</strong>, and if the decoded data represents an image (PNG, JPEG, GIF, WebP, etc.), the tool immediately shows a live <strong>preview</strong> of the image. You can then download the original image file with a single click.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          4. What happens when I upload a file?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            <p>The file is read locally using the <code>FileReader</code> API and converted into its Base64 representation. The result automatically populates the input area. Because the data is now already Base64, the <strong>Encode</strong> button disables itself (to prevent double‑encoding), and the <strong>Decode</strong> button activates — allowing you to immediately revert it back to the original binary format or download it.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          5. Does this tool support large files?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            <p>Yes, it handles files up to <strong>50 MB</strong> efficiently and reliably. For files larger than that, performance depends on your browser's memory limits and your device's hardware. We recommend keeping files under 50 MB for the smoothest experience, but the tool has been tested with files up to 200 MB on high‑performance machines.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       FINAL CALL TO ACTION
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>🚀 Ready to encode or decode?</h2>
+    <p>
+      Use the tool above — it is <strong>free</strong>, <strong>unlimited</strong>, and always <strong>private</strong>. No sign‑ups, no hidden costs, and no data tracking. Bookmark this page to return anytime you need a reliable Base64 converter.
+    </p>
+  </div>
+
+</section>

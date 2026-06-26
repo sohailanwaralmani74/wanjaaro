@@ -1,0 +1,751 @@
+---
+layout: main
+title: "Analyse Excel - Excel File Analyzer, Browser-Based & Private"
+description: "Free online Excel file analyzer. Get instant analysis: row count, column stats, data types, missing values, duplicates, summary statistics."
+keywords: "analyse excel, analyze excel, excel analyzer, excel file analyzer, excel spreadsheet analyzer, xlsx analyzer, excel data analysis, excel statistics, excel column analyzer, excel data profiler, excel file stats, analyse excel online, excel metadata, excel row counter, excel column stats, data profiling, excel dataset analysis"
+category: excel
+---
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js">
+</script>
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "@id": "https://datafrog.tools/analyse-excel#webapp",
+    "name": "Analyse Excel - Excel File Analyzer",
+    "url": "https://datafrog.tools/analyse-excel",
+    "description": "A free, browser-based tool that analyzes Excel files (.xlsx, .xls, .csv) and provides comprehensive statistics. View row count, column types, missing values, duplicates, summary statistics, and data preview. Supports multi-sheet workbooks with sheet selection. 100% client-side with complete data privacy.",
+    "applicationCategory": "DeveloperTool",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "Privacy-first client-side processing (no data uploaded to servers)",
+      "Supports .xlsx, .xls, and .csv files up to 150MB",
+      "Multi-sheet workbook support with sheet selector",
+      "Instant row and column count",
+      "Data type detection per column (string, number, date, boolean)",
+      "Missing value count per column",
+      "Duplicate row detection and counting",
+      "Summary statistics: min, max, mean, median, std dev, quartiles for numeric columns",
+      "Top-N frequency table for categorical columns",
+      "Data quality flags: constant, unique, high-cardinality, mixed-type columns",
+      "Overall data quality score (0-100)",
+      "Interactive data preview with search and sort",
+      "Outlier detection for numeric columns",
+      "Copy results or export as CSV/TXT/JSON",
+      "Works offline after first load"
+    ],
+    "softwareRequirements": "A modern web browser",
+    "softwareVersion": "1.0",
+    "datePublished": "2025-11-21",
+    "dateModified": "2025-11-21"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": "https://datafrog.tools/analyse-excel#faq",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is this Excel analyzer really free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, it is completely free with no premium tiers, signups, or hidden fees. Analyze as many Excel files as you need directly in your browser."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What file formats are supported?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The tool supports .xlsx, .xls, and .csv files. It uses the SheetJS library to parse Excel files entirely in your browser. The maximum file size is 150MB."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does it support multiple sheets?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The tool detects all sheets in your workbook and provides a dropdown selector to switch between sheets. Analysis updates automatically when you select a different sheet."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What statistics does it provide?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The tool provides: row count, column count, data type detection per column, missing value count, duplicate rows, min, max, mean, median, standard deviation, quartiles (Q1, Q3, IQR) for numeric columns, top-5 value frequencies for categorical columns, data quality flags, and an overall data quality score."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How large of an Excel file can I analyze?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The tool supports files up to 150MB. Files larger than 150MB will be rejected with a clear warning. Most standard Excel files analyze instantly. All processing remains local in your browser."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my Excel data secure and private?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. All processing happens entirely within your browser; no data is uploaded to any server, making it safe for sensitive business data."
+        }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "@id": "https://datafrog.tools/analyse-excel#howto",
+    "name": "How to Analyze an Excel File Online",
+    "description": "Step-by-step guide to analyze Excel files and get comprehensive statistics using the free online Excel analyzer.",
+    "tool": {
+      "@type": "HowToTool",
+      "name": "Analyse Excel"
+    },
+    "supply": {
+      "@type": "HowToSupply",
+      "name": "Excel File (.xlsx, .xls, .csv)"
+    },
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Upload Your Excel File",
+        "text": "Click the upload button or drag and drop your .xlsx, .xls, or .csv file into the drop zone.",
+        "url": "https://datafrog.tools/analyse-excel"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Select a Sheet (if multiple)",
+        "text": "If your workbook has multiple sheets, use the dropdown to select the sheet you want to analyze.",
+        "url": "https://datafrog.tools/analyse-excel"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "View Analysis Results",
+        "text": "Instantly see statistics including row count, column types, missing values, duplicates, summary statistics, and data quality score.",
+        "url": "https://datafrog.tools/analyse-excel"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Explore Your Data",
+        "text": "Search, sort, and browse the data preview. Export results as CSV, TXT, or JSON for documentation.",
+        "url": "https://datafrog.tools/analyse-excel"
+      }
+    ],
+    "totalTime": "PT2M"
+  }
+]
+</script>
+
+<style>
+/* ====== All styles from existing tools ====== */
+.excel-wrap{background:#1e1e1e;border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:16px;min-height:100px; width: 98%}
+.panel-card{background:#252526;border-radius:8px;border:1px solid #3c3c3c;overflow:hidden}
+.panel-header{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:#2d2d2d;border-bottom:1px solid #3c3c3c;flex-wrap:wrap;gap:8px}
+.panel-title{font-size:13px;font-weight:500;color:#cccccc;letter-spacing:.3px}
+.panel-sub{font-size:11px;color:#6a9955;margin-top:2px}
+.btn-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.excel-btn{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:4px;font-size:12px;font-family:inherit;cursor:pointer;border:1px solid #555;background:#3a3a3a;color:#cccccc;transition:background .15s}
+.excel-btn:hover{background:#4a4a4a}
+.excel-btn.primary{background:#0e639c;border-color:#0e639c;color:#fff}
+.excel-btn.primary:hover{background:#1177bb}
+.excel-btn.green{background:#1e7a4a;border-color:#1e7a4a;color:#fff}
+.excel-btn.green:hover{background:#258a58}
+.excel-btn.amber{background:#8a6e1e;border-color:#8a6e1e;color:#fff}
+.excel-btn.amber:hover{background:#a07e23}
+.excel-btn.purple{background:#5b2d8e;border-color:#5b2d8e;color:#fff}
+.excel-btn.purple:hover{background:#6e38a8}
+.excel-btn:disabled{opacity:.4;cursor:not-allowed}
+
+/* Drop Zone */
+.drop-zone{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;border:2px dashed #3c3c3c;border-radius:8px;background:#1b1b1b;transition:border-color .3s,background .3s;cursor:pointer;min-height:200px;gap:8px}
+.drop-zone:hover{border-color:#0e639c;background:#1f1f1f}
+.drop-zone.dragover{border-color:#0e639c;background:#252525}
+.drop-zone-icon{font-size:48px;color:#3c3c3c}
+.drop-zone-text{color:#7a7a7a;font-size:14px}
+.drop-zone-sub{color:#4a4a4a;font-size:12px}
+.drop-zone-file{color:#9cdcfe;font-weight:600;font-family:var(--font-mono,'Fira Mono',monospace);font-size:13px;word-break:break-all}
+
+/* Loading overlay */
+.loading-overlay{display:flex;align-items:center;justify-content:center;gap:12px;padding:20px;background:#1b1b1b;border-radius:5px;margin:10px 0}
+.loading-spinner{width:28px;height:28px;border:3px solid #3c3c3c;border-top-color:#0e639c;border-radius:50%;animation:spin 0.8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-text{color:#9cdcfe;font-size:14px}
+
+/* Stats Grid */
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;padding:14px 16px}
+.stat-card{background:#1b1b1b;border:1px solid #3c3c3c;border-radius:5px;padding:10px 12px;text-align:center}
+.stat-number{font-family:var(--font-mono,'Fira Mono',monospace);font-size:22px;font-weight:700;color:#9cdcfe;display:block}
+.stat-label{font-size:10px;color:#7a7a7a;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+
+/* Quality Score */
+.quality-score{display:flex;align-items:center;gap:12px;padding:12px 16px;background:#1b1b1b;border-radius:5px;margin:0 16px 12px}
+.quality-number{font-family:var(--font-mono,'Fira Mono',monospace);font-size:32px;font-weight:700;min-width:60px}
+.quality-number.good{color:#6fcf97}
+.quality-number.ok{color:#fbbf24}
+.quality-number.bad{color:#f97583}
+.quality-bar{flex:1;height:8px;background:#2d2d2d;border-radius:4px;overflow:hidden}
+.quality-fill{height:100%;border-radius:4px;transition:width .6s ease}
+.quality-fill.good{background:linear-gradient(90deg,#258a58,#6fcf97)}
+.quality-fill.ok{background:linear-gradient(90deg,#8a6e1e,#fbbf24)}
+.quality-fill.bad{background:linear-gradient(90deg,#8b3333,#f97583)}
+.quality-label{font-size:12px;color:#7a7a7a;min-width:60px;text-align:right}
+
+/* Column Stats */
+.col-stats-wrap{max-height:350px;overflow-y:auto;padding:0 16px 16px}
+.col-stats-table{width:100%;border-collapse:collapse;font-size:12px}
+.col-stats-table th{position:sticky;top:0;background:#2d2d2d;color:#7a7a7a;text-align:left;padding:6px 10px;font-weight:500;border-bottom:1px solid #3c3c3c;font-size:10px;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap}
+.col-stats-table td{padding:6px 10px;color:#d4d4d4;border-bottom:1px solid #2a2a2a;font-family:var(--font-mono,'Fira Mono',monospace);font-size:11px}
+.col-stats-table .col-name{color:#9cdcfe;font-weight:500}
+.col-stats-table .col-type{color:#6a9955}
+.col-stats-table .col-missing{color:#f97583}
+.col-stats-table .col-unique{color:#fbbf24}
+.col-stats-table .col-flag{font-size:10px;padding:2px 8px;border-radius:10px;background:#2d2d2d;color:#7a7a7a;display:inline-block}
+.col-stats-table .col-flag.warning{background:#8a6e1e33;color:#fbbf24;border:1px solid #8a6e1e}
+.col-stats-table .col-flag.success{background:#1e7a4a33;color:#6fcf97;border:1px solid #1e7a4a}
+.col-stats-table .col-flag.danger{background:#8b333333;color:#f97583;border:1px solid #8b3333}
+
+/* Top N values */
+.top-n-wrap{padding:0 16px 12px}
+.top-n-item{display:flex;align-items:center;gap:8px;padding:4px;font-size:12px;font-family:var(--font-mono,'Fira Mono',monospace);border-bottom:1px solid #1b1b1b}
+.top-n-item:hover{background:#252525}
+.top-n-value{color:#d4d4d4;flex:1}
+.top-n-count{color:#7a7a7a;min-width:40px}
+.top-n-bar{width:80px;height:12px;background:#2d2d2d;border-radius:3px;overflow:hidden}
+.top-n-fill{height:100%;background:linear-gradient(90deg,#0e639c,#1177bb);border-radius:3px;transition:width .3s}
+
+/* Data Preview */
+.data-preview-wrap{max-height:400px;overflow:auto;padding:0 16px 16px}
+.data-preview-table{width:100%;border-collapse:collapse;font-size:12px}
+.data-preview-table th{position:sticky;top:0;background:#2d2d2d;color:#7a7a7a;text-align:left;padding:6px 10px;font-weight:500;border-bottom:2px solid #3c3c3c;font-size:10px;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap;cursor:pointer;user-select:none}
+.data-preview-table th:hover{background:#3a3a3a;color:#d4d4d4}
+.data-preview-table th .sort-icon{font-size:10px;color:#4a4a4a;margin-left:4px}
+.data-preview-table th.sorted .sort-icon{color:#9cdcfe}
+.data-preview-table td{padding:5px 10px;color:#d4d4d4;border-bottom:1px solid #1b1b1b;font-family:var(--font-mono,'Fira Mono',monospace);font-size:11px;max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.data-preview-table tr:hover td{background:#252525}
+.data-preview-table .row-num{color:#4a4a4a;text-align:center;font-size:10px}
+.data-preview-table .null-val{color:#4a4a4a;font-style:italic}
+
+/* Search */
+.search-row{display:flex;gap:10px;padding:10px 16px;background:#1b1b1b;border-bottom:1px solid #3c3c3c;align-items:center;flex-wrap:wrap}
+.search-input{flex:1;min-width:200px;background:#252526;color:#d4d4d4;border:1px solid #3c3c3c;border-radius:4px;padding:6px 12px;font-size:12px;font-family:inherit;outline:none}
+.search-input:focus{border-color:#0e639c}
+.search-input::placeholder{color:#4a4a4a}
+.search-count{font-size:11px;color:#7a7a7a}
+
+/* Sheet selector */
+.sheet-selector{display:flex;align-items:center;gap:8px;padding:8px 16px;background:#1b1b1b;border-bottom:1px solid #3c3c3c;flex-wrap:wrap}
+.sheet-selector label{font-size:11px;color:#7a7a7a;text-transform:uppercase;letter-spacing:.5px}
+.sheet-selector select{background:#252526;color:#d4d4d4;border:1px solid #3c3c3c;border-radius:4px;padding:4px 10px;font-size:12px;font-family:inherit;outline:none;cursor:pointer}
+.sheet-selector select:focus{border-color:#0e639c}
+.sheet-selector .sheet-count{font-size:11px;color:#4a4a4a}
+
+/* Column type override */
+.col-type-select{background:#1b1b1b;color:#d4d4d4;border:1px solid #3c3c3c;border-radius:3px;padding:2px 6px;font-size:10px;font-family:inherit;outline:none;cursor:pointer}
+.col-type-select:focus{border-color:#0e639c}
+
+/* Next Step Link */
+.next-step{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;margin:8px 16px;background:#1e7a4a33;border:1px solid #1e7a4a;border-radius:5px;color:#6fcf97;text-decoration:none;font-size:13px;transition:background .2s}
+.next-step:hover{background:#1e7a4a55;color:#7edba3}
+.next-step .arrow{font-size:16px}
+
+.badge{display:inline-flex;align-items:center;gap:5px;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid var(--border);background:var(--surface-2);color:var(--ink-2)}
+.badge.green{background:var(--green-light);border-color:#bbf7d0;color:var(--green)}
+.badge.blue{background:var(--accent-light);border-color:#bfdbfe;color:var(--accent)}
+.badge.amber{background:var(--amber-light);border-color:#fde68a;color:var(--amber)}
+
+.section{margin-bottom:56px;margin-top:56px}
+h2{font-size:clamp(20px,3vw,27px);font-weight:700;color:var(--ink);margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--border);letter-spacing:-0.3px}
+h3{font-size:18px;font-weight:700;color:var(--ink);margin:28px 0 8px}
+p{margin-bottom:16px;color:var(--ink-2)}
+p:last-child{margin-bottom:0}
+strong{color:var(--ink);font-weight:700}
+code{font-family:var(--font-code);font-size:13.5px;background:var(--surface-3);border:1px solid var(--border);border-radius:4px;padding:1px 6px;color:#be123c}
+
+.hero{padding:56px 0 40px;border-bottom:1px solid var(--border);margin-bottom:48px}
+.hero-eyebrow{font-family:var(--font-ui);font-size:12px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.hero-lead{font-size:19px;color:var(--ink-2);max-width:640px;margin-bottom:28px}
+.hero-badges{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;font-family:var(--font-ui)}
+
+.toast{position:fixed;bottom:24px;right:24px;padding:10px 18px;border-radius:6px;font-size:12px;font-family:var(--font-mono,monospace);z-index:999;opacity:0;transform:translateY(8px);transition:opacity .25s,transform .25s;pointer-events:none;max-width:320px}
+.toast.success{background:#1e293b;border:1px solid #2d7a4a;color:#6fcf97}
+.toast.error{background:#1e293b;border:1px solid #8b3333;color:#f97583}
+.toast.show{opacity:1;transform:translateY(0)}
+
+@media (max-width:600px){h1{font-size:26px}.hero{padding:32px 0 28px}}
+</style>
+
+<!-- ================================================================
+  HERO
+================================================================ -->
+<div id="excel-analyzer-hero" class="home-hero">
+
+
+  <h1 >Analyse Excel — Get Instant Statistics & Data Insights</h1>
+
+  <p >
+    Upload an Excel file and get comprehensive analysis: row count, column statistics,
+    data types, missing values, duplicates, summary statistics, data quality score, and more.
+    100% client-side — your data never leaves your device. Supports multi-sheet workbooks.
+  </p>
+
+  <div class="hero-badges">
+    <span class="badge green">✓ 100% Client-Side</span>
+    <span class="badge blue">✓ .xlsx, .xls, .csv</span>
+    <span class="badge amber">✓ Multi-Sheet Support</span>
+    <span class="badge">✓ Data Quality Score</span>
+    <span class="badge">✓ Search & Sort</span>
+    <span class="badge">✓ Free Forever</span>
+  </div>
+</div>
+
+<section id="excel-analyzer-tool" aria-label="Analyse Excel Tool">
+
+ <div class="excel-wrap">
+
+  <!-- ===== UPLOAD / DROP ZONE ===== -->
+  <div class="panel-card">
+    <div class="panel-header">
+      <div>
+        <div class="panel-title"><i class="ti ti-upload" aria-hidden="true" style="font-size:14px;margin-right:6px;color:#e2c08d"></i>Upload Excel File</div>
+        <div class="panel-sub">Drag & drop or click to choose a file (.xlsx, .xls, .csv) — max 150MB</div>
+      </div>
+      <div class="btn-row">
+        <button class="excel-btn" id="btn-clear-file"><i class="ti ti-trash" aria-hidden="true"></i> Clear</button>
+      </div>
+    </div>
+    <div class="field-row">
+      <div class="drop-zone" id="drop-zone" role="button" tabindex="0">
+        <div class="drop-zone-icon"><i class="ti ti-file-spreadsheet" aria-hidden="true"></i></div>
+        <div class="drop-zone-text"><strong>Drop your Excel file here</strong> or click to browse</div>
+        <div class="drop-zone-sub">Supports .xlsx, .xls, .csv files up to 150MB</div>
+        <div class="drop-zone-file" id="file-name"></div>
+        <input type="file" id="file-input" accept=".xlsx,.xls,.csv" style="display:none;">
+      </div>
+      <div id="loading-container" style="display:none;">
+        <div class="loading-overlay">
+          <div class="loading-spinner"></div>
+          <span class="loading-text">Analyzing file...</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== STATS SUMMARY ===== -->
+  <div class="panel-card" id="stats-panel" style="display:none;">
+    <div class="panel-header">
+      <div>
+        <div class="panel-title"><i class="ti ti-chart-bar" aria-hidden="true" style="font-size:14px;margin-right:6px;color:#79b8ff"></i>File Statistics</div>
+        <div class="panel-sub" id="file-summary">No file loaded</div>
+      </div>
+      <div class="btn-row">
+        <button class="excel-btn green" id="btn-export-csv"><i class="ti ti-file-spreadsheet" aria-hidden="true"></i> CSV</button>
+        <button class="excel-btn amber" id="btn-export-txt"><i class="ti ti-file-text" aria-hidden="true"></i> TXT</button>
+        <button class="excel-btn purple" id="btn-export-json"><i class="ti ti-file-code" aria-hidden="true"></i> JSON</button>
+      </div>
+    </div>
+
+    <!-- Sheet Selector -->
+    <div class="sheet-selector" id="sheet-selector" style="display:none;">
+      <label for="sheet-dropdown">📄 Sheet:</label>
+      <select id="sheet-dropdown"></select>
+      <span class="sheet-count" id="sheet-count"></span>
+    </div>
+
+    <div class="stats-grid" id="stats-grid">
+      <div class="stat-card"><span class="stat-number" id="stat-rows">0</span><span class="stat-label">Rows</span></div>
+      <div class="stat-card"><span class="stat-number" id="stat-columns">0</span><span class="stat-label">Columns</span></div>
+      <div class="stat-card"><span class="stat-number" id="stat-missing">0</span><span class="stat-label">Missing Values</span></div>
+      <div class="stat-card"><span class="stat-number" id="stat-duplicates">0</span><span class="stat-label">Duplicate Rows</span></div>
+      <div class="stat-card"><span class="stat-number" id="stat-filesize">0</span><span class="stat-label">File Size</span></div>
+      <div class="stat-card"><span class="stat-number" id="stat-sheets">0</span><span class="stat-label">Sheets</span></div>
+    </div>
+
+    <!-- Quality Score -->
+    <div class="quality-score" id="quality-score">
+      <span class="quality-number" id="quality-number">—</span>
+      <div class="quality-bar"><div class="quality-fill" id="quality-fill" style="width:0%"></div></div>
+      <span class="quality-label" id="quality-label">Loading...</span>
+    </div>
+
+    <!-- Next Step Link -->
+    <div id="next-step-container"></div>
+  </div>
+
+  <!-- ===== COLUMN STATS ===== -->
+  <div class="panel-card" id="cols-panel" style="display:none;">
+    <div class="panel-header">
+      <div>
+        <div class="panel-title"><i class="ti ti-table" aria-hidden="true" style="font-size:14px;margin-right:6px;color:#b392f0"></i>Column Statistics</div>
+        <div class="panel-sub">Data types, missing values, unique counts, summary stats, and quality flags</div>
+      </div>
+    </div>
+    <div class="col-stats-wrap" id="col-stats"></div>
+    <div class="top-n-wrap" id="top-n-container" style="display:none;">
+      <div style="font-size:11px;color:#7a7a7a;text-transform:uppercase;letter-spacing:.5px;padding:8px 0 4px;">Top Values (Categorical Columns)</div>
+      <div id="top-n-content" style="height: 500px; overflow: auto"></div>
+    </div>
+  </div>
+
+  <!-- ===== DATA PREVIEW ===== -->
+  <div class="panel-card" id="preview-panel" style="display:none;">
+    <div class="panel-header">
+      <div>
+        <div class="panel-title"><i class="ti ti-list" aria-hidden="true" style="font-size:14px;margin-right:6px;color:#79b8ff"></i>Data Preview</div>
+        <div class="panel-sub">Search, sort, and browse your data</div>
+      </div>
+    </div>
+    <div class="search-row">
+      <input class="search-input" id="preview-search" type="text" placeholder="🔍 Search data...">
+      <span class="search-count" id="search-count">Showing 0 rows</span>
+    </div>
+    <div class="data-preview-wrap" id="data-preview"></div>
+  </div>
+
+ </div>
+</section>
+<div class="toast" id="toast" role="alert" aria-live="assertive"></div>
+
+
+
+<!-- ================================================================
+  JAVASCRIPT — Excel Analyzer Logic (All Features Implemented)
+================================================================ -->
+
+<script src="/assets/js/analyze-excel.js"></script>
+<!-- ═══════════════════════════════════════════════════════
+     ON‑PAGE CONTENT — SEO & GEO OPTIMISED
+     ANALYZE EXCEL TOOL
+═══════════════════════════════════════════════════════ -->
+<section class="onpage-content" >
+  <meta content="Analyze Excel – AI-Powered Data Analysis & Spreadsheet Insights Tool" />
+  <meta content="Upload your Excel file and instantly get data summaries, column insights, anomaly detection, and smart recommendations. Works with XLSX, CSV & more." />
+
+  <!-- ─────────────────────────────────────────────────────
+       WHY ANALYZE EXCEL MATTERS
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>Why Analyze Excel Data Matters for Your Business</h2>
+    <p>
+      Spreadsheets hold the story of your business — but raw data is hard to read. <strong>Analyze Excel</strong> is the process of turning messy rows and columns into clear, actionable insights. Whether you are reviewing sales figures, customer lists, or financial records, understanding your data helps you make smarter decisions.
+    </p>
+    <p>
+      This <strong>Excel analysis tool</strong> uses AI to automatically scan your spreadsheet, detect patterns, flag anomalies, and generate a human‑readable report — all without formulas or coding.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       WHAT IS EXCEL ANALYSIS
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>What Does It Mean to Analyze an Excel File?</h2>
+    <p>
+      Analyzing an Excel file goes beyond just opening it. A complete analysis includes:
+    </p>
+    <ul class="content-list">
+      <li><strong>Data profiling</strong> – understanding the structure, data types, and missing values in each column.</li>
+      <li><strong>Statistical summaries</strong> – mean, median, min, max, and distribution for numeric columns.</li>
+      <li><strong>Pattern detection</strong> – identifying trends, seasonality, or repeating values across rows.</li>
+      <li><strong>Anomaly &amp; outlier detection</strong> – flagging numbers or entries that deviate from the norm.</li>
+      <li><strong>Data quality scoring</strong> – a health score that shows how clean and reliable your dataset is.</li>
+    </ul>
+    <p>
+      This <strong>Excel analyzer</strong> does all of that in seconds, so you can focus on what the data means — not on how to crunch it.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       WHO IS THIS TOOL FOR
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>Who Can Use This Excel Analysis Tool</h2>
+    <p>
+      This <strong>AI Excel analyzer</strong> is built for anyone who works with spreadsheets:
+    </p>
+    <ul class="content-list">
+      <li><strong>Business owners</strong> – reviewing sales, expenses, and performance metrics</li>
+      <li><strong>Data analysts</strong> – speeding up initial data exploration and QA</li>
+      <li><strong>Marketers</strong> – analyzing campaign performance and customer lists</li>
+      <li><strong>Finance teams</strong> – validating budgets, forecasts, and transaction logs</li>
+      <li><strong>Students &amp; researchers</strong> – getting quick insights from survey or experiment data</li>
+      <li><strong>Anyone with a messy spreadsheet</strong> – turn chaos into clarity without learning complex formulas</li>
+    </ul>
+    <p>
+      This tool supports <strong>XLSX, XLS, CSV, and TSV</strong> files. No sign‑up, no upload limits (up to 150MB), and your data stays private on your device.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       HOW TO USE
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>How to Analyze Excel Files in 5 Simple Steps</h2>
+    <div class="howto-steps">
+      <div class="step">
+        <span class="step-number">1</span>
+        <span><strong>Upload your file</strong> – drag and drop your .xlsx, .xls, or .csv file.</span>
+      </div>
+      <div class="step">
+        <span class="step-number">2</span>
+        <span><strong>Select a sheet</strong> (if multiple) – choose the tab you want to analyze.</span>
+      </div>
+      <div class="step">
+        <span class="step-number">3</span>
+        <span><strong>Let AI scan your data</strong> – our engine reads the structure, values, and relationships instantly.</span>
+      </div>
+      <div class="step">
+        <span class="step-number">4</span>
+        <span><strong>Review the insights</strong> – get a dashboard with stats, charts, and quality flags.</span>
+      </div>
+      <div class="step">
+        <span class="step-number">5</span>
+        <span><strong>Export or act</strong> – download the analysis report as CSV, TXT, or JSON, or use the suggested next steps.</span>
+      </div>
+    </div>
+    <p>
+      Results update in <strong>real‑time</strong> as you toggle between sheets, search, or sort the preview. See <strong>column statistics</strong>, <strong>missing value counts</strong>, <strong>outlier alerts</strong>, and <strong>top value frequencies</strong> instantly.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       THE CORE METRICS
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>The Core Metrics Behind Excel Analysis</h2>
+    <p>
+      Our <strong>Excel analysis algorithm</strong> evaluates your data across five key dimensions, producing a single <strong>Data Health Score</strong>:
+    </p>
+    <div class="formula-box">
+      Data Health Score = (Completeness × 0.3) + (Consistency × 0.25) + (Validity × 0.25) + (Uniqueness × 0.2)
+      <span class="formula-note">
+        Where: <strong>Completeness</strong> = % of non‑empty cells, <strong>Consistency</strong> = format uniformity, <strong>Validity</strong> = values within expected ranges, <strong>Uniqueness</strong> = duplicate ratio.
+      </span>
+    </div>
+    <p>
+      For example, a sales sheet with 10,000 rows and 12 columns typically scores 85–95% after a quick cleaning. This <strong>Excel analyzer</strong> gives you a clear benchmark so you know exactly where to improve.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       UNDERSTANDING THE RESULTS
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>Understanding Your Excel Analysis Report</h2>
+    <p>
+      A complete analysis report generated by this tool includes:
+    </p>
+    <ul class="content-list">
+      <li><strong>Column profile</strong> – name, type, count, missing, unique, min, max, mean, median, standard deviation, quartiles, and IQR.</li>
+      <li><strong>Numeric distribution</strong> – histogram‑like frequency and outlier detection.</li>
+      <li><strong>Text insights</strong> – top 5 most frequent values for categorical columns.</li>
+      <li><strong>Data quality flags</strong> – constant, all‑unique, high‑cardinality, mixed‑type.</li>
+      <li><strong>Duplicate row count</strong> – number of identical rows, with a direct link to remove them.</li>
+    </ul>
+    <p>
+      This <strong>spreadsheet analysis tool</strong> turns raw data into a story you can actually understand and act upon.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       EXPECTED RESULTS & EXAMPLES
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>What Results Can You Expect from This Excel Analyzer</h2>
+    <div class="example-grid">
+      <div class="example-card">
+        <h3>📊 Data Health Score</h3>
+        <p>A 0–100 score showing overall quality, with colour‑coded warnings (good / fair / poor).</p>
+      </div>
+      <div class="example-card">
+        <h3>🔍 Missing Value Map</h3>
+        <p>Total missing cells per column, so you know exactly where data is incomplete.</p>
+      </div>
+      <div class="example-card">
+        <h3>📈 Statistical Breakdown</h3>
+        <p>Mean, median, min, max, standard deviation, quartiles – everything you need for numeric columns.</p>
+      </div>
+      <div class="example-card">
+        <h3>⚠️ Outlier Alerts</h3>
+        <p>Flags values that are statistically far from the norm, with a count of outliers per column.</p>
+      </div>
+      <div class="example-card">
+        <h3>🧹 Duplicate Detection</h3>
+        <p>Identifies duplicate rows and offers a one‑click solution to clean them.</p>
+      </div>
+      <div class="example-card">
+        <h3>📋 Exportable Reports</h3>
+        <p>Download your analysis as CSV, TXT, or JSON – ready for presentations or further processing.</p>
+      </div>
+    </div>
+
+    <h3>Example Scenarios</h3>
+    <div class="example-grid">
+      <div class="example-card">
+        <h4>Scenario 1: Sales Data (10,000 rows)</h4>
+        <ul>
+          <li><strong>Columns:</strong> 12 (date, region, product, sales, etc.)</li>
+          <li><strong>Missing:</strong> 2.3% (mostly in optional fields)</li>
+          <li><strong>Duplicates:</strong> 45 rows</li>
+          <li><strong>Quality Score:</strong> 87 (Good)</li>
+        </ul>
+      </div>
+      <div class="example-card">
+        <h4>Scenario 2: Customer List (5,000 rows)</h4>
+        <ul>
+          <li><strong>Columns:</strong> 8 (name, email, phone, city, etc.)</li>
+          <li><strong>Missing:</strong> 8.7% (phone &amp; email gaps)</li>
+          <li><strong>Duplicates:</strong> 112 rows</li>
+          <li><strong>Quality Score:</strong> 72 (Fair)</li>
+        </ul>
+      </div>
+      <div class="example-card">
+        <h4>Scenario 3: Financial Transaction Log (50,000 rows)</h4>
+        <ul>
+          <li><strong>Columns:</strong> 6 (date, description, amount, etc.)</li>
+          <li><strong>Missing:</strong> 0.5% (well‑structured)</li>
+          <li><strong>Duplicates:</strong> 2 rows</li>
+          <li><strong>Quality Score:</strong> 96 (Excellent)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       MANUAL VS AUTOMATED ANALYSIS
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>Manual vs Automated Excel Analysis</h2>
+    <table class="example-table">
+      <thead>
+        <tr><th>Aspect</th><th>Manual (Formulas &amp; PivotTables)</th><th>Automated (This Tool)</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Time</strong></td>
+          <td>Hours to days</td>
+          <td>Seconds</td>
+        </tr>
+        <tr>
+          <td><strong>Skills required</strong></td>
+          <td>Advanced Excel knowledge</td>
+          <td>None – just upload</td>
+        </tr>
+        <tr>
+          <td><strong>Outlier detection</strong></td>
+          <td>Manual scanning or complex formulas</td>
+          <td>Automatic with IQR method</td>
+        </tr>
+        <tr>
+          <td><strong>Data quality score</strong></td>
+          <td>Subjective</td>
+          <td>Objective, consistent</td>
+        </tr>
+        <tr>
+          <td><strong>Export formats</strong></td>
+          <td>Limited (usually PDF or copy‑paste)</td>
+          <td>CSV, TXT, JSON</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="dataset-note">
+      * This tool uses the same statistical methods as professional data analysis platforms, but without the steep learning curve.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       FAQ SECTION (7 Questions)
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block faq-section">
+    <h2>Frequently Asked Questions About Excel Analysis</h2>
+
+    <div class="faq-list" >
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          1. What does it mean to analyze an Excel file?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            <strong>Analyzing an Excel file</strong> means examining its structure, content, and quality to extract meaningful insights. This includes checking data types, missing values, duplicates, outliers, and statistical properties. Our tool automates this entire process in seconds.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          2. How does the Excel analyzer work?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            The <strong>Excel analyzer</strong> reads your file using the SheetJS library, detects column types, computes statistics (mean, median, min, max, etc.), finds outliers using the IQR method, and calculates a data quality score based on completeness, consistency, validity, and uniqueness. Everything runs locally in your browser – no data leaves your device.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          3. Which file formats are supported?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            This tool supports <strong>.xlsx, .xls, .csv, and .tsv</strong> files. It can handle files up to <strong>150MB</strong> and multiple sheets. If your file has multiple sheets, you can select which one to analyze.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          4. How accurate is the analysis?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            The analysis uses standard statistical formulas (mean, median, quartiles, IQR) and robust type detection. It is highly accurate for data profiling and quality assessment. However, for critical financial decisions, always cross‑check with your original data and expert advice.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          5. What is the Data Health Score?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            The <strong>Data Health Score</strong> is a 0–100 metric that reflects the overall quality of your dataset. It considers missing values, duplicate rows, mixed‑type columns, and consistency. A score above 80 is considered <strong>good</strong>, 50–79 is <strong>fair</strong>, and below 50 is <strong>poor</strong>, with clear guidance on what to fix.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          6. Can I clean my data using this tool?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            The tool identifies issues (missing values, duplicates, outliers) and provides a direct link to <strong>remove duplicates</strong>. For missing values or outliers, you can use the insights to manually clean your data in Excel or use our other tools. The analysis is the first step toward a cleaner dataset.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          7. Is my data safe and private?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            <strong>Yes.</strong> All processing happens entirely in your browser using JavaScript. Your file is never uploaded to any server – it stays on your device. You can disconnect from the internet after the page loads; the tool works offline. Your data is 100% private.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>

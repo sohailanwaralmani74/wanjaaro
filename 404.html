@@ -1,25 +1,296 @@
 ---
-permalink: /404.html
-layout: page
+layout: main
+title: "Page Not Found — 404 Error"
+description: "The page you're looking for doesn't exist or has been moved. Return to our homepage or use the search to find what you need."
+keywords: "404 error, page not found, broken link, page missing"
 ---
 
-<style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
+<div class="error-page">
+  <div class="error-container">
+    <div class="error-number">404</div>
+    <div class="error-icon">🔍</div>
+    <h1 class="error-title">Page Not Found</h1>
+    <p class="error-description">
+      Oops! The page you're looking for doesn't exist or has been moved.
+      It might have been removed, renamed, or is temporarily unavailable.
+    </p>
 
-<div class="container">
-  <h1>404</h1>
+    <div class="error-actions">
+      <a href="/" class="btn btn-primary">🏠 Back to Home</a>
+    </div>    
 
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
+    <div class="error-footer">
+      <p>If you believe this is a mistake, please <a href="/contact-us">contact us</a>.</p>
+    </div>
+  </div>
 </div>
+
+<style>
+/* ===== ERROR PAGE STYLES ===== */
+.error-page {
+  min-height: calc(100vh - 300px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.error-container {
+  max-width: 90%;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 50px 40px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.error-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #0d9488, #14b8a6, #5eead4);
+}
+
+.error-number {
+  font-size: 120px;
+  font-weight: 800;
+  line-height: 1;
+  background: linear-gradient(135deg, #0d9488 0%, #14b8a6 50%, #5eead4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
+  letter-spacing: -4px;
+}
+
+.error-icon {
+  font-size: 56px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.error-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a202c;
+  margin: 0 0 12px 0;
+}
+
+.error-description {
+  font-size: 16px;
+  color: #4a5568;
+  line-height: 1.7;
+  max-width: 500px;
+  margin: 0 auto 28px auto;
+}
+
+.error-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.error-actions .btn {
+  padding: 12px 28px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+  max-width: 12rem;
+}
+
+.error-actions .btn-primary {
+  background: #0d9488;
+  color: white;
+}
+
+.error-actions .btn-primary:hover {
+  background: #0f766e;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(13, 148, 136, 0.3);
+}
+
+.error-actions .btn-secondary {
+  background: #f7fafc;
+  color: #2d3748;
+  border: 1px solid #e2e8f0;
+}
+
+.error-actions .btn-secondary:hover {
+  background: #edf2f7;
+  transform: translateY(-2px);
+}
+
+.error-search {
+  margin: 0 0 32px 0;
+}
+
+.error-search p {
+  font-size: 14px;
+  color: #4a5568;
+  margin: 0 0 10px 0;
+}
+
+.search-wrapper {
+  display: flex;
+  gap: 10px;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.search-wrapper input {
+  flex: 1;
+  padding: 10px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 14px;
+  transition: border-color 0.2s;
+  outline: none;
+}
+
+.search-wrapper input:focus {
+  border-color: #0d9488;
+}
+
+.search-wrapper .btn {
+  padding: 10px 24px;
+  border-radius: 10px;
+  background: #0d9488;
+  color: white;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.search-wrapper .btn:hover {
+  background: #0f766e;
+}
+
+.error-tools {
+  margin-bottom: 28px;
+}
+
+.error-tools p {
+  font-size: 14px;
+  color: #4a5568;
+  margin: 0 0 12px 0;
+}
+
+.tools-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.tool-tag {
+  padding: 6px 14px;
+  background: #f7fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  font-size: 13px;
+  color: #2d3748;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.tool-tag:hover {
+  background: #0d9488;
+  color: white;
+  border-color: #0d9488;
+  transform: translateY(-2px);
+}
+
+.error-animation {
+  margin: 8px 0 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.error-footer {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.error-footer p {
+  font-size: 13px;
+  color: #718096;
+  margin: 0;
+}
+
+.error-footer a {
+  color: #0d9488;
+  text-decoration: none;
+}
+
+.error-footer a:hover {
+  text-decoration: underline;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 640px) {
+  .error-container {
+    padding: 30px 20px;
+  }
+  
+  .error-number {
+    font-size: 80px;
+  }
+  
+  .error-title {
+    font-size: 22px;
+  }
+  
+  .error-icon {
+    font-size: 40px;
+  }
+  
+  .error-actions .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    flex: 1;
+    justify-content: center;
+  }
+  
+  .search-wrapper {
+    flex-direction: column;
+  }
+  
+  .tools-grid {
+    gap: 6px;
+  }
+  
+  .tool-tag {
+    font-size: 12px;
+    padding: 5px 12px;
+  }
+}
+
+@media (max-width: 400px) {
+  .error-number {
+    font-size: 60px;
+  }
+  
+  .error-actions {
+    flex-direction: column;
+  }
+  
+
+}
+</style>

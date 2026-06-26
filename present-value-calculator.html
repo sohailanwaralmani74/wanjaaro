@@ -1,372 +1,571 @@
 ---
 layout: main
-title: "Present Value Calculator — Discount Future Money to Today's Value"
-description: "Calculate the present value of a future lump sum or periodic payments. Discount future cash flows using a given rate. Free online PV calculator with inflation adjustment."
-keywords: "present value calculator, present worth calculator, time value of money calculator, pv calculator, discounted value calculator, present value formula, discount value calculator, present day value calculator, current value formula, present value equation"
+title: "Present Value Calculator – Calculate PV Today"
+description: "Calculate the present value of a future sum of money. See how much your future money is worth today with discounting. Works in USD, EUR, INR, PKR & 170+ currencies."
+keywords: "present value calculator, pv calculator, present worth calculator, present day value calculator, discounted value calculator, present value formula"
+category: investing
 ---
+<!-- ═══════════════════════════════════════════════════════
+     JSON‑LD SCHEMAS — Present Value Calculator
+═══════════════════════════════════════════════════════ -->
+
+<!-- 1. WebApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Present Value Calculator – Free Online Tool | Calculate PV Today",
+  "description": "Calculate the present value of a future sum of money. See how much your future money is worth today with discounting. Works in 170+ currencies.",
+  "url": "https://datafrog.tools/present-value-calculator/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+
+<!-- 2. BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://datafrog.tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Present Value Calculator",
+      "item": "https://datafrog.tools/present-value-calculator/"
+    }
+  ]
+}
+</script>
+
+<!-- 3. HowTo -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use the Present Value Calculator",
+  "description": "Step by step guide to calculate present value with discounting.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Select your currency",
+      "text": "Choose from 170+ global currencies including USD, EUR, INR, PKR, AED, and more."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Enter the future value",
+      "text": "Enter the amount you expect to receive in the future."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Set your discount rate",
+      "text": "Enter the annual discount rate used to discount future value."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Choose the time period",
+      "text": "Enter how many years until you receive the amount."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "Pick compounding frequency",
+      "text": "Choose from daily, weekly, monthly, quarterly, semi-annually, or annually."
+    }
+  ]
+}
+</script>
+
+<!-- 4. FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is present value and why does it matter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Present value is the current worth of a future sum of money. It matters because it helps you compare the value of money received at different times and make smarter financial decisions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the discount rate affect present value?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A higher discount rate results in a lower present value, and a lower discount rate results in a higher present value. The discount rate reflects the opportunity cost of money."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between present value and future value?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Present value tells you what a future sum is worth today. Future value tells you what today's money will be worth in the future."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate present value with monthly discounting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This PV calculator automatically accounts for different compounding frequencies. Simply select your preferred frequency."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this calculator for annuity calculations?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This calculator is designed for a single lump-sum future value. For regular annuity payments, use our annuity calculator."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the PV factor and how do I use it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The PV factor is the discount multiplier: PV factor = Present Value ÷ Future Value. It tells you how many cents each future dollar is worth today."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How accurate is this present value calculator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This calculator uses standard financial formulas and is accurate for projections. However, actual discount rates may vary."
+      }
+    }
+  ]
+}
+</script>
 <div class="tool-page">
-  <article itemscope itemtype="https://schema.org/WebApplication">
-    <meta itemprop="name" content="Present Value Calculator" />
-    <meta itemprop="applicationCategory" content="FinanceApplication" />
-    <meta itemprop="isAccessibleForFree" content="true" />
+  <article >
+    <meta  content="Present Value Calculator" />
+    
+    
 
     <section class="page-heading">
-      <h1 itemprop="name">Present Value Calculator — What Is Your Future Money Worth Today?</h1>
-      <p class="tool-subtitle" itemprop="description">
-        Find out how much a future lump sum or regular contributions are worth today, given a discount rate. Plan investments, loan decisions, and retirement.
+      <h1 >Present Value Calculator — Discover Your Money's Worth Today</h1>
+      <p class="tool-subtitle">
+        Calculate the <strong>present value</strong> of a future sum of money. See how discounting reduces the value of future cash flows — instantly in <strong>your currency</strong> with support for 170+ currencies.
       </p>
     </section>
 
     <div class="tool-body">
+      <!-- LEFT COLUMN – INPUT PANEL -->
       <aside class="tool-input-col" aria-label="Calculator inputs">
         <div class="panel input-panel">
 
-          <!-- Currency (same searchable dropdown) -->
+          <!-- Currency Selector -->
           <div class="form-group">
             <label for="currencySearch">Currency</label>
             <div class="currency-search-wrapper">
-              <input type="text" id="currencySearch" placeholder="Type currency name or code (e.g., yen, USD, euro)" autocomplete="off" />
+              <input type="text" id="currencySearch" placeholder="Type currency name or code" autocomplete="off" />
               <div id="currencyResults" class="currency-results"></div>
             </div>
           </div>
 
-          <!-- Future Value (instead of principal) -->
+          <!-- Future Value -->
           <div class="form-group">
-            <label for="futureValue">Future Value (Lump Sum)</label>
+            <label for="futureValue">Future Value</label>
             <div class="input-addons">
               <span class="input-addon" id="currencySymbol">$</span>
-              <input type="number" id="futureValue" value="10000" min="0" step="100" placeholder="10,000" inputmode="decimal" oninput="syncSlider('futureValue');calculate()" />
+              <input type="number" id="futureValue" value="100000" min="0" step="100" oninput="syncSlider('futureValue');calculate()" />
             </div>
             <div class="slider-row">
-              <input type="range" id="futureValueSlider" min="0" max="1000000" step="1000" value="10000" oninput="syncInput('futureValue',this.value);calculate()" aria-label="Future value slider" />
-              <span class="slider-val" id="futureValueSliderVal">$10k</span>
+              <input type="range" id="futureValueSlider" min="0" max="100000000" step="100" value="100000" oninput="syncInput('futureValue',this.value);calculate()" />
+              <span class="slider-val" id="futureValueSliderVal">$100,000</span>
             </div>
+            <span class="field-hint">The amount you expect to receive in the future</span>
           </div>
 
-          <!-- Discount Rate (instead of annual rate) -->
+          <!-- Discount Rate -->
           <div class="form-group">
-            <label for="rate">Discount Rate (%)</label>
+            <label for="rate">Annual Discount Rate (%)</label>
             <div class="input-addons">
-              <input type="number" id="rate" value="7" min="0.1" max="50" step="0.1" placeholder="7" inputmode="decimal" oninput="syncSlider('rate');calculate()" />
+              <input type="number" id="rate" value="8" min="0" step="0.5" oninput="syncSlider('rate');calculate()" />
               <span class="input-addon input-addon--right">%</span>
             </div>
             <div class="slider-row">
-              <input type="range" id="rateSlider" min="0.1" max="30" step="0.1" value="7" oninput="syncInput('rate',this.value);calculate()" aria-label="Rate slider" />
-              <span class="slider-val" id="rateSliderVal">7%</span>
+              <input type="range" id="rateSlider" min="0" max="30" step="0.5" value="8" oninput="syncInput('rate',this.value);calculate()" />
+              <span class="slider-val" id="rateSliderVal">8%</span>
             </div>
+            <span class="field-hint">The rate used to discount future value to present</span>
           </div>
 
-          <!-- Years -->
+          <!-- Time Period -->
           <div class="form-group">
-            <label for="years">Years in the Future</label>
+            <label for="years">Number of Years</label>
             <div class="input-addons">
-              <input type="number" id="years" value="20" min="1" max="50" step="1" placeholder="20" inputmode="numeric" oninput="syncSlider('years');calculate()" />
-              <span class="input-addon input-addon--right">yrs</span>
+              <input type="number" id="years" value="10" min="1" max="50" step="1" oninput="syncSlider('years');calculate()" />
+              <span class="input-addon input-addon--right">yr</span>
             </div>
             <div class="slider-row">
-              <input type="range" id="yearsSlider" min="1" max="50" step="1" value="20" oninput="syncInput('years',this.value);calculate()" aria-label="Years slider" />
-              <span class="slider-val" id="yearsSliderVal">20 yrs</span>
+              <input type="range" id="yearsSlider" min="1" max="50" step="1" value="10" oninput="syncInput('years',this.value);calculate()" />
+              <span class="slider-val" id="yearsSliderVal">10 yrs</span>
             </div>
+            <span class="field-hint">How many years until you receive the future amount</span>
           </div>
 
-          <!-- Compounding Frequency (used for discounting) -->
+          <!-- Compounding Frequency -->
           <div class="form-group">
-            <label for="compound">Compounding / Discounting Frequency</label>
-            <select id="compound" onchange="calculate()">
+            <label for="compounding">Compounding Frequency</label>
+            <select id="compounding" onchange="calculate()">
               <option value="365">Daily</option>
+              <option value="52">Weekly</option>
               <option value="12" selected>Monthly</option>
               <option value="4">Quarterly</option>
-              <option value="2">Semi-Annually</option>
+              <option value="2">Semi-annually</option>
               <option value="1">Annually</option>
             </select>
-          </div>
-
-          <!-- Future Monthly Contribution (optional) -->
-          <div class="form-group">
-            <label for="monthly">
-              Future Monthly Contribution
-              <span class="optional-label">optional</span>
-            </label>
-            <div class="input-addons">
-              <span class="input-addon" id="currencySymbol2">$</span>
-              <input type="number" id="monthly" value="0" min="0" step="100" placeholder="0" inputmode="decimal" oninput="calculate()" />
-            </div>
-            <span class="field-hint">Added at the start of each month in the future</span>
-          </div>
-
-          <!-- Inflation Toggle (adjusts discount rate?) – kept for consistency -->
-          <div class="toggle-row">
-            <label class="toggle-label" for="inflationToggle">
-              Inflation Adjustment
-              <span class="tip">3% default</span>
-            </label>
-            <label class="toggle" aria-label="Enable inflation adjustment">
-              <input type="checkbox" id="inflationToggle" onchange="calculate()" />
-              <span class="toggle-track"></span>
-            </label>
-          </div>
-
-          <div id="inflationRateGroup" class="form-group" style="display:none; margin-top:0.75rem;">
-            <label for="inflationRate">Inflation Rate (%)</label>
-            <div class="input-addons">
-              <input type="number" id="inflationRate" value="3" min="0" max="20" step="0.1" inputmode="decimal" oninput="calculate()" />
-              <span class="input-addon input-addon--right">%</span>
-            </div>
+            <span class="field-hint">How often interest is compounded</span>
           </div>
 
           <div class="calc-actions">
             <button class="btn btn-ghost" onclick="resetForm()">Reset</button>
             <button class="btn btn-primary" onclick="shareURL()" id="shareBtn">Share</button>
           </div>
-
         </div>
       </aside>
 
+      <!-- RIGHT COLUMN – RESULTS PANEL -->
       <section class="tool-output-col" aria-label="Calculator results" aria-live="polite">
-        <div class="result-cards" id="resultCards">
-          <div class="result-card result-card--primary">
+
+        <!-- Result Cards -->
+        <div class="result-cards">
+          <div class="result-card">
             <div class="result-label">Present Value</div>
-            <div class="result-value" id="rPresentValue">—</div>
-            <div class="result-sub">What it's worth today</div>
+            <div class="result-value" id="presentValue">—</div>
+            <div class="result-sub">Today's worth</div>
           </div>
-          <div class="result-card result-card--secondary">
-            <div class="result-label">Total Future Contributions</div>
-            <div class="result-value" id="rTotalFutureContributed">—</div>
-            <div class="result-sub">Sum of future deposits</div>
+          <div class="result-card">
+            <div class="result-label">Total Discount</div>
+            <div class="result-value" id="totalDiscount">—</div>
+            <div class="result-sub">Reduction in value</div>
           </div>
-          <div class="result-card result-card--secondary">
-            <div class="result-label">Discount / Interest</div>
-            <div class="result-value" id="rDiscountEarned">—</div>
-            <div class="result-sub">Reduction due to time value</div>
+          <div class="result-card">
+            <div class="result-label">Discount Rate</div>
+            <div class="result-value" id="discountRate">—</div>
+            <div class="result-sub">Annual discount</div>
           </div>
-          <div class="result-card result-card--secondary">
-            <div class="result-label">Effective Discount Rate</div>
-            <div class="result-value" id="rAPY">—</div>
-            <div class="result-sub">Equivalent annual rate</div>
-          </div>
-          <div class="result-card result-card--secondary">
-            <div class="result-label">Value Multiple</div>
-            <div class="result-value" id="rMultiple">—</div>
-            <div class="result-sub">Future ÷ Present</div>
-          </div>
-          <div class="result-card result-card--secondary" id="realValueCard" style="display:none;">
-            <div class="result-label">Real Present Value (Inflation‑adj.)</div>
-            <div class="result-value" id="rRealValue">—</div>
-            <div class="result-sub">Purchasing power today</div>
+          <div class="result-card">
+            <div class="result-label">PV Factor</div>
+            <div class="result-value" id="pvFactor">—</div>
+            <div class="result-sub">Discount multiplier</div>
           </div>
         </div>
 
-        <div class="insight-box" id="insightBox" style="display:none;">
-          <span id="insightText"></span>
+        <!-- Insights Panel -->
+        <div class="insights-panel" id="insightsPanel">
+          <div class="insights-grid" id="insightsGrid">
+            <!-- Populated by JavaScript -->
+          </div>
         </div>
 
+        <!-- Chart Panel -->
         <div class="chart-panel">
           <div class="chart-tabs" role="tablist">
-            <button class="chart-tab active" data-chart="line" onclick="switchChart('line',this)" role="tab">Discount Curve</button>
-            <button class="chart-tab" data-chart="bar" onclick="switchChart('bar',this)" role="tab">Yearly Discount</button>
-            <button class="chart-tab" data-chart="donut" onclick="switchChart('donut',this)" role="tab">Breakdown</button>
+            <button class="chart-tab active" data-chart="line" onclick="switchChart('line',this)" role="tab">PV Over Time</button>
+            <button class="chart-tab" data-chart="bar" onclick="switchChart('bar',this)" role="tab">Future vs Present</button>
+            <button class="chart-tab" data-chart="donut" onclick="switchChart('donut',this)" role="tab">Discount Breakdown</button>
           </div>
           <div class="chart-wrap">
-            <canvas id="toolChart" role="img" aria-label="Present value discount curve"></canvas>
+            <canvas id="toolChart" role="img" aria-label="Present value chart"></canvas>
           </div>
         </div>
 
+        <!-- Action Bar -->
         <div class="action-bar">
-          <button class="action-btn" onclick="downloadCSV()" title="Download year-by-year table as CSV">⬇ Download CSV</button>
+          <button class="action-btn" onclick="downloadCSV()" title="Download data as CSV">⬇ Download CSV</button>
           <button class="action-btn" onclick="copyResult()" title="Copy result to clipboard" id="copyBtn">📋 Copy Result</button>
+          <button class="action-btn" onclick="exportChart()" title="Export chart as PNG">🖼️ Export Chart</button>
         </div>
 
+        <!-- Breakdown Table -->
         <div class="breakdown-panel">
-          <div class="breakdown-title" id="tableTitle">Year-by-Year Discounting</div>
+          <div class="breakdown-title">Year‑by‑Year PV Breakdown</div>
           <div class="table-wrap">
-            <table class="breakdown-table" id="breakdownTable" aria-label="Year by year present value breakdown">
+            <table class="breakdown-table" id="breakdownTable" aria-label="Annual PV breakdown">
               <thead id="tableHead"></thead>
               <tbody id="tableBody"></tbody>
             </table>
           </div>
         </div>
+
       </section>
     </div>
-
-    <div id="definitionPopup" class="def-popup" style="display: none;"></div>
   </article>
 </div>
-
-<script src="/assets/js/present-value-calculator.js"></script>
-
 <!-- ═══════════════════════════════════════════════════════
-     ON‑PAGE CONTENT (SEO / GEO OPTIMISED) – PRESENT VALUE CALCULATOR
+     ON‑PAGE CONTENT — SEO & GEO OPTIMISED
 ═══════════════════════════════════════════════════════ -->
-<section class="onpage-content" itemscope itemtype="https://schema.org/Article">
-  <meta itemprop="name" content="Present Value Calculator – Understand the Time Value of Money" />
-  <meta itemprop="description" content="Use our present value calculator to determine how much a future sum or series of payments is worth today. Discount future cash flows with a specified rate. Free online PV tool." />
+<section class="onpage-content" >
+  <meta  content="Present Value Calculator – How to Calculate PV Today" />
+  <meta  content="Learn how to calculate present value and discount future cash flows. Free tool works in USD, EUR, INR, PKR & 170+ currencies." />
 
-  <!-- ── INTRO ── -->
+  <!-- ─────────────────────────────────────────────────────
+       WHY PRESENT VALUE MATTERS
+       ───────────────────────────────────────────────────── -->
   <div class="content-block">
-    <h2>What Is a Present Value Calculator?</h2>
-    <p>A <strong>present value calculator</strong> (PV calculator) determines the current worth of a future sum of money or a stream of cash flows, given a specific rate of return (discount rate). This is the core of the <strong>time value of money</strong> concept: money today is worth more than the same amount in the future because you can invest it and earn returns. Our <strong>present worth calculator</strong> discounts future lump sums or periodic payments back to today’s value, helping you compare investment opportunities, loan terms, or retirement goals.</p>
-    <p>Use this tool to answer questions like: “What is a future ₹10,00,000 payment in 5 years worth today at an 8% discount rate?” or “How much should I pay today for an annuity that gives ₹50,000 yearly for 10 years?” The calculator also supports inflation adjustment and multiple currencies.</p>
+    <h2>Why Present Value Matters for Your Financial Decisions</h2>
+    <p>
+      <strong>Present value</strong> tells you how much a future sum of money is worth in today's dollars. Because money has <strong>time value</strong> — a dollar today is worth more than a dollar tomorrow — understanding <strong>present value</strong> helps you make smarter financial decisions about investments, loans, and major purchases.
+    </p>
+    <p>
+      This <strong>present value calculator</strong> shows you exactly how discounting reduces the value of future cash flows — all in <strong>your local currency</strong>.
+    </p>
   </div>
 
-  <!-- ── HOW TO USE (HowTo schema) ── -->
-  <div class="content-block" itemscope itemtype="https://schema.org/HowTo">
-    <meta itemprop="name" content="How to Calculate Present Value – Step by Step" />
+  <!-- ─────────────────────────────────────────────────────
+       WHO IS THIS CALCULATOR FOR
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>Who Can Use This Present Value Calculator</h2>
+    <p>
+      This <strong>PV calculator</strong> is designed for anyone who wants to understand the current value of future money:
+    </p>
+    <ul class="content-list">
+      <li><strong>Investors</strong> – evaluating the current value of future returns</li>
+      <li><strong>Business owners</strong> – assessing future cash flows</li>
+      <li><strong>Financial analysts</strong> – discounting future earnings</li>
+      <li><strong>Home buyers</strong> – evaluating mortgage and investment decisions</li>
+      <li><strong>Students</strong> – learning the <strong>present value formula</strong></li>
+    </ul>
+    <p>
+      This tool works for <strong>everyone</strong> — regardless of country or currency. With support for <strong>170+ currencies</strong>, you can calculate in <strong>USD, EUR, GBP, INR, PKR, AED, SAR, CAD, AUD, SGD, MYR, PHP, TRY, ZAR</strong>, and many more.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       HOW TO USE
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
     <h2>How to Use This Present Value Calculator</h2>
     <div class="howto-steps">
-      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
-        <meta itemprop="position" content="1" />
-        <span class="step-number">1</span> <span itemprop="text"><strong>Enter the future amount</strong> – the lump sum or periodic payment you expect to receive in the future.</span>
+      <div class="step">
+        <span class="step-number">1</span>
+        <span><strong>Select your currency</strong> – from 170+ global currencies.</span>
       </div>
-      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
-        <meta itemprop="position" content="2" />
-        <span class="step-number">2</span> <span itemprop="text"><strong>Set the discount rate</strong> – the annual return you could earn elsewhere (e.g., 8% for equity, 4% for savings).</span>
+      <div class="step">
+        <span class="step-number">2</span>
+        <span><strong>Enter the future value</strong> – the amount you'll receive in the future.</span>
       </div>
-      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
-        <meta itemprop="position" content="3" />
-        <span class="step-number">3</span> <span itemprop="text"><strong>Enter the number of years</strong> – when the future cash flow occurs.</span>
+      <div class="step">
+        <span class="step-number">3</span>
+        <span><strong>Set your discount rate</strong> – the rate used to discount future value.</span>
       </div>
-      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
-        <meta itemprop="position" content="4" />
-        <span class="step-number">4</span> <span itemprop="text"><strong>Choose discounting frequency</strong> – annual, semi-annual, monthly, or daily (matches compounding).</span>
+      <div class="step">
+        <span class="step-number">4</span>
+        <span><strong>Choose the time period</strong> – how many years until you receive the amount.</span>
       </div>
-      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
-        <meta itemprop="position" content="5" />
-        <span class="step-number">5</span> <span itemprop="text"><strong>Optional: Add periodic payments</strong> – for annuities (regular future receipts).</span>
-      </div>
-      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
-        <meta itemprop="position" content="6" />
-        <span class="step-number">6</span> <span itemprop="text"><strong>Click Calculate</strong> – view the present value, discount factor, and a schedule showing how each future cash flow is discounted.</span>
+      <div class="step">
+        <span class="step-number">5</span>
+        <span><strong>Pick compounding frequency</strong> – daily, weekly, monthly, quarterly, semi-annually, or annually.</span>
       </div>
     </div>
   </div>
 
-  <!-- ── DATASET (example present value table) ── -->
+  <!-- ─────────────────────────────────────────────────────
+       THE FORMULA
+       ───────────────────────────────────────────────────── -->
   <div class="content-block">
-    <h2>Example: Present Value of a Future ₹10,00,000 Lump Sum</h2>
-    <p>Assume you will receive ₹10,00,000 after 5 years. Using an 8% annual discount rate, the table below shows how much that future sum is worth today, along with the discounted value at different rates.</p>
-    <div class="dataset-table-wrap">
-      <table class="dataset-table">
-        <thead>
-          <tr><th>Years from Now</th><th>Future Value (₹)</th><th>Discount Rate</th><th>Present Value (₹)</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>1</td><td>10,00,000</td><td>8%</td><td>9,25,926</td></tr>
-          <tr><td>2</td><td>10,00,000</td><td>8%</td><td>8,57,339</td></tr>
-          <tr><td>3</td><td>10,00,000</td><td>8%</td><td>7,93,832</td></tr>
-          <tr><td>4</td><td>10,00,000</td><td>8%</td><td>7,35,030</td></tr>
-          <tr><td>5</td><td>10,00,000</td><td>8%</td><td>6,80,583</td></tr>
-          <tr><td colspan="4" style="background:#f8fafc; text-align:center"><strong>Formula: PV = FV / (1 + r)^n</strong></td></tr>
-        </tbody>
-      </table>
+    <h2>The Present Value Formula</h2>
+    <p>
+      The <strong>present value formula</strong> is the foundation of discounting future cash flows:
+    </p>
+    <div class="formula-box">
+      PV = FV / (1 + r/n)<sup>n×t</sup>
+      <span class="formula-note">
+        Where: <strong>PV</strong> = present value, <strong>FV</strong> = future value, <strong>r</strong> = discount rate, <strong>n</strong> = compounding frequency, <strong>t</strong> = time in years
+      </span>
     </div>
-    <p class="dataset-note">* The longer the time horizon or higher the discount rate, the lower the present value. Use the calculator above to run your own numbers with any future amount, rate, or period.</p>
+    <p>
+      For example, if you expect to receive $100,000 in 10 years at an 8% discount rate, the <strong>present value</strong> is approximately $45,639 — meaning $100,000 in 10 years is worth only $45,639 today.
+    </p>
   </div>
 
-  <!-- ── FAQ SECTION (20 questions) ── -->
+  <!-- ─────────────────────────────────────────────────────
+       EXPECTED RESULTS
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>What Results Can You Expect from This Present Value Calculator</h2>
+    <div class="example-grid">
+      <div class="example-card">
+        <h3>📈 Present Value</h3>
+        <p>The current worth of your future money — what it's worth in today's dollars.</p>
+      </div>
+      <div class="example-card">
+        <h3>📉 Total Discount</h3>
+        <p>The total reduction in value from discounting — how much value is lost over time.</p>
+      </div>
+      <div class="example-card">
+        <h3>📊 PV Factor</h3>
+        <p>The discount multiplier — how many cents each future dollar is worth today.</p>
+      </div>
+      <div class="example-card">
+        <h3>📋 Year‑by‑Year Breakdown</h3>
+        <p>Detailed table showing PV, discount, and factor for each year.</p>
+      </div>
+      <div class="example-card">
+        <h3>📊 Interactive Charts</h3>
+        <p>Line, bar, and donut charts for visual analysis.</p>
+      </div>
+    </div>
+
+    <h3>Example Scenarios</h3>
+    <div class="example-grid">
+      <div class="example-card">
+        <h4>Scenario 1: $100,000 in 10 Years at 8%</h4>
+        <ul>
+          <li><strong>Present Value:</strong> $45,639</li>
+          <li><strong>Total Discount:</strong> $54,361</li>
+          <li><strong>PV Factor:</strong> 0.4564</li>
+        </ul>
+      </div>
+      <div class="example-card">
+        <h4>Scenario 2: ₹50,00,000 in 15 Years at 10%</h4>
+        <ul>
+          <li><strong>Present Value:</strong> ₹11,97,603</li>
+          <li><strong>Total Discount:</strong> ₹38,02,397</li>
+          <li><strong>PV Factor:</strong> 0.2395</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       PRESENT VALUE VS FUTURE VALUE
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>Present Value vs Future Value — What's the Difference?</h2>
+    <table class="example-table">
+      <thead>
+        <tr><th>Metric</th><th>Description</th><th>Direction</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Present Value</strong></td>
+          <td>What a future sum is worth today</td>
+          <td>Future → Today (discounting)</td>
+        </tr>
+        <tr>
+          <td><strong>Future Value</strong></td>
+          <td>What today's money will be worth in the future</td>
+          <td>Today → Future (compounding)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       FAQ SECTION
+       ───────────────────────────────────────────────────── -->
   <div class="content-block faq-section">
-    <h2>Frequently Asked Questions About Present Value Calculators</h2>
-    <div class="faq-list" itemscope itemtype="https://schema.org/FAQPage">
+    <h2>Frequently Asked Questions About Present Value</h2>
 
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <div class="faq-question" itemprop="name">1. What is present value (PV)?</div>
-        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Present value is the current worth of a future sum of money or stream of cash flows, discounted at a specific rate of return. It reflects the time value of money.</div></div>
+    <div class="faq-list" >
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          1. What is present value and why does it matter?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            <strong>Present value</strong> is the current worth of a future sum of money. It matters because it helps you compare the value of money received at different times and make smarter financial decisions.
+          </div>
+        </div>
       </div>
 
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <div class="faq-question" itemprop="name">2. What is the present value formula?</div>
-        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">For a lump sum: <code>PV = FV / (1 + r)^n</code>, where FV = future value, r = discount rate per period, n = number of periods. For an annuity, the formula sums discounted payments.</div></div>
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          2. How does the discount rate affect present value?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            A higher <strong>discount rate</strong> results in a lower <strong>present value</strong>, and a lower discount rate results in a higher present value. The discount rate reflects the opportunity cost of money — the return you could earn elsewhere.
+          </div>
+        </div>
       </div>
 
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <div class="faq-question" itemprop="name">3. Why is present value important?</div>
-        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">It allows you to compare cash flows that occur at different times, evaluate investments, price bonds, calculate loan payments, and make informed financial decisions.</div></div>
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          3. What's the difference between present value and future value?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            <strong>Present value</strong> tells you what a future sum is worth today. <strong>Future value</strong> tells you what today's money will be worth in the future. This <strong>present value calculator</strong> focuses on discounting future money back to today.
+          </div>
+        </div>
       </div>
 
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <div class="faq-question" itemprop="name">4. How does the discount rate affect present value?</div>
-        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">A higher discount rate reduces present value, while a lower discount rate increases it. The discount rate should reflect the opportunity cost of capital or risk.</div></div>
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          4. How do I calculate present value with monthly discounting?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            This <strong>PV calculator</strong> automatically accounts for different compounding frequencies. Simply select your preferred frequency and the calculator does the rest.
+          </div>
+        </div>
       </div>
 
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <div class="faq-question" itemprop="name">5. Can I calculate present value for multiple future cash flows?</div>
-        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – our calculator supports a series of equal periodic payments (annuity). For irregular cash flows, you can calculate each separately or use a net present value (NPV) tool.</div></div>
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          5. Can I use this calculator for annuity calculations?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            This calculator is designed for a single lump‑sum future value. For regular annuity payments, use our <strong>annuity calculator</strong> which handles multiple future payments.
+          </div>
+        </div>
       </div>
 
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <div class="faq-question" itemprop="name">6. What is the difference between present value and net present value (NPV)?</div>
-        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Present value discounts a single future amount. NPV subtracts initial cost from the present value of all cash inflows – used to evaluate projects or investments.</div></div>
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          6. What's the PV factor and how do I use it?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            The <strong>PV factor</strong> is the discount multiplier: PV factor = Present Value ÷ Future Value. It tells you how many cents each future dollar is worth today. For example, a PV factor of 0.4564 means each future $1 is worth $0.4564 today.
+          </div>
+        </div>
       </div>
 
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <div class="faq-question" itemprop="name">7. How do I choose the right discount rate?</div>
-        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Use your expected rate of return from alternative investments with similar risk. For risk-free cash flows, use government bond yields. For equity, use 8-12%.</div></div>
-      </div>
-
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <div class="faq-question" itemprop="name">8. Can present value be negative?</div>
-        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">No, present value of a positive future cash flow is always positive. However, if you have outgoing cash flows (costs), the net present value can be negative.</div></div>
-      </div>
-
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <div class="faq-question" itemprop="name">9. What is the time value of money?</div>
-        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">The principle that money available today is worth more than the same amount in the future due to its earning potential. Present value calculations formalise this concept.</div></div>
-      </div>
-
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <div class="faq-question" itemprop="name">10. Does inflation affect present value?</div>
-        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – you can adjust the discount rate to include an inflation premium. Alternatively, our calculator’s inflation adjustment shows the present value in real terms.</div></div>
-      </div>
-
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <div class="faq-question" itemprop="name">11. Can I calculate present value for an annuity due (payments at start of period)?</div>
-        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Our calculator assumes end‑of‑period payments (ordinary annuity). For annuity due, multiply the ordinary annuity present value by (1 + r).</div></div>
-      </div>
-
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <div class="faq-question" itemprop="name">12. How is present value used in bond pricing?</div>
-        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">A bond’s price is the present value of its future coupon payments plus the present value of the face value, discounted at the market yield to maturity.</div></div>
-      </div>
-
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <div class="faq-question" itemprop="name">13. What is a perpetuity?</div>
-        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">A perpetuity is a stream of equal payments forever. Its present value is simply payment / discount rate. Our calculator handles finite periods only.</div></div>
-      </div>
-
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <div class="faq-question" itemprop="name">14. Can I calculate present value for any currency?</div>
-        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – select your currency (INR, USD, EUR, GBP, PKR, etc.). The present value will be displayed with the correct symbol and formatting.</div></div>
-      </div>
-
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <div class="faq-question" itemprop="name">15. How does compounding frequency affect present value?</div>
-        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">More frequent discounting (monthly vs annual) yields a slightly lower present value for the same annual rate, because you discount per period more often.</div></div>
-      </div>
-
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <div class="faq-question" itemprop="name">16. Can I use this calculator for loan pricing?</div>
-        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – the present value of future loan repayments equals the loan amount you should receive. You can verify if a loan offer is fair by discounting the payments.</div></div>
-      </div>
-
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <div class="faq-question" itemprop="name">17. What is the relationship between present value and future value?</div>
-        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">They are inverses: FV = PV × (1+r)^n and PV = FV / (1+r)^n. Our calculator can compute both directions – see the Future Value tool for the forward calculation.</div></div>
-      </div>
-
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <div class="faq-question" itemprop="name">18. Can I download my present value calculation?</div>
-        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – use the “Download CSV” button to export the discounting schedule, showing the discounted value for each period.</div></div>
-      </div>
-
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <div class="faq-question" itemprop="name">19. Is this calculator free?</div>
-        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – completely free, no signup, no ads. Use it for personal, educational, or professional financial analysis.</div></div>
-      </div>
-
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <div class="faq-question" itemprop="name">20. Can I share my present value calculation?</div>
-        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Yes – click the “Share” button to copy a URL containing all your inputs. Anyone opening that link sees the same present value result.</div></div>
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          7. How accurate is this present value calculator?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            This <strong>discounted value calculator</strong> uses standard financial formulas and is accurate for projections. However, actual discount rates may vary. Use this as a planning tool, not a guarantee.
+          </div>
+        </div>
       </div>
 
     </div>
   </div>
+
 </section>
+<!-- ==========================================================
+     LOAD SCRIPTS
+     ========================================================== -->
+<script src="/assets/js/present-value-calculator.js"></script>

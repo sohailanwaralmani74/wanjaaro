@@ -1,0 +1,626 @@
+---
+layout: main
+title: "Hourly to Salary Calculator – Convert Hourly Rate to Annual Salary"
+description: "Convert your hourly rate to annual, monthly, weekly, bi‑weekly, and daily salary. See your estimated take-home pay after taxes. Works in USD, EUR, INR, PKR & 170+ currencies."
+keywords: "hourly to salary calculator, hourly wage to salary, annual salary from hourly, hourly pay calculator, salary converter, hourly to annual calculator"
+category: tax
+---
+<!-- ═══════════════════════════════════════════════════════
+     JSON‑LD SCHEMAS — Hourly to Salary Calculator
+═══════════════════════════════════════════════════════ -->
+
+<!-- 1. WebApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Hourly to Salary Calculator – Convert Hourly Rate to Annual Salary",
+  "description": "Convert your hourly rate to annual, monthly, weekly, bi‑weekly, and daily salary. See your estimated take-home pay after taxes. Works in 170+ currencies.",
+  "url": "https://datafrog.tools/hourly-to-salary-calculator/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+
+<!-- 2. BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://datafrog.tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Hourly to Salary Calculator",
+      "item": "https://datafrog.tools/hourly-to-salary-calculator/"
+    }
+  ]
+}
+</script>
+
+<!-- 3. HowTo -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Convert Hourly Rate to Salary",
+  "description": "Step by step guide to convert hourly pay to annual, monthly, and weekly salary.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Enter your hourly rate",
+      "text": "Enter your pay per hour."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Set your hours per week",
+      "text": "Enter your typical working hours per week."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Choose your weeks per year",
+      "text": "Enter the number of weeks you work per year."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Add tax rate (optional)",
+      "text": "Enter a tax rate to see your estimated take-home pay."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "View your results",
+      "text": "See your annual, monthly, weekly, bi-weekly, and daily salary."
+    }
+  ]
+}
+</script>
+
+<!-- 4. FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I calculate annual salary from hourly rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multiply your hourly rate by hours per week and weeks per year. For example, $25 × 40 × 52 = $52,000. This hourly to salary calculator does the math instantly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many hours are in a typical work year?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A typical full-time work year has 2,080 hours (40 hours × 52 weeks). This hourly wage calculator lets you adjust both hours and weeks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a good hourly rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A 'good' hourly rate depends on your industry, experience, and location. Use this hourly income calculator to see how your rate translates to annual salary."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert salary to hourly rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Divide your annual salary by hours per week and weeks per year. For example, $52,000 / (40 × 52) = $25/hour."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this for freelance or contract work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. This hourly pay calculator is perfect for freelancers and contractors. Enter your hourly rate and see your projected annual, monthly, and weekly income."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does overtime affect my salary?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Overtime is typically paid at 1.5× your regular hourly rate. This tool uses standard hours — for overtime calculations, add your overtime hours separately."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How accurate is this hourly to salary calculator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This annual salary from hourly calculator uses standard formulas and is accurate for planning. Actual earnings may vary based on overtime, bonuses, and deductions."
+      }
+    }
+  ]
+}
+</script>
+<div class="tool-page">
+  <article >
+    <meta  content="Hourly to Salary Calculator" />
+    
+    
+
+    <section class="page-heading">
+      <h1 >Hourly to Salary Calculator — Convert Your Hourly Rate</h1>
+      <p class="tool-subtitle">
+        Convert your <strong>hourly rate</strong> to annual, monthly, weekly, bi‑weekly, and daily salary. See your <strong>take-home pay</strong> after taxes — instantly in <strong>your currency</strong> with support for 170+ currencies.
+      </p>
+    </section>
+
+    <div class="tool-body">
+      <!-- LEFT COLUMN – INPUT PANEL -->
+      <aside class="tool-input-col" aria-label="Calculator inputs">
+        <div class="panel input-panel">
+
+          <!-- Currency Selector -->
+          <div class="form-group">
+            <label for="currencySearch">Currency</label>
+            <div class="currency-search-wrapper">
+              <input type="text" id="currencySearch" placeholder="Type currency name or code" autocomplete="off" />
+              <div id="currencyResults" class="currency-results"></div>
+            </div>
+          </div>
+
+          <!-- Hourly Rate -->
+          <div class="form-group">
+            <label for="hourlyRate">Hourly Rate</label>
+            <div class="input-addons">
+              <span class="input-addon" id="currencySymbol">$</span>
+              <input type="number" id="hourlyRate" value="25" min="0" step="0.5" oninput="syncSlider('hourlyRate');calculate()" />
+            </div>
+            <div class="slider-row">
+              <input type="range" id="hourlyRateSlider" min="0" max="200" step="0.5" value="25" oninput="syncInput('hourlyRate',this.value);calculate()" />
+              <span class="slider-val" id="hourlyRateSliderVal">$25.00</span>
+            </div>
+            <span class="field-hint">Your hourly wage</span>
+          </div>
+
+          <!-- Hours per Week -->
+          <div class="form-group">
+            <label for="hoursPerWeek">Hours per Week</label>
+            <div class="input-addons">
+              <input type="number" id="hoursPerWeek" value="40" min="1" max="80" step="1" oninput="syncSlider('hoursPerWeek');calculate()" />
+              <span class="input-addon input-addon--right">hr</span>
+            </div>
+            <div class="slider-row">
+              <input type="range" id="hoursPerWeekSlider" min="1" max="80" step="1" value="40" oninput="syncInput('hoursPerWeek',this.value);calculate()" />
+              <span class="slider-val" id="hoursPerWeekSliderVal">40 hr</span>
+            </div>
+            <span class="field-hint">Hours you work per week</span>
+          </div>
+
+          <!-- Weeks per Year -->
+          <div class="form-group">
+            <label for="weeksPerYear">Weeks per Year</label>
+            <div class="input-addons">
+              <input type="number" id="weeksPerYear" value="52" min="1" max="52" step="1" oninput="syncSlider('weeksPerYear');calculate()" />
+              <span class="input-addon input-addon--right">wk</span>
+            </div>
+            <div class="slider-row">
+              <input type="range" id="weeksPerYearSlider" min="1" max="52" step="1" value="52" oninput="syncInput('weeksPerYear',this.value);calculate()" />
+              <span class="slider-val" id="weeksPerYearSliderVal">52 wk</span>
+            </div>
+            <span class="field-hint">Number of weeks you work per year</span>
+          </div>
+
+          <!-- Tax Rate -->
+          <div class="form-group">
+            <label for="taxRate">Estimated Tax Rate (%) <span class="optional-badge">Optional</span></label>
+            <div class="input-addons">
+              <input type="number" id="taxRate" value="20" min="0" max="70" step="0.5" oninput="syncSlider('taxRate');calculate()" />
+              <span class="input-addon input-addon--right">%</span>
+            </div>
+            <div class="slider-row">
+              <input type="range" id="taxRateSlider" min="0" max="70" step="0.5" value="20" oninput="syncInput('taxRate',this.value);calculate()" />
+              <span class="slider-val" id="taxRateSliderVal">20%</span>
+            </div>
+            <span class="field-hint">Average tax rate for take-home estimate</span>
+          </div>
+
+          <div class="calc-actions">
+            <button class="btn btn-ghost" onclick="resetForm()">Reset</button>
+            <button class="btn btn-primary" onclick="shareURL()" id="shareBtn">Share</button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- RIGHT COLUMN – RESULTS PANEL -->
+      <section class="tool-output-col" aria-label="Calculator results" aria-live="polite">
+
+        <!-- Result Cards -->
+        <div class="result-cards">
+          <div class="result-card">
+            <div class="result-label">Annual Salary</div>
+            <div class="result-value" id="annualSalary">—</div>
+            <div class="result-sub">Per year</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Monthly Salary</div>
+            <div class="result-value" id="monthlySalary">—</div>
+            <div class="result-sub">Per month</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Weekly Salary</div>
+            <div class="result-value" id="weeklySalary">—</div>
+            <div class="result-sub">Per week</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Bi‑Weekly Salary</div>
+            <div class="result-value" id="biweeklySalary">—</div>
+            <div class="result-sub">Every 2 weeks</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Daily Salary</div>
+            <div class="result-value" id="dailySalary">—</div>
+            <div class="result-sub">Per day</div>
+          </div>
+        </div>
+
+        <!-- After-Tax Section -->
+        <div class="after-tax-section">
+          <div class="after-tax-header">
+            <h3>💰 Estimated After‑Tax Income</h3>
+          </div>
+          <div class="result-cards after-tax-cards">
+            <div class="result-card">
+              <div class="result-label">Annual Take-Home</div>
+              <div class="result-value" id="afterTaxAnnual">—</div>
+              <div class="result-sub">Net per year</div>
+            </div>
+            <div class="result-card">
+              <div class="result-label">Monthly Take-Home</div>
+              <div class="result-value" id="afterTaxMonthly">—</div>
+              <div class="result-sub">Net per month</div>
+            </div>
+            <div class="result-card">
+              <div class="result-label">Weekly Take-Home</div>
+              <div class="result-value" id="afterTaxWeekly">—</div>
+              <div class="result-sub">Net per week</div>
+            </div>
+            <div class="result-card">
+              <div class="result-label">Taxes Paid</div>
+              <div class="result-value" id="taxesPaid">—</div>
+              <div class="result-sub">Total tax</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Insights Panel -->
+        <div class="insights-panel" id="insightsPanel">
+          <div class="insights-grid" id="insightsGrid">
+            <!-- Populated by JavaScript -->
+          </div>
+        </div>
+
+        <!-- Chart Panel -->
+        <div class="chart-panel">
+          <div class="chart-tabs" role="tablist">
+            <button class="chart-tab active" data-chart="bar" onclick="switchChart('bar',this)" role="tab">Salary Breakdown</button>
+            <button class="chart-tab" data-chart="donut" onclick="switchChart('donut',this)" role="tab">Gross vs Net</button>
+            <button class="chart-tab" data-chart="line" onclick="switchChart('line',this)" role="tab">Monthly Income</button>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="toolChart" role="img" aria-label="Salary breakdown chart"></canvas>
+          </div>
+        </div>
+
+        <!-- Action Bar -->
+        <div class="action-bar">
+          <button class="action-btn" onclick="downloadCSV()" title="Download data as CSV">⬇ Download CSV</button>
+          <button class="action-btn" onclick="copyResult()" title="Copy result to clipboard" id="copyBtn">📋 Copy Result</button>
+          <button class="action-btn" onclick="exportChart()" title="Export chart as PNG">🖼️ Export Chart</button>
+        </div>
+
+      </section>
+    </div>
+  </article>
+</div>
+
+<!-- ==========================================================
+     LOAD SCRIPTS
+     ========================================================== -->
+<script src="/assets/js/hourly-to-salary-calculator.js"></script>
+
+<!-- ═══════════════════════════════════════════════════════
+     ON‑PAGE CONTENT — SEO & GEO OPTIMISED
+═══════════════════════════════════════════════════════ -->
+<section class="onpage-content" >
+  <meta  content="Hourly to Salary Calculator – How to Convert Hourly Rate" />
+  <meta  content="Learn how to convert your hourly rate to annual, monthly, and weekly salary. Works in USD, EUR, INR, PKR & 170+ currencies." />
+
+  <!-- ─────────────────────────────────────────────────────
+       WHY CONVERT HOURLY TO SALARY
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>Why Convert Hourly Rate to Salary?</h2>
+    <p>
+      Whether you're a freelancer, contractor, or comparing job offers, understanding how your <strong>hourly rate</strong> translates to annual, monthly, and weekly earnings is essential. Converting your <strong>hourly wage</strong> to salary helps you budget, negotiate better rates, and make informed career decisions.
+    </p>
+    <p>
+      This <strong>hourly to salary calculator</strong> converts your hourly pay to annual, monthly, weekly, bi‑weekly, and daily salary — and estimates your <strong>take-home pay</strong> after taxes — all in <strong>your local currency</strong> with support for 170+ currencies.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       WHO IS THIS FOR
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>Who Can Use This Tool</h2>
+    <p>
+      This <strong>hourly wage calculator</strong> is designed for anyone who needs to convert hourly pay:
+    </p>
+    <ul class="content-list">
+      <li><strong>Freelancers</strong> – understanding annual income from hourly rates</li>
+      <li><strong>Contractors</strong> – comparing contract rates to salaried positions</li>
+      <li><strong>Job seekers</strong> – evaluating hourly vs salary offers</li>
+      <li><strong>Employees</strong> – understanding overtime and pay structure</li>
+      <li><strong>Financial planners</strong> – helping clients with income projections</li>
+    </ul>
+    <p>
+      The tool supports <strong>170+ currencies</strong>, including USD, EUR, GBP, INR, PKR, AED, SAR, CAD, AUD, and more.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       HOW TO USE
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>How to Convert Hourly Rate to Salary</h2>
+    <div class="howto-steps">
+      <div class="step">
+        <span class="step-number">1</span>
+        <span><strong>Enter your hourly rate</strong> — your pay per hour</span>
+      </div>
+      <div class="step">
+        <span class="step-number">2</span>
+        <span><strong>Set your hours per week</strong> — typical is 40 hours</span>
+      </div>
+      <div class="step">
+        <span class="step-number">3</span>
+        <span><strong>Choose your weeks per year</strong> — 52 for full‑time</span>
+      </div>
+      <div class="step">
+        <span class="step-number">4</span>
+        <span><strong>(Optional) Add tax rate</strong> — to see your take‑home pay</span>
+      </div>
+      <div class="step">
+        <span class="step-number">5</span>
+        <span><strong>View your results</strong> — annual, monthly, weekly, bi‑weekly, and daily salary</span>
+      </div>
+    </div>
+    <p>
+      Results update in <strong>real‑time</strong> as you make changes. You'll see your complete salary breakdown instantly.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       THE FORMULA
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>The Hourly to Salary Formula</h2>
+    <p>
+      Converting <strong>hourly pay to salary</strong> is straightforward:
+    </p>
+    <div class="formula-box">
+      Annual Salary = Hourly Rate × Hours per Week × Weeks per Year
+      <br />
+      Monthly Salary = Annual Salary ÷ 12
+      <br />
+      Weekly Salary = Hourly Rate × Hours per Week
+      <br />
+      Bi‑Weekly Salary = Weekly Salary × 2
+      <br />
+      Daily Salary = Hourly Rate × 8
+    </div>
+    <p>
+      For example, if your <strong>hourly rate</strong> is <strong>$25</strong>, working <strong>40 hours</strong> per week for <strong>52 weeks</strong>:
+    </p>
+    <ul class="content-list">
+      <li><strong>Annual Salary:</strong> $25 × 40 × 52 = <strong>$52,000</strong></li>
+      <li><strong>Monthly Salary:</strong> $52,000 ÷ 12 = <strong>$4,333</strong></li>
+      <li><strong>Weekly Salary:</strong> $25 × 40 = <strong>$1,000</strong></li>
+    </ul>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       EXPECTED RESULTS
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>What You'll See</h2>
+    <div class="example-grid">
+      <div class="example-card">
+        <h3>📊 Annual Salary</h3>
+        <p>Your total yearly earnings</p>
+      </div>
+      <div class="example-card">
+        <h3>📈 Monthly Salary</h3>
+        <p>Your gross earnings per month</p>
+      </div>
+      <div class="example-card">
+        <h3>💰 Weekly Salary</h3>
+        <p>Your gross earnings per week</p>
+      </div>
+      <div class="example-card">
+        <h3>📋 Bi‑Weekly Salary</h3>
+        <p>Your gross earnings every two weeks</p>
+      </div>
+      <div class="example-card">
+        <h3>📋 Daily Salary</h3>
+        <p>Your gross earnings per day</p>
+      </div>
+      <div class="example-card">
+        <h3>🏦 After‑Tax Pay</h3>
+        <p>Your estimated take‑home income</p>
+      </div>
+    </div>
+
+    <h3>Examples</h3>
+    <div class="example-grid">
+      <div class="example-card">
+        <h4>$25/hour, 40 hrs/week, 20% Tax</h4>
+        <ul>
+          <li><strong>Annual:</strong> $52,000 gross / $41,600 net</li>
+          <li><strong>Monthly:</strong> $4,333 gross / $3,467 net</li>
+          <li><strong>Weekly:</strong> $1,000 gross / $800 net</li>
+        </ul>
+      </div>
+      <div class="example-card">
+        <h4>$35/hour, 40 hrs/week, 25% Tax</h4>
+        <ul>
+          <li><strong>Annual:</strong> $72,800 gross / $54,600 net</li>
+          <li><strong>Monthly:</strong> $6,067 gross / $4,550 net</li>
+          <li><strong>Weekly:</strong> $1,400 gross / $1,050 net</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       HOURLY VS SALARY — WHAT'S THE DIFFERENCE?
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>Hourly vs Salary — What's the Difference?</h2>
+    <table class="example-table">
+      <thead>
+        <tr><th>Aspect</th><th>Hourly</th><th>Salary</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Pay Structure</strong></td>
+          <td>Paid per hour worked</td>
+          <td>Fixed annual amount</td>
+        </tr>
+        <tr>
+          <td><strong>Overtime</strong></td>
+          <td>Eligible for overtime pay</td>
+          <td>Typically no overtime pay</td>
+        </tr>
+        <tr>
+          <td><strong>Predictability</strong></td>
+          <td>Varies with hours</td>
+          <td>Consistent each pay period</td>
+        </tr>
+        <tr>
+          <td><strong>Best For</strong></td>
+          <td>Freelancers, contractors, part‑time</td>
+          <td>Full‑time employees</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      Use this <strong>hourly pay calculator</strong> to see how your hourly rate compares to salaried positions.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       FAQ
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block faq-section">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-list" >
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          1. How do I calculate annual salary from hourly rate?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            Multiply your <strong>hourly rate</strong> by hours per week and weeks per year. For example, $25 × 40 × 52 = <strong>$52,000</strong>. This <strong>hourly to salary calculator</strong> does the math instantly.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          2. How many hours are in a typical work year?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            A typical full‑time work year has <strong>2,080 hours</strong> (40 hours × 52 weeks). This <strong>hourly wage calculator</strong> lets you adjust both hours and weeks.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          3. What is a good hourly rate?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            A "good" <strong>hourly rate</strong> depends on your industry, experience, and location. Use this <strong>hourly income calculator</strong> to see how your rate translates to annual salary.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          4. How do I convert salary to hourly rate?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            Divide your <strong>annual salary</strong> by hours per week and weeks per year. For example, $52,000 / (40 × 52) = <strong>$25/hour</strong>.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          5. Can I use this for freelance or contract work?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            Yes. This <strong>hourly pay calculator</strong> is perfect for freelancers and contractors. Enter your hourly rate and see your projected annual, monthly, and weekly income.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          6. How does overtime affect my salary?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            Overtime is typically paid at <strong>1.5×</strong> your regular hourly rate. This tool uses standard hours — for overtime calculations, add your overtime hours separately.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          7. How accurate is this hourly to salary calculator?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            This <strong>annual salary from hourly</strong> calculator uses standard formulas and is accurate for planning. Actual earnings may vary based on overtime, bonuses, and deductions.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>

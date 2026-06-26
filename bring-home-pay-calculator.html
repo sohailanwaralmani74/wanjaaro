@@ -1,0 +1,612 @@
+---
+layout: main
+title: "Bring Home Pay Calculator – Estimate Take Home Pay After Deductions"
+description: "Calculate your bring home pay after income tax, social security, health insurance, pension, and other deductions. Works in USD, EUR, INR, PKR & 170+ currencies."
+keywords: "bring home pay calculator, Bring Home Pay Calculator, take home salary calculator, estimate take home pay, take home income calculator, takehome pay calculator, payroll take home calculator"
+category: tax
+---
+<!-- ═══════════════════════════════════════════════════════
+     JSON‑LD SCHEMAS — Bring Home Pay Calculator
+═══════════════════════════════════════════════════════ -->
+
+<!-- 1. WebApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Bring Home Pay Calculator – Estimate Your Take Home Pay After Deductions",
+  "description": "Calculate your bring home pay after income tax, social security, health insurance, pension, and other deductions. Works in 170+ currencies.",
+  "url": "https://datafrog.tools/birng-home-pay-calculator/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+
+<!-- 2. BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://datafrog.tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Bring Home Pay Calculator",
+      "item": "https://datafrog.tools/birng-home-pay-calculator/"
+    }
+  ]
+}
+</script>
+
+<!-- 3. HowTo -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use the Bring Home Pay Calculator",
+  "description": "Step by step guide to calculate your take home pay after deductions.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Select your currency",
+      "text": "Choose from 170+ global currencies including USD, EUR, INR, PKR, AED, and more."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Enter your gross salary",
+      "text": "Enter your total earnings before deductions."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Choose your pay frequency",
+      "text": "Select weekly, bi-weekly, or monthly."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Set your deduction rates",
+      "text": "Enter income tax, social security, health insurance, and pension rates."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "Add other deductions",
+      "text": "Enter any fixed deductions like union dues or garnishments."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 6,
+      "name": "View your take home pay",
+      "text": "See your net pay per pay period and annually."
+    }
+  ]
+}
+</script>
+
+<!-- 4. FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is take home pay?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Take home pay is the amount you receive after all deductions are taken from your gross salary."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I estimate my take home pay?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use this bring home pay calculator. Enter your gross salary, choose your pay frequency, and set your deduction rates."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What deductions reduce my take home pay?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Common deductions include income tax, social security, health insurance, pension contributions, and other deductions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between gross pay and take home pay?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Gross pay is your total earnings before deductions. Take home pay is what you actually receive after deductions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate my take home pay from salary?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Subtract all deductions from your gross salary. Use this take home wage calculator to figure out your take home pay."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this calculator for different countries?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. This bring home income calculator works for any country. Adjust the tax and deduction rates to match your local system."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How accurate is this Bring Home Pay Calculator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This estimated take home salary calculator uses standard formulas and is accurate for estimation. Actual deductions may vary."
+      }
+    }
+  ]
+}
+</script>
+<div class="tool-page">
+  <article >
+    <meta  content="Bring Home Pay Calculator" />
+    
+    
+
+    <section class="page-heading">
+      <h1 >Bring Home Pay Calculator — Know Your Net Pay</h1>
+<p class="tool-subtitle">
+  Calculate your <strong>bring home pay</strong> after income tax, social security, health insurance, pension, and other deductions. See exactly what you take home — instantly in <strong>your currency</strong> with support for 170+ currencies.
+</p>
+    </section>
+
+    <div class="tool-body">
+      <!-- LEFT COLUMN – INPUT PANEL -->
+      <aside class="tool-input-col" aria-label="Calculator inputs">
+        <div class="panel input-panel">
+
+          <!-- Currency Selector -->
+          <div class="form-group">
+            <label for="currencySearch">Currency</label>
+            <div class="currency-search-wrapper">
+              <input type="text" id="currencySearch" placeholder="Type currency name or code" autocomplete="off" />
+              <div id="currencyResults" class="currency-results"></div>
+            </div>
+          </div>
+
+          <!-- Gross Salary -->
+          <div class="form-group">
+            <label for="grossSalary">Gross Salary</label>
+            <div class="input-addons">
+              <span class="input-addon" id="currencySymbol">$</span>
+              <input type="number" id="grossSalary" value="75000" min="0" step="500" oninput="syncSlider('grossSalary');calculate()" />
+            </div>
+            <div class="slider-row">
+              <input type="range" id="grossSalarySlider" min="0" max="500000" step="500" value="75000" oninput="syncInput('grossSalary',this.value);calculate()" />
+              <span class="slider-val" id="grossSalarySliderVal">$75,000</span>
+            </div>
+            <span class="field-hint">Your total annual salary before deductions</span>
+          </div>
+
+          <!-- Pay Frequency -->
+          <div class="form-group">
+            <label for="payFrequency">Pay Frequency</label>
+            <select id="payFrequency" onchange="calculate()">
+              <option value="weekly">Weekly</option>
+              <option value="biweekly" selected>Bi-Weekly</option>
+              <option value="monthly">Monthly</option>
+            </select>
+            <span class="field-hint">How often you get paid</span>
+          </div>
+
+          <!-- Income Tax Rate -->
+          <div class="form-group">
+            <label for="incomeTaxRate">Income Tax Rate (%)</label>
+            <div class="input-addons">
+              <input type="number" id="incomeTaxRate" value="20" min="0" max="70" step="0.5" oninput="syncSlider('incomeTaxRate');calculate()" />
+              <span class="input-addon input-addon--right">%</span>
+            </div>
+            <div class="slider-row">
+              <input type="range" id="incomeTaxRateSlider" min="0" max="70" step="0.5" value="20" oninput="syncInput('incomeTaxRate',this.value);calculate()" />
+              <span class="slider-val" id="incomeTaxRateSliderVal">20%</span>
+            </div>
+            <span class="field-hint">Your effective income tax rate</span>
+          </div>
+
+          <!-- Social Security -->
+          <div class="form-group">
+            <label for="socialSecurityRate">Social Security Rate (%)</label>
+            <div class="input-addons">
+              <input type="number" id="socialSecurityRate" value="6.2" min="0" max="20" step="0.1" oninput="syncSlider('socialSecurityRate');calculate()" />
+              <span class="input-addon input-addon--right">%</span>
+            </div>
+            <div class="slider-row">
+              <input type="range" id="socialSecurityRateSlider" min="0" max="20" step="0.1" value="6.2" oninput="syncInput('socialSecurityRate',this.value);calculate()" />
+              <span class="slider-val" id="socialSecurityRateSliderVal">6.2%</span>
+            </div>
+            <span class="field-hint">Mandatory state contribution — e.g., Social Security, National Insurance, ESI, GOSI etc. Enter your country's equivalent rate, or 0 if not applicable.</span>
+          </div>
+
+          <!-- Medicare / Health Insurance -->
+          <div class="form-group">
+            <label for="medicareRate">Medicare / Health Insurance (%)</label>
+            <div class="input-addons">
+              <input type="number" id="medicareRate" value="1.45" min="0" max="10" step="0.1" oninput="syncSlider('medicareRate');calculate()" />
+              <span class="input-addon input-addon--right">%</span>
+            </div>
+            <div class="slider-row">
+              <input type="range" id="medicareRateSlider" min="0" max="10" step="0.1" value="1.45" oninput="syncInput('medicareRate',this.value);calculate()" />
+              <span class="slider-val" id="medicareRateSliderVal">1.45%</span>
+            </div>
+            <span class="field-hint">Medicare or health insurance premium</span>
+          </div>
+
+          <!-- Pension / Retirement -->
+          <div class="form-group">
+            <label for="pensionRate">Pension / Retirement Contribution (%)</label>
+            <div class="input-addons">
+              <input type="number" id="pensionRate" value="5" min="0" max="30" step="0.5" oninput="syncSlider('pensionRate');calculate()" />
+              <span class="input-addon input-addon--right">%</span>
+            </div>
+            <div class="slider-row">
+              <input type="range" id="pensionRateSlider" min="0" max="30" step="0.5" value="5" oninput="syncInput('pensionRate',this.value);calculate()" />
+              <span class="slider-val" id="pensionRateSliderVal">5%</span>
+            </div>
+            <span class="field-hint">Retirement savings contribution — e.g., 401k, PF/EPF, Workplace Pension, CPF etc. Enter your contribution rate, or 0 if not applicable.</span>
+          </div>
+
+          <!-- Other Deductions -->
+          <div class="form-group">
+            <label for="otherDeductions">Other Deductions</label>
+            <div class="input-addons">
+              <span class="input-addon" id="currencySymbol2">$</span>
+              <input type="number" id="otherDeductions" value="0" min="0" step="50" oninput="syncSlider('otherDeductions');calculate()" />
+            </div>
+            <div class="slider-row">
+              <input type="range" id="otherDeductionsSlider" min="0" max="10000" step="50" value="0" oninput="syncInput('otherDeductions',this.value);calculate()" />
+              <span class="slider-val" id="otherDeductionsSliderVal">$0</span>
+            </div>
+            <span class="field-hint">dues, internal loans, service fee, or any internal charges</span>
+          </div>
+
+          <div class="calc-actions">
+            <button class="btn btn-ghost" onclick="resetForm()">Reset</button>
+            <button class="btn btn-primary" onclick="shareURL()" id="shareBtn">Share</button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- RIGHT COLUMN – RESULTS PANEL -->
+      <section class="tool-output-col" aria-label="Calculator results" aria-live="polite">
+
+        <!-- Result Cards -->
+        <div class="result-cards">
+          <div class="result-card">
+            <div class="result-label">Take-Home Pay</div>
+            <div class="result-value" id="takeHomePay">—</div>
+            <div class="result-sub">Per pay period</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Annual Take-Home</div>
+            <div class="result-value" id="annualTakeHome">—</div>
+            <div class="result-sub">Per year</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Total Deductions</div>
+            <div class="result-value" id="totalDeductions">—</div>
+            <div class="result-sub">Per pay period</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Net Pay Percentage</div>
+            <div class="result-value" id="netPayPercentage">—</div>
+            <div class="result-sub">Of gross salary</div>
+          </div>
+        </div>
+
+        <!-- Insights Panel -->
+        <div class="insights-panel" id="insightsPanel">
+          <div class="insights-grid" id="insightsGrid">
+            <!-- Populated by JavaScript -->
+          </div>
+        </div>
+
+        <!-- Chart Panel -->
+        <div class="chart-panel">
+          <div class="chart-tabs" role="tablist">
+            <button class="chart-tab active" data-chart="donut" onclick="switchChart('donut',this)" role="tab">Gross vs Deductions</button>
+            <button class="chart-tab" data-chart="bar" onclick="switchChart('bar',this)" role="tab">Deduction Breakdown</button>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="toolChart" role="img" aria-label="Take home pay chart"></canvas>
+          </div>
+        </div>
+
+        <!-- Action Bar -->
+        <div class="action-bar">
+          <button class="action-btn" onclick="downloadCSV()" title="Download data as CSV">⬇ Download CSV</button>
+          <button class="action-btn" onclick="copyResult()" title="Copy result to clipboard" id="copyBtn">📋 Copy Result</button>
+          <button class="action-btn" onclick="exportChart()" title="Export chart as PNG">🖼️ Export Chart</button>
+        </div>
+        <!-- Deduction Breakdown Table -->
+        <div class="breakdown-panel" style="margin-bottom:1.5rem;">
+          <div class="breakdown-title">Deduction Breakdown</div>
+          <div class="table-wrap">
+            <table class="breakdown-table" id="deductionTable" aria-label="Deduction breakdown">
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Rate</th>
+                  <th>Amount</th>
+                </tr>
+              </thead>
+              <tbody id="deductionBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+  </article>
+</div>
+
+<!-- ==========================================================
+     LOAD SCRIPTS
+     ========================================================== -->
+<script src="/assets/js/take-home-pay-calculator.js"></script>
+
+<!-- ═══════════════════════════════════════════════════════
+     ON‑PAGE CONTENT — SEO & GEO OPTIMISED
+═══════════════════════════════════════════════════════ -->
+<section class="onpage-content" >
+  <meta  content="Bring Home Pay Calculator – How to Calculate Your Net Pay" />
+  <meta  content="Learn how to calculate your bring home pay after deductions. Estimate your net salary. Works in USD, EUR, INR, PKR & 170+ currencies." />
+
+  <!-- ─────────────────────────────────────────────────────
+       WHY BRING HOME PAY MATTERS
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>Why Your Bring Home Pay Matters</h2>
+    <p>
+      Your <strong>bring home pay</strong> — the amount you actually receive after all deductions — is what matters most for your daily finances. Understanding your net pay helps you budget accurately and make informed career decisions.
+    </p>
+    <p>
+      This tool estimates your net pay after income tax, social security, health insurance, pension contributions, and other deductions — all in <strong>your local currency</strong> with support for 170+ currencies.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       WHO IS THIS FOR
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>Who Can Use This Tool</h2>
+    <p>
+      Whether you're an employee, freelancer, contractor, or job seeker, knowing your <strong>take home income</strong> is essential for:
+    </p>
+    <ul class="content-list">
+      <li><strong>Budgeting</strong> — plan your monthly expenses accurately</li>
+      <li><strong>Comparing job offers</strong> — understand the real value of an offer</li>
+      <li><strong>Financial planning</strong> — know exactly what you'll receive</li>
+      <li><strong>Negotiating salary</strong> — understand the impact of deductions</li>
+    </ul>
+    <p>
+      The tool supports <strong>170+ currencies</strong>, including USD, EUR, GBP, INR, PKR, AED, SAR, CAD, AUD, and more.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       HOW TO USE
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>How to Estimate Your Bring Home Pay</h2>
+    <div class="howto-steps">
+      <div class="step">
+        <span class="step-number">1</span>
+        <span><strong>Select your currency</strong></span>
+      </div>
+      <div class="step">
+        <span class="step-number">2</span>
+        <span><strong>Enter your gross salary</strong> — earnings before deductions</span>
+      </div>
+      <div class="step">
+        <span class="step-number">3</span>
+        <span><strong>Choose your pay frequency</strong> — weekly, bi‑weekly, or monthly</span>
+      </div>
+      <div class="step">
+        <span class="step-number">4</span>
+        <span><strong>Set your deduction rates</strong> — tax, social security, health, pension</span>
+      </div>
+      <div class="step">
+        <span class="step-number">5</span>
+        <span><strong>Add other deductions</strong> — union dues, garnishments, etc.</span>
+      </div>
+      <div class="step">
+        <span class="step-number">6</span>
+        <span><strong>View your net pay</strong> — per period and annually</span>
+      </div>
+    </div>
+    <p>
+      Results update in <strong>real‑time</strong> as you make changes. You'll see your net pay, total deductions, and a complete breakdown.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       COMMON DEDUCTIONS
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>What Deductions Affect Your Pay?</h2>
+    <ul class="content-list">
+      <li><strong>Income Tax</strong> — federal, state, or local</li>
+      <li><strong>Social Security</strong> — national insurance contributions</li>
+      <li><strong>Health Insurance</strong> — Medicare, premiums, or medical aid</li>
+      <li><strong>Pension Contributions</strong> — retirement savings</li>
+      <li><strong>Other Deductions</strong> — union dues, garnishments, or charity</li>
+    </ul>
+    <p>
+      All deduction rates are fully customizable to match your situation.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       GROSS VS NET PAY
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>Gross Pay vs Net Pay</h2>
+    <table class="example-table">
+      <thead>
+        <tr><th>Term</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Gross Pay</strong></td>
+          <td>Your total earnings before deductions</td>
+        </tr>
+        <tr>
+          <td><strong>Net Pay</strong></td>
+          <td>Your actual take‑home pay after deductions</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       EXPECTED RESULTS
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>What You'll See</h2>
+    <div class="example-grid">
+      <div class="example-card">
+        <h3>📊 Net Pay</h3>
+        <p>Your take‑home amount per pay period</p>
+      </div>
+      <div class="example-card">
+        <h3>📈 Annual Net Pay</h3>
+        <p>Your total take‑home for the year</p>
+      </div>
+      <div class="example-card">
+        <h3>💰 Total Deductions</h3>
+        <p>Deductions per pay period</p>
+      </div>
+      <div class="example-card">
+        <h3>📋 Breakdown</h3>
+        <p>Each deduction with rates and amounts</p>
+      </div>
+      <div class="example-card">
+        <h3>📊 Charts</h3>
+        <p>Visual view of gross vs net</p>
+      </div>
+    </div>
+
+    <h3>Examples</h3>
+    <div class="example-grid">
+      <div class="example-card">
+        <h4>$75,000 Salary, 20% Tax, 6.2% SS, 1.45% Medicare, 5% Pension</h4>
+        <ul>
+          <li><strong>Net Pay:</strong> $1,942 (bi‑weekly)</li>
+          <li><strong>Annual Net:</strong> $50,513</li>
+          <li><strong>Net %:</strong> 67.4%</li>
+        </ul>
+      </div>
+      <div class="example-card">
+        <h4>$50,000 Salary, 15% Tax, 5% SS, 1% Medicare, 3% Pension</h4>
+        <ul>
+          <li><strong>Net Pay:</strong> $1,462 (bi‑weekly)</li>
+          <li><strong>Annual Net:</strong> $38,000</li>
+          <li><strong>Net %:</strong> 76%</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       FAQ
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block faq-section">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-list" >
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          1. What is bring home pay?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            <strong>Bring home pay</strong> (also called take home pay or net pay) is the amount you receive after all deductions are taken from your gross salary.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          2. How do I estimate my take home pay?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            Use this tool. Enter your gross salary, set your deduction rates, and you'll see your estimated net pay instantly.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          3. What deductions reduce my net pay?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            Common deductions include income tax, social security, health insurance, pension contributions, and other fixed deductions.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          4. What's the difference between gross and net pay?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            Gross pay is your total earnings before deductions. Net pay is what you actually take home after all deductions.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          5. Can I use this for any country?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            Yes. Adjust the deduction rates to match your local system. The tool supports 170+ currencies.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item"  >
+        <div class="faq-question" >
+          6. How accurate is this?
+        </div>
+        <div class="faq-answer" >
+          <div >
+            This tool provides accurate estimates based on your inputs. Actual deductions may vary by employer — always check your pay stub.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
