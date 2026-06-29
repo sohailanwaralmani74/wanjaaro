@@ -1,7 +1,7 @@
 ---
 layout: main
-title: "Free Developer Utilities — Formatter, Validator, Generator & More | DataFrog"
-description: "Format, validate, generate, encode, hash, and analyze data. Free online developer utilities: JSON formatter, UUID generator, Base64 encoder, JWT decoder, and more."
+title: "Free Developer Utilities — Formatter, Validator, Generator"
+description: "Format, validate, generate, encode, hash, and analyze data. Free online utilities: UUID, Base64, JWT, and more."
 keywords: "developer utilities, JSON formatter, UUID generator, Base64 encoder, JWT decoder, hash generator, SQL formatter, HTML beautifier, code generators"
 is_homepage: true
 is_catpage: true
@@ -119,9 +119,9 @@ is_catpage: true
     {"@type":"ListItem","position":3,"name":"HTML Beautifier","url":"https://datafrog.tools/html-beautifier"},
     {"@type":"ListItem","position":4,"name":"SQL Formatter","url":"https://datafrog.tools/sql-formatter"},
     {"@type":"ListItem","position":5,"name":"Analyze Excel","url":"https://datafrog.tools/analyze-excel"},
-    {"@type":"ListItem","position":6,"name":"Query CSV","url":"https://datafrog.tools/query-csv"},
-    {"@type":"ListItem","position":7,"name":"Query Excel","url":"https://datafrog.tools/query-excel"},
-    {"@type":"ListItem","position":8,"name":"SQLite Viewer","url":"https://datafrog.tools/sqlite-viewer"},
+    {"@type":"ListItem","position":6,"name":"Query CSV","url":"https://datafrog.tools/query-csv-online"},
+    {"@type":"ListItem","position":7,"name":"Query Excel","url":"https://datafrog.tools/query-excel-online"},
+    {"@type":"ListItem","position":8,"name":"SQLite Viewer","url":"https://datafrog.tools/sqlite-viewer-online"},
     {"@type":"ListItem","position":9,"name":"Remove Duplicates in SQL","url":"https://datafrog.tools/remove-duplicates-in-sql"},
     {"@type":"ListItem","position":10,"name":"Remove CSV Duplicates","url":"https://datafrog.tools/remove-csv-duplicates"},
     {"@type":"ListItem","position":11,"name":"Remove Excel Duplicates","url":"https://datafrog.tools/remove-excel-duplicates"},
@@ -244,17 +244,17 @@ is_catpage: true
   <div class="cat-block" data-category="query">
     <h2 class="cat-block-title"><span class="cat-icon">🔍</span> Query Tools</h2>
     <div class="tools-grid">
-      <a class="tool-card" href="/query-csv" data-cat="query" data-tags="query csv sql search filter">
+      <a class="tool-card" href="/query-csv-online" data-cat="query" data-tags="query csv sql search filter">
         <span class="tool-card-title">Query CSV</span>
         <span class="tool-card-desc">Run SQL‑like queries on CSV files. Filter, aggregate, and transform data without writing code.</span>
         <span class="tool-card-tag">Query Tools</span>
       </a>
-      <a class="tool-card" href="/query-excel" data-cat="query" data-tags="query excel sql search filter">
+      <a class="tool-card" href="/query-excel-online" data-cat="query" data-tags="query excel sql search filter">
         <span class="tool-card-title">Query Excel</span>
         <span class="tool-card-desc">Run SQL‑like queries on Excel spreadsheets. Filter, group, and analyze data instantly.</span>
         <span class="tool-card-tag">Query Tools</span>
       </a>
-      <a class="tool-card" href="/sqlite-viewer" data-cat="query" data-tags="sqlite viewer database query browse">
+      <a class="tool-card" href="/sqlite-viewer-online" data-cat="query" data-tags="sqlite viewer database query browse">
         <span class="tool-card-title">SQLite Viewer</span>
         <span class="tool-card-desc">View and query SQLite databases directly in your browser. Browse tables and run SQL queries.</span>
         <span class="tool-card-tag">Query Tools</span>

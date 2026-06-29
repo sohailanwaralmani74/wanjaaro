@@ -504,14 +504,6 @@
   url: /fire-calculator
   category: budget
 
-- title: "Coast FIRE Calculator"
-  url: /coast-fire-calculator
-  category: budget
-
-- title: "Barista FIRE Calculator"
-  url: /barista-fire-calculator
-  category: budget
-
 - title: "Retirement Calculator"
   url: /retirement-calculator
   category: budget
@@ -529,7 +521,7 @@
   category: tax
 
 - title: "Take Home Pay Calculator"
-  url: /take-home-pay-calculator
+  url: /bring-home-pay-calculator
   category: tax
 
 - title: "Hourly to Salary Calculator"

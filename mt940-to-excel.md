@@ -1,7 +1,7 @@
 ---
 layout: main
-title: "MT940 to Excel Converter – Free, Secure & Browser‑Based | DataFrog"
-description: "Convert MT940 bank statements to Excel (.xlsx) instantly. No upload, no sign‑up. Fully client‑side."
+title: "MT940 to Excel Converter – Free, Secure & Browser‑Based"
+description: "Convert MT940 bank statements to Excel (.xlsx) instantly. No upload, no sign‑up. Fully client‑side. Preview and convert MT940"
 keywords: "mt940 to excel, convert mt940 to excel, mt940 excel converter, mt940 to xlsx, bank statement to excel"
 category: mt940Finance
 ---

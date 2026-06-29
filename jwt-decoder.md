@@ -2,7 +2,8 @@
 layout: main
 title: "JWT Decoder - Browser Based , Secure, and Private Tool"
 description: "Free online tools to decode, parse, and verify JWT tokens. Fast and secure. JWT Decoder works within browser. No code uploaded to server."
-keywords: "jwt decoder, jwt token decode, decode jwt, decodejwt, jwt token decrypt, jwt parser, jwt decode online, token decode, decode jwt token, jwt token decode online, decode token, bearer token decode, parse jwt, parse jwt token, jwt decrypt, decode bearer token, decode jwt token online, json web token decode online, jwt decode npm, jwt io decode, jwt online decode, online jwt decode, decode token online, read jwt token, access token decode"
+keywords: "jwt decoder, jwt token decode, decode jwt, decodejwt, jwt token decrypt, jwt parser, jwt decode online, token decode, decode jwt token, jwt token decode online, decode token, bearer token decode, parse jwt, parse jwt token, jwt decrypt"
+category: utilities
 ---
 
 <style>

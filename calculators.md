@@ -1,7 +1,7 @@
 ---
 layout: main
-title: "Free Online Financial Calculators — Loans, Investing, Tax & Wealth | DataFrog"
-description: "Calculate loans, EMIs, compound interest, investment returns, taxes, and retirement planning. Free online financial calculators for banking, investing, and personal finance."
+title: "Free Online Financial Calculators — Loans, Investing, & Tax"
+description: "Calculate loans, EMIs, compound interest, investment returns, taxes, and retirement planning. Free online financial calculators."
 keywords: "free financial calculators, loan calculator, EMI calculator, compound interest calculator, tax calculator, retirement calculator, investment calculator, ROI calculator"
 is_homepage: true
 is_catpage: true
@@ -139,7 +139,7 @@ is_catpage: true
     {"@type":"ListItem","position":23,"name":"Retirement Calculator","url":"https://datafrog.tools/retirement-calculator"},
     {"@type":"ListItem","position":24,"name":"Income Tax Calculator","url":"https://datafrog.tools/income-tax-calculator"},
     {"@type":"ListItem","position":25,"name":"Salary Calculator","url":"https://datafrog.tools/salary-calculator"},
-    {"@type":"ListItem","position":26,"name":"Take Home Pay Calculator","url":"https://datafrog.tools/take-home-pay-calculator"},
+    {"@type":"ListItem","position":26,"name":"Take Home Pay Calculator","url":"https://datafrog.tools/bring-home-pay-calculator"},
     {"@type":"ListItem","position":27,"name":"Hourly to Salary Calculator","url":"https://datafrog.tools/hourly-to-salary-calculator"},
     {"@type":"ListItem","position":28,"name":"Tax Bracket Calculator","url":"https://datafrog.tools/tax-bracket-calculator"},
     {"@type":"ListItem","position":29,"name":"Capital Gains Calculator","url":"https://datafrog.tools/capital-gains-calculator"}
@@ -343,7 +343,7 @@ is_catpage: true
         <span class="tool-card-desc">Convert gross salary to net take-home pay. Factor in taxes, deductions, and contributions.</span>
         <span class="tool-card-tag">Tax &amp; Income</span>
       </a>
-      <a class="tool-card" href="/take-home-pay-calculator" data-cat="tax" data-tags="take home pay after tax deductions net income">
+      <a class="tool-card" href="/bring-home-pay-calculator" data-cat="tax" data-tags="take home pay after tax deductions net income">
         <span class="tool-card-title">Take Home Pay Calculator</span>
         <span class="tool-card-desc">Calculate your after-tax take-home pay. See exactly how much you bring home after deductions.</span>
         <span class="tool-card-tag">Tax &amp; Income</span>
