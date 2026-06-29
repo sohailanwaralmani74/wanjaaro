@@ -1,7 +1,7 @@
 ---
 layout: main
 title: "Query Excel Online – Filter & Explore Excel Files in Your Browser | DataFrog"
-description: "Upload and query Excel files (.xlsx, .xls) online. Browse sheets, view schema, filter rows with simple WHERE conditions, export results. 100% client‑side, no data upload."
+description: "Upload and query Excel files (.xlsx, .xls) online. Browse sheets, view schema, filter rows with simple WHERE conditions. 100% client‑side, no data upload."
 keywords: "query excel online, excel query tool, filter excel online, excel explorer, excel data viewer, excel to filtered csv"
 category: queryTools
 ---

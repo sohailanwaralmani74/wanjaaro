@@ -1,7 +1,7 @@
 ---
 layout: main
 title: "SQLite Viewer – Online Database Browser & Query Tool | DataFrog"
-description: "View and query SQLite databases online. Upload .db, .sqlite, .sqlite3 files – browse tables in a scrollable left pane, view schema in Table Data tab, run SQL queries in Query tab. 100% client‑side, no data upload."
+description: "View and query SQLite databases online. Upload .db, .sqlite, .sqlite3 files – browse tables. View schema and run SQL queries in Query tab."
 keywords: "sqlite viewer, sqlite browser, sqlite query tool, online sqlite viewer, sqlite database viewer, sqlite to csv, sqlite to excel"
 category: queryTools
 ---

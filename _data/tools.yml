@@ -253,7 +253,7 @@
 # ------- blog posts ------
 - title: "How to Convert Excel to JSON"
   url: /how-to-convert-excel-to-json
-  category: excelblog
+  category: jsonblog
   type: blog
 
 - title: "How to Convert JSON to CSV"
