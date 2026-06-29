@@ -376,11 +376,11 @@
 
 - title: "MT942 to CSV"
   url: /mt942-to-csv
-  category: mt942Finance
+  category: mt940Finance
 
 - title: "MT942 to Excel"
   url: /mt942-to-excel
-  category: mt942Finance
+  category: mt940Finance
 
 - title: "QFX to CSV"
   url: /qfx-to-csv

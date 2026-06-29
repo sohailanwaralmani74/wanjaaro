@@ -109,7 +109,7 @@ layout: default
       {% assign related_items = site.data.tools | where: "category", page.category | where: "type", "blog" %}
       {% assign count = 0 %}
       {% for item in related_items %}
-        {% if item.url != page.url and count < 5 %}
+        {% if item.url != page.url and count < 10 %}
           <a href="{{ item.url }}">{{ item.title }}</a>
           {% assign count = count | plus: 1 %}
         {% endif %}
