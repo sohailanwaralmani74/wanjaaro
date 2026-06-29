@@ -220,16 +220,16 @@ category: coding
 
 <!-- Microdata‑enriched content (place below the tool) -->
 <div> 
- <article id="json-to-java-content" itemscope itemtype="https://schema.org/TechArticle" style="margin:2rem;">
+ <article id="json-to-java-content"  style="margin:2rem;">
   <meta itemprop="about" content="Convert JSON to Java POJOs with Lombok, Jackson & validation" />
   <meta itemprop="accessibilityControl" content="fullKeyboardControl" />
   <meta itemprop="accessibilityFeature" content="syntaxHighlighting" />
   <!-- Main software application microdata -->
   <div itemscope itemtype="https://schema.org/SoftwareApplication" itemprop="mainEntity">
     <meta  content="JSON to Java Converter – DataFrog" />
-    <meta itemprop="operatingSystem" content="All" />
+    
     <meta itemprop="applicationCategory" content="DeveloperTool" />
-    <meta itemprop="offers" content="Free" />
+    
     <meta 
       content="Free online tool to convert JSON to Java POJOs with Lombok, Jackson, and validation annotations. Auto‑prettify, duplicate‑free types, ZIP export. 100% client‑side, no upload." />
   </div>

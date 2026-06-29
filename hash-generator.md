@@ -112,9 +112,9 @@ category: utilities
 <!-- Microdata‑enriched content (place below the tool) -->
 <article id="hash-tool-content" itemscope itemtype="https://schema.org/SoftwareApplication">
   <meta  content="Hash Generator – MD5, SHA‑1, SHA‑256, SHA‑512, SHA‑3" />
-  <meta itemprop="operatingSystem" content="All" />
-  <meta itemprop="applicationCategory" content="Utility" />
-  <meta itemprop="offers" content="Free" />
+  
+  
+  
 
   <section id="features">
     <h2>🔢 Why Use Our Online Hash Generator?</h2>

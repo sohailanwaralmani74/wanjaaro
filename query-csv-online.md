@@ -118,7 +118,7 @@ category: queryTools
 </script>
 
 <!-- HERO -->
-<div id="csv-hero" style="display:flex;flex-direction:column;justify-content:center;margin:1rem;">
+<div class="home-hero" style="display:flex;flex-direction:column;justify-content:center;margin:1rem;">
   <h1>Query CSV Online – Filter &amp; Explore CSV Files</h1>
   <p>
     Upload your CSV file and browse columns, preview data, or filter rows with simple WHERE conditions. No upload – 100% client‑side, private, and free.
@@ -218,7 +218,7 @@ category: queryTools
 </section>
 
 <!-- Content -->
-<article style="max-width:90%;margin:40px auto;padding:10px 20px;line-height:1.7;font-family:Arial,sans-serif;">
+<article class="onpage-content">
   <section id="why-use"><h2>Why use this CSV Query Tool?</h2><ul><li>Quickly browse and filter CSV data without Excel or database software</li><li>Write simple WHERE conditions to find exactly what you need</li><li>Export filtered results to CSV or Excel</li><li>No upload – your data stays secure</li></ul></section>
   <section id="how-it-works"><h2>How to use – 3 simple steps</h2><ol><li>Upload your .csv file</li><li>Browse columns and preview data in the Data tab</li><li>Switch to the Query tab, write a WHERE condition, and click Run</li></ol></section>
   <section id="features"><h2>Features</h2><ul><li>✅ 100% client‑side – no data leaves your device</li><li>✅ Auto‑detects CSV delimiters (comma, tab, semicolon)</li><li>✅ Column list with data types and sample values</li><li>✅ Data tab shows preview (first 100 rows)</li><li>✅ Query tab – filter rows with WHERE conditions</li><li>✅ Export results to CSV and Excel</li><li>✅ Free forever</li></ul></section>

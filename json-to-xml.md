@@ -67,7 +67,7 @@ category: json
 <div style="display: flex; flex-direction: row">
 <div style="width:98%;" style="margin-left: 2rem;">
 
-<article id="json-to-xml-content" itemscope itemtype="https://schema.org/TechArticle">
+<article id="json-to-xml-content" >
 
 
   <section>

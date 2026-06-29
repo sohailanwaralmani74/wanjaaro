@@ -152,7 +152,7 @@ category: coding
 <div id="toast-container" class="toast-container"></div>
 
 <!-- Microdata‑enriched content (place below the tool) -->
-<article id="json-to-typescript-content" itemscope itemtype="https://schema.org/TechArticle" style="margin : 4rem;">
+<article id="json-to-typescript-content"  style="margin : 4rem;">
   <meta itemprop="about" content="Convert JSON to TypeScript interfaces or classes" />
   <meta itemprop="accessibilityControl" content="fullKeyboardControl" />
   <meta itemprop="accessibilityFeature" content="syntaxHighlighting" />
@@ -160,9 +160,9 @@ category: coding
   <!-- Main software application microdata -->
   <div itemscope itemtype="https://schema.org/SoftwareApplication" itemprop="mainEntity">
     <meta  content="JSON to TypeScript Converter – DataFrog" />
-    <meta itemprop="operatingSystem" content="All" />
+    
     <meta itemprop="applicationCategory" content="DeveloperTool" />
-    <meta itemprop="offers" content="Free" />
+    
     <meta  content="Free online tool to convert JSON to TypeScript interfaces or classes. Auto‑prettify, duplicate‑free types, ZIP export. 100% client‑side, no upload." />
   </div>
 

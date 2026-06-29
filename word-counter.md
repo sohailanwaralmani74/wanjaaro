@@ -281,7 +281,7 @@ pre{background:#0f172a;color:#e2e8f0;border-radius:var(--radius);padding:20px 24
   </div>
 </div>
 
-<section id="word-counter-tool" aria-label="Advanced Word Counter Tool" style="display:flex;justify-content:center" itemscope itemtype="https://schema.org/WebPage">
+<section id="word-counter-tool" aria-label="Advanced Word Counter Tool" style="display:flex;justify-content:center" >
 <div style="width:98%;">
 
 <div class="word-wrap">
@@ -369,7 +369,7 @@ pre{background:#0f172a;color:#e2e8f0;border-radius:var(--radius);padding:20px 24
 <!-- ================================================================
   CONTENT BLOCKS
 ================================================================ -->
-<article style="max-width:900px;margin:40px auto;padding:10px 20px;line-height:1.7;font-family:Arial,sans-serif;">
+<article class="onpage-content">
 
   <section id="why-use-word-counter">
     <h2 style="margin-top:30px;">Why use an advanced word counter?</h2>

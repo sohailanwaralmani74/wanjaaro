@@ -3,7 +3,8 @@ layout: main
 title: "How to Generate UUID or GUID with Datafrog"
 description: "Generate UUID online instantly — UUID v1, v4, or v7. Free browser-based tool, no signup, no uploads. Understand and pick the right version."
 keywords: "uuid generator, random uuid, uuid v4, generate uuid online, online uuid generator, get uuid, create a uuid, make uuid, uuid gen, uuid4 generator, uuid example, generate random uuid, generate uuid v4, get random uuid"
-category: utilities
+category: jsonblog
+type: blog
 ---
 
 <style>
@@ -97,6 +98,7 @@ p {
 <div style="display: flex; justify-content: center; margin-top: 1.5rem;">
 <div style="width:99%; margin-left: 3rem;">
 
+<section class="home-hero" aria-labelledby="intro-heading">
 <h1 id="intro-heading" itemprop="headline">How To Generate UUID Online | Datafrog</h1>
 
 <blockquote>
@@ -104,7 +106,7 @@ p {
     Click here to create UUID, GUID, Nano ID, KSUID, ULID, CUID, and more.
   </a>
 </blockquote>
-<section class="blog-intro" aria-labelledby="intro-heading">
+
   <p >
     Every serious application — whether it's a SaaS product, a mobile app, or a distributed microservice — needs a reliable way to identify records uniquely. That's exactly what a UUID does. Short for Universally Unique Identifier, a UUID is a 128-bit value that your system can generate independently, on any machine, at any time, without ever checking with a central server. No collisions. No coordination. Just a unique ID, every single time.
   </p>
@@ -421,7 +423,7 @@ string idString = id.ToString(); // "550e8400-e29b-41d4-a716-446655440000"</code
 
 </section>
 
-</div>S
+</div>
 </div>
 
 </div><!-- closes itemscope Article -->

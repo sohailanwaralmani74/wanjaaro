@@ -54,9 +54,9 @@ category: csv
   </div>
 </div>
 
-<article itemscope itemtype="https://schema.org/TechArticle">
+<article >
 
-<section id="tool-content">
+<section class="onpage-content">
 
   <section id="why-use">
     <h2>Why convert CSV to SQL?</h2>

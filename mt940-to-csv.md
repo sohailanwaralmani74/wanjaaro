@@ -190,7 +190,7 @@ category: mt940Finance
 </section>
 
 <!-- ===== CONTENT ===== -->
-<article style="max-width:90%;margin:40px auto;padding:10px 20px;line-height:1.7;font-family:Arial,sans-serif;">
+<article class="onpage-content">
   <section id="why-convert">
     <h2>Why convert MT940 to CSV?</h2>
     <ul>

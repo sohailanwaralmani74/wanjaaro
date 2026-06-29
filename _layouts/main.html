@@ -50,29 +50,38 @@ layout: default
 
 <nav class="breadcrumb" aria-label="breadcrumb">
   
+{% if page.is_homepage %}
+  {% comment %} Homepage: no breadcrumb at all {% endcomment %}
 
-  {% if page.is_catpage %}
-    {% comment %} On a category landing page: Home / Converters {% endcomment %}
-    <span class="current">Home/</span>
-    <span class="current" aria-current="page">{{ page.title }}</span>
+{% elsif page.is_catpage %}
+  {% comment %} Category landing page: Home / Converters {% endcomment %}
+  <a href="/">Home</a><span class="current">/</span>
+  <span class="current" aria-current="page">{{ page.title }}</span>
 
-  {% else %}
-    {% comment %} On a tool page: Home / Converters / Tool Name {% endcomment %}
-    {% assign current_tool = site.data.tools | where: "url", page.url | first %}
+{% else %}
+  {% assign current_tool = site.data.tools | where: "url", page.url | first %}
+
+  {% if current_tool %}
+    {% comment %} Tool or blog page found in tools.yml: Home / Category / Title {% endcomment %}
     {% assign cat = site.data.categories[current_tool.category] %}
 
+    <a href="/">Home</a><span class="current">/</span>
     {% if cat %}
-      <span class="current">Home/</span>
-      <a href="{{ cat.parent_url }}">{{ cat.parent }}</a>
+      <a href="{{ cat.parent_url }}">{{ cat.parent }}</a><span class="current">/</span>
     {% endif %}
-    <span class="current">/</span>
     <span class="current" aria-current="page">{{ current_tool.title }}</span>
+
+  {% else %}
+    {% comment %} Regular page not in tools.yml: Home / Page Title {% endcomment %}
+    <a href="/">Home</a><span class="current">/</span>
+    <span class="current" aria-current="page">{{ page.title }}</span>
   {% endif %}
+
+{% endif %}
 </nav>
 
 {% if page.is_homepage %}
 
-<!-- Homepage: no tool-grid, just render content full width -->
 <main id="content" role="main">
   {{ content }}
 </main>
@@ -92,21 +101,41 @@ layout: default
     <div class="sidebar-ad">
 
     </div>
+
+    {% if page.type == "blog" %}
+
+    <div class="sidebar-card">
+      <h4>📚 Learn More</h4>
+      {% assign related_items = site.data.tools | where: "category", page.category | where: "type", "blog" %}
+      {% assign count = 0 %}
+      {% for item in related_items %}
+        {% if item.url != page.url and count < 5 %}
+          <a href="{{ item.url }}">{{ item.title }}</a>
+          {% assign count = count | plus: 1 %}
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    {% else %}
+
     <div class="sidebar-card">
       <h4>🔗 Related Tools</h4>
-      {% assign related_tools = site.data.tools | where: "category", page.category %}
+      {% assign related_items = site.data.tools | where: "category", page.category %}
       {% assign count = 0 %}
-      {% for tool in related_tools %}
-      {% if tool.url != page.url and count < 10 %} <a href="{{ tool.url }}">{{ tool.title }}</a>
-        {% assign count = count | plus: 1 %}
+      {% for item in related_items %}
+        {% if item.url != page.url and item.type != "blog" and count < 10 %}
+          <a href="{{ item.url }}">{{ item.title }}</a>
+          {% assign count = count | plus: 1 %}
         {% endif %}
-        {% endfor %}
+      {% endfor %}
     </div>
+
+    {% endif %}
+
   </div>
 </div>
 
 {% endif %}
-
 <script>
   (function () {
     const hamburger = document.getElementById('hamburger');

@@ -9,12 +9,14 @@ category: csv
 <section style="display: flex; justify-content: center">
 
 <div style="width: 98%;">
+<div class="home-hero">
   <h1>Convert CSV to XML Online – Free, Fast & Private</h1>
 
   <p id="intro" style="font-size:14px;color:#333;">
     Convert CSV to XML online in seconds – completely free, no signup. This browser‑based tool turns any CSV file into a clean, hierarchical XML document. 
     The first row becomes your XML element names, and each subsequent row becomes a structured node. Ideal for APIs, data exchange, legacy system integration, and XML feeds.
   </p>
+  </div>
 <div class="csvx-container">
   <div class="csvx-panel" id="csvPanelXml">
     <div class="panel-header">
@@ -55,7 +57,7 @@ category: csv
   </div>
 </div>
  
- <article id="csv-to-xml-tool">
+ <article class="onpage-content">
 
   <section id="when-to-use">
     <h2>Why convert CSV to XML?</h2>

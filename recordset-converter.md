@@ -3,7 +3,7 @@ layout: main
 title: "Recordset Converter – Recordset to XML, JSON, CSV, Excel, PDF, HTML"
 description: "Free online Recordset Converter. Parse CSV, JSON, XML, DAT, REC files – convert to XML, JSON, CSV, Excel,PDF, or HTML instantly. "
 keywords: "recordset converter, recordset to xml, recordset to json, recordset to csv, recordset to excel, recordset to pdf, recordset to html, online recordset parser, multi format converter, data transformation tool"
-category: others
+category: utilities
 ---
 <script src="https://cdn.sheetjs.com/xlsx-0.20.2/package/dist/xlsx.full.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -188,16 +188,11 @@ category: others
 <div style="display: flex; justify-content: center;">
 
   <div style="width:98%;" style="margin-left: 2rem;">
-    <section itemscope itemtype="https://schema.org/SoftwareApplication" aria-labelledby="recordset-heading">
-      <meta  content="Recordset Converter Suite" />
-      <meta itemprop="applicationCategory" content="UtilityApplication" />
-      <meta itemprop="operatingSystem" content="Web Browser" />
-      <meta itemprop="offers" content="Free" />
-      <meta itemprop="isFamilyFriendly" content="true" />
+    <section class="home-hero" aria-labelledby="recordset-heading">
 
       <h1 id="recordset-heading" >Recordset Converter – Convert Any Data Format Instantly</h1>
 
-      <p itemprop="abstract">
+      <p>
         <strong>Free, browser‑based Recordset Converter</strong> that parses <strong>JSON, CSV, XML, DAT, REC, and
           custom delimited files</strong> into clean, validated recordsets. Then convert to <strong>XML, JSON, CSV,
           Excel (XLSX), PDF, or HTML</strong>. No file uploads, no server processing – your data stays private.
@@ -240,9 +235,9 @@ category: others
     <!-- ========== SEO & AI BOOSTER CONTENT (below the tool) ========== -->
     <div style="padding-left: 2rem;;" itemscope itemtype="https://schema.org/SoftwareApplication">
       <meta  content="Recordset Converter Suite" />
-      <meta itemprop="applicationCategory" content="UtilityApplication" />
+      
       <meta itemprop="operatingSystem" content="All (web browser)" />
-      <meta itemprop="offers" content="Free" />
+      
       <meta itemprop="isFamilyFriendly" content="true" />
 
       <section aria-labelledby="features-heading">

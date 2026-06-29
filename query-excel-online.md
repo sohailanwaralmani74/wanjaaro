@@ -218,7 +218,7 @@ category: queryTools
 </section>
 
 <!-- Content -->
-<article style="max-width:90%;margin:40px auto;padding:10px 20px;line-height:1.7;font-family:Arial,sans-serif;">
+<article class="onpage-content">
   <section id="why-use"><h2>Why use this Excel Query Tool?</h2><ul><li>Quickly browse Excel sheet schemas without opening Excel</li><li>Filter data with simple WHERE conditions</li><li>Export filtered results to CSV or Excel</li><li>No upload – your data stays secure</li></ul></section>
   <section id="how-it-works"><h2>How to use – 3 simple steps</h2><ol><li>Upload your Excel file (.xlsx, .xls, .xlsm)</li><li>Click a sheet in the left pane – its schema appears in the Schema tab</li><li>Switch to the Query tab, write a WHERE condition, and click Run</li></ol></section>
   <section id="features"><h2>Features</h2><ul><li>✅ 100% client‑side – no data leaves your device</li><li>✅ Multi‑sheet support – each sheet is a table</li><li>✅ Sheet list in scrollable left pane</li><li>✅ Schema tab shows columns, types, sample values – NO data rows</li><li>✅ Query tab – filter rows with WHERE conditions</li><li>✅ Export results to CSV and Excel</li><li>✅ Free forever</li></ul></section>

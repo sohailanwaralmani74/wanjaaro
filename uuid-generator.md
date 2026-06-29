@@ -48,7 +48,7 @@ category: utilities
     <div id="toastUUID" class="jsonx-toast" style="background: #1e293b; backdrop-filter: blur(16px);  color: #e0f2fe; padding: 12px 22px; border-radius: 60px; font-size: 0.85rem; border-left: 4px solid #2dd4bf; animation: slideIn 0.2s ease;">✅ IDs generated successfully</div>
 
 
-  <article style="max-width:900px;margin:40px auto;padding:10px 20px;line-height:1.7;font-family:Arial,sans-serif;">
+  <article class="onpage-content">
 
   <section id="why-use-generator">
     <h2 style="margin-top:30px;">Why use a UUID / unique ID generator?</h2>

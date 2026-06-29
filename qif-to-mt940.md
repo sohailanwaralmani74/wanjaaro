@@ -190,7 +190,7 @@ category: qifFinance
 </section>
 
 <!-- Content -->
-<article style="max-width:90%;margin:40px auto;padding:10px 20px;line-height:1.7;font-family:Arial,sans-serif;">
+<article class="onpage-content">
   <section id="why-convert"><h2>Why convert QIF to MT940?</h2><ul><li>Import Quicken data into bank‑grade systems</li><li>Use with treasury management or ERP platforms</li><li>Standardised format for financial reporting</li></ul></section>
   <section id="how-it-works"><h2>How to convert – 3 simple steps</h2><ol><li>Upload your .qif file</li><li>Click Convert</li><li>Copy or download the .mt940</li></ol></section>
   <section id="features"><h2>Features</h2><ul><li>✅ Privacy first – everything stays local</li><li>✅ Parses all QIF transactions</li><li>✅ Generates valid MT940 with :61: and :86: tags</li><li>✅ Free forever</li></ul></section>

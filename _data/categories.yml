@@ -25,3 +25,5 @@ investing:    { parent: "Calculator", parent_url: "/calculators" }
 loans:        { parent: "Calculator", parent_url: "/calculators" }
 budget:       { parent: "Calculator", parent_url: "/calculators" }
 tax:          { parent: "Calculator", parent_url: "/calculators" }
+
+jsonblog:          { parent: "Blog", parent_url: "/blog" }

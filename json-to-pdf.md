@@ -64,8 +64,8 @@ category: json
 
 
 <div style="display: flex; flex-direction: row">
-<article itemscope itemtype="https://schema.org/TechArticle">
-<section id="tool-content" style="max-width:900px;margin:40px auto;padding:10px 20px;line-height:1.7;font-family:Arial,sans-serif;">
+<article >
+<section class="onpage-content" style="max-width:900px;margin:40px auto;padding:10px 20px;line-height:1.7;font-family:Arial,sans-serif;">
 
 
   <h2 id="when-to-use" style="margin-top:30px;">Why convert JSON to PDF?</h2>

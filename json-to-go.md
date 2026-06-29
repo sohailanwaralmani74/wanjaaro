@@ -197,16 +197,16 @@ category: coding
 </script>
 
 <!-- Microdata‑enriched content -->
-<article id="json-to-go-content" itemscope itemtype="https://schema.org/TechArticle" style="margin : 2rem;">
+<article id="json-to-go-content"  style="margin : 2rem;">
   <meta itemprop="about" content="Convert JSON to Go structs with json tags" />
   <meta itemprop="accessibilityControl" content="fullKeyboardControl" />
   <meta itemprop="accessibilityFeature" content="syntaxHighlighting" />
 
   <div itemscope itemtype="https://schema.org/SoftwareApplication" itemprop="mainEntity">
     <meta  content="JSON to Go Converter – DataFrog" />
-    <meta itemprop="operatingSystem" content="All" />
+    
     <meta itemprop="applicationCategory" content="DeveloperTool" />
-    <meta itemprop="offers" content="Free" />
+    
     <meta  content="Free online tool to convert JSON to Go structs with json tags, omitempty, pointer types. Auto‑prettify, duplicate‑free types, ZIP export. 100% client‑side, no upload." />
   </div>
 

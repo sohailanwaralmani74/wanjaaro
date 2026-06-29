@@ -3,7 +3,8 @@ layout: main
 title: How to Convert JSON to PDF - Simple Step-by-Step Guide
 description: Discover the easiest methods to convert JSON to PDF using online tools, code libraries, and built-in utilities. Ideal for all users.
 keywords: Convert JSON to PDF, JSON to PDF, Online JSON to PDF Converter, JSON Converter, Data Conversion Tools, Export JSON to PDF
-category: json
+category: jsonblog
+type: blog
 ---
 <style>
 .blog-post-meta {

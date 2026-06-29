@@ -9,12 +9,14 @@ category: excel
 <!-- JSONView (depends on jQuery) -->
 <section style="display: flex; justify-content: center">
 
-<div style="width: 98%;">
+<div style="width: 99%;">
+<div class="home-hreo">
 <h1>Convert Excel to HTML Table – Free Online Converter</h1>
 
   <p id="intro" style="font-size:14px;color:#333;">
     Convert Excel to HTML table online in seconds – completely free, no signup. This browser‑based tool turns any Excel spreadsheet (.xlsx or .xls) into clean, semantic HTML table code. Perfect for embedding data into websites, building admin dashboards, creating reports, or sharing spreadsheet content in a web‑friendly format.
   </p>
+ </div> 
 <div class="csvx-container">
   <div class="csvx-panel" id="csvPanelHtml">
     <div class="panel-header">
@@ -55,7 +57,7 @@ category: excel
   </div>
 </div>
 
-<article style="max-width:900px;margin:40px auto;padding:10px 20px;line-height:1.7;font-family:Arial,sans-serif;">
+<article class="onpage-content">
 
   <section id="when-to-use">
     <h2>Why convert Excel to HTML table?</h2>

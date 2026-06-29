@@ -52,7 +52,7 @@ category: qifFinance
       </div>
     </div>  
 
-<article style="max-width:900px;margin:40px auto;padding:10px 20px;line-height:1.7;font-family:Arial,sans-serif;">
+<article class="onpage-content">
 
   <section id="why-convert-qif-to-csv">
     <h2 style="margin-top:30px;">Why convert QIF to CSV?</h2>

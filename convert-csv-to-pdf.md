@@ -50,7 +50,7 @@ category: csv
   </div>
 </div>
 
-<article itemscope itemtype="https://schema.org/TechArticle">
+<article >
 
   <section id="why-use">
     <h2>Why convert CSV to PDF?</h2>

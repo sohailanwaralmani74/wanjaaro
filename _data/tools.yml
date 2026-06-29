@@ -254,26 +254,32 @@
 - title: "How to Convert Excel to JSON"
   url: /how-to-convert-excel-to-json
   category: excelblog
+  type: blog
 
 - title: "How to Convert JSON to CSV"
   url: /how-to-convert-json-to-csv
   category: jsonblog
+  type: blog
 
 - title: "How to Convert JSON to PDF"
   url: /how-to-convert-json-to-pdf
   category: jsonblog
+  type: blog
 
 - title: "How to Convert JSON to XML"
   url: /how-to-convert-json-to-xml
   category: jsonblog
+  type: blog
 
 - title: "How to Open JSON File in Excel"
   url: /how-to-open-json-file-in-excel
   category: jsonblog
+  type: blog
 
 - title: "How To Generate UUID Online"
   url: /how-to-generate-uuid
-  category: datageneration 
+  category: jsonblog
+  type: blog
 
 # ------- finance tools ------
 - title: "MT940 to Excel"

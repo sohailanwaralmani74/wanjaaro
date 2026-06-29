@@ -191,7 +191,7 @@ p{
   </div>
 </div>
 
-<article id="tool-content" style="max-width:900px;margin:40px auto;padding:10px 20px;line-height:1.7;font-family:Arial,sans-serif;">
+<article class="onpage-content" style="max-width:900px;margin:40px auto;padding:10px 20px;line-height:1.7;font-family:Arial,sans-serif;">
 
 
   <section aria-labelledby="when-to-use">

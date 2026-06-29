@@ -191,7 +191,7 @@ category: qboFinance
 </section>
 
 <!-- Content (shortened) -->
-<article style="max-width:90%;margin:40px auto;padding:10px 20px;line-height:1.7;font-family:Arial,sans-serif;">
+<article class="onpage-content">
   <section id="why-convert"><h2>Why convert QBO to QIF?</h2><ul><li>Migrate QuickBooks data to Quicken, GnuCash, or other QIF apps</li><li>Combine transactions from different sources</li><li>Standard format for personal finance software</li></ul></section>
   <section id="how-it-works"><h2>How to convert – 3 simple steps</h2><ol><li>Upload your .qbo file</li><li>Click Convert</li><li>Copy or download the .qif</li></ol></section>
   <section id="features"><h2>Features</h2><ul><li>✅ Privacy first – everything stays local</li><li>✅ Parses QBO transactions accurately</li><li>✅ Generates clean QIF with D, T, P, M lines</li><li>✅ Free forever</li></ul></section>

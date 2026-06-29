@@ -3,7 +3,7 @@ layout: main
 title: "YAML to JSON Converter Online – Free, Fast & Private | DataFrog"
 description: "Free online YAML to JSON converter. Convert YAML to JSON instantly in your browser. No upload, no signup. Preserves nested structures."
 keywords: "yaml to json online free, convert yaml to json, yaml to json converter, yaml to json without upload, browser based yaml to json, free yaml to json tool, yaml to json config"
-category: others
+category: utilities
 ---
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -62,7 +62,7 @@ category: others
 
 <div id="toastYaml" class="jsonx-toast">✅ Conversion Successful!</div>
 
-<article style="max-width:900px;margin:40px auto;padding:10px 20px;line-height:1.7;font-family:Arial,sans-serif;">
+<article class="onpage-content">
 
   <section id="when-to-use-section">
     <h2 id="when-to-use" style="margin-top:30px;">Why convert YAML to JSON?</h2>

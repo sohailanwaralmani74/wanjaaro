@@ -71,7 +71,7 @@ category: json
 <!-- Toast -->
 <div id="toastJson" class="jsonx-toast">✅ CSV ready – copy or download below</div>
 <div style="display: flex; flex-direction: row">
-<article id="tool-content" style="max-width:900px;margin:40px auto;padding:10px 20px;line-height:1.7;font-family:Arial,sans-serif;">
+<article class="onpage-content" style="max-width:900px;margin:40px auto;padding:10px 20px;line-height:1.7;font-family:Arial,sans-serif;">
 
 
 

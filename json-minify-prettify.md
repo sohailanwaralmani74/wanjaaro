@@ -148,7 +148,7 @@ category: formatter
   </div>  
  <div id="toast-container" class="toast-container"></div>
  
- <article id="json-tool-content" style="margin-left: 3rem;" itemscope itemtype="https://schema.org/TechArticle">
+ <article id="json-tool-content" style="margin-left: 3rem;" >
   <meta itemprop="about" content="JSON formatting tool for developers" />
   <meta itemprop="accessibilityControl" content="fullKeyboardControl" />
   <meta itemprop="accessibilityFeature" content="syntaxHighlighting" />
@@ -156,9 +156,9 @@ category: formatter
   <!-- Main software application microdata -->
   <div itemscope itemtype="https://schema.org/SoftwareApplication" itemprop="mainEntity">
     <meta  content="JSON Minify / Prettify – Online JSON Editor" />
-    <meta itemprop="operatingSystem" content="All" />
+    
     <meta itemprop="applicationCategory" content="DeveloperTool" />
-    <meta itemprop="offers" content="Free" />
+    
     <meta  content="Free online tool to prettify, minify, and edit JSON with syntax highlighting. 100% client‑side, no upload." />
   </div>
 

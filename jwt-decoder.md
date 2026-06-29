@@ -343,7 +343,7 @@ category: utilities
       <span class="badge">✓ Free Forever</span>
     </div>
 </div>
-<div id="jwt-decoder" aria-label="JWT Decoder Tool " itemscope itemtype="https://schema.org/WebPage">
+<div id="jwt-decoder" aria-label="JWT Decoder Tool " >
     
 
 <div class="jwt-wrap">
@@ -486,7 +486,7 @@ category: utilities
   </article>
  
   <!-- ══ STANDARD CLAIMS ══ -->
-  <article style="margin:2rem;">
+  <article class="onpage-content">
     <h2>Standard JWT Claims Explained</h2>
     <p>When you decode a JWT token, the payload contains <em>claims</em>. Here are the registered claims
     defined by <a href="https://datatracker.ietf.org/doc/html/rfc7519" rel="noopener noreferrer" target="_blank">RFC 7519</a>
@@ -551,7 +551,7 @@ category: utilities
   </article>
  
   <!-- ══ DECODE vs DECRYPT ══ -->
-  <article style="margin:2rem;">
+  <article class="onpage-content">
     <h2>JWT Decode vs JWT Decrypt — What Is the Difference?</h2>
  
     <p>This is the question developers ask most often, and the confusion is completely understandable.
@@ -590,7 +590,7 @@ category: utilities
   </article>
  
   <!-- ══ CODE EXAMPLES ══ -->
-  <article style="margin:2rem;">
+  <article class="onpage-content">
     <h2>How to Decode a JWT in Code — Language Examples</h2>
     <p>Our online JWT parser is the quickest way to inspect a token, but sometimes you need to decode
     a JWT programmatically inside your application. Here are concise examples for the most popular languages.</p>
@@ -680,7 +680,7 @@ $decoded = JWT::<span class="c-fn">decode</span>(
   </article>
  
   <!-- ══ ALGORITHMS ══ -->
-  <article style="margin:2rem;">
+  <article class="onpage-content">
     <h2>Supported JWT Algorithms</h2>
     <p>This JWT decoder works with tokens signed by any algorithm. Here is a quick reference for what
     you will see in the <code>alg</code> field of the decoded header:</p>
@@ -704,7 +704,7 @@ $decoded = JWT::<span class="c-fn">decode</span>(
   </article>
  
   <!-- ══ SECURITY ══ -->
-  <article style="margin:2rem;">
+  <article class="onpage-content">
     <h2>Is It Safe to Decode a JWT Online?</h2>
  
     <p>Security-conscious developers rightly ask this question before pasting anything into a third-party

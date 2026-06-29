@@ -282,7 +282,7 @@ details[open] .faq-chevron{transform:rotate(90deg)}
   </div>
 </div>
 
-<section id="url-decoder-tool" aria-label="URL Decoder Tool" style="display:flex;justify-content:center" itemscope itemtype="https://schema.org/WebPage">
+<section id="url-decoder-tool" aria-label="URL Decoder Tool" style="display:flex;justify-content:center" >
 <div style="width:98%;">
 
 <div class="url-wrap">
@@ -403,7 +403,7 @@ details[open] .faq-chevron{transform:rotate(90deg)}
 <!-- ================================================================
   CONTENT BLOCKS
 ================================================================ -->
-<article style="max-width:900px;margin:40px auto;padding:10px 20px;line-height:1.7;font-family:Arial,sans-serif;">
+<article class="onpage-content">
 
   <section id="why-decode-url">
     <h2 style="margin-top:30px;">Why decode URL-encoded strings?</h2>

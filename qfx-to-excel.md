@@ -184,7 +184,7 @@ category: qfxFinance
 </section>
 
 <!-- Content (shortened) -->
-<article style="max-width:90%;margin:40px auto;padding:10px 20px;line-height:1.7;font-family:Arial,sans-serif;">
+<article class="onpage-content">
   <section id="why-convert"><h2>Why convert QFX to Excel?</h2><ul><li>Analyse Quicken/bank transactions with pivot tables, charts, and filters</li><li>Combine with other data sources</li><li>Share with team members who don't have Quicken</li></ul></section>
   <section id="how-it-works"><h2>How to convert – 3 simple steps</h2><ol><li>Upload your .qfx file</li><li>Click Convert</li><li>Preview the table and download .xlsx</li></ol></section>
   <section id="features"><h2>Features</h2><ul><li>✅ Privacy first – everything stays local</li><li>✅ Parses OFX XML accurately</li><li>✅ Clean Excel output with formatting</li><li>✅ Free forever</li></ul></section>

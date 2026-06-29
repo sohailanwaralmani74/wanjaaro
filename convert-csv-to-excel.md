@@ -56,8 +56,8 @@ category: csv
   </div>
  </div>  
 
-<article itemscope itemtype="https://schema.org/TechArticle">
-<section id="tool-content" style="max-width:900px;margin:40px auto;padding:10px 20px;line-height:1.7;font-family:Arial,sans-serif;">
+<article >
+<section class="onpage-content" style="max-width:900px;margin:40px auto;padding:10px 20px;line-height:1.7;font-family:Arial,sans-serif;">
 
 
 

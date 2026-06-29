@@ -191,7 +191,7 @@ category: qboFinance
 </section>
 
 <!-- Content (shortened) -->
-<article style="max-width:90%;margin:40px auto;padding:10px 20px;line-height:1.7;font-family:Arial,sans-serif;">
+<article class="onpage-content">
   <section id="why-convert"><h2>Why convert QBO to MT940?</h2><ul><li>Import QuickBooks data into banking systems</li><li>Comply with SWIFT standards for electronic statements</li><li>Use with treasury management, ERP, or custom financial applications</li></ul></section>
   <section id="how-it-works"><h2>How to convert – 3 simple steps</h2><ol><li>Upload your .qbo file</li><li>Click Convert</li><li>Copy or download the .mt940</li></ol></section>
   <section id="features"><h2>Features</h2><ul><li>✅ Privacy first – everything stays local</li><li>✅ Parses QBO transactions accurately</li><li>✅ Generates valid MT940 with :61: and :86: tags</li><li>✅ Free forever</li></ul></section>

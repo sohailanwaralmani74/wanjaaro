@@ -116,7 +116,7 @@ category: csvFinance
 </script>
 
 <!-- HERO -->
-<div id="csv-hero" style="display:flex;flex-direction:column;justify-content:center;margin:1rem;">
+<div class="home-hero" style="display:flex;flex-direction:column;justify-content:center;margin:1rem;">
   <h1>CSV to QFX Converter – Turn Spreadsheets into OFX for Any Finance App</h1>
   <p>
     Convert CSV files to QFX (OFX) format instantly.
@@ -209,7 +209,7 @@ category: csvFinance
 </section>
 
 <!-- Content -->
-<article style="max-width:90%;margin:40px auto;padding:10px 20px;line-height:1.7;font-family:Arial,sans-serif;">
+<article class="onpage-content">
   <section id="why-convert"><h2>Why convert CSV to QFX?</h2><ul><li>Import spreadsheet‑based transactions into Quicken, Money, or OFX apps</li><li>Standard XML format for financial data exchange</li><li>Ideal for migrating data from legacy systems</li></ul></section>
   <section id="how-it-works"><h2>How to convert – 3 simple steps</h2><ol><li>Upload your .csv file</li><li>Map columns (auto‑detected, adjust if needed)</li><li>Click Convert, then copy or download the .qfx</li></ol></section>
   <section id="features"><h2>Features</h2><ul><li>✅ Privacy first – everything stays local</li><li>✅ Auto‑detects date, amount, payee, memo, check# columns</li><li>✅ Manual column mapping if needed</li><li>✅ Free forever</li></ul></section>

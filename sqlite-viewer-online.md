@@ -222,7 +222,7 @@ category: queryTools
 </section>
 
 <!-- Content -->
-<article style="max-width:90%;margin:40px auto;padding:10px 20px;line-height:1.7;font-family:Arial,sans-serif;">
+<article class="onpage-content">
   <section id="why-use"><h2>Why use this SQLite Viewer?</h2><ul><li>Quickly inspect SQLite database schemas without installing software</li><li>Run ad‑hoc queries to fetch exactly the data you need</li><li>Export query results to CSV or Excel for further analysis</li><li>No upload – your data stays secure</li></ul></section>
   <section id="how-it-works"><h2>How to use – 3 simple steps</h2><ol><li>Upload your .db / .sqlite / .sqlite3 file</li><li>Click a table in the left pane – its schema appears in the Table Data tab</li><li>Switch to the Query tab, write a SELECT query, and click Run</li></ol></section>
   <section id="features"><h2>Features</h2><ul><li>✅ 100% client‑side – no data leaves your device</li><li>✅ Supports all SQLite databases (sql.js backend)</li><li>✅ Table browser in scrollable left pane with white text</li><li>✅ Table Data tab shows schema only (columns, types, keys)</li><li>✅ Query & Results tab for custom SQL queries</li><li>✅ Export results to CSV and Excel</li><li>✅ Free forever</li></ul></section>

@@ -3,7 +3,8 @@ layout: main
 title: How to Convert JSON to CSV – Step-by-Step Guide
 description: Learn how to convert JSON files to CSV quickly and accurately. Follow our step-by-step guide for handling nested JSON and exporting clean CSV files.
 keywords: how to convert JSON to CSV, JSON to CSV guide, convert JSON file to CSV, online JSON to CSV, JSON to CSV step by step
-category: json
+category: jsonblog
+type: blog
 ---
 
 <style>

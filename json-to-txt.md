@@ -76,7 +76,7 @@ category: json
 
 <div id="toastJson" class="jsonx-toast">✅ Text ready – copy or download below</div>
 
-<article itemscope itemtype="https://schema.org/TechArticle">
+<article >
 <div style="display: flex; flex-direction: row">
 <div style="width:98%;" style="margin-left: 2rem;">
 <section aria-label="Output modes">
@@ -106,7 +106,7 @@ user.age = 30</code></pre>
   <pre><code>John
 30</code></pre>
 </section>
-<section id="tool-content" style="max-width:900px;margin:40px auto;padding:10px 20px;line-height:1.7;font-family:Arial,sans-serif;">
+<section class="onpage-content" style="max-width:900px;margin:40px auto;padding:10px 20px;line-height:1.7;font-family:Arial,sans-serif;">
 
   <h2 id="when-to-use" style="margin-top:30px;">Why convert JSON to plain text?</h2>
   <ul style="padding-left:20px;">

@@ -300,8 +300,8 @@ background-color: #66fcf1;
 </style>
 <div style="display: flex; flex-direction: row">
 
-<article itemscope itemtype="https://schema.org/TechArticle">
-<div id="tool-content" style=" padding:10px 20px;">
+<article >
+<div class="onpage-content" style=" padding:10px 20px;">
 
   <section aria-labelledby="when-to-use">
     <h2 id="when-to-use">Why convert JSON to Excel?</h2>

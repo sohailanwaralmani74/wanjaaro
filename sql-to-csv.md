@@ -74,7 +74,7 @@ category: sql
 <div id="df-sqlcsv-toast" class="jsonx-toast"></div>
 
 
-<article itemscope itemtype="https://schema.org/TechArticle">
+<article >
 <section id="toolPurposeSection">
 
   <h2 id="purposeTitle">Purpose of this tool</h2>
