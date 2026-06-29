@@ -1,6 +1,6 @@
 ---
 layout: main
-title: "Query CSV Online – Filter & Explore CSV Files in Your Browser | DataFrog"
+title: "Query CSV Online – Filter & Explore CSV Files"
 description: "Upload and query CSV files online. Browse columns, preview data, filter rows with simple WHERE conditions, export results. 100% client‑side, no data upload."
 keywords: "query csv online, csv query tool, filter csv online, csv explorer, csv data viewer, csv to filtered csv"
 category: queryTools
