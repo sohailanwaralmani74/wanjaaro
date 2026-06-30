@@ -148,12 +148,10 @@ category: coding
   }
 </style>
 
-<article id="intro" style="margin-left: 5rem; margin-right: 5rem;">
-<section>
+<section class="home-hero">
   <h1>JSON to Go Converter – Generate Go Structs with JSON Tags</h1>
   <p><strong>Convert any JSON into production‑ready Go structs</strong>. Choose JSON tag options (<code>omitempty</code>, <code>string</code>), pointer types for nullable fields, custom package name, and more. All code is generated client‑side – no upload, no server, 100% private.</p>
 </section>
-</article>
 
 <div class="json-to-go-container">
   <div class="toolbar">
@@ -197,20 +195,15 @@ category: coding
 </script>
 
 <!-- Microdata‑enriched content -->
-<article id="json-to-go-content"  style="margin : 2rem;">
-  <meta itemprop="about" content="Convert JSON to Go structs with json tags" />
-  <meta itemprop="accessibilityControl" content="fullKeyboardControl" />
-  <meta itemprop="accessibilityFeature" content="syntaxHighlighting" />
-
-  <div itemscope itemtype="https://schema.org/SoftwareApplication" itemprop="mainEntity">
-    <meta  content="JSON to Go Converter – DataFrog" />
-    
-    <meta itemprop="applicationCategory" content="DeveloperTool" />
-    
-    <meta  content="Free online tool to convert JSON to Go structs with json tags, omitempty, pointer types. Auto‑prettify, duplicate‑free types, ZIP export. 100% client‑side, no upload." />
+<article id="json-to-go-content" class="onpage-content">
+ <div class="blog-post-meta">
+     <a href="saeed-ahmed" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Saeed Ahmed" class="author-img">
+      <span class="author-name">Saeed Ahmed</span>
+      </a>
+      <span class="post-date">jan 10, 2026</span>
   </div>
-
-  <section id="go-features" itemscope itemtype="https://schema.org/ItemList">
+  <section id="go-features">
     <h2 >✨ Why Developers Choose This JSON → Go Generator</h2>
     <ul>
       <li itemprop="itemListElement"><strong>🚀 Instant conversion</strong> – Paste JSON, click Convert, get ready‑to‑use Go structs.</li>
@@ -228,17 +221,17 @@ category: coding
     <div itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
       <meta itemprop="position" content="1" />
       <h3 >1. Enter your JSON</h3>
-      <p >Paste JSON into the left editor, or click “Upload JSON” to load a file.</p>
+      <p>Paste JSON into the left editor, or click “Upload JSON” to load a file.</p>
     </div>
     <div itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
       <meta itemprop="position" content="2" />
       <h3 >2. Choose options</h3>
-      <p >Select JSON tag options: <strong>omitempty</strong>, <strong>string tag</strong> for numbers, <strong>pointers for nullable fields</strong>, and set a <strong>package name</strong>.</p>
+      <p>Select JSON tag options: <strong>omitempty</strong>, <strong>string tag</strong> for numbers, <strong>pointers for nullable fields</strong>, and set a <strong>package name</strong>.</p>
     </div>
     <div itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
       <meta itemprop="position" content="3" />
       <h3 >3. Convert & export</h3>
-      <p >Click <strong>Convert to Go</strong> – the right panel shows your Go code. Use <strong>Copy</strong> or <strong>Export ZIP</strong> to download a `models/` folder with each struct as a `.go` file.</p>
+      <p>Click <strong>Convert to Go</strong> – the right panel shows your Go code. Use <strong>Copy</strong> or <strong>Export ZIP</strong> to download a `models/` folder with each struct as a `.go` file.</p>
     </div>
   </section>
 
@@ -256,32 +249,32 @@ category: coding
     <h2>❓ Frequently Asked Questions About JSON to Go Conversion</h2>
     <div  >
       <h3 >Does this tool handle nested objects and arrays?</h3>
-      <div >
-        <div ><p>Yes. The converter recursively creates separate Go structs for nested objects. Arrays become slices; arrays of objects become slices of the appropriate struct type.</p></div>
+      <div>
+        <div><p>Yes. The converter recursively creates separate Go structs for nested objects. Arrays become slices; arrays of objects become slices of the appropriate struct type.</p></div>
       </div>
     </div>
     <div  >
       <h3 >What JSON tag options are available?</h3>
-      <div >
-        <div ><p>You can add <code>omitempty</code> to skip zero values during marshaling, and <code>,string</code> to force numeric fields to be encoded as JSON strings. Pointers can be used for nullable fields.</p></div>
+      <div>
+        <div><p>You can add <code>omitempty</code> to skip zero values during marshaling, and <code>,string</code> to force numeric fields to be encoded as JSON strings. Pointers can be used for nullable fields.</p></div>
       </div>
     </div>
     <div  >
       <h3 >Can I set a custom package name?</h3>
-      <div >
-        <div ><p>Yes – the “package name” text field lets you set any valid Go package identifier (default is `main`).</p></div>
+      <div>
+        <div><p>Yes – the “package name” text field lets you set any valid Go package identifier (default is `main`).</p></div>
       </div>
     </div>
     <div  >
       <h3 >Is my JSON data sent to any server?</h3>
-      <div >
-        <div ><p>Never. Everything runs locally in your browser – 100% client‑side.</p></div>
+      <div>
+        <div><p>Never. Everything runs locally in your browser – 100% client‑side.</p></div>
       </div>
     </div>
     <div  >
       <h3 >Can I export all structs as separate files?</h3>
-      <div >
-        <div ><p>Yes. Click Export ZIP to download a `models/` folder with each generated Go struct as a separate `.go` file.</p></div>
+      <div>
+        <div><p>Yes. Click Export ZIP to download a `models/` folder with each generated Go struct as a separate `.go` file.</p></div>
       </div>
     </div>
   </section>

@@ -6,16 +6,17 @@ keywords: "sql duplicate remover, remove duplicates from sql table, find duplica
 category: validator
 ---
 
-<section style="display: flex; justify-content: center">
+<section >
 
 <div style="width:98%;" style="margin-left: 2rem;">
+<div class="home-hero">
 <h1> Remove Duplicates In SQL Online - Free, Fast and Secure</h1>
   <p id="sql-duplicate-remover-intro">
     Remove duplicate rows from SQL data online without installing software.
     Upload SQL data, detect repeated records, preview duplicate rows,
     remove duplicates instantly, and download clean SQL or Excel files directly from your browser.
   </p>
-
+</div>
 <!-- CONTROLS -->
 <div class="sqlfx-controls-bar">
 
@@ -57,25 +58,32 @@ category: validator
 ></textarea>
 
 
-<article id="remove-sql-duplicates-tool">
+<article id="remove-sql-duplicates-tool" class="onpage-content">
 
-
+ <div class="blog-post-meta">
+     <a href="saeed-ahmed" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Saeed Ahmed" class="author-img">
+      <span class="author-name">Saeed Ahmed</span>
+      </a>
+      <span class="post-date">jan 10, 2026</span>
+  </div>
+  
   <p id="sql-duplicate-remover-privacy">
     This SQL duplicate remover processes data locally in your browser for better privacy and faster performance.
     Your SQL data is not uploaded or stored on external servers.
   </p>
-
+  
   <section id="how-to-remove-duplicates-from-sql">
 
     <h2>How To Remove Duplicates From SQL</h2>
 
-    <ol>
+    <ul>
       <li>Upload or paste SQL data</li>
       <li>Click the <strong>Check Duplicates</strong> button</li>
       <li>Preview duplicate rows detected in the dataset</li>
       <li>Click <strong>Remove Duplicates</strong></li>
       <li>Download the cleaned SQL or Excel file</li>
-    </ol>
+    </ul>
 
   </section>
 

@@ -11,7 +11,7 @@ category: json
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jsonview@1.2.0/dist/jquery.jsonview.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/jsonview@1.2.0/dist/jquery.jsonview.min.css" rel="stylesheet">
-<section> <h1>JSON to YAML Converter – Generate Clean YAML for Configs & DevOps</h1> 
+<section class="onpage-content"> <h1>JSON to YAML Converter – Generate Clean YAML for Configs & DevOps</h1> 
 <p id="intro" style="font-size:14px;color:#333;">
   <strong>YAML</strong> (YAML Ain't Markup Language) is a human-readable data 
   serialization format widely used for configuration files in DevOps tooling — 
@@ -72,10 +72,14 @@ category: json
 
 <div id="toastJson" class="jsonx-toast">✅ YAML ready – copy or download below</div>
 
-<div style="display: flex; flex-direction: row">
-<div style="width:98%;" style="margin-left: 2rem;">
-<article class="onpage-content" style="max-width:900px;margin:40px auto;padding:10px 20px;line-height:1.7;font-family:Arial,sans-serif;">
-
+<article class="onpage-content">
+ <div class="blog-post-meta">
+     <a href="sohail-anwar" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Sohail Anwar" class="author-img">
+      <span class="author-name">Sohail Anwar</span>
+      </a>
+      <span class="post-date">December 01, 2025</span>
+  </div>
   <section aria-labelledby="when-to-use">
     <h2 id="when-to-use">Why convert JSON to YAML?</h2>
     <ul>
@@ -113,11 +117,11 @@ category: json
 
   <section aria-labelledby="how-it-works">
     <h2 id="how-it-works">How to convert JSON to YAML – 3 simple steps</h2>
-    <ol>
+    <ul>
       <li><strong>Paste or upload JSON</strong> – copy your JSON into the editor or click "Upload JSON File" to load a .json file.</li>
       <li><strong>Validate and preview</strong> – the tool checks syntax and shows a collapsible tree view of your data.</li>
       <li><strong>Generate YAML</strong> – click "Convert to YAML", then copy the formatted YAML or download as a .yaml file.</li>
-    </ol>
+    </ul>
   </section>
 
   <section aria-labelledby="key-features">
@@ -201,20 +205,7 @@ category: json
     <p>Yes. You can convert JSON-formatted Kubernetes manifests or Helm chart values to YAML with a single click. Perfect for adapting API examples or generating kubectl-ready configs.</p>
   </section>
 
-  <section aria-labelledby="related-tools">
-    <h2 id="related-tools">Related Tools</h2>
-    <ul>
-      <li><a href="/yaml-to-json">YAML to JSON Converter</a> – convert YAML config files back to JSON format</li>
-      <li><a href="/json-to-xml">JSON to XML Converter</a> – transform JSON into XML for system integrations</li>
-      <li><a href="/json-string-to-json-object">JSON String to Object</a> – parse and validate JSON before converting</li>
-      <li><a href="/json-to-txt">JSON to TXT Converter</a> – extract plain text or flattened key-values from JSON</li>
-    </ul>
-  </section>
-
 </article>
-
-</div>
-</div>
 
 <script src="/assets/js/json-to-yaml.js"></script>
 <script type="application/ld+json">

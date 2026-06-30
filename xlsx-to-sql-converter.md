@@ -7,13 +7,15 @@ category: excel
 ---
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <!-- JSONView (depends on jQuery) -->
-<section style="display: flex; justify-content: center">
+<section >
 
-<div style="width: 98%;">
+<div>
+<div class="home-hero">
 <h1>XLSX to SQL Converter – Turn Excel into INSERT Statements Instantly</h1>
   <p id="intro" style="font-size:14px;color:#333;">
-    Convert Excel to SQL online in seconds – completely free, no signup. This browser‑based tool turns any XLSX or XLS file into standard SQL INSERT statements, ready for MySQL, PostgreSQL, SQL Server, and other relational databases. Preview and edit your data before generating the script – perfect for database seeding, data migration, and backend development.
+    Convert Excel to SQL online in seconds – completely free, no signup. This browser‑based tool turns any XLSX or XLS file into standard SQL INSERT statements, ready for MySQL, PostgreSQL, SQL Server, and other relational databases.
   </p>
+ </div> 
 <div class="csvx-container">
   <div class="csvx-panel" id="csvPanelSql">
     <div class="panel-header">
@@ -55,7 +57,13 @@ category: excel
 </div>
 
 <article class="onpage-content">
-
+ <div class="blog-post-meta">
+     <a href="sohail-anwar" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Sohail Anwar" class="author-img">
+      <span class="author-name">Sohail Anwar</span>
+      </a>
+      <span class="post-date">December 01, 2025</span>
+  </div>
   <section id="when-to-use">
     <h2 style="margin-top:30px;">Why convert Excel to SQL?</h2>
     <ul style="padding-left:20px;">
@@ -73,7 +81,7 @@ category: excel
       <li><strong>Upload your Excel file</strong> – click “Upload Excel File” and select any .xlsx or .xls file from your computer.</li>
       <li><strong>Preview and edit</strong> – see the parsed spreadsheet data in a table; the first row is used as column names. You can modify cells before conversion.</li>
       <li><strong>Generate SQL</strong> – click “Convert to SQL” to get INSERT statements. Copy or download the .sql file.</li>
-    </ol>
+    </ul>
   </section>
 
   <section id="key-features">

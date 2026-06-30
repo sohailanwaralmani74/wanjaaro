@@ -18,12 +18,8 @@ category: formatter
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.17/addon/lint/lint.min.css">
 
 
-<div  style="max-width: 1400px; margin: 0 auto 1.5rem auto;">
+<div class="home-hero">
     <h1 >SQL Formatter Online – Privacy First SQL Formatting</h1>
-    
-    <meta itemprop="operatingSystem" content="Web Browser">
-    <meta itemprop="offers" content="Free">
-    <meta itemprop="applicationSubCategory" content="Database Tool">
     <div  style="font-size: 1.1rem; line-height: 1.4; color: #cbd5e6; padding-left: 10px;">
         <p><strong>Free, client‑side SQL formatter &amp; beautifier.</strong> Format, minify, and pretty‑print SQL queries instantly in your browser. No data upload – 100% private. Supports MySQL, PostgreSQL, SQL Server, Oracle, and more. <span  style="font-size: 12px; color:rgb(234, 9, 54);"> ⟶ Always validate results before export. <a href="https://codemirror.net/" rel="nofollow noopener noreferrer" target="_blank" style="text-decoration: underline"><b>We are using code mirror for our SQL Formatter</b></a> </span > </p>
     </div>
@@ -201,7 +197,14 @@ category: formatter
     button:disabled { opacity: 0.5; cursor: not-allowed; }
 </style>
 <!-- ========== BELOW TOOL CONTENT – SEMANTIC & SCHEMA‑AWARE ========== -->
-<div class="sql-formatter-content" style="max-width: 1400px; margin: 2rem auto; padding: 0 1rem;">
+<div  class="onpage-content" >
+ <div class="blog-post-meta">
+     <a href="saeed-ahmed" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Saeed Ahmed" class="author-img">
+      <span class="author-name">Saeed Ahmed</span>
+      </a>
+      <span class="post-date">jan 10, 2026</span>
+  </div>
     <!-- ARTICLE SCHEMA (main content container) -->
     <article >
         <meta itemprop="headline" content="SQL Formatter &amp; Beautifier – Format, Minify &amp; Pretty Print SQL Online">
@@ -243,17 +246,17 @@ category: formatter
                     <div itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
                         <meta  content="Enter SQL Code">
                         <h3>1️⃣ Enter Your SQL Code</h3>
-                        <div >Paste your SQL query or script into the editor. You can also upload a <code>.sql</code> file or load the sample query.</div>
+                        <div>Paste your SQL query or script into the editor. You can also upload a <code>.sql</code> file or load the sample query.</div>
                     </div>
                     <div itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
                         <meta  content="Choose Formatting Options">
                         <h3>2️⃣ Choose Formatting Options</h3>
-                        <div >Select keyword case (UPPER, lower, or preserve), indentation size (2 spaces, 4 spaces, or tab), and your SQL dialect.</div>
+                        <div>Select keyword case (UPPER, lower, or preserve), indentation size (2 spaces, 4 spaces, or tab), and your SQL dialect.</div>
                     </div>
                     <div itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
                         <meta  content="Click Format &amp; Copy Result">
                         <h3>3️⃣ Click Format &amp; Copy Result</h3>
-                        <div >Press “✨ FORMAT” to beautify your SQL, then use “📋 COPY” to paste the clean code into your editor or database tool.</div>
+                        <div>Press “✨ FORMAT” to beautify your SQL, then use “📋 COPY” to paste the clean code into your editor or database tool.</div>
                     </div>
                 </div>
                 <p>✅ No sign‑up, no downloads, and your data never leaves this page – everything happens locally in your browser.</p>
@@ -277,31 +280,31 @@ category: formatter
                 <div itemprop="mainEntity" itemscope >
                     <h3 >Is this SQL formatter free to use?</h3>
                     <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-                        <div >Yes, completely free. No registration, no credit card, no hidden fees.</div>
+                        <div>Yes, completely free. No registration, no credit card, no hidden fees.</div>
                     </div>
                 </div>
                 <div itemprop="mainEntity" itemscope >
                     <h3 >Does my SQL data leave my browser?</h3>
                     <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-                        <div >No. All formatting and minification happen locally using JavaScript. No SQL is sent to any server.</div>
+                        <div>No. All formatting and minification happen locally using JavaScript. No SQL is sent to any server.</div>
                     </div>
                 </div>
                 <div itemprop="mainEntity" itemscope >
                     <h3 >Can I format SQL for PostgreSQL or SQL Server?</h3>
                     <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-                        <div >Yes. The tool supports PostgreSQL, MySQL, SQL Server (T‑SQL), Oracle (PL/SQL), MariaDB, SQLite, and many others. The dialect option adjusts keyword recognition and syntax rules.</div>
+                        <div>Yes. The tool supports PostgreSQL, MySQL, SQL Server (T‑SQL), Oracle (PL/SQL), MariaDB, SQLite, and many others. The dialect option adjusts keyword recognition and syntax rules.</div>
                     </div>
                 </div>
                 <div itemprop="mainEntity" itemscope >
                     <h3 >What does “minify SQL” do?</h3>
                     <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-                        <div >Minification removes unnecessary whitespace and comments, producing a compact SQL string. This is useful for reducing file size, obfuscating code, or when character limits apply (e.g., URL parameters).</div>
+                        <div>Minification removes unnecessary whitespace and comments, producing a compact SQL string. This is useful for reducing file size, obfuscating code, or when character limits apply (e.g., URL parameters).</div>
                     </div>
                 </div>
                 <div itemprop="mainEntity" itemscope >
                     <h3 >Does the tool support formatting of stored procedures?</h3>
                     <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-                        <div >Yes. It formats `CREATE PROCEDURE`, `FUNCTION`, `TRIGGER`, and complex `BEGIN ... END` blocks with correct indentation.</div>
+                        <div>Yes. It formats `CREATE PROCEDURE`, `FUNCTION`, `TRIGGER`, and complex `BEGIN ... END` blocks with correct indentation.</div>
                     </div>
                 </div>
             </section>

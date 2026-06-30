@@ -41,7 +41,10 @@ function createTableFromArray(array){
   for (let c = 0; c < headerCells.length; c++){
     const th = document.createElement('th');
     th.textContent = headerCells[c] || ('Column ' + (c+1));
-    headerRow.appendChild(th);
+   headerRow.appendChild(th);
+th.style.top = '0px';
+th.style.position = 'sticky';
+th.style.background = "#181a1c";
   }
   thead.appendChild(headerRow);
   for (let r = 1; r < array.length; r++){

@@ -118,7 +118,7 @@ category: queryTools
 </script>
 
 <!-- HERO -->
-<div id="excel-hero" style="display:flex;flex-direction:column;justify-content:center;margin:1rem;">
+<div id="excel-hero" class="home-hero" >
   <h1>Query Excel Online – Filter &amp; Explore Excel Files</h1>
   <p>
     Upload your Excel file (.xlsx, .xls, .xlsm) and browse sheet schemas, or filter rows with simple WHERE conditions. No upload – 100% client‑side, private, and free.
@@ -219,8 +219,15 @@ category: queryTools
 
 <!-- Content -->
 <article class="onpage-content">
+ <div class="blog-post-meta">
+     <a href="saeed-ahmed" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Saeed Ahmed" class="author-img">
+      <span class="author-name">Saeed Ahmed</span>
+      </a>
+      <span class="post-date">jan 10, 2026</span>
+  </div>
   <section id="why-use"><h2>Why use this Excel Query Tool?</h2><ul><li>Quickly browse Excel sheet schemas without opening Excel</li><li>Filter data with simple WHERE conditions</li><li>Export filtered results to CSV or Excel</li><li>No upload – your data stays secure</li></ul></section>
-  <section id="how-it-works"><h2>How to use – 3 simple steps</h2><ol><li>Upload your Excel file (.xlsx, .xls, .xlsm)</li><li>Click a sheet in the left pane – its schema appears in the Schema tab</li><li>Switch to the Query tab, write a WHERE condition, and click Run</li></ol></section>
+  <section id="how-it-works"><h2>How to use – 3 simple steps</h2><ul><li>Upload your Excel file (.xlsx, .xls, .xlsm)</li><li>Click a sheet in the left pane – its schema appears in the Schema tab</li><li>Switch to the Query tab, write a WHERE condition, and click Run</li></ul></section>
   <section id="features"><h2>Features</h2><ul><li>✅ 100% client‑side – no data leaves your device</li><li>✅ Multi‑sheet support – each sheet is a table</li><li>✅ Sheet list in scrollable left pane</li><li>✅ Schema tab shows columns, types, sample values – NO data rows</li><li>✅ Query tab – filter rows with WHERE conditions</li><li>✅ Export results to CSV and Excel</li><li>✅ Free forever</li></ul></section>
   <section id="privacy"><h2>Privacy &amp; Security</h2><ul><li>🔒 All processing is local – no files uploaded</li><li>🚫 No tracking, no logs</li><li>💼 Safe for sensitive data</li></ul></section>
   <section id="faq"><h2>Frequently Asked Questions</h2><h3>What Excel formats are supported?</h3><p>.xlsx, .xls, .xlsm. SheetJS handles the parsing.</p>

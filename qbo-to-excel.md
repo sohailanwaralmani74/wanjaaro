@@ -105,7 +105,7 @@ category: qboFinance
 </script>
 
 <!-- HERO -->
-<div id="qbo-hero" style="display:flex;flex-direction:column;justify-content:center;margin:1rem;">
+<div id="qbo-hero" class="home-hero" >
   <h1>QBO to Excel Converter – Turn QuickBooks Data into Spreadsheets</h1>
   <p>
     Convert QBO (QuickBooks Web Connect) files to Excel (.xlsx) format instantly.
@@ -185,8 +185,15 @@ category: qboFinance
 
 <!-- Content (shortened) -->
 <article class="onpage-content">
+ <div class="blog-post-meta">
+     <a href="sohail-anwar" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Sohail Anwar" class="author-img">
+      <span class="author-name">Sohail Anwar</span>
+      </a>
+      <span class="post-date">December 01, 2025</span>
+  </div>
   <section id="why-convert"><h2>Why convert QBO to Excel?</h2><ul><li>Analyse QuickBooks transactions with pivot tables, charts, and filters</li><li>Combine with other data sources</li><li>Share with team members who don't have QuickBooks</li></ul></section>
-  <section id="how-it-works"><h2>How to convert – 3 simple steps</h2><ol><li>Upload your .qbo file</li><li>Click Convert</li><li>Preview the table and download .xlsx</li></ol></section>
+  <section id="how-it-works"><h2>How to convert – 3 simple steps</h2><ul><li>Upload your .qbo file</li><li>Click Convert</li><li>Preview the table and download .xlsx</li></ul></section>
   <section id="features"><h2>Features</h2><ul><li>✅ Privacy first – everything stays local</li><li>✅ Parses QBO transactions accurately</li><li>✅ Clean Excel output with formatting</li><li>✅ Free forever</li></ul></section>
   <section id="privacy"><h2>Privacy &amp; Security</h2><ul><li>🔒 All processing is local – no files uploaded</li><li>🚫 No tracking, no logs</li><li>💼 Safe for sensitive financial data</li></ul></section>
   <section id="faq"><h2>Frequently Asked Questions</h2><h3>What is QBO?</h3><p>QBO is QuickBooks Web Connect file format for importing bank transactions.</p><h3>Will this work with any QBO file?</h3><p>Yes, it parses standard QBO format and extracts all transactions.</p><h3>Can I open the Excel file in Google Sheets?</h3><p>Yes, .xlsx is compatible with Google Sheets, LibreOffice, and all major spreadsheets.</p></section>

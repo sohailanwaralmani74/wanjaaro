@@ -165,7 +165,7 @@ p{
   </p>
 
   <h3>How to Use the Converter</h3>
-  <ol>
+  <ul>
     <li>
       <strong>Upload Your Excel File:</strong> Click <strong>Upload File</strong> and select your <code>.xlsx</code> or <code>.xls</code> file from your device.
       <figure class="blog-image">
@@ -183,7 +183,7 @@ p{
         <figcaption>Download or copy your clean JSON output</figcaption>
       </figure>
     </li>
-  </ol>
+  </ul>
 
   <h3>Use Cases</h3>
   <ul>
@@ -207,12 +207,12 @@ p{
   </p>
 
   <h3>Step-by-Step Guide</h3>
-  <ol>
+  <ul>
     <li>Open your Excel file and make sure your data has a clean header row in row 1.</li>
     <li>Go to <strong>Data &gt; Get Data &gt; From Table/Range</strong> to load data into Power Query.</li>
     <li>In Power Query, review your columns and data types.</li>
     <li>For a direct JSON export, use a VBA macro or a Python script with <code>pandas</code> to read the Excel file and write the output as <code>.json</code>.</li>
-  </ol>
+  </ul>
 
   <p><em>Pro Tips:</em></p>
   <ul>

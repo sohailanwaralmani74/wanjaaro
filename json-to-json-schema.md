@@ -10,19 +10,20 @@ category: json
 <link href="https://cdn.jsdelivr.net/npm/jsonview@1.2.0/dist/jquery.jsonview.min.css" rel="stylesheet">
 
 <section class="tool-section container" style="min-width: 99%">
+<div class="home-hero">
+
 <h1>JSON to JSON Schema Converter – Instantly Generate Draft-07 Schema</h1>
+<p id="intro" style="font-size: 13px;">
+  This <strong>JSON to JSON Schema converter</strong> turns any JSON sample into a 
+  ready-to-use <strong>JSON Schema</strong> in seconds. Paste your JSON, and the tool 
+  automatically detects data types, infers required fields, and builds out nested 
+  objects and arrays — producing a complete, standards-compliant 
+  <strong>JSON Schema Draft-07</strong> output you can drop straight into OpenAPI 
+  (Swagger), Ajv, Postman, or any JSON validation framework. No manual schema writing, 
+  no upload, no signup — everything runs instantly in your browser.
+</p>
 
-  <p id="intro" style="font-size: 13px;">
-    <strong>JSON Schema</strong> is a vocabulary that describes the structure and 
-    validation rules of JSON data — defining required fields, data types, nested 
-    object shapes, and array item constraints. It is the standard used by OpenAPI 
-    (Swagger), Ajv, Postman, and most modern API validation frameworks. Writing 
-    JSON Schema by hand is tedious and error-prone. This tool generates a complete, 
-    standards-compliant <strong>JSON Schema Draft-07</strong> from any JSON sample 
-    instantly — detecting field types, inferring required fields, handling nested 
-    objects and arrays — all in your browser with no upload required.
-  </p>
-
+</div>
   <div id="json-tool-wrapper">
     <!-- JSON Editor -->
     <div id="json-editor-container">
@@ -53,10 +54,6 @@ category: json
     </div>
   </div>
 </section>
-
-
-
-
 
 <style>
   #json-tool-wrapper {
@@ -254,11 +251,11 @@ p{
 
   <section aria-labelledby="how-it-works">
     <h2 id="how-it-works">How to generate JSON Schema from JSON – 3 simple steps</h2>
-    <ol>
+    <ul>
       <li><strong>Paste or upload your JSON</strong> – copy your JSON into the editor or click "Upload JSON File" to load a .json file.</li>
       <li><strong>Auto-analysis</strong> – the tool parses your JSON, detects all fields and types, and identifies required fields.</li>
       <li><strong>Get your schema</strong> – a Draft-07 compatible JSON Schema appears instantly. Copy it or download as a .json file.</li>
-    </ol>
+    </ul>
   </section>
 
   <section aria-labelledby="key-features">

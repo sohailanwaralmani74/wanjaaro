@@ -125,8 +125,15 @@ category: coding
 <div style="display: flex; flex-direction: row">
 <div style="width:98%;" style="margin-left: 2rem;">
 <article >
-<section class="onpage-content" style="max-width:900px;margin:40px auto;padding:10px 20px;line-height:1.7;font-family:Arial,sans-serif;">
 
+<section class="onpage-content" style="max-width:900px;margin:40px auto;padding:10px 20px;line-height:1.7;font-family:Arial,sans-serif;">
+ <div class="blog-post-meta">
+     <a href="sohail-anwar" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Sohail Anwar" class="author-img">
+      <span class="author-name">Sohail Anwar</span>
+      </a>
+      <span class="post-date">December 01, 2025</span>
+  </div>
   <h2 id="when-to-use" style="margin-top:30px;">Why convert JSON to Dart models?</h2>
   <ul style="padding-left:20px;">
     <li>Build Flutter model classes directly from API JSON responses</li>
@@ -141,7 +148,7 @@ category: coding
     <li><strong>Paste or upload JSON</strong> – copy your JSON into the editor or upload a .json file.</li>
     <li><strong>Configure options</strong> – enable null safety, private fields, required fields, or default values as needed.</li>
     <li><strong>Copy or download Dart code</strong> – the generated model class appears instantly. Click “Copy to Clipboard” or “Download Dart” to save.</li>
-  </ol>
+  </ul>
 
   <h2 id="key-features" style="margin-top:30px;">JSON to Dart converter – features you’ll love</h2>
   <ul style="padding-left:20px;">

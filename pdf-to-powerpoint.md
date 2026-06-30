@@ -102,14 +102,16 @@ p{
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.10.0/dist/pptxgen.bundle.js"></script>
 
-<section style="display: flex; justify-content: center">
+<section >
 
-<div style="width: 98%;">
+<div>
+<div class="home-hero">
  <h1>PDF to PowerPoint Converter – Free, No Upload, Instant PPTX</h1>
 
   <p id="intro" style="font-size:14px;color:#333;">
     Convert PDF to PowerPoint (PPTX) online for free – no signup, no file uploads. This browser‑based tool turns every page of your PDF into a high‑resolution slide image, then packages it into a standard PPTX file compatible with Microsoft PowerPoint, Google Slides, and LibreOffice. Perfect for turning reports, lecture notes, or printable documents into presentation‑ready slide decks – all while keeping your data completely private (everything runs locally in your browser).
   </p>
+  </div>
   <div class="csvx-container" style="min-height:520px; border-radius: 10px">
    <div class="csvx-panel" id="pdfPanel" style="min-height:520px;">
     <div class="panel-header">
@@ -188,7 +190,7 @@ p{
       <li><strong>Upload your PDF file</strong> – click “Upload PDF” and select any PDF from your computer. All processing happens in your browser.</li>
       <li><strong>Automatic conversion</strong> – each PDF page is rendered as a high‑quality image and placed onto a separate PowerPoint slide. Preview thumbnails appear as they’re generated.</li>
       <li><strong>Download PPTX</strong> – click “Download .pptx” to save your PowerPoint file, ready for use in any presentation software.</li>
-    </ol>
+    </ul>
   </section>
 
   <section id="key-features-pdf-to-ppt">

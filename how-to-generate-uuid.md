@@ -93,7 +93,7 @@ p {
 }
 </style>
 
-<div >
+<div>
 
 <div style="display: flex; justify-content: center; margin-top: 1.5rem;">
 <div style="width:99%; margin-left: 3rem;">
@@ -107,7 +107,7 @@ p {
   </a>
 </blockquote>
 
-  <p >
+  <p>
     Every serious application — whether it's a SaaS product, a mobile app, or a distributed microservice — needs a reliable way to identify records uniquely. That's exactly what a UUID does. Short for Universally Unique Identifier, a UUID is a 128-bit value that your system can generate independently, on any machine, at any time, without ever checking with a central server. No collisions. No coordination. Just a unique ID, every single time.
   </p>
 
@@ -245,7 +245,7 @@ p {
     DataFrog's <a href="/uuid-generator" class="link" title="Online UUID Generator">online UUID generator</a> runs entirely in your browser. Nothing is sent to any server. Here's how to use it:
   </p>
 
-  <ol>
+  <ul>
     <li>
       <strong>Choose your UUID version</strong> — select UUID v1, v4, or v7 from the format dropdown depending on your use case. When in doubt, select v4.
     </li>
@@ -258,7 +258,7 @@ p {
     <li>
       <strong>Copy or export</strong> — copy all IDs to clipboard with one click, or download as CSV, JSON, Excel, SQL INSERT statements, or XML.
     </li>
-  </ol>
+  </ul>
 
   <aside class="blog-tool-tip" aria-label="Try the UUID Generator">
     <p>

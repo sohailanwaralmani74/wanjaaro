@@ -9,7 +9,7 @@ category: json
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jsonview@1.2.0/dist/jquery.jsonview.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/jsonview@1.2.0/dist/jquery.jsonview.min.css" rel="stylesheet">
-<section> <h1>JSON to XML Converter – Generate Clean, Structured XML Instantly</h1> </section>
+<section class="home-hero"> <h1>JSON to XML Converter – Generate Clean, Structured XML Instantly</h1> </section>
   <section>
     <p  style="font-size: 14px;">
       Convert JSON to XML online instantly using this free browser-based JSON to XML converter. Transform JSON objects, arrays, API responses, and nested data structures into well-formed XML documents for SOAP APIs, enterprise systems, XML feeds, configuration files, and legacy integrations. All processing happens locally in your browser with no file upload required.
@@ -64,9 +64,14 @@ category: json
 
 <div id="toastJson" class="jsonx-toast">✅ XML ready – copy or download below</div>
 
-<div style="display: flex; flex-direction: row">
-<div style="width:98%;" style="margin-left: 2rem;">
-
+<div class="onpage-content">
+ <div class="blog-post-meta">
+     <a href="sohail-anwar" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Sohail Anwar" class="author-img">
+      <span class="author-name">Sohail Anwar</span>
+      </a>
+      <span class="post-date">December 01, 2025</span>
+  </div>
 <article id="json-to-xml-content" >
 
 
@@ -173,12 +178,12 @@ category: json
   <section>
     <h2>How to convert JSON to XML online</h2>
 
-    <ol>
+    <ul>
       <li>Paste JSON into the editor or upload a .json file</li>
       <li>Validate and preview the JSON structure</li>
       <li>Click “Convert to XML”</li>
       <li>Copy the generated XML or download the .xml file</li>
-    </ol>
+    </ul>
   </section>
 
   <section>
@@ -280,7 +285,6 @@ category: json
   </section>
 
 </article>
-</div>
 </div>
 
 <script src="/assets/js/json-to-xml.js"></script>

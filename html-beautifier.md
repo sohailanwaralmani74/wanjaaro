@@ -229,7 +229,7 @@ category: utilities
         }
 </style>
 <!-- Microdata header -->
-<div  style="max-width: 1400px; margin: 0 auto 1.5rem auto;">
+<div class="home-hero">
     <h1 >HTML Beautifier &amp; Minifier – Format, Preview &amp; Minify HTML Online</h1>
     
     <meta itemprop="operatingSystem" content="Web Browser">
@@ -337,7 +337,7 @@ category: utilities
 <script src="assets/js/html-formatter.js"></script>
 
 <!-- ========== BELOW TOOL CONTENT – SEMANTIC & SCHEMA‑AWARE (HTML Formatter) ========== -->
-<div class="sql-formatter-content" style="max-width: 1400px; margin: 2rem auto; padding: 0 1rem;">
+<div  class="onpage-content" >
 
 <!-- ARTICLE SCHEMA (main content container) -->
    <article >
@@ -385,22 +385,22 @@ category: utilities
                     <div itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
                         <meta  content="Enter HTML Code">
                         <h3>1️⃣ Paste or Upload Your HTML</h3>
-                        <div >Copy your messy HTML code into the editor, or upload an <code>.html</code> file. You can also load the sample to see the tool in action.</div>
+                        <div>Copy your messy HTML code into the editor, or upload an <code>.html</code> file. You can also load the sample to see the tool in action.</div>
                     </div>
                     <div itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
                         <meta  content="Choose Formatting Options">
                         <h3>2️⃣ Select Indentation &amp; Comment Handling</h3>
-                        <div >Choose your preferred indent size (2 spaces, 4 spaces, or Tab) and decide whether to keep or strip HTML comments.</div>
+                        <div>Choose your preferred indent size (2 spaces, 4 spaces, or Tab) and decide whether to keep or strip HTML comments.</div>
                     </div>
                     <div itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
                         <meta  content="Format or Minify">
                         <h3>3️⃣ Click “FORMAT HTML” or “MINIFY HTML”</h3>
-                        <div >Press <strong>✨ FORMAT HTML</strong> to beautify your code with proper indentation. Use <strong>🌀 MINIFY HTML</strong> to compress it for production.</div>
+                        <div>Press <strong>✨ FORMAT HTML</strong> to beautify your code with proper indentation. Use <strong>🌀 MINIFY HTML</strong> to compress it for production.</div>
                     </div>
                     <div itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
                         <meta  content="Preview, Copy, or Download">
                         <h3>4️⃣ Preview, Copy, or Download</h3>
-                        <div >Click <strong>👁️ PREVIEW</strong> to see the rendered HTML in a popup, <strong>📋 COPY</strong> to copy the result, or <strong>⬇️ DOWNLOAD</strong> to save as an <code>.html</code> file.</div>
+                        <div>Click <strong>👁️ PREVIEW</strong> to see the rendered HTML in a popup, <strong>📋 COPY</strong> to copy the result, or <strong>⬇️ DOWNLOAD</strong> to save as an <code>.html</code> file.</div>
                     </div>
                 </div>
                 <p>✅ No registration, no server upload – everything stays on your machine.</p>
@@ -436,55 +436,55 @@ category: utilities
                 <div itemprop="mainEntity" itemscope >
                     <h3 >What is an HTML formatter / beautifier?</h3>
                     <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-                        <div >An HTML formatter (or beautifier) is a tool that takes messy, unindented HTML code and reformats it with consistent indentation, line breaks, and spacing, making it easier to read and edit.</div>
+                        <div>An HTML formatter (or beautifier) is a tool that takes messy, unindented HTML code and reformats it with consistent indentation, line breaks, and spacing, making it easier to read and edit.</div>
                     </div>
                 </div>
                 <div itemprop="mainEntity" itemscope >
                     <h3 >What is an HTML minifier and when should I use it?</h3>
                     <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-                        <div >An HTML minifier removes unnecessary whitespace, comments, and line breaks from HTML code, reducing file size. Use it before deploying to production, for email templates, or when every kilobyte matters.</div>
+                        <div>An HTML minifier removes unnecessary whitespace, comments, and line breaks from HTML code, reducing file size. Use it before deploying to production, for email templates, or when every kilobyte matters.</div>
                     </div>
                 </div>
                 <div itemprop="mainEntity" itemscope >
                     <h3 >Is this HTML formatter free?</h3>
                     <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-                        <div >Yes, completely free. No sign‑up, no credit card, no hidden fees. Use it as much as you need.</div>
+                        <div>Yes, completely free. No sign‑up, no credit card, no hidden fees. Use it as much as you need.</div>
                     </div>
                 </div>
                 <div itemprop="mainEntity" itemscope >
                     <h3 >Does my HTML code stay private?</h3>
                     <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-                        <div >Absolutely. All formatting, minification, and previewing happen inside your browser. No data is ever sent to any server.</div>
+                        <div>Absolutely. All formatting, minification, and previewing happen inside your browser. No data is ever sent to any server.</div>
                     </div>
                 </div>
                 <div itemprop="mainEntity" itemscope >
                     <h3 >What happens to whitespace inside &lt;pre&gt; or &lt;code&gt; tags?</h3>
                     <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-                        <div >The formatter detects these tags and preserves their original whitespace and line breaks, so your preformatted code remains intact.</div>
+                        <div>The formatter detects these tags and preserves their original whitespace and line breaks, so your preformatted code remains intact.</div>
                     </div>
                 </div>
                 <div itemprop="mainEntity" itemscope >
                     <h3 >Can I format HTML that contains embedded CSS or JavaScript?</h3>
                     <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-                        <div >Yes. The tool formats the outer HTML structure and keeps the content of &lt;style&gt; and &lt;script&gt; tags as they are (no indentation inside them). For full CSS/JS formatting, use dedicated CSS/JS beautifiers.</div>
+                        <div>Yes. The tool formats the outer HTML structure and keeps the content of &lt;style&gt; and &lt;script&gt; tags as they are (no indentation inside them). For full CSS/JS formatting, use dedicated CSS/JS beautifiers.</div>
                     </div>
                 </div>
                 <div itemprop="mainEntity" itemscope >
                     <h3 >What does the Preview button do?</h3>
                     <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-                        <div >The Preview button renders your current HTML in a modal popup, showing exactly how it would look in a web browser – without affecting your editor content.</div>
+                        <div>The Preview button renders your current HTML in a modal popup, showing exactly how it would look in a web browser – without affecting your editor content.</div>
                     </div>
                 </div>
                 <div itemprop="mainEntity" itemscope >
                     <h3 >Can I upload an HTML file from my computer?</h3>
                     <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-                        <div >Yes, click the “📂 UPLOAD” button, select an <code>.html</code> or <code>.htm</code> file, and the tool will load its content into the editor.</div>
+                        <div>Yes, click the “📂 UPLOAD” button, select an <code>.html</code> or <code>.htm</code> file, and the tool will load its content into the editor.</div>
                     </div>
                 </div>
                 <div itemprop="mainEntity" itemscope >
                     <h3 >Does this tool work offline?</h3>
                     <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-                        <div >Once the page has been loaded, you can disconnect from the internet and still use all features (format, minify, preview, etc.) because everything runs client‑side.</div>
+                        <div>Once the page has been loaded, you can disconnect from the internet and still use all features (format, minify, preview, etc.) because everything runs client‑side.</div>
                     </div>
                 </div>
             </section>

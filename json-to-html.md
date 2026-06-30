@@ -78,7 +78,13 @@ category: coding
 <article >
 <section class="onpage-content" style="max-width:900px;margin:40px auto;padding:10px 20px;line-height:1.7;font-family:Arial,sans-serif;">
 
-
+ <div class="blog-post-meta">
+     <a href="sohail-anwar" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Sohail Anwar" class="author-img">
+      <span class="author-name">Sohail Anwar</span>
+      </a>
+      <span class="post-date">December 01, 2025</span>
+  </div>
   <h2 id="when-to-use" style="margin-top:30px;">Why convert JSON to HTML?</h2>
   <ul style="padding-left:20px;">
     <li>Turn API JSON responses into web‑ready HTML tables for dashboards</li>
@@ -93,7 +99,7 @@ category: coding
     <li><strong>Paste or upload JSON</strong> – copy your JSON into the editor or upload a .json file.</li>
     <li><strong>Validate and preview</strong> – the tool checks syntax and shows a collapsible tree view of your data.</li>
     <li><strong>Generate HTML</strong> – click “Convert to HTML”, then copy the HTML table code or download as a complete .html file. Nested objects are automatically handled.</li>
-  </ol>
+  </ul>
 
   <h2 id="key-features" style="margin-top:30px;">JSON to HTML converter – features you’ll love</h2>
   <ul style="padding-left:20px;">

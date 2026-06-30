@@ -152,12 +152,12 @@ p{
       </p>
       
    <h3>Step-by-Step Guide:</h3>
-      <ol>
+      <ul>
         <li>Open Excel and navigate to <strong>Data &gt; Get Data &gt; From File &gt; From JSON</strong>.</li>
         <li>Select your JSON file and click <strong>Import</strong>.</li>
         <li>Excel shows a preview of your data. Use <strong>Transform Data</strong> to flatten nested structures as needed.</li>
         <li>Click <strong>Load</strong> to create the CSV or table in your spreadsheet.</li>
-      </ol>
+      </ul>
 
    <p><em>Pro Tips:</em></p>
       <ul>
@@ -175,7 +175,7 @@ p{
       </p>
 
    <h3>How to Use the Converter</h3>
-      <ol>
+      <ul>
         <li>
           <strong>Upload or Paste Your JSON:</strong> Paste your JSON or click <strong>Upload JSON</strong>.  
           <figure class="blog-image">
@@ -190,7 +190,7 @@ p{
             <figcaption>Download your CSV file</figcaption>
           </figure>
         </li>
-      </ol>
+      </ul>
 
    <h3>Use Cases</h3>
       <ul>

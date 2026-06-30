@@ -6,11 +6,10 @@ keywords: "sql to xml online free, convert sql to xml, sql insert to xml convert
 category: sql
 ---
 <script src="https://unpkg.com/xml-formatter@3.6.7/dist/browser/xml-formatter.js"></script>
-<section style="display: flex; justify-content: center">
+<section >
   
 
   <div style="width:98%;" style="margin-left: 2rem;">
-
     <h1>SQL to XML – Convert SQL Statements into Structured XML</h1>
       <p class="intro" style>Convert SQL <code>INSERT</code> statements, query results, or delimiter‑separated data into well‑formed XML files instantly. <strong>100% client‑side – your data never leaves your browser.</strong> Ideal for developers, data analysts, and system integrators who need XML exports from SQL dumps.</p>
 
@@ -97,7 +96,13 @@ category: sql
 <div id="sql-xml-toast" class="jsonx-toast"></div>
 
 <article class="onpage-content">
-
+ <div class="blog-post-meta">
+     <a href="sohail-anwar" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Sohail Anwar" class="author-img">
+      <span class="author-name">Sohail Anwar</span>
+      </a>
+      <span class="post-date">December 01, 2025</span>
+  </div>
   <section id="why-use-this-tool">
     <h2 style="margin-top:30px;">Why Use This Free SQL to XML Tool?</h2>
     <ul style="padding-left:20px;">
@@ -116,7 +121,7 @@ category: sql
       <li><strong>Upload</strong> – Select your SQL file (.sql, .txt, or .csv) containing structured data.</li>
       <li><strong>Convert</strong> – The tool parses INSERT rows or delimiter‑separated blocks into a table.</li>
       <li><strong>Preview & Export</strong> – Review the data and click <strong>Download XML</strong> to get your well‑formed XML file.</li>
-    </ol>
+    </ul>
   </section>
 
   <section id="supported-sql-formats">

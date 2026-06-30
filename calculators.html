@@ -142,7 +142,9 @@ is_catpage: true
     {"@type":"ListItem","position":26,"name":"Take Home Pay Calculator","url":"https://datafrog.tools/bring-home-pay-calculator"},
     {"@type":"ListItem","position":27,"name":"Hourly to Salary Calculator","url":"https://datafrog.tools/hourly-to-salary-calculator"},
     {"@type":"ListItem","position":28,"name":"Tax Bracket Calculator","url":"https://datafrog.tools/tax-bracket-calculator"},
-    {"@type":"ListItem","position":29,"name":"Capital Gains Calculator","url":"https://datafrog.tools/capital-gains-calculator"}
+    {"@type":"ListItem","position":29,"name":"Capital Gains Calculator","url":"https://datafrog.tools/capital-gains-calculator"},
+    {"@type":"ListItem","position":30,"name":"Lump Sum SIP Calculator","url":"https://datafrog.tools/lump-sum-sip-calculator"}
+  ]
   ]
 }
 </script>
@@ -153,6 +155,12 @@ is_catpage: true
 <div class="home-hero" aria-label="Calculators page heading">
   <h1>Free Financial Calculators — Plan Your Finances Smarter</h1>
   <p>Calculate loans, EMIs, investment returns, taxes, and retirement planning instantly. 100% browser‑based — your financial data never leaves your device. No sign-up, no uploads, completely private.</p>
+  <div class="content-block disclaimer-block">
+    <p class="disclaimer-text">
+      <strong>Disclaimer:</strong> These calculator are for illustrative and educational purposes only and do not constitute financial or investment advices. Actual returns/rates depend on market conditions and are not guaranteed. Please consult a registered financial advisor before making investment decisions.
+    </p>
+    <p class="disclaimer-meta">Last updated: <span id="lastUpdated"></span></p>
+  </div>
 </div>
 
 <!-- ═══════════════════════════════════════════════════
@@ -197,6 +205,11 @@ is_catpage: true
   <div class="cat-block" data-category="investing">
     <h2 class="cat-block-title"><span class="cat-icon">📈</span> Investing Calculators</h2>
     <div class="tools-grid">
+      <a class="tool-card" href="/lump-sum-sip-calculator" data-cat="investing" data-tags="lump sum SIP growth">
+        <span class="tool-card-title">LumSum SIP Calculator</span>
+        <span class="tool-card-desc">Calculate the future value of a one-time lump sum investment. See exactly how compounding grows your money over time — instantly in your currency with support for 170+ currencies.</span>
+        <span class="tool-card-tag">Investing</span>
+      </a>
       <a class="tool-card" href="/compound-interest-calculator" data-cat="investing" data-tags="compound interest savings investment growth">
         <span class="tool-card-title">Compound Interest Calculator</span>
         <span class="tool-card-desc">Calculate how your savings and investments grow over time with compound interest. See the power of compounding with daily, monthly, or annual compounding.</span>

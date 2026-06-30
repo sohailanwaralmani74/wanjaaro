@@ -137,7 +137,7 @@ category: coding
   }
 </style>
 
-<article id="intro" style="margin-left: 5rem; margin-right: 5rem;">
+<article id="intro" class="home-hero">
   <h1>JSON to C# Converter – C# Classes with Text.Json or Newtonsoft.Json</h1>
   <p style="text-align: left"><strong>Convert any JSON into production‑ready C# classes</strong>. Choose System.Text.Json annotations, Newtonsoft.Json, records, nullable types, and more. All code is generated client‑side – no upload, no server, 100% private.</p>
 </article>
@@ -189,20 +189,15 @@ category: coding
 </script>
 
 <!-- Microdata‑enriched content (place below the tool) -->
-<article id="json-to-csharp-content"  style="margin : 2rem;">
-  <meta itemprop="about" content="Convert JSON to C# classes with System.Text.Json or Newtonsoft.Json" />
-  <meta itemprop="accessibilityControl" content="fullKeyboardControl" />
-  <meta itemprop="accessibilityFeature" content="syntaxHighlighting" />
-
-  <div itemscope itemtype="https://schema.org/SoftwareApplication" itemprop="mainEntity">
-    <meta  content="JSON to C# Converter – DataFrog" />
-    
-    <meta itemprop="applicationCategory" content="DeveloperTool" />
-    
-    <meta  content="Free online tool to convert JSON to C# classes with System.Text.Json or Newtonsoft.Json annotations. Auto‑prettify, duplicate‑free types, ZIP export. 100% client‑side, no upload." />
+<article id="json-to-csharp-content"  class="onpage-content">
+ <div class="blog-post-meta">
+     <a href="saeed-ahmed" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Saeed Ahmed" class="author-img">
+      <span class="author-name">Saeed Ahmed</span>
+      </a>
+      <span class="post-date">jan 10, 2026</span>
   </div>
-
-  <section id="csharp-features" itemscope itemtype="https://schema.org/ItemList">
+  <section id="csharp-features" >
     <h2 >✨ Why Developers Choose This JSON → C# Generator</h2>
     <ul>
       <li itemprop="itemListElement"><strong>🚀 Instant conversion</strong> – Paste JSON, click Convert, get ready‑to‑use C# classes or records.</li>
@@ -220,17 +215,17 @@ category: coding
     <div itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
       <meta itemprop="position" content="1" />
       <h3 >1. Enter your JSON</h3>
-      <p >Paste JSON into the left editor, or click “Upload JSON” to load a file.</p>
+      <p>Paste JSON into the left editor, or click “Upload JSON” to load a file.</p>
     </div>
     <div itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
       <meta itemprop="position" content="2" />
       <h3 >2. Choose options</h3>
-      <p >Select annotations: System.Text.Json, Newtonsoft.Json, use record instead of class, nullable reference types.</p>
+      <p>Select annotations: System.Text.Json, Newtonsoft.Json, use record instead of class, nullable reference types.</p>
     </div>
     <div itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
       <meta itemprop="position" content="3" />
       <h3 >3. Convert & export</h3>
-      <p >Click <strong>Convert to C#</strong> – the right panel shows your C# code. Use <strong>Copy</strong> or <strong>Export ZIP</strong> to download a `model/` folder.</p>
+      <p>Click <strong>Convert to C#</strong> – the right panel shows your C# code. Use <strong>Copy</strong> or <strong>Export ZIP</strong> to download a `model/` folder.</p>
     </div>
   </section>
 
@@ -248,32 +243,32 @@ category: coding
     <h2>❓ Frequently Asked Questions About JSON to C# Conversion</h2>
     <div  >
       <h3 >Does this tool handle nested objects and arrays?</h3>
-      <div >
-        <div ><p>Yes. The converter recursively creates a separate C# class for each unique nested object. Arrays of objects become <code>List&lt;Type&gt;</code>.</p></div>
+      <div>
+        <div><p>Yes. The converter recursively creates a separate C# class for each unique nested object. Arrays of objects become <code>List&lt;Type&gt;</code>.</p></div>
       </div>
     </div>
     <div  >
       <h3 >What JSON serialization libraries are supported?</h3>
-      <div >
-        <div ><p>You can choose <strong>System.Text.Json</strong> (built‑in) or <strong>Newtonsoft.Json</strong>. The tool adds the appropriate attributes (`[JsonPropertyName]` or `[JsonProperty]`).</p></div>
+      <div>
+        <div><p>You can choose <strong>System.Text.Json</strong> (built‑in) or <strong>Newtonsoft.Json</strong>. The tool adds the appropriate attributes (`[JsonPropertyName]` or `[JsonProperty]`).</p></div>
       </div>
     </div>
     <div  >
       <h3 >Can I generate records instead of classes?</h3>
-      <div >
-        <div ><p>Yes. The “Use record” checkbox generates C# 9+ records (immutable by default) with positional properties.</p></div>
+      <div>
+        <div><p>Yes. The “Use record” checkbox generates C# 9+ records (immutable by default) with positional properties.</p></div>
       </div>
     </div>
     <div  >
       <h3 >Is my JSON data sent to any server?</h3>
-      <div >
-        <div ><p>Never. Everything runs locally in your browser – 100% client‑side.</p></div>
+      <div>
+        <div><p>Never. Everything runs locally in your browser – 100% client‑side.</p></div>
       </div>
     </div>
     <div  >
       <h3 >Can I export all classes as separate files?</h3>
-      <div >
-        <div ><p>Yes. Click Export ZIP to download a `model/` folder with each generated C# type as a separate `.cs` file.</p></div>
+      <div>
+        <div><p>Yes. Click Export ZIP to download a `model/` folder with each generated C# type as a separate `.cs` file.</p></div>
       </div>
     </div>
   </section>

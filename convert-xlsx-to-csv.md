@@ -6,16 +6,17 @@ keywords: "convert xlsx to csv online free, excel to csv converter, xlsx to csv 
 category: excel
 ---
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-<section style="display: flex; justify-content: center">
+<section >
 
-<div style="width: 98%;">
+<div>
+<div class="home-hero">
 <h1>Convert XLSX to CSV Online – Free Excel to CSV Converter</h1>
 
   <p id="intro" style="font-size:14px;color:#333;">
     Convert XLSX to CSV online in seconds – completely free, no signup. This browser‑based tool turns any Excel spreadsheet (.xlsx or .xls) into a clean, comma‑separated values (CSV) file. 
     Perfect for database imports, API data preparation, migrating data to analytics tools, or simplifying spreadsheets for further processing.
   </p>
-
+</div>
 <div class="csvx-container">
   <div class="csvx-panel" id="excelToCsvPanel">
     <div class="panel-header">
@@ -57,7 +58,13 @@ category: excel
 </div>
 
 <article class="onpage-content" style="max-width:900px;margin:40px auto;padding:10px 20px;line-height:1.7;font-family:Arial,sans-serif;">
-
+ <div class="blog-post-meta">
+     <a href="sohail-anwar" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Sohail Anwar" class="author-img">
+      <span class="author-name">Sohail Anwar</span>
+      </a>
+      <span class="post-date">December 01, 2025</span>
+  </div>
   <section id="when-to-use">
 
     <h2 id="when-to-use" style="margin-top:30px;">Why convert Excel to CSV?</h2>
@@ -78,7 +85,7 @@ category: excel
       <li><strong>Upload your Excel file</strong> – click “Upload Excel” and select any .xlsx or .xls file from your computer.</li>
       <li><strong>Preview your data</strong> – see the spreadsheet contents in a table; verify rows and columns.</li>
       <li><strong>Get CSV output</strong> – click “Convert to CSV”, then copy the text or download as a .csv file.</li>
-    </ol>
+    </ul>
 
   </section>
 

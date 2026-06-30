@@ -6,12 +6,14 @@ keywords: "uuid generator online, guid generator, ksuid generator, nanoid genera
 category: utilities
 ---
 
-<section style="display: flex; justify-content: center">
+<section >
     <div style="width:99%;" style="margin-left: 2rem;">
+    <div class="home-hero">
     <h1>UUID Generator Online – Generate UUID, GUID, KSUID, and More</h1>
       <p id="intro" style="font-size:14px;color:#333;">
     Generate universally unique identifiers (UUID, GUID, KSUID, ULID, NanoID, CUID) instantly in your browser – no uploads, no signups. Choose from nine identifier formats, generate up to 1000 IDs at once, and export as CSV, Excel, JSON, SQL, or XML. Perfect for database keys, API tokens, distributed systems, and testing – all processed locally with cryptographic randomness.
   </p>
+  </div>
     <div class="csvx-container" style="min-height: 450px; border-radius: 20px;">
       <div class="csvx-panel" id="csvPanelXsd" style="min-height: 450px;">
         <div class="panel-header">
@@ -49,7 +51,13 @@ category: utilities
 
 
   <article class="onpage-content">
-
+ <div class="blog-post-meta">
+     <a href="saeed-ahmed" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Saeed Ahmed" class="author-img">
+      <span class="author-name">Saeed Ahmed</span>
+      </a>
+      <span class="post-date">jan 10, 2026</span>
+  </div>
   <section id="why-use-generator">
     <h2 style="margin-top:30px;">Why use a UUID / unique ID generator?</h2>
     <ul style="padding-left:20px;">
@@ -67,7 +75,7 @@ category: utilities
       <li><strong>Select an ID format</strong> – choose from UUID v1/v4/v7, GUID, ULID, NanoID, KSUID, CUID, or CUID2.</li>
       <li><strong>Set the quantity</strong> – pick how many IDs you need (1 to 1000).</li>
       <li><strong>Generate and export</strong> – click “Generate Unique IDs”, then copy the list or export as CSV, Excel, JSON, SQL, or XML.</li>
-    </ol>
+    </ul>
   </section>
 
   <section id="key-features-generator">

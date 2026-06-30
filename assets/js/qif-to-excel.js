@@ -141,7 +141,10 @@ convertBtn.addEventListener('click', () => {
         // Header row
         const thead = document.createElement('thead');
         const headerRow = document.createElement('tr');
-        headers.forEach(key => { const th=document.createElement('th'); th.textContent=key; headerRow.appendChild(th); });
+        headers.forEach(key => { const th=document.createElement('th'); th.textContent=key;headerRow.appendChild(th);
+th.style.top = '0px';
+th.style.position = 'sticky';
+th.style.background = "#181a1c"; });
         thead.appendChild(headerRow);
         table.appendChild(thead);
 

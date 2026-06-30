@@ -9,15 +9,15 @@ category: csv
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.26/jspdf.plugin.autotable.min.js"></script>
 
-<section style="display: flex; justify-content: center">
+<section >
 
-<div style="width: 98%;">
+<div>
+<div class="home-hero">
 <h1>Convert CSV to PDF Online – Free & Secure (No Upload)</h1>
   <p id="intro" style="font-size:14px;">
     Convert CSV to PDF online in seconds – completely free, no signup, no file uploads. This tool runs entirely in your browser using jsPDF with autoTable. 
-    Upload any CSV file (comma-separated values), preview the parsed data, and instantly generate a professionally formatted PDF document with clean tables. 
-    Perfect for reports, financial statements, data sharing, and archiving – all without sending your data to any server.
   </p>
+  </div>
 <div class="csvx-container">
   <div class="csvx-panel" id="csvPanelPdf">
     <div class="panel-header">
@@ -51,7 +51,13 @@ category: csv
 </div>
 
 <article >
-
+ <div class="blog-post-meta">
+     <a href="sohail-anwar" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Sohail Anwar" class="author-img">
+      <span class="author-name">Sohail Anwar</span>
+      </a>
+      <span class="post-date">December 01, 2025</span>
+  </div>
   <section id="why-use">
     <h2>Why convert CSV to PDF?</h2>
     <ul>
@@ -65,11 +71,11 @@ category: csv
 
   <section id="how-it-works">
     <h2>How to convert CSV to PDF</h2>
-    <ol>
+    <ul>
       <li>Upload a CSV file from your device</li>
       <li>Preview and verify the table structure</li>
       <li>Generate and download a formatted PDF document</li>
-    </ol>
+    </ul>
   </section>
 
   <section id="features">

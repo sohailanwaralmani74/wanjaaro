@@ -11,7 +11,8 @@ category: json
 <link href="https://cdn.jsdelivr.net/npm/jsonview@1.2.0/dist/jquery.jsonview.min.css" rel="stylesheet">
 
 
-<section>  <h1>JSON String to JSON Object Converter – Parse & Validate Online</h1>
+<section class="home-hero">
+  <h1>JSON String to JSON Object Converter – Parse & Validate Online</h1>
 
 <p id="intro" style="font-size:14px;color:#333; margin:5px;">
   A <strong>JSON string</strong> is a valid JSON object that has been serialized into 
@@ -25,7 +26,7 @@ category: json
  </section>
 
 <!-- Tool section -->
-<section class="tool-section container" style="min-width: 99%">
+<section class="tool-section">
   <div id="json-tool-wrapper">
     <!-- JSON Editor -->
     <div id="json-editor-container">
@@ -45,7 +46,7 @@ category: json
       </div>
       <!-- Scrollable JSON preview -->
       <div id="json-tree-viewer"
-           style="width: 100%; flex: 1; overflow: auto; background: #0b0c10; padding: 0.5rem; border-radius: 6px; border: 1px solid #45a29e;">
+           style="width: 100%; flex: 1; overflow: auto; background: #0b0c10; padding: 0.5rem; border-radius: 6px; border: 1px solid #45a29e; ">
       </div>
     </div>
   </div>
@@ -81,8 +82,7 @@ category: json
     padding: 0.5rem;
   }
   #json-editor {
-    width: 100%;
-    height: 100%;
+    min-width: 100%;
     resize: none;
     outline: none;
     border: none;
@@ -92,6 +92,7 @@ category: json
     font-size: 14px;
     padding: 0.75rem;
     box-sizing: border-box;
+    height: 49vh;
   }
 
   .export-label {
@@ -110,6 +111,8 @@ category: json
     padding: 0.5rem;
     font-family: monospace;
     color: #ffffff;
+    min-width: 100%;
+    min-height: 92%;
   }
 
   #json-tree-viewer .jqv-key { color: #00ffff !important; }
@@ -117,14 +120,29 @@ category: json
   #json-tree-viewer .jqv-number { color: #ff6b6b !important; }
   #json-tree-viewer .jqv-boolean { color: #ffb347 !important; }
   #json-tree-viewer .jqv-null { color: #d3d3d3 !important; }
+  @media (max-width: 768px) {
+  #json-tool-wrapper {
+    flex-direction: column;
+  }
+
+  #json-editor-container,
+  #json-viewer-wrapper {
+    min-height: 50vh; /* each panel gets half instead of stacking two 75vh blocks */
+    min-width:100%;
+  }
+}
 </style>
 
 
-<div style="display: flex; flex-direction: row">
-<div style="width: 98%">
 <article >
 <section class="onpage-content" style="max-width:900px;margin:40px auto;padding:10px 20px;line-height:1.7;font-family:Arial,sans-serif;">
-
+ <div class="blog-post-meta">
+     <a href="sohail-anwar" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Sohail Anwar" class="author-img">
+      <span class="author-name">Sohail Anwar</span>
+      </a>
+      <span class="post-date">December 01, 2025</span>
+  </div>
   <h2 id="when-to-use" style="margin-top:30px;">Why parse a JSON string to an object?</h2>
   <ul style="padding-left:20px;">
     <li>Convert stringified JSON returned from APIs into a working object</li>
@@ -138,7 +156,7 @@ category: json
   <ol style="padding-left:20px;">
     <li><strong>Paste your JSON string</strong> – copy and paste any JSON string (e.g., from an API response or a log file) into the left editor.</li>
     <li><strong>See the parsed object instantly</strong> – as you type or paste, the tool parses the string and displays a formatted, interactive tree view on the right. No button required.</li>
-  </ol>
+  </ul>
 
   <h2 id="key-features" style="margin-top:30px;">JSON string parser – features you’ll love</h2>
   <ul style="padding-left:20px;">
@@ -206,8 +224,6 @@ category: json
   <p>The tool will show an error message with the line and column position of the syntax issue, helping you fix it quickly.</p>
 </section>
 </article>
-</div>
-</div>
 
 <script src="assets/js/json-string-to-json-object.js"></script>
 

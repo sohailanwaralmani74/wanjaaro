@@ -7,15 +7,17 @@ category: validator
 ---
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-<section style="display: flex; justify-content: center">
+<section >
 
 <div style="width:98%;" style="margin-left: 2rem;">
+<div class="home-hero">
 <h1>Remove CSV Duplicates Online – CSV Duplicates Cleaner</h1>
   <p id="csv-duplicate-remover-intro">
     Remove duplicate rows from CSV files online without installing software.
     Upload CSV files, detect repeated records, preview duplicate rows,
     remove duplicates instantly, and download clean CSV or Excel files directly from your browser.
   </p>
+ </div> 
 <div class="dfx-controls-bar">
 
   <label class="dfx-btn">
@@ -56,9 +58,15 @@ category: validator
 
 </div>
 
-<article id="remove-csv-duplicates-tool">
+<article id="remove-csv-duplicates-tool" class="onpage-content">
 
-
+ <div class="blog-post-meta">
+     <a href="saeed-ahmed" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Saeed Ahmed" class="author-img">
+      <span class="author-name">Saeed Ahmed</span>
+      </a>
+      <span class="post-date">jan 10, 2026</span>
+  </div>
 
   <p id="csv-duplicate-remover-privacy">
     This CSV duplicate remover processes files locally in your browser for better privacy and faster performance.
@@ -69,13 +77,13 @@ category: validator
 
     <h2>How To Remove Duplicates From CSV</h2>
 
-    <ol>
+    <ul>
       <li>Upload a CSV file</li>
       <li>Click the <strong>Check Duplicates</strong> button</li>
       <li>Preview duplicate rows detected in the dataset</li>
       <li>Click <strong>Remove Duplicates</strong></li>
       <li>Download the cleaned CSV or Excel file</li>
-    </ol>
+    </ul>
 
   </section>
 

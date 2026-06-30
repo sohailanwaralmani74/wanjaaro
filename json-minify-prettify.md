@@ -116,7 +116,7 @@ category: formatter
 
 </style>
 
-  <section id="intro">
+  <section id="intro" class="home-hero">
     <h1 itemprop="headline">JSON Minify & Prettify – JSON Editor with Syntax Highlighting</h1>
     <p><strong>JSON (JavaScript Object Notation)</strong> is the universal data format for APIs, config files, and databases. Our <strong>free, client‑side JSON tool</strong> lets you <strong>prettify</strong> (beautify) messy JSON, <strong>minify</strong> (compress) it for production, and edit directly with <strong>syntax highlighting</strong> – all in your browser. No upload, no server, 100% private.</p>
   </section>
@@ -148,20 +148,15 @@ category: formatter
   </div>  
  <div id="toast-container" class="toast-container"></div>
  
- <article id="json-tool-content" style="margin-left: 3rem;" >
-  <meta itemprop="about" content="JSON formatting tool for developers" />
-  <meta itemprop="accessibilityControl" content="fullKeyboardControl" />
-  <meta itemprop="accessibilityFeature" content="syntaxHighlighting" />
+ <article id="json-tool-content" class="onpage-content" >
 
-  <!-- Main software application microdata -->
-  <div itemscope itemtype="https://schema.org/SoftwareApplication" itemprop="mainEntity">
-    <meta  content="JSON Minify / Prettify – Online JSON Editor" />
-    
-    <meta itemprop="applicationCategory" content="DeveloperTool" />
-    
-    <meta  content="Free online tool to prettify, minify, and edit JSON with syntax highlighting. 100% client‑side, no upload." />
+ <div class="blog-post-meta">
+     <a href="saeed-ahmed" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Saeed Ahmed" class="author-img">
+      <span class="author-name">Saeed Ahmed</span>
+      </a>
+      <span class="post-date">jan 10, 2026</span>
   </div>
-
 
   <!-- Features section with microdata -->
   <section id="features" itemscope itemtype="https://schema.org/ItemList">
@@ -183,17 +178,17 @@ category: formatter
     <div itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
       <meta itemprop="position" content="1" />
       <h3 >1. Enter your JSON</h3>
-      <p >Paste any JSON into the left editor. You can also edit directly – syntax highlighting updates automatically.</p>
+      <p>Paste any JSON into the left editor. You can also edit directly – syntax highlighting updates automatically.</p>
     </div>
     <div itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
       <meta itemprop="position" content="2" />
       <h3 >2. Choose action</h3>
-      <p >Click <strong>✨ Prettify → Output</strong> to beautify (add indentation, line breaks). Click <strong>⚡ Minify → Output</strong> to compress to a single line.</p>
+      <p>Click <strong>✨ Prettify → Output</strong> to beautify (add indentation, line breaks). Click <strong>⚡ Minify → Output</strong> to compress to a single line.</p>
     </div>
     <div itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
       <meta itemprop="position" content="3" />
       <h3 >3. Copy or download</h3>
-      <p >Use the per‑pane buttons: <kbd>🗑️ Clear</kbd>, <kbd>📋 Copy</kbd>, or <kbd>💾 Export</kbd> to save as a `.json` file.</p>
+      <p>Use the per‑pane buttons: <kbd>🗑️ Clear</kbd>, <kbd>📋 Copy</kbd>, or <kbd>💾 Export</kbd> to save as a `.json` file.</p>
     </div>
   </section>
 
@@ -215,43 +210,43 @@ category: formatter
 
     <div  >
       <h3 >What does “prettify JSON” mean?</h3>
-      <div >
-        <div ><p>Prettifying (or beautifying) JSON adds indentation (usually 2 spaces) and line breaks, making it human‑readable. It does not change the data – only the formatting.</p></div>
+      <div>
+        <div><p>Prettifying (or beautifying) JSON adds indentation (usually 2 spaces) and line breaks, making it human‑readable. It does not change the data – only the formatting.</p></div>
       </div>
     </div>
 
     <div  >
       <h3 >What does “minify JSON” do?</h3>
-      <div >
-        <div ><p>Minifying removes all unnecessary whitespace (indentation, extra line breaks), producing a compact, single‑line JSON. This reduces file size and is ideal for network transfer.</p></div>
+      <div>
+        <div><p>Minifying removes all unnecessary whitespace (indentation, extra line breaks), producing a compact, single‑line JSON. This reduces file size and is ideal for network transfer.</p></div>
       </div>
     </div>
 
     <div  >
       <h3 >Is this JSON tool safe for sensitive data (API keys, passwords)?</h3>
-      <div >
-        <div ><p>Absolutely. The tool runs entirely in your browser – no data is ever uploaded to any server. You can safely prettify or minify JSON containing secrets.</p></div>
+      <div>
+        <div><p>Absolutely. The tool runs entirely in your browser – no data is ever uploaded to any server. You can safely prettify or minify JSON containing secrets.</p></div>
       </div>
     </div>
 
     <div  >
       <h3 >Can I edit JSON directly in the editor?</h3>
-      <div >
-        <div ><p>Yes. Both the input and output panes are fully editable. Syntax highlighting updates automatically as you type, helping you spot errors.</p></div>
+      <div>
+        <div><p>Yes. Both the input and output panes are fully editable. Syntax highlighting updates automatically as you type, helping you spot errors.</p></div>
       </div>
     </div>
 
     <div  >
       <h3 >Does this tool support very large JSON files?</h3>
-      <div >
-        <div ><p>For files up to ~10 MB, the tool works smoothly. Larger files may cause performance issues depending on your device memory – consider splitting them or using a command‑line tool like `jq`.</p></div>
+      <div>
+        <div><p>For files up to ~10 MB, the tool works smoothly. Larger files may cause performance issues depending on your device memory – consider splitting them or using a command‑line tool like `jq`.</p></div>
       </div>
     </div>
 
     <div  >
       <h3 >What’s the difference between prettify and minify?</h3>
-      <div >
-        <div ><p>Prettify makes JSON human‑friendly (readable). Minify makes it machine‑friendly (small). Both preserve the exact same data – only whitespace changes.</p></div>
+      <div>
+        <div><p>Prettify makes JSON human‑friendly (readable). Minify makes it machine‑friendly (small). Both preserve the exact same data – only whitespace changes.</p></div>
       </div>
     </div>
   </section>

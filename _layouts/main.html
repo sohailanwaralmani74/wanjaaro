@@ -136,6 +136,16 @@ layout: default
 </div>
 
 {% endif %}
+{% assign ymyl_categories = "investing,loans,budget,tax" | split: "," %}
+{% if ymyl_categories contains page.category %}
+  {% assign tool_label = page.short_name | default: page.title %}
+  <div class="content-block">
+    <p>
+      ⚠️ {{ tool_label }} results are for illustrative and educational purposes only and do not constitute financial or investment advice. Actual returns/rates depend on market conditions and are not guaranteed. Please consult a registered financial advisor before making investment decisions.
+    </p>
+    <p>Last updated: June - 30 - 2026</p>
+  </div>
+{% endif %}
 <script>
   (function () {
     const hamburger = document.getElementById('hamburger');

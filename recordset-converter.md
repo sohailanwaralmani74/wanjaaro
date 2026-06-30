@@ -233,13 +233,14 @@ category: utilities
     <script src="assets/js/recordset.js"></script>
 
     <!-- ========== SEO & AI BOOSTER CONTENT (below the tool) ========== -->
-    <div style="padding-left: 2rem;;" itemscope itemtype="https://schema.org/SoftwareApplication">
-      <meta  content="Recordset Converter Suite" />
-      
-      <meta itemprop="operatingSystem" content="All (web browser)" />
-      
-      <meta itemprop="isFamilyFriendly" content="true" />
-
+<div class="onpage-content">
+ <div class="blog-post-meta">
+     <a href="sohail-anwar" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Sohail Anwar" class="author-img">
+      <span class="author-name">Sohail Anwar</span>
+      </a>
+      <span class="post-date">December 04, 2025</span>
+  </div>
       <section aria-labelledby="features-heading">
         <h2 id="features-heading">✨ Why Use This Recordset Converter?</h2>
         <ul itemprop="featureList">
@@ -255,12 +256,12 @@ category: utilities
 
       <section aria-labelledby="howto-heading">
         <h2 id="howto-heading">📘 How to Convert Any Recordset</h2>
-        <ol>
+        <ul>
           <li><strong>Paste or upload</strong> your data (JSON, CSV, XML, etc.) into the top editor.</li>
           <li><strong>Click any conversion button</strong> – XML, JSON, CSV, Excel, PDF, or HTML.</li>
           <li><strong>Preview</strong> the converted output in the bottom pane with syntax highlighting.</li>
           <li><strong>Copy</strong> the result or <strong>Export</strong> it as a file.</li>
-        </ol>
+        </ul>
         <p>📌 <em>Tip: For Excel/PDF, a preview table appears first – use the <strong>Export</strong> button to download
             the actual file.</em></p>
       </section>
@@ -293,32 +294,32 @@ category: utilities
 
         <div  >
           <h3 >Can I convert large files? (e.g., 100MB CSV)</h3>
-          <div >
-            <div >Yes – everything runs locally in your browser. Performance depends on your device
+          <div>
+            <div>Yes – everything runs locally in your browser. Performance depends on your device
               memory, but many users convert files with 100k+ rows smoothly.</div>
           </div>
         </div>
 
         <div  >
           <h3 >Is my data sent to a server?</h3>
-          <div >
-            <div >No. All parsing and conversion happen inside your browser. No file uploads, no external
+          <div>
+            <div>No. All parsing and conversion happen inside your browser. No file uploads, no external
               requests.</div>
           </div>
         </div>
 
         <div  >
           <h3 >What is a “recordset”?</h3>
-          <div >
-            <div >A recordset is a collection of structured rows with consistent columns. Examples: array
+          <div>
+            <div>A recordset is a collection of structured rows with consistent columns. Examples: array
               of objects, CSV table, XML repeating elements, or pipe‑delimited file.</div>
           </div>
         </div>
 
         <div  >
           <h3 >Why does Excel/PDF show a preview but not auto‑download?</h3>
-          <div >
-            <div >Binary formats (XLSX, PDF) cannot be syntax‑highlighted, so we show a table preview
+          <div>
+            <div>Binary formats (XLSX, PDF) cannot be syntax‑highlighted, so we show a table preview
               first. Click <strong>Export</strong> to download the actual file.</div>
           </div>
         </div>

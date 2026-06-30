@@ -118,7 +118,7 @@ category: excelFinance
 </script>
 
 <!-- HERO -->
-<div id="excel-hero" style="display:flex;flex-direction:column;justify-content:center;margin:1rem;">
+<div id="excel-hero" class="home-hero" >
   <h1>Excel to QFX Converter – Turn Spreadsheets into OFX for Any Finance App</h1>
   <p>
     Convert Excel files (.xlsx, .xls) to QFX (OFX) format instantly.
@@ -226,8 +226,15 @@ category: excelFinance
 
 <!-- Content (shortened) -->
 <article class="onpage-content">
+ <div class="blog-post-meta">
+     <a href="sohail-anwar" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Sohail Anwar" class="author-img">
+      <span class="author-name">Sohail Anwar</span>
+      </a>
+      <span class="post-date">December 01, 2025</span>
+  </div>
   <section id="why-convert"><h2>Why convert Excel to QFX?</h2><ul><li>Import spreadsheet‑based transactions into Quicken, Money, or OFX apps</li><li>Standard XML format for financial data exchange</li><li>Ideal for migrating data from legacy systems</li></ul></section>
-  <section id="how-it-works"><h2>How to convert – 3 simple steps</h2><ol><li>Upload your Excel file</li><li>Select a sheet (if multiple)</li><li>Map columns if needed, then convert and download .qfx</li></ol></section>
+  <section id="how-it-works"><h2>How to convert – 3 simple steps</h2><ul><li>Upload your Excel file</li><li>Select a sheet (if multiple)</li><li>Map columns if needed, then convert and download .qfx</li></ul></section>
   <section id="features"><h2>Features</h2><ul><li>✅ Privacy first – everything stays local</li><li>✅ Uses SheetJS for robust Excel parsing</li><li>✅ Auto‑detects columns with manual mapping option</li><li>✅ Free forever</li></ul></section>
   <section id="privacy"><h2>Privacy &amp; Security</h2><ul><li>🔒 All processing is local – no files uploaded</li><li>🚫 No tracking, no logs</li><li>💼 Safe for sensitive financial data</li></ul></section>
   <section id="faq"><h2>Frequently Asked Questions</h2><h3>What Excel formats are supported?</h3><p>.xlsx, .xls, and .csv files are supported.</p><h3>Does it handle multiple sheets?</h3><p>Yes, a dropdown lets you choose which sheet to convert.</p><h3>Will the QFX work in Quicken?</h3><p>Yes, the generated QFX follows OFX 1.0.2 and should import into Quicken and other OFX‑compatible apps.</p></section>

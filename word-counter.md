@@ -250,25 +250,9 @@ pre{background:#0f172a;color:#e2e8f0;border-radius:var(--radius);padding:20px 24
 <!-- ================================================================
   HERO — WebApplication metadata
 ================================================================ -->
-<div id="word-counter-hero"
-     
-     style="display:flex;flex-direction:column;justify-content:center;margin:1rem;">
-
-  
-  
-  
-  
-  
-    <meta itemprop="price" content="0">
-    <meta itemprop="priceCurrency" content="USD">
-  </div>
-
+<div class="home-hero">
   <h1 >Advanced Word Counter — Complete Text Analysis Tool</h1>
-
-  <p >
-    Analyze your text in real-time. Count words, characters, sentences, paragraphs,
-    lexical density, readability scores, keyword frequency, and more.
-    100% client-side — your text never leaves your device.
+  <p >Analyze your text in real-time. Count words, characters, sentences, paragraphs, lexical density, readability scores, keyword frequency, and more. 100% client-side — your text never leaves your device.
   </p>
 
   <div class="hero-badges">
@@ -370,7 +354,13 @@ pre{background:#0f172a;color:#e2e8f0;border-radius:var(--radius);padding:20px 24
   CONTENT BLOCKS
 ================================================================ -->
 <article class="onpage-content">
-
+ <div class="blog-post-meta">
+     <a href="saeed-ahmed" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Saeed Ahmed" class="author-img">
+      <span class="author-name">Saeed Ahmed</span>
+      </a>
+      <span class="post-date">jan 10, 2026</span>
+  </div>
   <section id="why-use-word-counter">
     <h2 style="margin-top:30px;">Why use an advanced word counter?</h2>
     <ul style="padding-left:20px;">
@@ -389,7 +379,7 @@ pre{background:#0f172a;color:#e2e8f0;border-radius:var(--radius);padding:20px 24
       <li><strong>Enter your text</strong> – paste your content into the text area or type directly.</li>
       <li><strong>View real-time statistics</strong> – see word count, character count, sentences, paragraphs, and more update instantly.</li>
       <li><strong>Explore detailed analysis</strong> – switch tabs to view readability scores, keyword frequency, letter breakdowns, and full word lists.</li>
-    </ol>
+    </ul>
   </section>
 
   <section id="key-features">

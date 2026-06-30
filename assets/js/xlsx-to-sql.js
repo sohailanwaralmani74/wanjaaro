@@ -43,7 +43,10 @@ function createTableFromArray(array) {
     th.textContent = cellText || '';
     th.style.border = '1px solid #444';
     th.style.padding = '6px';
-    headerRow.appendChild(th);
+   headerRow.appendChild(th);
+th.style.top = '0px';
+th.style.position = 'sticky';
+th.style.background = "#181a1c";
   });
   thead.appendChild(headerRow);
 

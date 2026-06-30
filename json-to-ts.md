@@ -113,7 +113,7 @@ category: coding
 </style>
   <!-- Tool Body -->
 
-<article id="intro" style="margin-left: 5rem; margin-right: 5rem;">
+<article id="intro" class="home-hero">
     <h1 itemprop="headline">JSON to TypeScript Converter – Generate TS Interfaces & Classes</h1>
     <p><strong>Convert any JSON to TypeScript (TS) interfaces or classes instantly</strong>. Our free, client‑side tool automatically prettifies JSON, generates clean, duplicate‑free TypeScript definitions, and lets you export all types as a ZIP folder. No server, no upload – your data stays private.</p>
 </article>
@@ -152,23 +152,17 @@ category: coding
 <div id="toast-container" class="toast-container"></div>
 
 <!-- Microdata‑enriched content (place below the tool) -->
-<article id="json-to-typescript-content"  style="margin : 4rem;">
-  <meta itemprop="about" content="Convert JSON to TypeScript interfaces or classes" />
-  <meta itemprop="accessibilityControl" content="fullKeyboardControl" />
-  <meta itemprop="accessibilityFeature" content="syntaxHighlighting" />
-
-  <!-- Main software application microdata -->
-  <div itemscope itemtype="https://schema.org/SoftwareApplication" itemprop="mainEntity">
-    <meta  content="JSON to TypeScript Converter – DataFrog" />
-    
-    <meta itemprop="applicationCategory" content="DeveloperTool" />
-    
-    <meta  content="Free online tool to convert JSON to TypeScript interfaces or classes. Auto‑prettify, duplicate‑free types, ZIP export. 100% client‑side, no upload." />
+<article id="json-to-typescript-content"  class="onpage-content">
+  !-- Main software application microdata -->
+ <div class="blog-post-meta">
+     <a href="sohail-anwar" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Sohail Anwar" class="author-img">
+      <span class="author-name">Sohail Anwar</span>
+      </a>
+      <span class="post-date">December 01, 2025</span>
   </div>
-
-
   <!-- Features with ItemList -->
-  <section id="ts-features" itemscope itemtype="https://schema.org/ItemList">
+  <section id="ts-features" >
     <h2 >✨ Why Developers Choose This JSON → TypeScript Generator</h2>
     <ul>
       <li itemprop="itemListElement"><strong>🚀 Instant conversion</strong> – Paste JSON, click Convert, get ready‑to‑use TypeScript interfaces or classes.</li>
@@ -187,17 +181,17 @@ category: coding
     <div itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
       <meta itemprop="position" content="1" />
       <h3 >1. Enter your JSON</h3>
-      <p >Paste JSON into the left editor, or click “Upload JSON” to load a file. The tool auto‑prettifies it for readability.</p>
+      <p>Paste JSON into the left editor, or click “Upload JSON” to load a file. The tool auto‑prettifies it for readability.</p>
     </div>
     <div itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
       <meta itemprop="position" content="2" />
       <h3 >2. Choose type style</h3>
-      <p >Select <strong>Generate Interface</strong> (for `export interface`) or uncheck for <strong>Generate Class</strong> (for `export class`).</p>
+      <p>Select <strong>Generate Interface</strong> (for `export interface`) or uncheck for <strong>Generate Class</strong> (for `export class`).</p>
     </div>
     <div itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
       <meta itemprop="position" content="3" />
       <h3 >3. Convert & export</h3>
-      <p >Click <strong>Convert to TypeScript</strong> – the right panel shows your TS code. Use <strong>Copy</strong> to copy all code, or <strong>Export ZIP</strong> to download a `model/` folder with one file per type.</p>
+      <p>Click <strong>Convert to TypeScript</strong> – the right panel shows your TS code. Use <strong>Copy</strong> to copy all code, or <strong>Export ZIP</strong> to download a `model/` folder with one file per type.</p>
     </div>
   </section>
 
@@ -219,43 +213,43 @@ category: coding
 
     <div  >
       <h3 >Does this tool handle nested objects and arrays?</h3>
-      <div >
-        <div ><p>Yes. The converter recursively traverses your JSON and creates a separate TypeScript type for each unique nested object. Arrays of objects also produce correct array type references.</p></div>
+      <div>
+        <div><p>Yes. The converter recursively traverses your JSON and creates a separate TypeScript type for each unique nested object. Arrays of objects also produce correct array type references.</p></div>
       </div>
     </div>
 
     <div  >
       <h3 >What’s the difference between generating an interface vs. a class?</h3>
-      <div >
-        <div ><p>Interfaces are purely for type checking and disappear at runtime; classes generate actual JavaScript code and can include methods. Our tool generates simple property‑only classes, ideal for data models.</p></div>
+      <div>
+        <div><p>Interfaces are purely for type checking and disappear at runtime; classes generate actual JavaScript code and can include methods. Our tool generates simple property‑only classes, ideal for data models.</p></div>
       </div>
     </div>
 
     <div  >
       <h3 >Is my JSON data sent to any server?</h3>
-      <div >
-        <div ><p>Never. Everything runs locally in your browser using Ace Editor and JavaScript. No upload, no tracking – your data stays private.</p></div>
+      <div>
+        <div><p>Never. Everything runs locally in your browser using Ace Editor and JavaScript. No upload, no tracking – your data stays private.</p></div>
       </div>
     </div>
 
     <div  >
       <h3 >Why does the output sometimes show `Root` as the main type?</h3>
-      <div >
-        <div ><p>The top‑level object is named `Root` by default. You can rename it in your own code after export. All other types are named based on the keys where they appear.</p></div>
+      <div>
+        <div><p>The top‑level object is named `Root` by default. You can rename it in your own code after export. All other types are named based on the keys where they appear.</p></div>
       </div>
     </div>
 
     <div  >
       <h3 >Can I export all types as separate files?</h3>
-      <div >
-        <div ><p>Yes. Use the <strong>Export ZIP</strong> button – it creates a `model/` folder containing each generated type as a `.ts` file (e.g., `Root.ts`, `Address.ts`, `Department.ts`).</p></div>
+      <div>
+        <div><p>Yes. Use the <strong>Export ZIP</strong> button – it creates a `model/` folder containing each generated type as a `.ts` file (e.g., `Root.ts`, `Address.ts`, `Department.ts`).</p></div>
       </div>
     </div>
 
     <div  >
       <h3 >What JSON standard is supported?</h3>
-      <div >
-        <div ><p>We strictly adhere to <strong>RFC 8259</strong> – no trailing commas, no comments, full UTF‑8 support. Invalid JSON will show an error.</p></div>
+      <div>
+        <div><p>We strictly adhere to <strong>RFC 8259</strong> – no trailing commas, no comments, full UTF‑8 support. Invalid JSON will show an error.</p></div>
       </div>
     </div>
   </section>

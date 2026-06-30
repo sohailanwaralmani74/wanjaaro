@@ -251,22 +251,11 @@ details[open] .faq-chevron{transform:rotate(90deg)}
 <!-- ================================================================
   HERO — WebApplication metadata
 ================================================================ -->
-<div id="url-decoder-hero"
-     
-     style="display:flex;flex-direction:column;justify-content:center;margin:1rem;">
-
-  
-  
-  
-  
-  
-    <meta itemprop="price" content="0">
-    <meta itemprop="priceCurrency" content="USD">
-  </div>
+<div id="url-decoder-hero" class="home-hero">
 
   <h1 >URL Decoder — Decode URLs and Query Parameters Instantly</h1>
 
-  <p >
+  <p>
     Decode percent-encoded URLs back to human-readable text. Works as a URL decoder,
     query string parser, and <code>decodeURI</code>/<code>decodeURIComponent</code> utility.
     Batch decode multiple URLs — all in your browser, no uploads required.
@@ -404,7 +393,13 @@ details[open] .faq-chevron{transform:rotate(90deg)}
   CONTENT BLOCKS
 ================================================================ -->
 <article class="onpage-content">
-
+ <div class="blog-post-meta">
+     <a href="saeed-ahmed" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Saeed Ahmed" class="author-img">
+      <span class="author-name">Saeed Ahmed</span>
+      </a>
+      <span class="post-date">jan 10, 2026</span>
+  </div>
   <section id="why-decode-url">
     <h2 style="margin-top:30px;">Why decode URL-encoded strings?</h2>
     <ul style="padding-left:20px;">
@@ -422,7 +417,7 @@ details[open] .faq-chevron{transform:rotate(90deg)}
       <li><strong>Paste your encoded URL</strong> – paste a percent-encoded string (e.g., <code>https%3A%2F%2Fexample.com%2Fpath</code>) into the input field.</li>
       <li><strong>Choose your decoding mode</strong> – select <code>decodeURI</code> for full URLs or <code>decodeURIComponent</code> for query strings and hash fragments.</li>
       <li><strong>Get instant results</strong> – the decoded text appears instantly, along with a parsed breakdown of protocol, host, path, and query parameters.</li>
-    </ol>
+    </ul>
   </section>
 
   <section id="key-features">

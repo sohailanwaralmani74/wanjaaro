@@ -8,7 +8,7 @@ category: sql
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 
-<section style="display: flex; justify-content: center">
+<section >
   
 
   <div style="width:98%;" style="margin-left: 2rem;">
@@ -71,7 +71,13 @@ category: sql
  <div id="sql-excel-toast" class="jsonx-toast"></div>
 
 <article class="onpage-content">
-
+ <div class="blog-post-meta">
+     <a href="sohail-anwar" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Sohail Anwar" class="author-img">
+      <span class="author-name">Sohail Anwar</span>
+      </a>
+      <span class="post-date">December 01, 2025</span>
+  </div>
   <section id="why-use-sql-to-excel">
     <h2 style="margin-top:30px;">Why Use This Free SQL to Excel Tool?</h2>
     <ul style="padding-left:20px;">
@@ -90,7 +96,7 @@ category: sql
       <li><strong>Upload</strong> – Choose your SQL file (or .txt/.csv) containing structured data.</li>
       <li><strong>Convert</strong> – The tool automatically parses INSERT rows or delimiter‑separated blocks.</li>
       <li><strong>Preview & Export</strong> – Verify the table and click <code>Download .xlsx</code> or <code>Download .xls</code>.</li>
-    </ol>
+    </ul>
   </section>
 
   <section id="supported-sql-formats">

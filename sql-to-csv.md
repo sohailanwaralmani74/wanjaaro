@@ -5,7 +5,7 @@ description: "Free online SQL to CSV converter. Convert SQL query results, INSER
 keywords: "convert sql to csv online free, sql to csv converter, mysql to csv, postgresql to csv, sqlite to csv, export sql to csv, sql dump to csv, sql query to csv"
 category: sql
 ---
-<section style="display: flex; justify-content: center">
+<section >
 
 <div style="width:98%;" style="margin-left: 2rem;">
 
@@ -74,9 +74,15 @@ category: sql
 <div id="df-sqlcsv-toast" class="jsonx-toast"></div>
 
 
-<article >
+<article class="onpage-content">
 <section id="toolPurposeSection">
-
+ <div class="blog-post-meta">
+     <a href="sohail-anwar" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Sohail Anwar" class="author-img">
+      <span class="author-name">Sohail Anwar</span>
+      </a>
+      <span class="post-date">December 01, 2025</span>
+  </div>
   <h2 id="purposeTitle">Purpose of this tool</h2>
 
   <p id="purposeText">
@@ -145,7 +151,7 @@ category: sql
     <li>Column names and values are extracted</li>
     <li>Data is transformed into CSV format</li>
     <li>Output is generated for download or copy</li>
-  </ol>
+  </ul>
 
 </section>
 

@@ -418,6 +418,10 @@
   url: /compound-interest-calculator
   category: investing
 
+- title: "Lump Sum SIP Calculator"
+  url: /lump-sum-sip-calculator
+  category: investing  
+
 - title: "CAGR Calculator"
   url: /cagr-calculator
   category: investing

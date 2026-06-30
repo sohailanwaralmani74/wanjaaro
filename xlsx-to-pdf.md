@@ -8,14 +8,16 @@ category: excel
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.26/jspdf.plugin.autotable.min.js"></script>
-<section style="display: flex; justify-content: center">
+<section >
 
-<div style="width: 98%;">
+<div>
+<div class="home-hero"> 
 <h1>XLSX to PDF Converter – Convert Excel Spreadsheets to PDF Instantly</h1>
 
   <p id="intro" style="font-size:14px;color:#333;">
     Convert XLSX to PDF online in seconds – completely free, no signup. This browser‑based tool turns any Excel spreadsheet (.xlsx or .xls) into a clean, printable PDF document with preserved tables, rows, and columns. Perfect for creating reports, invoices, or shareable data sheets – all without uploading your files.
   </p>
+ </div> 
 <div class="csvx-container">
   <div class="csvx-panel" id="csvPanelPdf">
     <div class="panel-header">
@@ -49,7 +51,13 @@ category: excel
 </div>
 
 <article class="onpage-content">
-
+ <div class="blog-post-meta">
+     <a href="sohail-anwar" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Sohail Anwar" class="author-img">
+      <span class="author-name">Sohail Anwar</span>
+      </a>
+      <span class="post-date">December 01, 2025</span>
+  </div>
   <section id="when-to-use">
     <h2>Why convert Excel to PDF?</h2>
     <ul>
@@ -63,11 +71,11 @@ category: excel
 
   <section id="how-it-works">
     <h2>How to convert XLSX to PDF – 3 simple steps</h2>
-    <ol>
+    <ul>
       <li><strong>Upload your Excel file</strong> – click “Upload Excel File” and select any .xlsx or .xls file from your computer.</li>
       <li><strong>Preview and edit</strong> – see the parsed spreadsheet data in an editable table; adjust values if needed.</li>
       <li><strong>Generate PDF</strong> – click “Convert to PDF”, then review the live preview and download the final PDF.</li>
-    </ol>
+    </ul>
   </section>
 
   <section id="key-features">

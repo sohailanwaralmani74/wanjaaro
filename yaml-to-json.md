@@ -12,13 +12,15 @@ category: utilities
 <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
 
 
-<section style="display: flex; justify-content: center">
+<section >
 
 <div style="width:98%;" style="margin-left: 2rem;">
+ <div class="hero-home">
   <h1>Convert YAML to JSON Online – Free, Fast & Secure</h1> 
-  <p id="intro" style="font-size:14px;color:#333;">
+  <p id="intro">
     Convert YAML to JSON online in seconds – completely free, no signup, no uploads. This browser‑based tool transforms any YAML document (config files, Kubernetes manifests, Docker Compose, etc.) into clean, structured JSON. Perfect for API integration, frontend development, or migrating DevOps configurations – all securely in your browser with no data leaving your device.
   </p>
+  </div>
 <div class="jsonx-container">
   <div class="jsonx-panel">
     <div class="jsonx-pane-container">
@@ -64,6 +66,14 @@ category: utilities
 
 <article class="onpage-content">
 
+ <div class="blog-post-meta">
+     <a href="saeed-ahmed" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Saeed Ahmed" class="author-img">
+      <span class="author-name">Saeed Ahmed</span>
+      </a>
+      <span class="post-date">jan 10, 2026</span>
+  </div>
+
   <section id="when-to-use-section">
     <h2 id="when-to-use" style="margin-top:30px;">Why convert YAML to JSON?</h2>
     <ul style="padding-left:20px;">
@@ -81,7 +91,7 @@ category: utilities
       <li><strong>Provide your YAML input</strong> – paste YAML code directly into the editor or upload a .yaml / .yml file.</li>
       <li><strong>Convert automatically</strong> – click “Convert to JSON”. The tool parses your YAML structure in your browser using js-yaml.</li>
       <li><strong>Copy or download JSON</strong> – review the formatted JSON output, then copy it to your clipboard or download as a .json file.</li>
-    </ol>
+    </ul>
   </section>
 
   <section id="key-features-section">

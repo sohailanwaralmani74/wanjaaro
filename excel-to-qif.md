@@ -118,7 +118,7 @@ category: excelFinance
 </script>
 
 <!-- HERO -->
-<div id="excel-hero" style="display:flex;flex-direction:column;justify-content:center;margin:1rem;">
+<div id="excel-hero" class="home-hero" >
   <h1>Excel to QIF Converter – Turn Spreadsheets into Quicken‑Ready Data</h1>
   <p>
     Convert Excel files (.xlsx, .xls) to QIF (Quicken Interchange Format) instantly.
@@ -226,8 +226,15 @@ category: excelFinance
 
 <!-- Content (shortened) -->
 <article class="onpage-content">
+ <div class="blog-post-meta">
+     <a href="sohail-anwar" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Sohail Anwar" class="author-img">
+      <span class="author-name">Sohail Anwar</span>
+      </a>
+      <span class="post-date">December 01, 2025</span>
+  </div>
   <section id="why-convert"><h2>Why convert Excel to QIF?</h2><ul><li>Import spreadsheet‑based transactions into Quicken</li><li>Use with GnuCash, Money, or other QIF‑compatible tools</li><li>Easy migration from any Excel‑exporting system</li></ul></section>
-  <section id="how-it-works"><h2>How to convert – 3 simple steps</h2><ol><li>Upload your Excel file</li><li>Select a sheet (if multiple)</li><li>Map columns if needed, then convert and download .qif</li></ol></section>
+  <section id="how-it-works"><h2>How to convert – 3 simple steps</h2><ul><li>Upload your Excel file</li><li>Select a sheet (if multiple)</li><li>Map columns if needed, then convert and download .qif</li></ul></section>
   <section id="features"><h2>Features</h2><ul><li>✅ Privacy first – everything stays local</li><li>✅ Uses SheetJS for robust Excel parsing</li><li>✅ Auto‑detects columns with manual mapping option</li><li>✅ Free forever</li></ul></section>
   <section id="privacy"><h2>Privacy &amp; Security</h2><ul><li>🔒 All processing is local – no files uploaded</li><li>🚫 No tracking, no logs</li><li>💼 Safe for sensitive financial data</li></ul></section>
   <section id="faq"><h2>Frequently Asked Questions</h2><h3>What Excel formats are supported?</h3><p>.xlsx, .xls, and .csv files are supported.</p><h3>Does it handle multiple sheets?</h3><p>Yes, a dropdown lets you choose which sheet to convert.</p><h3>Will the QIF work in Quicken?</h3><p>Yes, the generated QIF follows standard format and imports into Quicken and similar apps.</p></section>

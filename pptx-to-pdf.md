@@ -103,13 +103,15 @@ p{
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.10.0/dist/pptxgen.bundle.js"></script>
 
-<section style="display: flex; justify-content: center">
+<section >
   
   <div style="width:98%;" style="margin-left: 2rem;">
+  <div class="home-hero">
     <h1>PPTX to PDF Converter – Turn PowerPoint into PDF Instantly</h1>
   <p id="intro" style="font-size:14px;color:#333;"> 
     Convert PowerPoint (PPTX or PPT) to PDF online for free – no signup, no file uploads. This browser‑based tool turns each slide of your presentation into a high‑quality PDF page while preserving layout, fonts, images, and graphics. Perfect for sharing presentations as printable documents, archiving slides, or distributing read‑only copies – all securely in your browser.
   </p>
+  </div>
     <!-- Upload Panel -->
     <div class="csvx-container" style="min-height:520px; border-radius: 10px">
       <div class="csvx-panel" id="pptxPanel" style="min-height:520px;">
@@ -170,7 +172,13 @@ p{
   </div>
 <!-- Semantic Content Block -->
 <article class="onpage-content">
- 
+  <div class="blog-post-meta">
+     <a href="saeed-ahmed" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Saeed Ahmed" class="author-img">
+      <span class="author-name">Saeed Ahmed</span>
+      </a>
+      <span class="post-date">jan 10, 2026</span>
+  </div>
   <section id="why-convert-pptx-to-pdf">
     <h2 style="margin-top:30px;">Why convert PowerPoint to PDF?</h2>
     <ul style="padding-left:20px;">
@@ -188,7 +196,7 @@ p{
       <li><strong>Upload your PowerPoint file</strong> – click “Upload PowerPoint” and select a .pptx or .ppt file from your computer. All processing happens locally.</li>
       <li><strong>Preview slides</strong> – see thumbnail previews of your presentation to confirm the content.</li>
       <li><strong>Generate and download PDF</strong> – click “Convert to PDF”, then download the high‑quality PDF file with all slides preserved.</li>
-    </ol>
+    </ul>
   </section>
 
   <section id="key-features-pptx-to-pdf">

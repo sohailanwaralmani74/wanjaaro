@@ -6,15 +6,15 @@ keywords: "convert csv to txt online free, csv to plain text converter, csv to t
 category: csv
 ---
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-<section style="display: flex; justify-content: center">
+<section >
 
-<div style="width: 98%;">
+<div>
+<div class="home-hero">
 <h1>Convert CSV to TXT – Free & Secure Plain Text Converter</h1>
   <p id="intro" style="font-size:14px;color:#333;">
-    Convert CSV to TXT online in seconds – completely free, no signup, no file uploads. This tool runs entirely in your browser. 
-    Upload any CSV file, preview the parsed data, and instantly generate a clean, column‑aligned plain text file (TXT). 
-    Perfect for logs, command‑line tools, reports, documentation, or any situation where you need human‑readable structured text without spreadsheets.
+    Convert CSV to TXT online in seconds – completely free, no signup, no file uploads. This tool runs entirely in your browser.
   </p>
+  </div>
 <div class="csvx-container">
   <div class="csvx-panel" id="csvPanelText">
     <div class="panel-header">
@@ -56,7 +56,13 @@ category: csv
 </div>
 
 <article >
-
+ <div class="blog-post-meta">
+     <a href="sohail-anwar" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Sohail Anwar" class="author-img">
+      <span class="author-name">Sohail Anwar</span>
+      </a>
+      <span class="post-date">December 01, 2025</span>
+  </div>
 <section class="onpage-content">
 
   <section id="why-use">
@@ -72,11 +78,11 @@ category: csv
 
   <section id="how-it-works">
     <h2>How to convert CSV to TXT</h2>
-    <ol>
+    <ul>
       <li>Upload a CSV file from your device</li>
       <li>Preview and verify the parsed table structure</li>
       <li>Generate and download plain text (.txt) output</li>
-    </ol>
+    </ul>
   </section>
 
   <section id="features">

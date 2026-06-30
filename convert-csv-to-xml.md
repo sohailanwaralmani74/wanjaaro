@@ -6,9 +6,10 @@ keywords: "convert csv to xml online free, csv to xml converter, csv to xml file
 category: csv
 ---
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-<section style="display: flex; justify-content: center">
+<section >
 
-<div style="width: 98%;">
+<div>
+
 <div class="home-hero">
   <h1>Convert CSV to XML Online – Free, Fast & Private</h1>
 
@@ -58,7 +59,13 @@ category: csv
 </div>
  
  <article class="onpage-content">
-
+ <div class="blog-post-meta">
+     <a href="sohail-anwar" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Sohail Anwar" class="author-img">
+      <span class="author-name">Sohail Anwar</span>
+      </a>
+      <span class="post-date">December 01, 2025</span>
+  </div>
   <section id="when-to-use">
     <h2>Why convert CSV to XML?</h2>
     <ul>
@@ -72,11 +79,11 @@ category: csv
 
   <section id="how-it-works">
     <h2>How to convert CSV to XML – 3 simple steps</h2>
-    <ol>
+    <ul>
       <li><strong>Upload CSV file</strong> – select any .csv from your device</li>
       <li><strong>Preview data</strong> – verify headers and structure</li>
       <li><strong>Generate XML</strong> – download or copy formatted output</li>
-    </ol>
+    </ul>
   </section>
 
   <section id="features">

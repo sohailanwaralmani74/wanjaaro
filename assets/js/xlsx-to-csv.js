@@ -44,7 +44,10 @@ function renderExcelPreview(array){
   array[0].forEach(cell => {
     const th = document.createElement('th');
     th.textContent = cell || '';
-    headerRow.appendChild(th);
+   headerRow.appendChild(th);
+th.style.top = '0px';
+th.style.position = 'sticky';
+th.style.background = "#181a1c";
   });
   thead.appendChild(headerRow);
 

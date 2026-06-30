@@ -9,7 +9,7 @@ category: json
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jsonview@1.2.0/dist/jquery.jsonview.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/jsonview@1.2.0/dist/jquery.jsonview.min.css" rel="stylesheet">
-<section>  
+<section class="home-hero">  
 <h1>JSON to CSV Converter Online – Flatten Nested JSON Instantly</h1> 
   <p id="intro">
     <strong>CSV (Comma-Separated Values)</strong> is the most universally compatible format 
@@ -73,7 +73,13 @@ category: json
 <div style="display: flex; flex-direction: row">
 <article class="onpage-content" style="max-width:900px;margin:40px auto;padding:10px 20px;line-height:1.7;font-family:Arial,sans-serif;">
 
-
+ <div class="blog-post-meta">
+     <a href="sohail-anwar" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Sohail Anwar" class="author-img">
+      <span class="author-name">Sohail Anwar</span>
+      </a>
+      <span class="post-date">December 01, 2025</span>
+  </div>
 
   <section aria-labelledby="when-to-use">
     <h2 id="when-to-use">Why convert JSON to CSV?</h2>
@@ -110,11 +116,11 @@ category: json
 
   <section aria-labelledby="how-it-works">
     <h2 id="how-it-works">How to convert JSON to CSV – 3 simple steps</h2>
-    <ol>
+    <ul>
       <li><strong>Paste or upload JSON</strong> – copy your JSON into the editor or click "Upload JSON File" to load a .json file.</li>
       <li><strong>Review the preview</strong> – the tool validates your JSON and shows a formatted tree view.</li>
       <li><strong>Convert and download</strong> – click "Convert to CSV", then copy the output or download as a .csv file.</li>
-    </ol>
+    </ul>
   </section>
 
   <section aria-labelledby="key-features">

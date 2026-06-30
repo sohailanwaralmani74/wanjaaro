@@ -108,10 +108,10 @@ p{
   <p>JSON data can be a little complex for non-technical users. Converting it to PDF makes it more readable, shareable, and easy to understand.</p>
 
 <blockquote>Tip: Tabular PDF format is often more readable than raw JSON.</blockquote>
-<div class="blog-post-meta">
-     <a href="gourav-mishra" style="display:flex; gap: 10px;" class="link">
-      <img src="assets/img/gourav-mishra.jpg" alt="Gourav Mishra" class="author-img">
-      <span class="author-name">Gourav Mishra</span>
+   <div class="blog-post-meta">
+     <a href="sohail-anwar" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Sohail Anwar" class="author-img">
+      <span class="author-name">Sohail Anwar</span>
       </a>
       <span class="post-date">December 01, 2025</span>
     </div>

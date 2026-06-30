@@ -6,7 +6,7 @@ keywords: "qif to csv online free, convert qif to csv, qif to csv converter, qui
 category: qifFinance
 ---
 
-<section style="display: flex; justify-content: center">
+<section >
   
   <div style="width:98%;" style="margin-left: 2rem;">
     <h1>QIF to CSV Converter – Turn Quicken Files into Spreadsheet-Ready CSV</h1>
@@ -53,7 +53,13 @@ category: qifFinance
     </div>  
 
 <article class="onpage-content">
-
+ <div class="blog-post-meta">
+     <a href="sohail-anwar" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Sohail Anwar" class="author-img">
+      <span class="author-name">Sohail Anwar</span>
+      </a>
+      <span class="post-date">December 01, 2025</span>
+  </div>
   <section id="why-convert-qif-to-csv">
     <h2 style="margin-top:30px;">Why convert QIF to CSV?</h2>
     <ul style="padding-left:20px;">
@@ -71,7 +77,7 @@ category: qifFinance
       <li><strong>Upload your QIF file</strong> – click “Upload QIF File” and select any .qif file from your computer. All processing happens locally.</li>
       <li><strong>Preview transactions</strong> – the tool automatically parses transaction blocks and displays them in a table.</li>
       <li><strong>Download CSV</strong> – click “Convert to CSV” then “Download .csv” to get your spreadsheet‑ready file.</li>
-    </ol>
+    </ul>
   </section>
 
   <section id="key-features-qif-to-csv">

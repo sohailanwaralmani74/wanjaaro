@@ -6,7 +6,7 @@ keywords: "qif to qbo online free, convert qif to qbo, quicken to quickbooks onl
 category: qifFinance
 ---
 
-<section style="display: flex; justify-content: center">
+<section >
      <div style="width:98%;" style="margin-left: 2rem;">
     <h1>QIF to QBO Converter – Turn Quicken into QuickBooks Files</h1>
   <p id="intro" style="font-size:14px;color:#333;">
@@ -54,7 +54,13 @@ category: qifFinance
    <div id="toastQBO" class="jsonx-toast">✅ QBO file generated – ready for QuickBooks import</div>
   
   <article class="onpage-content">
-
+ <div class="blog-post-meta">
+     <a href="sohail-anwar" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Sohail Anwar" class="author-img">
+      <span class="author-name">Sohail Anwar</span>
+      </a>
+      <span class="post-date">December 01, 2025</span>
+  </div>
   <section id="why-convert-qif-to-qbo">
     <h2 style="margin-top:30px;">Why convert QIF to QBO?</h2>
     <ul style="padding-left:20px;">
@@ -72,7 +78,7 @@ category: qifFinance
       <li><strong>Upload your QIF file</strong> – click “Upload QIF File” and select any .qif file from your computer.</li>
       <li><strong>Preview transactions</strong> – the tool parses each transaction (date, amount, payee, memo) and displays them for review.</li>
       <li><strong>Download QBO file</strong> – click “Convert to QBO”, then download the .qbo file ready for QuickBooks import.</li>
-    </ol>
+    </ul>
   </section>
 
   <section id="key-features-qif-to-qbo">

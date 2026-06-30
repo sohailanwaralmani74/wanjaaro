@@ -7,13 +7,14 @@ category: csv
 ---
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <!-- JSONView (depends on jQuery) -->
-<section style="display: flex; justify-content: center">
+<section >
 
-<div style="width: 98%;">
+<div>
+<div class="home-hero">
   <h1>Convert CSV to SQL – Generate Database INSERT Statements Instantly</h1>
   <p id="intro" style="font-size:14px;color:#333;">
-    Convert CSV to SQL online in seconds – completely free, no signup. This browser‑based tool turns any CSV file into standard SQL INSERT statements, ready for MySQL, PostgreSQL, SQLite, and other relational databases. Perfect for database seeding, data migration, and backend development.
-  </p>
+    Convert CSV to SQL online in seconds – completely free, no signup. This browser‑based tool turns any CSV file into standard SQL INSERT statements, ready for MySQL, PostgreSQL, SQLite, and other relational databases.</p>
+</div>  
 <div class="csvx-container">
   <div class="csvx-panel" id="csvPanelSql">
     <div class="panel-header">
@@ -29,7 +30,7 @@ category: csv
         <button class="csvx-btn primary" id="convertBtnSql" disabled title="Convert CSV to SQL">🔄 Convert to SQL</button>
       </div>
     </div>
-    <div id="csvPreviewSql" class="csvx-preview" contenteditable>
+    <div id="csvPreviewSql" class="csvx-preview">
       <div class="small" id="placeholderSql">No file uploaded yet. Upload a CSV file – all processing happens in your browser.</div>
     </div>
     <div id="toastSql" class="csvx-toast">✅ SQL ready – copy or download below</div>
@@ -49,7 +50,7 @@ category: csv
           <button class="csvx-btn" id="exportSqlBtn" title="Download as SQL File">💾 Export .sql</button>
         </div>
       </div>
-      <textarea id="sqlPreview" class="csvx-preview" style="min-height:300px; background:#1b1b1b; color:#eee; font-family:monospace; padding:10px; border:none; width:100%; border-radius:8px;" contenteditable="true"></textarea>
+      <textarea id="sqlPreview" class="csvx-preview" style="height:340px; background:#1b1b1b; color:#eee; font-family:monospace; padding:10px; border:none; width:100%; border-radius:8px;" resize="none"></textarea>
     </div>
   </div>
 </div>
@@ -57,7 +58,13 @@ category: csv
 <article >
 
 <section class="onpage-content">
-
+ <div class="blog-post-meta">
+     <a href="sohail-anwar" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Sohail Anwar" class="author-img">
+      <span class="author-name">Sohail Anwar</span>
+      </a>
+      <span class="post-date">December 01, 2025</span>
+  </div>
   <section id="why-use">
     <h2>Why convert CSV to SQL?</h2>
     <ul>
@@ -71,11 +78,11 @@ category: csv
 
   <section id="how-it-works">
     <h2>How to convert CSV to SQL</h2>
-    <ol>
+    <ul>
       <li>Upload a CSV file from your device</li>
       <li>Preview and edit the parsed table (first row becomes column names)</li>
       <li>Generate SQL INSERT statements and download or copy output</li>
-    </ol>
+    </ul>
   </section>
 
   <section id="features">

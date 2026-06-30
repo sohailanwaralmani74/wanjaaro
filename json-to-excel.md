@@ -302,7 +302,13 @@ background-color: #66fcf1;
 
 <article >
 <div class="onpage-content" style=" padding:10px 20px;">
-
+  <div class="blog-post-meta">
+     <a href="sohail-anwar" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Sohail Anwar" class="author-img">
+      <span class="author-name">Sohail Anwar</span>
+      </a>
+      <span class="post-date">December 01, 2025</span>
+  </div>
   <section aria-labelledby="when-to-use">
     <h2 id="when-to-use">Why convert JSON to Excel?</h2>
     <ul>
@@ -345,11 +351,11 @@ USB Hub      | 2   | 50.00</code></pre>
 
   <section aria-labelledby="how-it-works">
     <h2 id="how-it-works">How to convert JSON to Excel – 3 simple steps</h2>
-    <ol>
+    <ul>
       <li><strong>Paste or upload JSON</strong> – copy your JSON into the editor or click "Upload JSON File" to load a .json file.</li>
       <li><strong>Validate and preview</strong> – the tool checks syntax and shows a collapsible tree view of your data.</li>
       <li><strong>Convert and download</strong> – click "Convert to Excel", then download as XLSX or XLS. Nested structures become separate sheets automatically.</li>
-    </ol>
+    </ul>
   </section>
 
   <section aria-labelledby="key-features">

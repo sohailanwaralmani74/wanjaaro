@@ -51,7 +51,6 @@ function parseCSV(text){
 function createTableFromArray(array){
   if (!array || array.length === 0) return null;
   const table = document.createElement('table');
-  table.style.width = '100%';
   table.style.borderCollapse = 'collapse';
   table.style.fontSize = '13px';
   const thead = document.createElement('thead');
@@ -64,9 +63,16 @@ function createTableFromArray(array){
     th.textContent = cellText || '';
     th.style.border = '1px solid #444';
     th.style.padding = '6px';
-    headerRow.appendChild(th);
+   headerRow.appendChild(th);
+th.style.top = '0px';
+th.style.position = 'sticky';
+th.style.background = "#181a1c";
+
+
   });
   thead.appendChild(headerRow);
+
+  
 
   // Body
   for (let r = 1; r < array.length; r++){

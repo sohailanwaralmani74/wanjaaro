@@ -7,11 +7,11 @@ category: excel
 ---
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <!-- JSONView (depends on jQuery) -->
-<section style="display: flex; justify-content: center">
+<section >
 
-<div style="width: 99%;">
-<div class="home-hreo">
-<h1>Convert Excel to HTML Table – Free Online Converter</h1>
+<div>
+<div class="home-hero">
+ <h1>Convert Excel to HTML Table – Free Online Converter</h1>
 
   <p id="intro" style="font-size:14px;color:#333;">
     Convert Excel to HTML table online in seconds – completely free, no signup. This browser‑based tool turns any Excel spreadsheet (.xlsx or .xls) into clean, semantic HTML table code. Perfect for embedding data into websites, building admin dashboards, creating reports, or sharing spreadsheet content in a web‑friendly format.
@@ -58,7 +58,13 @@ category: excel
 </div>
 
 <article class="onpage-content">
-
+ <div class="blog-post-meta">
+     <a href="sohail-anwar" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Sohail Anwar" class="author-img">
+      <span class="author-name">Sohail Anwar</span>
+      </a>
+      <span class="post-date">December 01, 2025</span>
+  </div>
   <section id="when-to-use">
     <h2>Why convert Excel to HTML table?</h2>
     <ul>
@@ -72,11 +78,11 @@ category: excel
 
   <section id="how-it-works">
     <h2>How to convert Excel to HTML – 3 simple steps</h2>
-    <ol>
+    <ul>
       <li><strong>Upload your Excel file</strong> – click “Upload Excel File” and select any .xlsx or .xls file from your computer.</li>
       <li><strong>Preview and edit</strong> – see the spreadsheet data in an editable table; modify cells, add or delete rows as needed.</li>
       <li><strong>Generate HTML table</strong> – click “Convert to HTML Table”, then copy the code or download as an .html file.</li>
-    </ol>
+    </ul>
   </section>
 
   <section id="key-features">

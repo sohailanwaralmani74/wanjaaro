@@ -112,7 +112,7 @@ category: mt940Finance
 </script>
 
 <!-- HERO -->
-<div id="mt942-hero" style="display:flex;flex-direction:column;justify-content:center;margin:1rem;">
+<div id="mt942-hero" class="home-hero" >
   <h1>MT942 to CSV Converter – Turn Intraday Bank Statements into Spreadsheets</h1>
   <p>
     Convert SWIFT MT942 files to CSV format instantly.
@@ -192,8 +192,15 @@ category: mt940Finance
 
 <!-- Content (shortened) -->
 <article class="onpage-content">
+ <div class="blog-post-meta">
+     <a href="sohail-anwar" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Sohail Anwar" class="author-img">
+      <span class="author-name">Sohail Anwar</span>
+      </a>
+      <span class="post-date">December 01, 2025</span>
+  </div>
   <section id="why-convert"><h2>Why convert MT942 to CSV?</h2><ul><li>Analyse intraday transactions in spreadsheets</li><li>Combine with other data sources for reconciliation</li><li>Easier data processing and reporting</li></ul></section>
-  <section id="how-it-works"><h2>How to convert – 3 simple steps</h2><ol><li>Upload your MT942 file</li><li>Click Convert</li><li>Copy or download the CSV</li></ol></section>
+  <section id="how-it-works"><h2>How to convert – 3 simple steps</h2><ul><li>Upload your MT942 file</li><li>Click Convert</li><li>Copy or download the CSV</li></ul></section>
   <section id="features"><h2>Features</h2><ul><li>✅ Privacy first – everything stays local</li><li>✅ Parses MT942 standard tags</li><li>✅ Clean CSV output</li><li>✅ Free forever</li></ul></section>
   <section id="privacy"><h2>Privacy &amp; Security</h2><ul><li>🔒 All processing is local – no files uploaded</li><li>🚫 No tracking, no logs</li><li>💼 Safe for sensitive financial data</li></ul></section>
   <section id="faq"><h2>Frequently Asked Questions</h2><h3>What is MT942?</h3><p>MT942 is SWIFT intraday statement format with multiple balance updates.</p><h3>What data is extracted?</h3><p>Transaction date, amount, debit/credit indicator, reference, description, and the balance after each transaction (if available).</p><h3>Will it handle multi‑line descriptions?</h3><p>Yes, :86: tags may be spread over multiple lines; they are concatenated.</p></section>

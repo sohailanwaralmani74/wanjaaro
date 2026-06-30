@@ -6,16 +6,17 @@ keywords: "excel duplicate remove, excel find duplicates, eliminate duplicate ex
 category: validator
 ---
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-<section style="display: flex; justify-content: center">
+<section >
 
 <div style="width:98%;" style="margin-left: 2rem;">
-
+<div class="home-hero">
 <h1>Remove Excel Duplicates – Eliminate Repeats in Excel Fast</h1>
   <p id="excel-duplicate-remover-intro">
     Remove duplicate rows from Excel files online without installing software.
     Upload XLSX or XLS spreadsheets, detect repeated records, preview duplicate rows,
     remove duplicates instantly, and export clean Excel or CSV files directly from your browser.
   </p>
+</div>  
 <!-- CONTROLS -->
 <div class="dfx-controls-bar">
 
@@ -56,19 +57,25 @@ category: validator
   <table class="dfx-table" id="dfx-table"></table>
 
 </div>
-<article id="remove-excel-duplicates-tool" style="margin: 3rem;">
-
+<article id="remove-excel-duplicates-tool" style="onpage-content">
+ <div class="blog-post-meta">
+     <a href="saeed-ahmed" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Saeed Ahmed" class="author-img">
+      <span class="author-name">Saeed Ahmed</span>
+      </a>
+      <span class="post-date">jan 10, 2026</span>
+  </div>
   <section id="how-to-remove-duplicates-from-excel">
 
     <h2>How To Remove Duplicates From Excel</h2>
 
-    <ol>
+    <ul>
       <li>Upload an XLSX or XLS Excel file</li>
       <li>Click the <strong>Check Duplicates</strong> button</li>
       <li>Preview duplicate rows detected in the spreadsheet</li>
       <li>Click <strong>Remove Duplicates</strong></li>
       <li>Download the cleaned Excel or CSV file</li>
-    </ol>
+    </ul>
 
   </section>
 

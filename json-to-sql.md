@@ -11,7 +11,7 @@ category: json
 <script src="https://cdn.jsdelivr.net/npm/jsonview@1.2.0/dist/jquery.jsonview.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/jsonview@1.2.0/dist/jquery.jsonview.min.css" rel="stylesheet">
 
-<section> <h1>JSON to SQL Converter – Generate Database‑Ready Statements</h1>
+<section class="home-hero"> <h1>JSON to SQL Converter – Generate Database‑Ready Statements</h1>
 <p id="intro" style="font-size: 13px">
     <strong>SQL INSERT statements</strong> are the standard way to load data into 
     relational databases — MySQL, PostgreSQL, SQLite, and others. When your data 
@@ -75,8 +75,14 @@ category: json
 
 <div style="display: flex; flex-direction: row">
 <div style="width: 98%">
-<article class="onpage-content" style="max-width:900px;margin:40px auto;padding:10px 20px;line-height:1.7;font-family:Arial,sans-serif;">
-
+<article class="onpage-content" >
+ <div class="blog-post-meta">
+     <a href="sohail-anwar" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Sohail Anwar" class="author-img">
+      <span class="author-name">Sohail Anwar</span>
+      </a>
+      <span class="post-date">December 01, 2025</span>
+  </div>
   <section aria-labelledby="when-to-use">
     <h2 id="when-to-use">Why convert JSON to SQL?</h2>
     <ul>
@@ -119,11 +125,11 @@ INSERT INTO `my_table` (`id`, `name`, `age`, `active`) VALUES
 
   <section aria-labelledby="how-it-works">
     <h2 id="how-it-works">How to convert JSON to SQL – 3 simple steps</h2>
-    <ol>
+    <ul>
       <li><strong>Paste or upload JSON</strong> – copy your JSON into the editor or click "Upload JSON File" to load a .json file.</li>
       <li><strong>Choose SQL dialect</strong> – select MySQL, PostgreSQL, or SQLite for syntax-compatible output.</li>
       <li><strong>Generate and download</strong> – click "Convert to SQL" to get INSERT statements and optional CREATE TABLE schema. Copy or download as a .sql file.</li>
-    </ol>
+    </ul>
   </section>
 
   <section aria-labelledby="key-features">

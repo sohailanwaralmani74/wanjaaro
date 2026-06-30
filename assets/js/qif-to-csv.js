@@ -134,7 +134,10 @@ function renderCSVPreview(array) {
     array[0].forEach(header => {
         const th = document.createElement('th');
         th.textContent = header;
-        headerRow.appendChild(th);
+       headerRow.appendChild(th);
+th.style.top = '0px';
+th.style.position = 'sticky';
+th.style.background = "#181a1c";
     });
     thead.appendChild(headerRow);
 

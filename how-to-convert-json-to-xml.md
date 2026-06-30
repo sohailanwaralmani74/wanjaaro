@@ -204,7 +204,7 @@ p{
   <p>Our <a href="/json-to-xml" title="JSON to XML Converter" class="link">JSON to XML Converter</a> is browser-based, fully private, and supports nested JSON of any complexity.</p>
 
   <h3>Step-by-Step Conversion</h3>
-  <ol>
+  <ul>
     <li>
       <strong>Upload or Paste JSON:</strong>
       <figure class="blog-image">
@@ -219,7 +219,7 @@ p{
         <figcaption>Download your XML file</figcaption>
       </figure>
     </li>
-  </ol>
+  </ul>
 
   <h3>Benefits</h3>
   <ul>

@@ -10,7 +10,7 @@ category: xml
 <script src="https://cdn.jsdelivr.net/npm/jsonview@1.2.0/dist/jquery.jsonview.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/jsonview@1.2.0/dist/jquery.jsonview.min.css" rel="stylesheet">
 
-<section style="display: flex; justify-content: center">
+<section >
 
 <div style="width:98%;" style="margin-left: 2rem;">
   <h1>Convert XML to JSON Online – Free, Secure & Private</h1> 
@@ -61,7 +61,13 @@ category: xml
 <div id="toastXml" class="jsonx-toast">✅ Conversion Successful!</div>
 
 <article class="onpage-content">
-
+ <div class="blog-post-meta">
+     <a href="sohail-anwar" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Sohail Anwar" class="author-img">
+      <span class="author-name">Sohail Anwar</span>
+      </a>
+      <span class="post-date">December 01, 2025</span>
+  </div>
   <section id="why-convert-section">
     <h2 id="why-convert" style="margin-top:30px;">Why convert XML to JSON?</h2>
     <ul style="padding-left:20px;">
@@ -79,7 +85,7 @@ category: xml
       <li><strong>Provide your XML input</strong> – paste XML code directly into the editor or upload an .xml file from your device.</li>
       <li><strong>Convert automatically</strong> – click “Convert to JSON”. The tool parses your XML structure in your browser.</li>
       <li><strong>Copy or download JSON</strong> – review the formatted JSON output, then copy it to your clipboard or download as a .json file.</li>
-    </ol>
+    </ul>
   </section>
 
   <section id="key-features-section">

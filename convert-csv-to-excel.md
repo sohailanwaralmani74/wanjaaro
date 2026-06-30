@@ -8,15 +8,15 @@ category: csv
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <!-- JSONView (depends on jQuery) -->
-<section style="display: flex; justify-content: center">
+<section >
 
-<div style="width: 98%;">
+<div>
+<div class="home-hero">
  <h1>Convert CSV to Excel Online – Free & Secure (No Upload)</h1>
   <p id="intro" style="font-size:14px;color:#333;">
-    Convert CSV to Excel online in seconds – completely free, no signup, no file uploads. This tool runs entirely in your browser using SheetJS. 
-    Upload a CSV (comma‑separated values) file, preview the data in a table, then export directly as .xlsx (Excel 2007+) or .xls (Excel 97-2003). 
-    Perfect for converting database exports, API responses, or spreadsheet data into native Excel format.
+    Convert CSV to Excel online in seconds – completely free, no signup, no file uploads. This tool runs entirely in your browser using SheetJS.
   </p>
+  </div>
  <div class="csvx-container">
     <div class="csvx-panel" id="csvPanel">
       <div class="panel-header">
@@ -59,7 +59,13 @@ category: csv
 <article >
 <section class="onpage-content" style="max-width:900px;margin:40px auto;padding:10px 20px;line-height:1.7;font-family:Arial,sans-serif;">
 
-
+ <div class="blog-post-meta">
+     <a href="sohail-anwar" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Sohail Anwar" class="author-img">
+      <span class="author-name">Sohail Anwar</span>
+      </a>
+      <span class="post-date">December 01, 2025</span>
+  </div>
 
   <h2 id="when-to-use" style="margin-top:30px;">Why convert CSV to Excel?</h2>
   <ul style="padding-left:20px;">
@@ -75,7 +81,7 @@ category: csv
     <li><strong>Upload your CSV file</strong> – click “Upload CSV” and select any .csv file from your computer.</li>
     <li><strong>Preview and verify</strong> – see the parsed CSV as a table; check for correct delimiter and column headers.</li>
     <li><strong>Download Excel</strong> – click “Convert to Excel Now”, then choose .xlsx or .xls. Your file is generated instantly and saved locally.</li>
-  </ol>
+  </ul>
 
   <h2 id="key-features" style="margin-top:30px;">CSV to Excel converter – features you’ll love</h2>
   <ul style="padding-left:20px;">

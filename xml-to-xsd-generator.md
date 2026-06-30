@@ -5,13 +5,15 @@ description: "Free online XML to XSD generator. Convert any XML file to XML Sche
 keywords: "xml to xsd generator online, xml to xsd converter free, generate xsd from xml online, xml schema generator free, xml to xsd tool, xml to xsd large files, free online xml to xsd"
 category: xml
 ---
-<section style="display: flex; justify-content: center">
+<section >
 
 <div style="width:98%;" style="margin-left: 2rem;">
+<div class="home-hero">
   <h1>Generate XSD from XML – Free, Fast & Private XML Schema Creator</h1>
   <p id="intro" style="font-size:14px;color:#333;">
     Generate XSD (XML Schema Definition) from any XML document instantly – completely free, no signup, no uploads. This browser‑based tool analyzes your XML structure, infers data types (string, integer, date, boolean, etc.), and creates a complete XSD schema that defines elements, attributes, nesting, and cardinality. Perfect for API contract validation, data integration, or understanding complex XML structures – all securely in your browser.
   </p>
+  </div>
 <div class="jsonx-container" >
   <div class="csvx-panel" id="csvPanelXsd">
     <div class="panel-header">
@@ -53,7 +55,13 @@ category: xml
 </div>
 
 <article class="onpage-content">
-
+ <div class="blog-post-meta">
+     <a href="sohail-anwar" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Sohail Anwar" class="author-img">
+      <span class="author-name">Sohail Anwar</span>
+      </a>
+      <span class="post-date">December 01, 2025</span>
+  </div>
   <section id="why-generate-xsd">
     <h2 id="when-to-use" style="margin-top:30px;">Why generate XSD from XML?</h2>
     <ul style="padding-left:20px;">
@@ -71,7 +79,7 @@ category: xml
       <li><strong>Upload or paste your XML</strong> – click “Upload XML File” or paste XML directly into the editor.</li>
       <li><strong>Preview and edit (optional)</strong> – view the parsed XML tree and make any corrections inline.</li>
       <li><strong>Generate XSD</strong> – click “Generate XSD Schema”. The tool infers elements, data types, and cardinality, then displays the ready‑to‑use XSD. Copy or download as .xsd.</li>
-    </ol>
+    </ul>
   </section>
 
   <section id="key-features">

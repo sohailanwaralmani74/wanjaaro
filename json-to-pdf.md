@@ -12,7 +12,7 @@ category: json
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.26/jspdf.plugin.autotable.min.js"></script>
 
-<section>  <h1>Convert JSON to PDF Online – Generate Printable PDF Reports Instantly</h1> 
+<section class="home-hero">  <h1>Convert JSON to PDF Online – Generate Printable PDF Reports Instantly</h1> 
 <p id="intro" style="font-size:14px;color:#333;">
   <strong>PDF (Portable Document Format)</strong> is the universal standard for sharing 
   documents that must look identical on every device — no software dependencies, no 
@@ -65,9 +65,15 @@ category: json
 
 <div style="display: flex; flex-direction: row">
 <article >
-<section class="onpage-content" style="max-width:900px;margin:40px auto;padding:10px 20px;line-height:1.7;font-family:Arial,sans-serif;">
+<section class="onpage-content">
 
-
+ <div class="blog-post-meta">
+     <a href="sohail-anwar" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Sohail Anwar" class="author-img">
+      <span class="author-name">Sohail Anwar</span>
+      </a>
+      <span class="post-date">December 01, 2025</span>
+  </div>
   <h2 id="when-to-use" style="margin-top:30px;">Why convert JSON to PDF?</h2>
   <ul style="padding-left:20px;">
     <li>Turn API JSON responses into polished, shareable PDF reports</li>
@@ -82,7 +88,7 @@ category: json
     <li><strong>Paste or upload JSON</strong> – copy your JSON into the editor or click “Upload JSON File” to load a .json file.</li>
     <li><strong>Validate and preview</strong> – the tool checks syntax and shows a collapsible tree view of your data.</li>
     <li><strong>Generate PDF</strong> – click “Convert to PDF” to create a formatted document. Preview it in the embedded viewer, then download instantly.</li>
-  </ol>
+  </ul>
 
   <h2 id="key-features" style="margin-top:30px;">JSON to PDF converter – features you’ll love</h2>
   <ul style="padding-left:20px;">

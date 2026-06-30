@@ -111,7 +111,7 @@ category: mt940Finance
 </script>
 
 <!-- ===== HERO ===== -->
-<div id="mt940-hero" style="display:flex;flex-direction:column;justify-content:center;margin:1rem;">
+<div id="mt940-hero" class="home-hero" class="home-hero">
   <h1>MT940 to CSV Converter – Turn Bank Statements into Structured Data</h1>
   <p>
     Convert SWIFT MT940 bank statement files to CSV format instantly.
@@ -191,6 +191,13 @@ category: mt940Finance
 
 <!-- ===== CONTENT ===== -->
 <article class="onpage-content">
+ <div class="blog-post-meta">
+     <a href="sohail-anwar" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Sohail Anwar" class="author-img">
+      <span class="author-name">Sohail Anwar</span>
+      </a>
+      <span class="post-date">December 01, 2025</span>
+  </div>
   <section id="why-convert">
     <h2>Why convert MT940 to CSV?</h2>
     <ul>
@@ -202,11 +209,11 @@ category: mt940Finance
 
   <section id="how-it-works">
     <h2>How to convert – 3 simple steps</h2>
-    <ol>
+    <ul>
       <li><strong>Upload</strong> – drag &amp; drop your .mt940 file.</li>
       <li><strong>Convert</strong> – click “Convert to CSV”.</li>
       <li><strong>Export or Copy</strong> – preview the data, then download the .csv or copy to clipboard.</li>
-    </ol>
+    </ul>
   </section>
 
   <section id="features">

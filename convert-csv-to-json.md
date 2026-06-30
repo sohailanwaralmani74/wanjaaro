@@ -6,15 +6,15 @@ keywords: "convert csv to json online, csv to json free, csv to json converter, 
 category: csv
 ---
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-<section style="display: flex; justify-content: center">
+<section >
 
-<div style="width: 98%;">
+<div>
+<div class="home-hero">
 <h1>Convert CSV to JSON Online – Free & Secure (No Upload)</h1>
   <p id="intro" style="font-size:14px;color:#333;">
-    Convert CSV to JSON online in seconds – completely free, no signup, no file uploads. This tool runs entirely in your browser. 
-    Upload any CSV file, preview the parsed data, and instantly generate a clean JSON array of objects – using your CSV headers as keys. 
-    Perfect for REST APIs, JavaScript frontends, NoSQL databases (MongoDB, Firebase), and ETL pipelines.
+    Convert CSV to JSON online in seconds – completely free, no signup, no file uploads. This tool runs entirely in your browser.
   </p>
+ </div> 
 <div class="csvx-container">
   <div class="csvx-panel" id="csvPanel">
     <div class="panel-header">
@@ -57,7 +57,13 @@ category: csv
 <article >
 
 <section class="onpage-content">
-
+ <div class="blog-post-meta">
+     <a href="sohail-anwar" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Sohail Anwar" class="author-img">
+      <span class="author-name">Sohail Anwar</span>
+      </a>
+      <span class="post-date">December 01, 2025</span>
+  </div>
   <section id="why-use">
     <h2>Why convert CSV to JSON?</h2>
     <ul>
@@ -71,11 +77,11 @@ category: csv
 
   <section id="how-it-works">
     <h2>How to convert CSV to JSON</h2>
-    <ol>
+    <ul>
       <li>Upload a CSV file from your device</li>
       <li>Preview the parsed table and verify column structure</li>
       <li>Generate and download JSON as an array of objects</li>
-    </ol>
+    </ul>
   </section>
 
   <section id="features">

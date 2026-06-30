@@ -68,10 +68,10 @@ category: utilities
     }
   </style>
 
-<div style="display: flex; justify-content: center">
+<div >
  
  <div style="width:98%;" style="margin-left: 2rem;">
-   <section id="intro">
+   <section id="intro" class="home-hero">
     <h1>Online Hash Generator: MD5, SHA‑1, SHA‑256, SHA‑512, SHA‑3</h1>
     <p><strong>Generate cryptographic hashes instantly</strong> from any text or file. Our free <strong>online hash generator</strong> supports <strong>MD5, SHA‑1, SHA‑256, SHA‑512, and SHA‑3 (256/512)</strong> – all running locally in your browser. No upload, no server, completely private.</p>
   </section>
@@ -110,13 +110,15 @@ category: utilities
 
 <div id="content" style="margin: 3rem;">
 <!-- Microdata‑enriched content (place below the tool) -->
-<article id="hash-tool-content" itemscope itemtype="https://schema.org/SoftwareApplication">
-  <meta  content="Hash Generator – MD5, SHA‑1, SHA‑256, SHA‑512, SHA‑3" />
-  
-  
-  
-
-  <section id="features">
+<article id="hash-tool-content" class="onpage-content">
+ <div class="blog-post-meta">
+     <a href="saeed-ahmed" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Saeed Ahmed" class="author-img">
+      <span class="author-name">Saeed Ahmed</span>
+      </a>
+      <span class="post-date">jan 10, 2026</span>
+  </div>
+   <section id="features">
     <h2>🔢 Why Use Our Online Hash Generator?</h2>
     <ul>
       <li><strong>🔐 100% client‑side</strong> – your data never leaves your device. Perfect for sensitive passwords or proprietary code.</li>
@@ -133,22 +135,22 @@ category: utilities
     <div itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
       <meta itemprop="position" content="1" />
       <h3 >Enter your data</h3>
-      <p >Paste text into the input area or click “Upload File” to hash an entire file.</p>
+      <p>Paste text into the input area or click “Upload File” to hash an entire file.</p>
     </div>
     <div itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
       <meta itemprop="position" content="2" />
       <h3 >Select algorithm</h3>
-      <p >Choose from MD5, SHA‑1, SHA‑256, SHA‑512, SHA‑3 (256), or SHA‑3 (512).</p>
+      <p>Choose from MD5, SHA‑1, SHA‑256, SHA‑512, SHA‑3 (256), or SHA‑3 (512).</p>
     </div>
     <div itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
       <meta itemprop="position" content="3" />
       <h3 >Generate hash</h3>
-      <p >Click “Generate Hash” and instantly see the hexadecimal digest.</p>
+      <p>Click “Generate Hash” and instantly see the hexadecimal digest.</p>
     </div>
     <div itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
       <meta itemprop="position" content="4" />
       <h3 >Copy or download</h3>
-      <p >Use the copy button or download the hash as a text file.</p>
+      <p>Use the copy button or download the hash as a text file.</p>
     </div>
   </section>
 
@@ -184,8 +186,8 @@ category: utilities
 
     <div id="faq1"  >
       <h3 >What is MD5 online? Is it secure?</h3>
-      <div >
-        <div >
+      <div>
+        <div>
           <p><strong>MD5 online</strong> refers to tools that generate MD5 hashes from text or files. However, MD5 is <strong>no longer secure</strong> against deliberate collision attacks. Use it only for non‑critical checksums (e.g., verifying file downloads). For security‑sensitive applications, choose SHA‑256 or SHA‑3.</p>
         </div>
       </div>
@@ -193,8 +195,8 @@ category: utilities
 
     <div id="faq2"  >
       <h3 >Can I generate SHA‑256 online for large files?</h3>
-      <div >
-        <div >
+      <div>
+        <div>
           <p>Yes, this tool processes files locally in your browser. Files up to ~50 MB work smoothly; larger files may cause memory issues depending on your device. For huge files, consider using a command‑line tool like `sha256sum`.</p>
         </div>
       </div>
@@ -202,8 +204,8 @@ category: utilities
 
     <div id="faq3"  >
       <h3 >What’s the difference between SHA‑256 and SHA‑3?</h3>
-      <div >
-        <div >
+      <div>
+        <div>
           <p>Both are secure, but they use different internal structures. SHA‑2 (including SHA‑256) is widely adopted, while SHA‑3 is the newer standard. Our tool supports both, so you can choose either.</p>
         </div>
       </div>
@@ -211,8 +213,8 @@ category: utilities
 
     <div id="faq4"  >
       <h3 >Is this MD5 online tool free and private?</h3>
-      <div >
-        <div >
+      <div>
+        <div>
           <p>Absolutely – it’s 100% free and runs entirely in your browser. No files or text are uploaded to any server. Your data stays on your machine.</p>
         </div>
       </div>
@@ -220,8 +222,8 @@ category: utilities
 
     <div id="faq5"  >
       <h3 >Can I hash a file without uploading it?</h3>
-      <div >
-        <div >
+      <div>
+        <div>
           <p>Yes, the “Upload File” button reads the file locally using JavaScript’s `FileReader`. Nothing is sent over the network – it’s a true client‑side hash generator.</p>
         </div>
       </div>
@@ -229,8 +231,8 @@ category: utilities
 
     <div id="faq6"  >
       <h3 >What is the difference between encoding and hashing?</h3>
-      <div >
-        <div >
+      <div>
+        <div>
           <p>Hashing is a one‑way function (you cannot recover the original input from the hash), while encoding (like Base64) is reversible. Use hashes for integrity and passwords; use encoding for data transmission.</p>
         </div>
       </div>

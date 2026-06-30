@@ -6,16 +6,17 @@ keywords: "convert excel to txt online free, excel to text converter, xlsx to tx
 category: excel
 ---
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-<section style="display: flex; justify-content: center">
+<section >
 
-<div style="width: 98%;">
-
-<h1>Convert Excel to TXT – Export Spreadsheets as Plain Text</h1>
+<div>
+ <div class="home-hero">
+  <h1>Convert Excel to TXT – Export Spreadsheets as Plain Text</h1>
 
   <p id="intro" style="font-size:14px;color:#333;">
     Convert Excel to TXT online in seconds – completely free, no signup. This browser‑based tool turns any Excel spreadsheet (.xlsx or .xls) into clean, plain text format with aligned columns. Perfect for generating log files, preparing data for command‑line tools, or sharing structured data as lightweight text – all without uploading your files.
   </p>
-<div class="csvx-container">
+ </div>
+  <div class="csvx-container">
   <div class="csvx-panel" id="csvPanelText">
     <div class="panel-header">
       <div>
@@ -56,7 +57,13 @@ category: excel
 </div>
 
 <article class="onpage-content">
-
+ <div class="blog-post-meta">
+     <a href="sohail-anwar" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Sohail Anwar" class="author-img">
+      <span class="author-name">Sohail Anwar</span>
+      </a>
+      <span class="post-date">December 01, 2025</span>
+  </div>
   <section id="when-to-use">
     <h2>Why convert Excel to plain text?</h2>
     <ul>
@@ -70,11 +77,11 @@ category: excel
 
   <section id="how-it-works">
     <h2>How to convert Excel to TXT – 3 simple steps</h2>
-    <ol>
+    <ul>
       <li><strong>Upload your Excel file</strong> – click “Upload Excel File” and select any .xlsx or .xls file from your computer.</li>
       <li><strong>Preview and edit</strong> – see the spreadsheet data in an editable table; adjust values, rows, or columns as needed.</li>
       <li><strong>Generate text</strong> – click “Convert to Plain Text”, then copy the aligned text or download as a .txt file.</li>
-    </ol>
+    </ul>
   </section>
 
   <section id="key-features">

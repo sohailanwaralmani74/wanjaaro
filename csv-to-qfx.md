@@ -116,7 +116,7 @@ category: csvFinance
 </script>
 
 <!-- HERO -->
-<div class="home-hero" style="display:flex;flex-direction:column;justify-content:center;margin:1rem;">
+<div class="home-hero" >
   <h1>CSV to QFX Converter – Turn Spreadsheets into OFX for Any Finance App</h1>
   <p>
     Convert CSV files to QFX (OFX) format instantly.
@@ -210,8 +210,15 @@ category: csvFinance
 
 <!-- Content -->
 <article class="onpage-content">
+ <div class="blog-post-meta">
+     <a href="sohail-anwar" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Sohail Anwar" class="author-img">
+      <span class="author-name">Sohail Anwar</span>
+      </a>
+      <span class="post-date">December 01, 2025</span>
+  </div>
   <section id="why-convert"><h2>Why convert CSV to QFX?</h2><ul><li>Import spreadsheet‑based transactions into Quicken, Money, or OFX apps</li><li>Standard XML format for financial data exchange</li><li>Ideal for migrating data from legacy systems</li></ul></section>
-  <section id="how-it-works"><h2>How to convert – 3 simple steps</h2><ol><li>Upload your .csv file</li><li>Map columns (auto‑detected, adjust if needed)</li><li>Click Convert, then copy or download the .qfx</li></ol></section>
+  <section id="how-it-works"><h2>How to convert – 3 simple steps</h2><ul><li>Upload your .csv file</li><li>Map columns (auto‑detected, adjust if needed)</li><li>Click Convert, then copy or download the .qfx</li></ul></section>
   <section id="features"><h2>Features</h2><ul><li>✅ Privacy first – everything stays local</li><li>✅ Auto‑detects date, amount, payee, memo, check# columns</li><li>✅ Manual column mapping if needed</li><li>✅ Free forever</li></ul></section>
   <section id="privacy"><h2>Privacy &amp; Security</h2><ul><li>🔒 All processing is local – no files uploaded</li><li>🚫 No tracking, no logs</li><li>💼 Safe for sensitive financial data</li></ul></section>
   <section id="faq"><h2>Frequently Asked Questions</h2><h3>What CSV format is expected?</h3><p>The tool expects a header row with column names like "Date", "Amount", "Payee", etc. If auto‑detection fails, you can manually map columns.</p><h3>What is QFX?</h3><p>QFX is the OFX XML format used by Quicken, Microsoft Money, and many online banking applications.</p><h3>Will the QFX work in Quicken?</h3><p>Yes, the generated QFX follows OFX 1.0.2 and should import into Quicken and other OFX‑compatible apps.</p></section>

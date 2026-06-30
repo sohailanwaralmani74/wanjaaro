@@ -112,7 +112,7 @@ category: formatter
 
 
 <!-- Microdata header -->
-<div  style="max-width: 1400px; margin: 0 auto 1.5rem auto;">
+<div class="home-hero">
     <h1 >XML Formatter Online – Privacy First XML Formatting</h1>
     
     <meta itemprop="operatingSystem" content="Web Browser">
@@ -197,8 +197,14 @@ category: formatter
 <div id="toast"></div>
 
 <!-- ========== BELOW TOOL CONTENT – SEMANTIC & SCHEMA‑AWARE ========== -->
-<div class="sql-formatter-content" style="max-width: 1400px; margin: 2rem auto; padding: 0 1rem;">
-
+<div  class="onpage-content" >
+ <div class="blog-post-meta">
+     <a href="saeed-ahmed" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Saeed Ahmed" class="author-img">
+      <span class="author-name">Saeed Ahmed</span>
+      </a>
+      <span class="post-date">jan 10, 2026</span>
+  </div>
     <!-- ARTICLE SCHEMA (main content container) -->
     <article >
         <meta itemprop="headline" content="XML Formatter &amp; Beautifier – Pretty Print, Minify &amp; Syntax‑Highlight XML Online">
@@ -246,17 +252,17 @@ category: formatter
                     <div itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
                         <meta  content="Enter XML Code">
                         <h3>1️⃣ Paste Your XML</h3>
-                        <div >Copy and paste your ugly or minified XML into the editor. You can also upload an <code>.xml</code> file or load the sample XML.</div>
+                        <div>Copy and paste your ugly or minified XML into the editor. You can also upload an <code>.xml</code> file or load the sample XML.</div>
                     </div>
                     <div itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
                         <meta  content="Choose Formatting Options">
                         <h3>2️⃣ Choose Indentation &amp; Comment Handling</h3>
-                        <div >Select your preferred indent size (2 spaces, 4 spaces, or Tab). Decide whether to keep or strip XML comments.</div>
+                        <div>Select your preferred indent size (2 spaces, 4 spaces, or Tab). Decide whether to keep or strip XML comments.</div>
                     </div>
                     <div itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
                         <meta  content="Format &amp; Copy Result">
                         <h3>3️⃣ Click Format &amp; Copy</h3>
-                        <div >Press “✨ FORMAT XML” to pretty‑print your document, or “🌀 MINIFY XML” to compress it. Use “📋 COPY” to get the result, or download as a file.</div>
+                        <div>Press “✨ FORMAT XML” to pretty‑print your document, or “🌀 MINIFY XML” to compress it. Use “📋 COPY” to get the result, or download as a file.</div>
                     </div>
                 </div>
                 <p>✅ No sign‑up, no server upload – everything stays private on your machine.</p>
@@ -281,31 +287,31 @@ category: formatter
                 <div itemprop="mainEntity" itemscope >
                     <h3 >Is this XML formatter free to use?</h3>
                     <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-                        <div >Yes, completely free. No registration, no credit card, no hidden fees. Use it as much as you need.</div>
+                        <div>Yes, completely free. No registration, no credit card, no hidden fees. Use it as much as you need.</div>
                     </div>
                 </div>
                 <div itemprop="mainEntity" itemscope >
                     <h3 >Does my XML data leave my browser?</h3>
                     <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-                        <div >No. All formatting, minification, and syntax highlighting happen locally using JavaScript. No XML is sent to any server.</div>
+                        <div>No. All formatting, minification, and syntax highlighting happen locally using JavaScript. No XML is sent to any server.</div>
                     </div>
                 </div>
                 <div itemprop="mainEntity" itemscope >
                     <h3 >Can I format XML with namespaces or CDATA?</h3>
                     <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-                        <div >Yes. The tool fully supports XML namespaces, CDATA sections, processing instructions, and comments.</div>
+                        <div>Yes. The tool fully supports XML namespaces, CDATA sections, processing instructions, and comments.</div>
                     </div>
                 </div>
                 <div itemprop="mainEntity" itemscope >
                     <h3 >What does “minify XML” do?</h3>
                     <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-                        <div >Minification removes unnecessary whitespace between tags (but preserves text content), producing a compact XML string. This is useful for reducing file size or when network bandwidth is limited.</div>
+                        <div>Minification removes unnecessary whitespace between tags (but preserves text content), producing a compact XML string. This is useful for reducing file size or when network bandwidth is limited.</div>
                     </div>
                 </div>
                 <div itemprop="mainEntity" itemscope >
                     <h3 >What if my XML is not well‑formed?</h3>
                     <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-                        <div >The tool will detect parsing errors and show a notification. The original text will remain unchanged – no data is lost or corrupted.</div>
+                        <div>The tool will detect parsing errors and show a notification. The original text will remain unchanged – no data is lost or corrupted.</div>
                     </div>
                 </div>
             </section>

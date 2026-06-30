@@ -9,7 +9,7 @@ category: json
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jsonview@1.2.0/dist/jquery.jsonview.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/jsonview@1.2.0/dist/jquery.jsonview.min.css" rel="stylesheet">
-<section> <h1>JSON to TXT Converter Online – Convert JSON To TXT</h1> 
+<section class="home-hero"> <h1>JSON to TXT Converter Online – Convert JSON To TXT</h1> 
 <p id="intro" style="font-size:14px;color:#333;">
   <strong>Plain text (TXT)</strong> is the most universally compatible format for data — 
   readable by every application, scriptable from the command line, and processable by 
@@ -76,9 +76,14 @@ category: json
 
 <div id="toastJson" class="jsonx-toast">✅ Text ready – copy or download below</div>
 
-<article >
-<div style="display: flex; flex-direction: row">
-<div style="width:98%;" style="margin-left: 2rem;">
+<article class="onpage-content">
+ <div class="blog-post-meta">
+     <a href="sohail-anwar" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/saeed-ahmed.jpg" alt="Sohail Anwar" class="author-img">
+      <span class="author-name">Sohail Anwar</span>
+      </a>
+      <span class="post-date">December 01, 2025</span>
+  </div>
 <section aria-label="Output modes">
   <h2>Four output modes for different needs</h2>
 
@@ -122,7 +127,7 @@ user.age = 30</code></pre>
     <li><strong>Paste or upload JSON</strong> – copy your JSON into the editor or click “Upload JSON File” to load a .json file.</li>
     <li><strong>Choose output mode</strong> – select from Raw, Flattened, Readable, or Values Only.</li>
     <li><strong>Get text output</strong> – click “Convert to Text”, then copy the result or download as a .txt file.</li>
-  </ol>
+  </ul>
 
   <h2 id="conversion-modes" style="margin-top:30px;">Four output modes for different needs</h2>
   <ul style="padding-left:20px;">
@@ -201,18 +206,7 @@ user.age = 30</code></pre>
   <p>Yes, completely free. No hidden fees, no premium tiers, no watermarks. DataFrog believes essential tools should be accessible to everyone.</p>
 
 </section>
-<section aria-label="Related tools">
-  <h2>Related Tools</h2>
-  <ul>
-    <li><a href="/json-to-csv">JSON to CSV Converter</a> – convert JSON into a structured spreadsheet format</li>
-    <li><a href="/json-to-html">JSON to HTML Converter</a> – generate a web-ready HTML table from JSON</li>
-    <li><a href="/convert-csv-to-txt">CSV to TXT Converter</a> – convert CSV files to plain text</li>
-    <li><a href="/excel-to-txt">Excel to TXT Converter</a> – extract plain text from Excel spreadsheets</li>
-  </ul>
-</section>
 </article>
-</div>
-</div>
 
 <script src="/assets/js/json-to-txt.js"></script>
 
