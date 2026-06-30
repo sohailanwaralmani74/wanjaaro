@@ -174,3 +174,38 @@ layout: default
 
   })();
 </script>
+<script>
+  (function () {
+  function setupToggle(section) {
+    if (section.dataset.onpageToggleReady === 'true') return;
+    section.dataset.onpageToggleReady = 'true';
+
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'onpage-toggle-btn';
+    btn.setAttribute('aria-expanded', 'false');
+    btn.innerHTML = '<span class="onpage-toggle-label">Read more</span><span class="onpage-toggle-icon">▼</span>';
+
+    btn.addEventListener('click', () => {
+      const expanded = section.classList.toggle('is-expanded');
+      btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      btn.querySelector('.onpage-toggle-label').textContent = expanded ? 'Show less' : 'Read more';
+      if (!expanded) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+
+    section.insertAdjacentElement('afterend', btn);
+  }
+
+  function init() {
+    document.querySelectorAll('.onpage-content').forEach(setupToggle);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
