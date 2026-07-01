@@ -1,0 +1,565 @@
+---
+layout: main
+title: "Profit Margin Calculator – Calculate Revenue, Cost & Profit"
+description: "Calculate profit margin, markup, and break-even with our free online tool. Enter revenue and cost, or set a target margin to find the right price. Works in 170+ currencies."
+keywords: "profit margin calculator, markup calculator, revenue cost profit, margin percentage, gross margin, profit calculator, break-even analysis, target margin price"
+category: finance
+---
+<!-- ═══════════════════════════════════════════════════════
+     JSON‑LD SCHEMAS — Profit Margin Calculator
+     ═══════════════════════════════════════════════════════ -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="/assets/js/data.js"></script>
+
+<!-- WebApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Profit Margin Calculator – Free Online Tool",
+  "description": "Calculate profit margin, markup, and break-even. Enter revenue and cost, or set a target margin to find the right price. Works in USD, EUR, INR, PKR & 170+ currencies.",
+  "url": "https://datafrog.tools/profit-margin-calculator",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+
+<!-- BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://datafrog.tools"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Converters",
+      "item": "https://datafrog.tools/converters"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Profit Margin Calculator",
+      "item": "https://datafrog.tools/profit-margin-calculator"
+    }
+  ]
+}
+</script>
+
+<!-- HowTo -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use the Profit Margin Calculator",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Select your currency",
+      "text": "Choose from 170+ global currencies including USD, EUR, INR, PKR, AUD, and CAD."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Enter Revenue and Cost",
+      "text": "Type the revenue (selling price) and cost (expenses) amounts."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Choose your mode",
+      "text": "Select 'Margin from Revenue & Cost' to calculate profit and margin, or 'Price from Cost & Margin' to find the right selling price for a target margin."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Read your results",
+      "text": "Instantly see Profit Amount, Profit Margin %, and Markup % with a visual breakdown chart."
+    }
+  ]
+}
+</script>
+
+<!-- FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is profit margin and how is it calculated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Profit margin is the percentage of revenue that remains after deducting costs. It's calculated as: Profit Margin = (Revenue - Cost) / Revenue × 100. A higher margin means more of each dollar of revenue is profit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between profit margin and markup?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Profit margin is calculated as a percentage of revenue, while markup is calculated as a percentage of cost. Markup = (Revenue - Cost) / Cost × 100. For example, a 25% profit margin equals a 33.3% markup."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I calculate the selling price from a target margin?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. This tool has a 'Price from Cost & Margin' mode. Enter your cost and desired margin percentage, and it calculates the selling price you need to achieve that margin."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a good profit margin?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The ideal profit margin varies by industry. Generally, 10% is average, 20% is good, and 30%+ is excellent. Retail tends to have lower margins (2-10%), while software and services can have much higher margins (50-90%)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is gross margin vs net margin?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Gross margin is profit after deducting only the cost of goods sold (COGS). Net margin considers all expenses, including taxes, interest, and overhead. This calculator focuses on gross margin for simplicity."
+      }
+    }
+  ]
+}
+</script>
+
+<div class="tool-page">
+  <article>
+    <section class="page-heading">
+      <h1>Profit Margin Calculator — Revenue, Cost & Profit</h1>
+      <p class="tool-subtitle">
+        Calculate <strong>profit margin</strong>, <strong>markup</strong>, and <strong>break-even</strong> with our free online tool. Enter <strong>revenue</strong> and <strong>cost</strong> to find your margin, or set a <strong>target margin</strong> to calculate the right selling price. Works in <strong>170+ currencies</strong>.
+      </p>
+    </section>
+
+    <div class="tool-body">
+      <!-- LEFT COLUMN – INPUT PANEL -->
+      <aside class="tool-input-col" aria-label="Calculator inputs">
+        <div class="panel input-panel">
+          <!-- Currency Selector -->
+          <div class="form-group">
+            <label for="currencySearch">Currency</label>
+            <div class="currency-search-wrapper">
+              <input type="text" id="currencySearch" placeholder="Type currency name or code" autocomplete="off" />
+              <div id="currencyResults" class="currency-results"></div>
+            </div>
+          </div>
+
+          <!-- Mode Toggle -->
+          <div class="form-group">
+            <label>Mode</label>
+            <div class="mode-toggle" role="group" aria-label="Profit margin mode">
+              <button class="mode-btn active" data-mode="margin" onclick="setMode('margin', this)">Margin from Revenue &amp; Cost</button>
+              <button class="mode-btn" data-mode="price" onclick="setMode('price', this)">Price from Cost &amp; Margin</button>
+            </div>
+            <span class="field-hint">"Margin" calculates profit from revenue and cost. "Price" finds the selling price for a target margin.</span>
+          </div>
+
+          <!-- Revenue / Selling Price -->
+          <div class="form-group" id="revenueGroup">
+            <label for="revenue">Revenue</label>
+            <div class="input-addons">
+              <span class="input-addon" id="currencySymbol">$</span>
+              <input type="number" id="revenue" value="10000" min="0" step="100" oninput="syncSlider('revenue');calculate()" />
+            </div>
+            <div class="slider-row">
+              <input type="range" id="revenueSlider" min="0" max="10000000" step="100" value="10000" oninput="syncInput('revenue',this.value);calculate()" />
+              <span class="slider-val" id="revenueSliderVal">$10,000</span>
+            </div>
+            <span class="field-hint">Total revenue or selling price</span>
+          </div>
+
+          <!-- Cost / Cost Price -->
+          <div class="form-group" id="costGroup">
+            <label for="cost">Cost</label>
+            <div class="input-addons">
+              <span class="input-addon" id="currencySymbol2">$</span>
+              <input type="number" id="cost" value="7000" min="0" step="100" oninput="syncSlider('cost');calculate()" />
+            </div>
+            <div class="slider-row">
+              <input type="range" id="costSlider" min="0" max="10000000" step="100" value="7000" oninput="syncInput('cost',this.value);calculate()" />
+              <span class="slider-val" id="costSliderVal">$7,000</span>
+            </div>
+            <span class="field-hint">Total cost or expenses</span>
+          </div>
+
+          <!-- Target Margin (visible only in Price mode) -->
+          <div class="form-group hidden" id="targetMarginGroup">
+            <label for="targetMargin">Target Margin (%)</label>
+            <div class="input-addons">
+              <input type="number" id="targetMargin" value="25" min="0" max="100" step="1" oninput="syncSlider('targetMargin');calculate()" />
+              <span class="input-addon input-addon--right">%</span>
+            </div>
+            <div class="slider-row">
+              <input type="range" id="targetMarginSlider" min="0" max="100" step="1" value="25" oninput="syncInput('targetMargin',this.value);calculate()" />
+              <span class="slider-val" id="targetMarginSliderVal">25%</span>
+            </div>
+            <span class="field-hint">Desired profit margin percentage</span>
+          </div>
+
+          <div class="calc-actions">
+            <button class="btn btn-ghost" onclick="resetForm()">Reset</button>
+            <button class="btn btn-primary" onclick="shareURL()" id="shareBtn">Share</button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- RIGHT COLUMN – RESULTS -->
+      <section class="tool-output-col" aria-label="Calculator results" aria-live="polite">
+        <!-- Result Cards -->
+        <div class="result-cards">
+          <div class="result-card">
+            <div class="result-label">Profit Amount</div>
+            <div class="result-value" id="profitAmount">—</div>
+            <div class="result-sub">Revenue – Cost</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Profit Margin</div>
+            <div class="result-value" id="profitMargin">—</div>
+            <div class="result-sub">% of revenue</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Markup</div>
+            <div class="result-value" id="markup">—</div>
+            <div class="result-sub">% over cost</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Revenue / Price</div>
+            <div class="result-value" id="revenueResult">—</div>
+            <div class="result-sub">Selling price</div>
+          </div>
+        </div>
+
+        <!-- Insights Panel -->
+        <div class="insights-panel" id="insightsPanel">
+          <div class="insights-grid" id="insightsGrid">
+            <!-- Populated by JavaScript -->
+          </div>
+        </div>
+
+        <!-- Chart Panel -->
+        <div class="chart-panel">
+          <div class="chart-tabs" role="tablist">
+            <button class="chart-tab active" data-chart="donut" onclick="switchChart('donut',this)" role="tab">Donut</button>
+            <button class="chart-tab" data-chart="bar" onclick="switchChart('bar',this)" role="tab">Bar</button>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="toolChart" role="img" aria-label="Profit margin breakdown chart"></canvas>
+          </div>
+        </div>
+
+        <!-- Action Bar -->
+        <div class="action-bar">
+          <button class="action-btn" onclick="copyResult()" title="Copy result to clipboard" id="copyBtn">📋 Copy Result</button>
+          <button class="action-btn" onclick="exportChart()" title="Export chart as PNG">🖼️ Export Chart</button>
+        </div>
+
+        <!-- Calculation Breakdown -->
+        <div class="breakdown-panel" id="breakdownPanel">
+          <div class="breakdown-title">Calculation Breakdown</div>
+          <div id="breakdownContent" class="breakdown-content">
+            <!-- Populated by JavaScript -->
+          </div>
+        </div>
+      </section>
+    </div>
+  </article>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     ON‑PAGE SEO CONTENT (Placeholder – will be filled later)
+═══════════════════════════════════════════════════════ -->
+<section class="onpage-content">
+  <div class="blog-post-meta">
+    <a href="gourav-mishra" style="display:flex; gap: 10px;" class="link">
+      <img src="assets/img/gourav-mishra.jpg" alt="Gourav Mishra" class="author-img">
+      <span class="author-name">Gourav Mishra</span>
+    </a>
+    <span class="post-date">June 29, 2026</span>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       INTRODUCTION
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>Profit Margin Calculator – Calculate Your Business Profitability</h2>
+    <p>
+      A <strong>Profit Margin Calculator</strong> is an essential tool for business owners, entrepreneurs, and financial analysts who need to <strong>calculate margin</strong> quickly and accurately. Whether you're setting prices, evaluating product profitability, or preparing financial reports, this free tool helps you determine the exact profit margin, markup, and break-even point in seconds — with no complicated math required.
+    </p>
+    <p>
+      Use this <strong>gross profit calculator</strong> to analyze your business performance in two modes: <strong>"Margin from Revenue & Cost"</strong> to calculate your current profitability, or <strong>"Price from Cost & Margin"</strong> to find the right selling price for a target margin. It supports <strong>170+ global currencies</strong> and delivers instant results with visual charts and smart insights.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       HOW TO USE
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>How to Use This Profit Margin Calculator</h2>
+    <p>
+      This <strong>profit margin calculator</strong> is designed for simplicity. Follow these steps to get your results:
+    </p>
+    <div class="howto-steps">
+      <div class="step">
+        <span class="step-number">1</span>
+        <span><strong>Select your currency</strong> – choose from 170+ global currencies including USD, EUR, INR, PKR, AUD, and CAD.</span>
+      </div>
+      <div class="step">
+        <span class="step-number">2</span>
+        <span><strong>Choose your mode</strong> – select <em>"Margin from Revenue & Cost"</em> to calculate profit from sales, or <em>"Price from Cost & Margin"</em> to find the selling price for a target margin.</span>
+      </div>
+      <div class="step">
+        <span class="step-number">3</span>
+        <span><strong>Enter Revenue and Cost</strong> – type the selling price and total expenses for the Margin mode.</span>
+      </div>
+      <div class="step">
+        <span class="step-number">4</span>
+        <span><strong>Set your target margin</strong> – in Price mode, enter the desired margin percentage to calculate the required selling price.</span>
+      </div>
+      <div class="step">
+        <span class="step-number">5</span>
+        <span><strong>Read your results</strong> – instantly see Profit Amount, Profit Margin %, and Markup % with a visual breakdown chart.</span>
+      </div>
+    </div>
+    <p>
+      The tool updates in <strong>real-time</strong> as you adjust the sliders or type values. No page reloads — just fast, accurate <strong>profit margin calculation</strong>.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       PROFIT MARGIN FORMULA
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>Profit Margin Formula – How It Works</h2>
+    <p>
+      Understanding the <strong>profit margin formula</strong> helps you verify results and appreciate how the math works. This <strong>gross profit margin calculator</strong> uses standard formulas depending on the mode:
+    </p>
+    <div class="formula-box">
+      <strong>Margin from Revenue & Cost:</strong><br>
+      Profit = Revenue – Cost<br>
+      Profit Margin = (Profit / Revenue) × 100<br>
+      Markup = (Profit / Cost) × 100
+    </div>
+    <div class="formula-box">
+      <strong>Price from Cost & Margin:</strong><br>
+      Revenue = Cost / (1 – Target Margin / 100)<br>
+      Profit = Revenue – Cost<br>
+      Markup = (Profit / Cost) × 100
+    </div>
+    <p>
+      This <strong>gross profit calculator</strong> applies these formulas automatically, so you never have to do manual calculations. Whether you're setting prices or evaluating performance, the <strong>profit margin formula</strong> ensures you get the correct numbers every time.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       GROSS PROFIT MARGIN VS NET MARGIN
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>Gross Profit Margin vs Net Margin – What's the Difference?</h2>
+    <p>
+      Understanding the difference between <strong>gross profit margin</strong> and <strong>net margin</strong> is crucial for business owners:
+    </p>
+    <ul class="content-list">
+      <li><strong>Gross Profit Margin</strong> – measures the percentage of revenue remaining after deducting only the cost of goods sold (COGS). It shows how efficiently you produce or source your products.</li>
+      <li><strong>Net Margin</strong> – takes into account all expenses, including taxes, interest, overhead, and operating costs. It shows your overall business profitability.</li>
+    </ul>
+    <p>
+      This <strong>gross profit margin calculator</strong> focuses on gross margin by default, but you can use the results as a foundation to calculate net margin by factoring in your additional expenses separately.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       WHY USE THIS PROFIT MARGIN CALCULATOR
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>Why Use This Profit Margin Calculator</h2>
+    <p>
+      With so many options available, why choose this <strong>margin calculator</strong>? Here's what sets it apart:
+    </p>
+    <ul class="content-list">
+      <li><strong>Dual modes</strong> – calculate margin from revenue & cost, or find price from cost & target margin — the same tool handles both.</li>
+      <li><strong>Global currency support</strong> – works in USD, EUR, GBP, INR, PKR, AUD, CAD, SGD, and 170+ more.</li>
+      <li><strong>Real-time sliders</strong> – adjust amounts and rates instantly with visual feedback.</li>
+      <li><strong>Visual charts</strong> – see the split between cost and profit in donut or bar charts.</li>
+      <li><strong>Smart insights</strong> – get actionable advice on profit health, break-even, and pricing strategy.</li>
+      <li><strong>Shareable results</strong> – copy a unique URL to share your exact calculation with others.</li>
+      <li><strong>Zero cost</strong> – completely free, with no sign-up or hidden charges.</li>
+    </ul>
+    <p>
+      Whether you need a quick <strong>gross profit calculator</strong> for a one-time analysis or a reliable <strong>profit margin calculator</strong> for daily business use, this tool delivers accurate results in seconds.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       CASE STUDY – SCENARIOS
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>Profit Margin Scenarios – See It in Action</h2>
+    <p>
+      Here are some real-world examples to show how this <strong>gross profit margin calculator</strong> can help you make better business decisions:
+    </p>
+    <div class="example-grid">
+      <div class="example-card">
+        <h4>Scenario 1: $10,000 Revenue, $7,000 Cost</h4>
+        <p>Revenue: <strong>$10,000</strong> · Cost: <strong>$7,000</strong></p>
+        <ul>
+          <li><strong>Profit:</strong> $3,000</li>
+          <li><strong>Profit Margin:</strong> 30%</li>
+          <li><strong>Markup:</strong> 42.9%</li>
+        </ul>
+      </div>
+      <div class="example-card">
+        <h4>Scenario 2: Cost $500, Target Margin 25%</h4>
+        <p>Cost: <strong>$500</strong> · Target Margin: <strong>25%</strong></p>
+        <ul>
+          <li><strong>Required Revenue:</strong> $666.67</li>
+          <li><strong>Profit:</strong> $166.67</li>
+          <li><strong>Markup:</strong> 33.3%</li>
+        </ul>
+      </div>
+      <div class="example-card">
+        <h4>Scenario 3: $50,000 Revenue, $45,000 Cost</h4>
+        <p>Revenue: <strong>$50,000</strong> · Cost: <strong>$45,000</strong></p>
+        <ul>
+          <li><strong>Profit:</strong> $5,000</li>
+          <li><strong>Profit Margin:</strong> 10% (Average)</li>
+          <li><strong>Markup:</strong> 11.1%</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       CONTRIBUTION MARGIN CALCULATOR NOTE
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block">
+    <h2>Contribution Margin Calculator – A Quick Note</h2>
+    <p>
+      While this tool focuses on <strong>gross profit margin</strong>, it's worth understanding the <strong>contribution margin calculator</strong> concept. Contribution margin is calculated as:
+    </p>
+    <div class="formula-box">
+      Contribution Margin = Revenue – Variable Costs
+    </div>
+    <p>
+      Unlike gross margin (which includes all costs), contribution margin only considers variable costs. This helps businesses determine how much revenue is available to cover fixed costs and generate profit. You can use this <strong>margin calculator</strong> as a foundation to calculate contribution margin by entering variable costs instead of total costs.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────
+       FAQ SECTION
+       ───────────────────────────────────────────────────── -->
+  <div class="content-block faq-section">
+    <h2>Frequently Asked Questions About Profit Margin</h2>
+
+    <div class="faq-list">
+
+      <!-- Q1 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          1. What is profit margin and how is it calculated?
+        </div>
+        <div class="faq-answer">
+          <div>
+            <strong>Profit margin</strong> is the percentage of revenue that remains after deducting costs. The <strong>profit margin formula</strong> is: <strong>Profit Margin = (Revenue – Cost) / Revenue × 100</strong>. For example, if you sell a product for $100 and it costs $70, your profit margin is 30%.
+          </div>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          2. What is the difference between profit margin and markup?
+        </div>
+        <div class="faq-answer">
+          <div>
+            <strong>Profit margin</strong> is calculated as a percentage of revenue, while <strong>markup</strong> is calculated as a percentage of cost. Markup = (Revenue – Cost) / Cost × 100. For example, a 25% profit margin equals a 33.3% markup. This <strong>gross profit calculator</strong> shows both values so you can see the relationship.
+          </div>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          3. How do I find the selling price from a target margin?
+        </div>
+        <div class="faq-answer">
+          <div>
+            Use the <strong>"Price from Cost & Margin"</strong> mode in this <strong>profit margin calculator</strong>. Enter your cost and desired margin percentage, and the tool calculates the required selling price. The formula is: <strong>Revenue = Cost / (1 – Target Margin / 100)</strong>.
+          </div>
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          4. What is a good profit margin for my business?
+        </div>
+        <div class="faq-answer">
+          <div>
+            The ideal <strong>gross profit margin</strong> varies by industry. Generally, 10% is average, 20% is good, and 30%+ is excellent. Retail tends to have lower margins (2-10%), while software and services can have much higher margins (50-90%). Use this <strong>gross profit margin calculator</strong> to benchmark your business against industry standards.
+          </div>
+        </div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          5. What is gross margin vs net margin?
+        </div>
+        <div class="faq-answer">
+          <div>
+            <strong>Gross profit margin</strong> is profit after deducting only the cost of goods sold (COGS). <strong>Net margin</strong> considers all expenses, including taxes, interest, and overhead. This <strong>gross profit calculator</strong> focuses on gross margin, which you can then use as a foundation to calculate net margin by factoring in your additional expenses.
+          </div>
+        </div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          6. What is a contribution margin calculator?
+        </div>
+        <div class="faq-answer">
+          <div>
+            A <strong>contribution margin calculator</strong> measures the percentage of revenue that remains after deducting only variable costs. It differs from <strong>gross profit margin</strong>, which includes all costs. You can use this <strong>margin calculator</strong> as a contribution margin calculator by entering variable costs instead of total costs.
+          </div>
+        </div>
+      </div>
+
+      <!-- Q7 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          7. Can I calculate gross profit margin online for free?
+        </div>
+        <div class="faq-answer">
+          <div>
+            Yes! You can <strong>calculate margin</strong> completely free with this <strong>profit margin calculator</strong>. No registration, download, or payment is required – just open the page, enter your numbers, and get instant results. This <strong>gross profit margin calculator</strong> is available online 24/7.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<script src="/assets/js/profit-margin-calculator.js"></script>

@@ -60,7 +60,7 @@ category: excel
 <article class="onpage-content" style="max-width:900px;margin:40px auto;padding:10px 20px;line-height:1.7;font-family:Arial,sans-serif;">
  <div class="blog-post-meta">
      <a href="sohail-anwar" style="display:flex; gap: 10px;" class="link">
-      <img src="assets/img/saeed-ahmed.jpg" alt="Sohail Anwar" class="author-img">
+      <img src="assets/img/sohail-anwar.png" alt="Sohail Anwar" class="author-img">
       <span class="author-name">Sohail Anwar</span>
       </a>
       <span class="post-date">December 01, 2025</span>

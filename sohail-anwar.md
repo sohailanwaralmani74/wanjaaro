@@ -367,7 +367,7 @@ is_homepage: true
   </div>
 
   <div class="gm-connect">
-    <a href="https://www.linkedin.com/in/sohail-anwar-a63063162/" target="_blank" class="gm-link">
+    <a href="https://www.linkedin.com/in/sohail-anwar-a63063162" target="_blank" class="gm-link">
       Connect on LinkedIn →
     </a>
     <a href="https://github.com/sohailanwaralmani74" target="_blank" class="gm-link gm-link-github">

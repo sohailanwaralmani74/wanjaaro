@@ -366,7 +366,7 @@ is_homepage: true
   </div>
 
   <div class="gm-connect">
-    <a href="https://www.linkedin.com/in/saeedahmedsheikh/" target="_blank" class="gm-link">
+    <a href="https://www.linkedin.com/in/saeedahmedsheikh" target="_blank" class="gm-link">
       Connect on LinkedIn →
     </a>
   </div>

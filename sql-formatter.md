@@ -21,7 +21,7 @@ category: formatter
 <div class="home-hero">
     <h1 >SQL Formatter Online – Privacy First SQL Formatting</h1>
     <div  style="font-size: 1.1rem; line-height: 1.4; color: #cbd5e6; padding-left: 10px;">
-        <p><strong>Free, client‑side SQL formatter &amp; beautifier.</strong> Format, minify, and pretty‑print SQL queries instantly in your browser. No data upload – 100% private. Supports MySQL, PostgreSQL, SQL Server, Oracle, and more. <span  style="font-size: 12px; color:rgb(234, 9, 54);"> ⟶ Always validate results before export. <a href="https://codemirror.net/" rel="nofollow noopener noreferrer" target="_blank" style="text-decoration: underline"><b>We are using code mirror for our SQL Formatter</b></a> </span > </p>
+        <p><strong>Free, client‑side SQL formatter &amp; beautifier.</strong> Format, minify, and pretty‑print SQL queries instantly in your browser. No data upload – 100% private. Supports MySQL, PostgreSQL, SQL Server, Oracle, and more. <span  style="font-size: 12px; color:rgb(234, 9, 54);"> ⟶ Always validate results before export. <a href="https://codemirror.net" rel="nofollow noopener noreferrer" target="_blank" style="text-decoration: underline"><b>We are using code mirror for our SQL Formatter</b></a> </span > </p>
     </div>
 </div>
 

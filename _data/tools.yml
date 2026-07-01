@@ -545,3 +545,31 @@
 - title: "Capital Gains Calculator"
   url: /capital-gains-calculator
   category: tax
+
+# ─────────────────────────────────────────────────────────────
+# 💰 FINANCE – Tax & Income
+# ─────────────────────────────────────────────────────────────
+
+- title: "GST Calculator"
+  url: /gst-calculator
+  category: finance
+
+- title: "Profit Margin Calculator"
+  url: /profit-margin-calculator
+  category: finance
+
+- title: "Markup Calculator"
+  url: /markup-calculator
+  category: finance
+
+- title: "Break-Even Point Calculator"
+  url: /break-even-calculator
+  category: finance  
+
+- title: "XML to Excel"
+  url: /xml-to-excel
+  category: xml  
+
+- title: "XML to CSV"
+  url: /xml-to-csv
+  category: xml

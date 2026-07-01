@@ -53,8 +53,8 @@ keywords: "privacy policy, GDPR, CCPA, data protection, local file processing, n
       If we ever integrate third‑party ads or services, they may place independent cookies. You can opt out via:
     </p>
     <ul>
-      <li><a href="https://adssettings.google.com/" target="_blank" rel="noopener noreferrer" class="link">Google Ad Settings</a></li>
-      <li><a href="https://optout.aboutads.info/" target="_blank" rel="noopener noreferrer" class="link">YourAdChoices</a></li>
+      <li><a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer" class="link">Google Ad Settings</a></li>
+      <li><a href="https://optout.aboutads.info" target="_blank" rel="noopener noreferrer" class="link">YourAdChoices</a></li>
     </ul>
     <p>
       Any integrated service follows recognised privacy standards such as the EU–US Data Privacy Framework.

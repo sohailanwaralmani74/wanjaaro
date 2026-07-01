@@ -722,8 +722,8 @@ details[open] .faq-chevron{transform:rotate(90deg)}
     
     var csv = 'Input,Result,Status\n';
     data.forEach(function(item) {
-      csv += '"' + item.input.replace(/"/g, '""') + '","' + 
-             item.result.replace(/"/g, '""') + '","' + 
+      csv += '"' + item.input.replace("/g, '""') + '","' + 
+             item.result.replace("/g, '""') + '","' + 
              item.status + '"\n';
     });
     

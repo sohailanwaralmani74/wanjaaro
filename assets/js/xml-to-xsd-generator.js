@@ -1,230 +1,356 @@
-// ------------------ XML To XSD Tool (Smart Type Inference + Standard Formatting) ------------------
+// ============================================================
+// XML to XSD Generator
+// ============================================================
 
-// DOM references
-const fileInputXsd = document.getElementById('fileInputXsd');
-const generateBtnXsd = document.getElementById('generateBtnXsd');
-const xmlPreviewPanel = document.getElementById('xmlPreviewPanel');
-const xsdPreview = document.getElementById('xsdPreview');
-const xsdPanel = document.getElementById('xsdPanel');
-const toastXsd = document.getElementById('toastXsd');
-const copyXsdBtn = document.getElementById('copyXsdBtn');
-const exportXsdBtn = document.getElementById('exportXsdBtn');
+(function() {
+  'use strict';
 
-let uploadedXmlDoc = null;
+  // ── DOM refs ──
+  var inputTextarea = document.getElementById('xmlInput');
+  var outputTextarea = document.getElementById('xsdOutput');
+  var inputEditorEl = document.getElementById('inputEditor');
+  var outputEditorEl = document.getElementById('outputEditor');
+  var convertBtn = document.getElementById('convertBtn');
+  var copyBtn = document.getElementById('copyBtn');
+  var downloadBtn = document.getElementById('downloadBtn');
+  var fileInput = document.getElementById('xmlFileUpload');
+  var toastEl = document.getElementById('toast');
+  var statLines = document.getElementById('statLines');
+  var statChars = document.getElementById('statChars');
+  var statCursor = document.getElementById('statCursor');
+  var statMsg = document.getElementById('statMsg');
 
-// ------------------ XML Parser ------------------
+  // ── CodeMirror instances ──
+  var inputEditor, outputEditor;
 
-function parseXml(file, callback) {
-  const reader = new FileReader();
-  reader.onload = function (e) {
+  // ── Toast helper ──
+  function showToast(msg, isError) {
+    toastEl.textContent = msg;
+    toastEl.className = 'converter-toast show' + (isError ? ' error' : '');
+    clearTimeout(toastEl._timeout);
+    toastEl._timeout = setTimeout(function() {
+      toastEl.classList.remove('show');
+    }, 3000);
+  }
+
+  // ── Update status bar ──
+  function updateStatus(editor) {
+    var doc = editor.getDoc();
+    var cursor = doc.getCursor();
+    var text = doc.getValue();
+    var lines = text.split('\n').length;
+    var chars = text.length;
+    statLines.textContent = lines;
+    statChars.textContent = chars;
+    statCursor.textContent = (cursor.line + 1) + ':' + (cursor.ch + 1);
+  }
+
+  // ── Initialize editors ──
+  function initEditors() {
+    // Input editor (XML mode, editable)
+    inputEditor = CodeMirror(document.getElementById('inputEditor'), {
+      value: '<root>\n  <item id="1">\n    <name>Example</name>\n    <price>19.99</price>\n  </item>\n</root>',
+      mode: 'xml',
+      theme: 'dracula',
+      lineNumbers: true,
+      matchBrackets: true,
+      autoCloseBrackets: true,
+      styleActiveLine: true,
+      indentUnit: 2,
+      tabSize: 2,
+      lineWrapping: false,
+      extraKeys: {
+        'Ctrl-Space': 'autocomplete'
+      }
+    });
+
+    // Output editor (XML mode, read‑only)
+    outputEditor = CodeMirror(document.getElementById('outputEditor'), {
+      value: '// Generated XSD will appear here',
+      mode: 'xml',
+      theme: 'dracula',
+      lineNumbers: true,
+      matchBrackets: true,
+      readOnly: true,
+      indentUnit: 2,
+      tabSize: 2,
+      lineWrapping: false
+    });
+
+    // Update status on input changes
+    inputEditor.on('change', function() {
+      updateStatus(inputEditor);
+      statMsg.textContent = 'Editing…';
+    });
+    inputEditor.on('cursorActivity', function() {
+      updateStatus(inputEditor);
+    });
+    // Initial status
+    updateStatus(inputEditor);
+    statMsg.textContent = 'Ready';
+  }
+
+  // ── XML to XSD conversion logic ──
+  function xmlToXsd(xmlString) {
+    // Parse XML
+    var parser = new DOMParser();
+    var xmlDoc;
     try {
-      const xmlText = e.target.result;
-      const parser = new DOMParser();
-      const xmlDoc = parser.parseFromString(xmlText, "application/xml");
-      const parseError = xmlDoc.getElementsByTagName("parsererror")[0];
+      xmlDoc = parser.parseFromString(xmlString, 'text/xml');
+      var parseError = xmlDoc.getElementsByTagName('parsererror');
+      if (parseError.length > 0) {
+        throw new Error(parseError[0].textContent);
+      }
+    } catch (e) {
+      showToast('Invalid XML: ' + e.message, true);
+      return null;
+    }
 
-      if (parseError) {
-        // Try to extract error message and position info
-        let errorMessage = parseError.textContent || "Invalid XML structure.";
-        let lineMatch = errorMessage.match(/Line\s*(\d+)/i);
-        let colMatch = errorMessage.match(/Column\s*(\d+)/i);
-        let lineNum = lineMatch ? parseInt(lineMatch[1], 10) : null;
-        let colNum = colMatch ? parseInt(colMatch[1], 10) : null;
+    var root = xmlDoc.documentElement;
+    if (!root) {
+      showToast('No root element found', true);
+      return null;
+    }
 
-        // Prepare error display
-        let highlightedXml = xmlText
-          .split("\n")
-          .map((line, i) => {
-            if (lineNum && i + 1 === lineNum) {
-              return `<div class="error-line"><span class="line-num">${i + 1}:</span> ${line}</div>`;
-            } else {
-              return `<div><span class="line-num">${i + 1}:</span> ${line}</div>`;
-            }
-          })
-          .join("");
+    // Helper: infer XSD type from value
+    function inferType(value) {
+      if (value === undefined || value === null) return 'xs:string';
+      // Try boolean
+      if (value.toLowerCase() === 'true' || value.toLowerCase() === 'false') {
+        return 'xs:boolean';
+      }
+      // Try number
+      var num = parseFloat(value);
+      if (!isNaN(num) && isFinite(num)) {
+        // Check if it's an integer
+        if (Number.isInteger(num)) {
+          return 'xs:integer';
+        } else {
+          return 'xs:decimal';
+        }
+      }
+      // Try date
+      if (!isNaN(Date.parse(value))) {
+        return 'xs:dateTime';
+      }
+      return 'xs:string';
+    }
 
-        xmlPreviewPanel.innerHTML = `
-          <div class="xml-error">
-            <div class="small red">⚠️ Error parsing XML:</div>
-            <div class="small">${errorMessage}</div>
-            ${
-              lineNum
-                ? `<div class="small gray">Line: ${lineNum}${
-                    colNum ? ", Column: " + colNum : ""
-                  }</div>`
-                : ""
-            }
-            <pre class="xml-preview">${highlightedXml}</pre>
-          </div>
-        `;
+    // Recursively build XSD structure
+    function buildSchema(node, targetNamespace) {
+      var nsPrefix = targetNamespace ? 'tns' : '';
+      var nsAttr = targetNamespace ? ' xmlns:tns="' + targetNamespace + '"' : '';
+      var targetAttr = targetNamespace ? ' targetNamespace="' + targetNamespace + '"' : '';
+      var elementFormDefault = ' elementFormDefault="qualified"';
 
-        return; // Stop here
+      var xsd = '<?xml version="1.0" encoding="UTF-8"?>\n';
+      xsd += '<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"' + nsAttr + targetAttr + elementFormDefault + '>\n';
+
+      // Recursively process node
+      function processElement(el, parentName) {
+        var tag = el.tagName;
+        var hasChildren = false;
+        var childElements = [];
+        var attributes = [];
+        var textContent = '';
+
+        // Check if element has children
+        for (var i = 0; i < el.childNodes.length; i++) {
+          var child = el.childNodes[i];
+          if (child.nodeType === Node.ELEMENT_NODE) {
+            hasChildren = true;
+            childElements.push(child);
+          } else if (child.nodeType === Node.TEXT_NODE) {
+            textContent += child.textContent.trim();
+          }
+        }
+
+        // Attributes
+        for (var j = 0; j < el.attributes.length; j++) {
+          var attr = el.attributes[j];
+          attributes.push({ name: attr.name, value: attr.value });
+        }
+
+        // Determine type
+        var type = 'xs:string';
+        if (!hasChildren && textContent !== '') {
+          type = inferType(textContent);
+        } else if (!hasChildren) {
+          type = 'xs:string';
+        }
+
+        // Build element declaration
+        var elementDef = '';
+        if (hasChildren) {
+          // Complex type with sequence
+          elementDef = '  <xs:element name="' + tag + '">\n';
+          elementDef += '    <xs:complexType>\n';
+          if (attributes.length > 0) {
+            elementDef += '      <xs:sequence>\n';
+            // Recursively process children
+            childElements.forEach(function(child) {
+              elementDef += processElement(child, tag);
+            });
+            elementDef += '      </xs:sequence>\n';
+            // Attributes
+            attributes.forEach(function(attr) {
+              var attrType = inferType(attr.value);
+              elementDef += '      <xs:attribute name="' + attr.name + '" type="' + attrType + '" />\n';
+            });
+          } else {
+            // No attributes, just sequence
+            elementDef += '      <xs:sequence>\n';
+            childElements.forEach(function(child) {
+              elementDef += processElement(child, tag);
+            });
+            elementDef += '      </xs:sequence>\n';
+          }
+          elementDef += '    </xs:complexType>\n';
+          elementDef += '  </xs:element>\n';
+        } else {
+          // Simple type
+          elementDef = '  <xs:element name="' + tag + '" type="' + type + '" />\n';
+        }
+        return elementDef;
       }
 
-      // If no error, proceed normally
-      callback(xmlDoc);
-    } catch (err) {
-      xmlPreviewPanel.innerHTML = `<div class="small red">Error parsing XML: ${err.message}</div>`;
+      // Process root element
+      xsd += processElement(node, '');
+
+      xsd += '</xs:schema>';
+      return xsd;
     }
-  };
 
-  reader.readAsText(file);
-}
-
-
-// ------------------ XML Upload ------------------
-fileInputXsd.addEventListener('change', (e) => {
-  const file = e.target.files[0];
-  if (!file) return;
-
-  parseXml(file, (xmlDoc) => {
-    uploadedXmlDoc = xmlDoc;
-    renderXmlPreview(uploadedXmlDoc);
-    generateBtnXsd.disabled = false;
-    xsdPanel.classList.remove('visible');
-  });
-});
-
-// ------------------ Render XML Preview ------------------
-function renderXmlPreview(xmlDoc) {
-  xmlPreviewPanel.innerHTML = '';
-  const serializer = new XMLSerializer();
-  let xmlString = serializer.serializeToString(xmlDoc);
-  xmlString = formatXml(xmlString);
-  const pre = document.createElement('pre');
-  pre.textContent = xmlString;
-  pre.style.whiteSpace = 'pre-wrap';
-  pre.style.wordBreak = 'break-word';
-  xmlPreviewPanel.appendChild(pre);
-}
-
-// ------------------ XML Pretty Formatter ------------------
-function formatXml(xml) {
-  const PADDING = '  ';
-  const reg = /(>)(<)(\/*)/g;
-  xml = xml.replace(reg, '$1\r\n$2$3');
-  let pad = 0;
-  return xml
-    .split('\r\n')
-    .map((node) => {
-      let indent = 0;
-      if (node.match(/.+<\/\w[^>]*>$/)) indent = 0;
-      else if (node.match(/^<\/\w/)) {
-        if (pad !== 0) pad -= 1;
-      } else if (node.match(/^<\w([^>]*[^/])?>.*$/)) indent = 1;
-      const line = PADDING.repeat(pad) + node;
-      pad += indent;
-      return line;
-    })
-    .join('\r\n')
-    .trim();
-}
-
-// ------------------ Smart Type Inference Helper ------------------
-function inferType(value) {
-  if (value === null || value === undefined) return "xs:string";
-  const trimmed = value.trim();
-  if (/^-?\d+$/.test(trimmed)) return "xs:integer";
-  if (/^-?\d+\.\d+$/.test(trimmed)) return "xs:decimal";
-  if (/^(true|false|1|0)$/i.test(trimmed)) return "xs:boolean";
-  if (/^\d{4}-\d{2}-\d{2}$/.test(trimmed)) return "xs:date";
-  if (/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2})?/.test(trimmed)) return "xs:dateTime";
-  if (/^[\w._%+-]+@[\w.-]+\.[a-zA-Z]{2,}$/.test(trimmed)) return "xs:string";
-  return "xs:string";
-}
-
-// ------------------ XSD Builder (Recursive) ------------------
-function generateXsd(node, nodeName = "root", indent = 2) {
-  if (node.nodeType !== 1) return "";
-  const pad = " ".repeat(indent);
-  const children = Array.from(node.children);
-  const hasChildren = children.length > 0;
-  const hasAttributes = node.attributes && node.attributes.length > 0;
-  const textValue = node.textContent?.trim() || "";
-
-  let xsd = `${pad}<xs:element name="${nodeName}"`;
-
-  if (!hasChildren && !hasAttributes) {
-    const detectedType = textValue ? inferType(textValue) : "xs:string";
-    xsd += ` type="${detectedType}"/>\n`;
-    return xsd;
+    // Build XSD
+    var xsdString = buildSchema(root, '');
+    return xsdString;
   }
 
-  xsd += `>\n${pad}  <xs:complexType`;
-  if (hasChildren && textValue) xsd += ` mixed="true"`;
-  xsd += `>\n`;
+  // ── Convert action ──
+  function convert() {
+    var xml = inputEditor.getValue();
+    if (!xml.trim()) {
+      showToast('Please enter some XML', true);
+      return;
+    }
+    statMsg.textContent = 'Converting…';
+    var xsd = xmlToXsd(xml);
+    if (xsd) {
+      outputEditor.setValue(xsd);
+      statMsg.textContent = 'Conversion successful';
+      showToast('XSD generated successfully');
+    } else {
+      statMsg.textContent = 'Conversion failed';
+    }
+  }
 
-  // Children
-  if (hasChildren) {
-    xsd += `${pad}    <xs:sequence>\n`;
-    const childNames = [...new Set(children.map(c => c.nodeName))];
+  // ── Copy output ──
+  function copyOutput() {
+    var text = outputEditor.getValue();
+    if (!text || text === '// Generated XSD will appear here') {
+      showToast('Nothing to copy – generate XSD first', true);
+      return;
+    }
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(text).then(function() {
+        showToast('Copied to clipboard');
+      }).catch(function() {
+        showToast('Failed to copy', true);
+      });
+    } else {
+      // Fallback
+      var textarea = document.createElement('textarea');
+      textarea.value = text;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+      showToast('Copied to clipboard');
+    }
+  }
 
-    childNames.forEach(childName => {
-      const sameChildren = children.filter(c => c.nodeName === childName);
-      const maxOccurs = sameChildren.length > 1 ? ` maxOccurs="unbounded"` : "";
-      const minOccurs = ` minOccurs="0"`;
-      let childXsd = generateXsd(sameChildren[0], childName, indent + 6);
-      childXsd = childXsd.replace(
-        /<xs:element name="([^"]+)"/,
-        `<xs:element name="$1"${minOccurs}${maxOccurs}`
-      );
-      xsd += childXsd;
+  // ── Download XSD ──
+  function downloadXsd() {
+    var text = outputEditor.getValue();
+    if (!text || text === '// Generated XSD will appear here') {
+      showToast('Nothing to download – generate XSD first', true);
+      return;
+    }
+    var blob = new Blob([text], { type: 'application/xml' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'schema.xsd';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    showToast('Download started');
+  }
+
+  // ── File upload ──
+  function handleFileUpload(file) {
+    if (!file) return;
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      var content = e.target.result;
+      inputEditor.setValue(content);
+      showToast('File loaded: ' + file.name);
+      statMsg.textContent = 'File uploaded';
+    };
+    reader.onerror = function() {
+      showToast('Failed to read file', true);
+    };
+    reader.readAsText(file);
+  }
+
+  // ── Load sample XML ──
+  function loadSample() {
+    var sample = '<bookstore>\n' +
+                 '  <book category="fiction">\n' +
+                 '    <title lang="en">The Great Gatsby</title>\n' +
+                 '    <author>F. Scott Fitzgerald</author>\n' +
+                 '    <year>1925</year>\n' +
+                 '    <price>12.99</price>\n' +
+                 '  </book>\n' +
+                 '  <book category="nonfiction">\n' +
+                 '    <title lang="en">Sapiens</title>\n' +
+                 '    <author>Yuval Noah Harari</author>\n' +
+                 '    <year>2011</year>\n' +
+                 '    <price>18.99</price>\n' +
+                 '  </book>\n' +
+                 '</bookstore>';
+    inputEditor.setValue(sample);
+    showToast('Sample XML loaded');
+    statMsg.textContent = 'Sample loaded';
+  }
+
+  // ── Init ──
+  document.addEventListener('DOMContentLoaded', function() {
+    initEditors();
+
+    // Event listeners
+    convertBtn.addEventListener('click', convert);
+
+    copyBtn.addEventListener('click', copyOutput);
+
+    downloadBtn.addEventListener('click', downloadXsd);
+
+    fileInput.addEventListener('change', function(e) {
+      if (e.target.files.length > 0) {
+        handleFileUpload(e.target.files[0]);
+      }
+      // Reset input so same file can be re-uploaded
+      fileInput.value = '';
     });
 
-    xsd += `${pad}    </xs:sequence>\n`;
-  }
-
-  // Attributes
-  if (hasAttributes) {
-    Array.from(node.attributes).forEach(attr => {
-      const type = inferType(attr.value);
-      xsd += `${pad}    <xs:attribute name="${attr.name}" type="${type}"/>\n`;
+    // Optional: Keyboard shortcut for convert (Ctrl+Enter)
+    inputEditor.addKeyMap({
+      'Ctrl-Enter': convert
     });
-  }
 
-  xsd += `${pad}  </xs:complexType>\n${pad}</xs:element>\n`;
-  return xsd;
-}
-
-// ------------------ Generate XSD ------------------
-generateBtnXsd.addEventListener('click', () => {
-  if (!uploadedXmlDoc) return;
-
-  let xsdOutput = '<?xml version="1.0" encoding="UTF-8"?>\n';
-  xsdOutput += '<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">\n';
-  Array.from(uploadedXmlDoc.children).forEach(child => {
-    xsdOutput += generateXsd(child, child.nodeName, 2);
+    // Expose for debugging
+    window.convert = convert;
   });
-  xsdOutput += '</xs:schema>';
 
-  xsdPreview.value = formatXml(xsdOutput);
-  xsdPreview.style.fontFamily = 'monospace';
-  xsdPreview.style.fontSize = '14px';
-  xsdPanel.classList.add('visible');
-
-  toastXsd.textContent = '✅ XSD Generation Successful!';
-  toastXsd.classList.add('show');
-  setTimeout(() => {
-    toastXsd.classList.remove('show');
-    xsdPanel.scrollIntoView({ behavior: 'smooth' });
-  }, 2000);
-});
-
-// ------------------ Copy XSD ------------------
-copyXsdBtn.addEventListener('click', () => {
-  xsdPreview.select();
-  document.execCommand('copy');
-  toastXsd.textContent = '✅ XSD Copied to Clipboard!';
-  toastXsd.classList.add('show');
-  setTimeout(() => toastXsd.classList.remove('show'), 2000);
-});
-
-// ------------------ Export XSD ------------------
-exportXsdBtn.addEventListener('click', () => {
-  const blob = new Blob([xsdPreview.value], { type: "text/xml" });
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'schema.xsd';
-  a.click();
-  URL.revokeObjectURL(a.href);
-});
+})();

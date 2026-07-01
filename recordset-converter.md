@@ -236,7 +236,7 @@ category: utilities
 <div class="onpage-content">
  <div class="blog-post-meta">
      <a href="sohail-anwar" style="display:flex; gap: 10px;" class="link">
-      <img src="assets/img/saeed-ahmed.jpg" alt="Sohail Anwar" class="author-img">
+      <img src="assets/img/sohail-anwar.png" alt="Sohail Anwar" class="author-img">
       <span class="author-name">Sohail Anwar</span>
       </a>
       <span class="post-date">December 04, 2025</span>
@@ -360,7 +360,7 @@ category: utilities
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://datafrog.tools/"
+      "item": "https://datafrog.tools"
     },
     {
       "@type": "ListItem",
