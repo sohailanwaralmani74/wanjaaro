@@ -4,7 +4,7 @@ const posts = [
         jobTitle: 'Senior Software engineer',
         about:'Proficient problem-solver and collaborator, skilled at translating business requirements into robust technical solutions.',
         skills:['Java','Angular','Spring Boot','Android',],
-        image:'assets/img/sohail-anwar.png',
+        image:'assets/img/sohail-anwar.webp',
         url:'sohail-anwar'
     },
 

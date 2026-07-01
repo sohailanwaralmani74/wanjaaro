@@ -339,7 +339,7 @@
         toast('🔍 Metadata extracted');
     }
     function loadSample() {
-    const sample = '<!DOCTYPE html><html><head><title>Messy HTML Test</title><meta charset="UTF-8"><style>body{background:#eee;font-family:sans-serif;}h1{color:blue;}</style><scr' + 'ipt>console.log("Hello");</scr' + 'ipt></head><body><h1>Welcome</h1><p>This is a <em>messy</em> paragraph with   extra   spaces.</p><ul><li>Item 1</li><li>Item 2</li></ul><div class="content" id="main"><span>Some text</span><br/><img src="image.jpg" alt="test"></div><!-- this is a comment --><pre>  preformatted   text   should stay   intact   </pre><code>var x = 1;</code></body></html>';
+    const sample = '<!DOCTYPE html><html><head><title>Messy HTML Test</title><meta charset="UTF-8"><style>body{background:#eee;font-family:sans-serif;}h1{color:blue;}</style><scr' + 'ipt>console.log("Hello");</scr' + 'ipt></head><body><h1>Welcome</h1><p>This is a <em>messy</em> paragraph with   extra   spaces.</p><ul><li>Item 1</li><li>Item 2</li></ul><div class="content" id="main"><span>Some text</span><br/><img src="image.webp" alt="test"></div><!-- this is a comment --><pre>  preformatted   text   should stay   intact   </pre><code>var x = 1;</code></body></html>';
     setValue(sample);
     extractMetadata(sample);
     toast('🎲 Sample loaded');

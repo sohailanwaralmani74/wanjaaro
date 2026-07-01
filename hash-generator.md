@@ -113,7 +113,7 @@ category: utilities
 <article id="hash-tool-content" class="onpage-content">
  <div class="blog-post-meta">
      <a href="saeed-ahmed" style="display:flex; gap: 10px;" class="link">
-      <img src="assets/img/saeed-ahmed.jpg" alt="Saeed Ahmed" class="author-img">
+      <img src="assets/img/saeed-ahmed.webp" alt="Saeed Ahmed" class="author-img">
       <span class="author-name">Saeed Ahmed</span>
       </a>
       <span class="post-date">jan 10, 2026</span>
@@ -272,7 +272,7 @@ category: utilities
       "name": "Hash Generator – MD5, SHA‑1, SHA‑256, SHA‑512, SHA‑3",
       "url": "https://datafrog.tools/hash",
       "description": "Free online hash generator: compute MD5, SHA‑1, SHA‑256, SHA‑512, SHA‑3 from text or files. Client‑side, private, no upload.",
-      "image": "https://datafrog.tools/assets/img/hash-screenshot.png",
+      "image": "https://datafrog.tools/assets/img/hash-screenshot.webp",
       "operatingSystem": "All",
       "applicationCategory": "DeveloperApplication",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -287,7 +287,7 @@ category: utilities
       "datePublished": "2023-01-01",
       "dateModified": "2025-05-23",
       "author": { "@type": "Organization", "name": "DataFrog", "url": "https://datafrog.tools" },
-      "publisher": { "@type": "Organization", "name": "DataFrog", "logo": "https://datafrog.tools/assets/img/datafrog-logo.png", "url": "https://datafrog.tools" }
+      "publisher": { "@type": "Organization", "name": "DataFrog", "logo": "https://datafrog.tools/assets/img/datafrog-logo.webp", "url": "https://datafrog.tools" }
     },
     {
       "@type": "SoftwareSourceCode",

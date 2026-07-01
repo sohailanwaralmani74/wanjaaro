@@ -156,7 +156,7 @@ category: coding
   !-- Main software application microdata -->
  <div class="blog-post-meta">
      <a href="sohail-anwar" style="display:flex; gap: 10px;" class="link">
-      <img src="assets/img/sohail-anwar.png" alt="Sohail Anwar" class="author-img">
+      <img src="assets/img/sohail-anwar.webp" alt="Sohail Anwar" class="author-img">
       <span class="author-name">Sohail Anwar</span>
       </a>
       <span class="post-date">December 01, 2025</span>
@@ -283,7 +283,7 @@ category: coding
       "name": "JSON to TypeScript Converter",
       "url": "https://datafrog.tools/json-to-ts",
       "description": "Free online tool to convert JSON to TypeScript interfaces or classes. Auto‑prettify, duplicate‑free types, ZIP export. 100% client‑side.",
-      "image": "https://datafrog.tools/assets/img/json-to-ts-screenshot.png",
+      "image": "https://datafrog.tools/assets/img/json-to-ts-screenshot.webp",
       "operatingSystem": "All",
       "applicationCategory": "DeveloperApplication",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -299,7 +299,7 @@ category: coding
       "datePublished": "2024-01-15",
       "dateModified": "2025-05-23",
       "author": { "@type": "Organization", "name": "DataFrog", "url": "https://datafrog.tools" },
-      "publisher": { "@type": "Organization", "name": "DataFrog", "logo": "https://datafrog.tools/assets/img/datafrog-logo.png", "url": "https://datafrog.tools" }
+      "publisher": { "@type": "Organization", "name": "DataFrog", "logo": "https://datafrog.tools/assets/img/datafrog-logo.webp", "url": "https://datafrog.tools" }
     },
     {
       "@type": "SoftwareSourceCode",

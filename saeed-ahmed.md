@@ -231,7 +231,7 @@ is_homepage: true
 <div class="gm-profile">
 
   <div class="gm-hero">
-    <img src="/assets/img/saeed-ahmed.jpg" alt="Saeed Ahmed Sheikh">
+    <img src="/assets/img/saeed-ahmed.webp" alt="Saeed Ahmed Sheikh">
     <div>
       <p class="gm-eyebrow">Full Stack Developer</p>
       <h1>Saeed Ahmed Sheikh</h1>

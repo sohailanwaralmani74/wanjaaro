@@ -60,7 +60,7 @@ category: validator
 <article id="remove-excel-duplicates-tool" style="onpage-content">
  <div class="blog-post-meta">
      <a href="saeed-ahmed" style="display:flex; gap: 10px;" class="link">
-      <img src="assets/img/saeed-ahmed.jpg" alt="Saeed Ahmed" class="author-img">
+      <img src="assets/img/saeed-ahmed.webp" alt="Saeed Ahmed" class="author-img">
       <span class="author-name">Saeed Ahmed</span>
       </a>
       <span class="post-date">jan 10, 2026</span>

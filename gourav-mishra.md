@@ -231,7 +231,7 @@ is_homepage: true
 <div class="gm-profile">
 
   <div class="gm-hero">
-    <img src="/assets/img/gourav-mishra.jpg" alt="Gourav Mishra">
+    <img src="/assets/img/gourav-mishra.webp" alt="Gourav Mishra">
     <div>
       <p class="gm-eyebrow">Author &amp; Calculator Reviewer</p>
       <h1>Gourav Mishra</h1>

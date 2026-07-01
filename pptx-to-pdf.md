@@ -158,14 +158,14 @@ p{
     <div class="blog-post-meta">
      <span class="post-date">Created By</span>
      <a href="saeed-ahmed" style="display:flex; gap: 10px;" class="link">
-      <img src="assets/img/saeed-ahmed.jpg" alt="Saeed Ahmed - Full Stack Developer" class="author-img">
+      <img src="assets/img/saeed-ahmed.webp" alt="Saeed Ahmed - Full Stack Developer" class="author-img">
       <span class="author-name">Saeed Ahmed</span>
       </a>
     </div>
     <div class="blog-post-meta">
      <span class="post-date">Tested And Validated By</span>
      <a href="gourav-mishra" style="display:flex; gap: 10px;" class="link">
-      <img src="assets/img/gourav-mishra.jpg" alt="Gourav Mishra - Business Analyst" class="author-img">
+      <img src="assets/img/gourav-mishra.webp" alt="Gourav Mishra - Business Analyst" class="author-img">
       <span class="author-name">Gourav Mishra</span>
       </a>
     </div>
@@ -174,7 +174,7 @@ p{
 <article class="onpage-content">
   <div class="blog-post-meta">
      <a href="saeed-ahmed" style="display:flex; gap: 10px;" class="link">
-      <img src="assets/img/saeed-ahmed.jpg" alt="Saeed Ahmed" class="author-img">
+      <img src="assets/img/saeed-ahmed.webp" alt="Saeed Ahmed" class="author-img">
       <span class="author-name">Saeed Ahmed</span>
       </a>
       <span class="post-date">jan 10, 2026</span>

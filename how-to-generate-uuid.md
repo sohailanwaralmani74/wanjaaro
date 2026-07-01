@@ -113,7 +113,7 @@ p {
 
   <div class="blog-post-meta">
     <a href="sohail-anwar" style="display:flex; gap: 10px;" class="link">
-      <img src="assets/img/sohail-anwar.png" alt="Sohail Anwar" class="author-img" itemprop="image">
+      <img src="assets/img/sohail-anwar.webp" alt="Sohail Anwar" class="author-img" itemprop="image">
       <span class="author-name" itemprop="author" itemscope itemtype="https://schema.org/Person">
         <span >Sohail Anwar</span>
       </span>
@@ -449,7 +449,7 @@ string idString = id.ToString(); // "550e8400-e29b-41d4-a716-446655440000"</code
     "name": "DataFrog",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://datafrog.tools/assets/img/datafrog.png"
+      "url": "https://datafrog.tools/assets/img/datafrog.webp"
     }
   },
   "datePublished": "2026-06-02",

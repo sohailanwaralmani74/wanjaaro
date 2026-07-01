@@ -169,20 +169,20 @@ p{
   <div class="blog-post-meta">
     <span class="post-date">Created By</span>
     <a href="/sohail-anwar" style="display:flex;gap:10px;" class="link">
-      <img src="/assets/img/sohail-anwar.png" alt="Sohail Anwar - Senior Software Engineer" class="author-img">
+      <img src="/assets/img/sohail-anwar.webp" alt="Sohail Anwar - Senior Software Engineer" class="author-img">
       <span class="author-name">Sohail Anwar</span>
     </a>
   </div>
   <div class="blog-post-meta">
     <span class="post-date">Tested And Validated By</span>
     <a href="/gourav-mishra" style="display:flex;gap:10px;" class="link">
-      <img src="/assets/img/gourav-mishra.jpg" alt="Gourav Mishra - Business Analyst" class="author-img">
+      <img src="/assets/img/gourav-mishra.webp" alt="Gourav Mishra - Business Analyst" class="author-img">
       <span class="author-name">Gourav Mishra</span>
     </a>
   </div>
   <div class="blog-post-meta">
     <a href="/saeed-ahmed" style="display:flex;gap:10px;" class="link">
-      <img src="/assets/img/saeed-ahmed.jpg" alt="Saeed Ahmed - Full Stack Developer" class="author-img">
+      <img src="/assets/img/saeed-ahmed.webp" alt="Saeed Ahmed - Full Stack Developer" class="author-img">
       <span class="author-name">Saeed Ahmed</span>
     </a>
   </div>

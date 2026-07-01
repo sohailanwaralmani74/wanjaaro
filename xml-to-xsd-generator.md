@@ -196,7 +196,7 @@ category: xml
 <section class="onpage-content">
   <div class="blog-post-meta">
     <a href="saeed-ahmed" style="display:flex; gap: 10px;" class="link">
-      <img src="assets/img/saeed-ahmed.jpg" alt="Saeed Ahmed" class="author-img">
+      <img src="assets/img/saeed-ahmed.webp" alt="Saeed Ahmed" class="author-img">
       <span class="author-name">Saeed Ahmed</span>
     </a>
     <span class="post-date">June 30, 2026</span>

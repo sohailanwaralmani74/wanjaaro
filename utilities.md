@@ -30,7 +30,7 @@ is_catpage: true
   "@type": "Organization",
   "name": "DataFrog",
   "url": "https://datafrog.tools",
-  "logo": "https://datafrog.tools/assets/img/datafrog-logo.png",
+  "logo": "https://datafrog.tools/assets/img/datafrog-logo.webp",
   "description": "DataFrog offers free, browser-based developer utilities with 100% privacy. Format, validate, generate, encode, and analyze data. No signup, no uploads.",
   "foundingDate": "2023",
   "contactPoint": {
@@ -387,7 +387,7 @@ is_catpage: true
 <!-- ═══════════════════════════════════════════════════
      SEO CONTENT BLOCK
 ═══════════════════════════════════════════════════ -->
-<section class="seo-block" aria-labelledby="about-utilities">
+<section class="seo-block" style="margin-top: 1rem; background-color: white;" aria-labelledby="about-utilities">
   <h2 id="about-utilities">Essential Developer Utilities — Format, Validate, Generate &amp; More</h2>
 
   <p>

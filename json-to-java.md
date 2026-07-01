@@ -222,7 +222,7 @@ category: coding
 <div class="onpage-content">
  <div class="blog-post-meta">
      <a href="saeed-ahmed" style="display:flex; gap: 10px;" class="link">
-      <img src="assets/img/saeed-ahmed.jpg" alt="Saeed Ahmed" class="author-img">
+      <img src="assets/img/saeed-ahmed.webp" alt="Saeed Ahmed" class="author-img">
       <span class="author-name">Saeed Ahmed</span>
       </a>
       <span class="post-date">jan 10, 2026</span>
@@ -378,7 +378,7 @@ category: coding
       "name": "JSON to Java Converter",
       "url": "https://datafrog.tools/json-to-java",
       "description": "Free online tool to convert JSON to Java POJOs with Lombok, Jackson, and validation annotations. Auto‑prettify, duplicate‑free types, ZIP export. 100% client‑side.",
-      "image": "https://datafrog.tools/assets/img/json-to-java-screenshot.png",
+      "image": "https://datafrog.tools/assets/img/json-to-java-screenshot.webp",
       "operatingSystem": "All",
       "applicationCategory": "DeveloperApplication",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -397,7 +397,7 @@ category: coding
       "datePublished": "2024-01-15",
       "dateModified": "2025-05-23",
       "author": { "@type": "Organization", "name": "DataFrog", "url": "https://datafrog.tools" },
-      "publisher": { "@type": "Organization", "name": "DataFrog", "logo": "https://datafrog.tools/assets/img/datafrog-logo.png", "url": "https://datafrog.tools" }
+      "publisher": { "@type": "Organization", "name": "DataFrog", "logo": "https://datafrog.tools/assets/img/datafrog-logo.webp", "url": "https://datafrog.tools" }
     },
     {
       "@type": "SoftwareSourceCode",

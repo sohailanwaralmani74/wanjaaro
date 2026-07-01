@@ -112,7 +112,7 @@ p{
 
   <div class="blog-post-meta">
     <a href="gourav-mishra" style="display:flex; gap: 10px;" class="link">
-      <img src="assets/img/gourav-mishra.jpg" alt="Gourav Mishra" class="author-img">
+      <img src="assets/img/gourav-mishra.webp" alt="Gourav Mishra" class="author-img">
       <span class="author-name">Gourav Mishra</span>
     </a>
     <span class="post-date">June 02, 2026</span>
@@ -387,7 +387,7 @@ p{
     "name": "DataFrog",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://datafrog.tools/assets/img/datafrog.png"
+      "url": "https://datafrog.tools/assets/img/datafrog.webp"
     }
   },
   "datePublished": "2026-06-02",

@@ -111,7 +111,7 @@ p{
 
    <div class="blog-post-meta">
      <a href="sohail-anwar" style="display:flex; gap: 10px;" class="link">
-      <img src="assets/img/sohail-anwar.png" alt="Sohail Anwar" class="author-img">
+      <img src="assets/img/sohail-anwar.webp" alt="Sohail Anwar" class="author-img">
       <span class="author-name">Sohail Anwar</span>
       </a>
       <span class="post-date">December 07, 2025</span>
@@ -348,7 +348,7 @@ p{
     "name": "DataFrog",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://datafrog.tools/assets/img/datafrog.png"
+      "url": "https://datafrog.tools/assets/img/datafrog.webp"
     }
   },
   "datePublished": "2025-12-08",
@@ -390,7 +390,7 @@ p{
     "name": "DataFrog",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://datafrog.tools/assets/img/logo.png"
+      "url": "https://datafrog.tools/assets/img/logo.webp"
     }
   },
   "datePublished": "2025-12-08",

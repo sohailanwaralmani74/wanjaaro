@@ -238,7 +238,7 @@ is_homepage: true
 <div class="gm-profile">
 
   <div class="gm-hero">
-    <img src="/assets/img/sohail-anwar.png" alt="Sohail Anwar">
+    <img src="/assets/img/sohail-anwar.webp" alt="Sohail Anwar">
     <div>
       <p class="gm-eyebrow">Senior Consultant</p>
       <h1>Sohail Anwar</h1>

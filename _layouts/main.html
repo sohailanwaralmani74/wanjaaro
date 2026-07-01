@@ -9,7 +9,7 @@ layout: default
 
     <!-- Logo -->
     <a href="/" class="logo" style="text-decoration: none; display: inline-block;" title="DataFrog">
-      <img src="assets/img/datafrog.png" alt="DataFrog" width="50px" height="50px" />
+      <img src="assets/img/datafrog.webp" alt="DataFrog" width="50px" height="50px" />
     </a>
 
     <!-- Desktop Navigation -->
@@ -154,26 +154,52 @@ layout: default
 
     function closeDrawer() {
       hamburger.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
+      
       drawer.classList.remove('active');
+      drawer.setAttribute('aria-hidden', 'true');
+      drawer.setAttribute('inert', ''); // 🔥 Kills keyboard access when closed
+      
       overlay.classList.remove('active');
       document.body.style.overflow = '';
     }
+
     function openDrawer() {
       hamburger.classList.add('active');
+      hamburger.setAttribute('aria-expanded', 'true');
+      
       drawer.classList.add('active');
+      drawer.setAttribute('aria-hidden', 'false');
+      drawer.removeAttribute('inert'); // 🔥 Restores keyboard access when open
+      
       overlay.classList.add('active');
       document.body.style.overflow = 'hidden';
     }
 
+    // Ensure the drawer starts in the correct closed state (matches the HTML)
+    closeDrawer();
+
     hamburger.addEventListener('click', (e) => {
       e.stopPropagation();
-      if (drawer.classList.contains('active')) closeDrawer();
-      else openDrawer();
+      if (drawer.classList.contains('active')) {
+        closeDrawer();
+      } else {
+        openDrawer();
+      }
     });
+
     overlay.addEventListener('click', closeDrawer);
 
+    // 🏆 Bonus: Close drawer if user presses the Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && drawer.classList.contains('active')) {
+        closeDrawer();
+        hamburger.focus(); // Return focus to the hamburger button
+      }
+    });
   })();
 </script>
+
 <script>
   (function () {
   function setupToggle(section) {
