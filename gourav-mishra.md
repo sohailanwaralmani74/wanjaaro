@@ -1,7 +1,7 @@
 ---
 layout: main
 title: Financial Risk & Underwriting Analyst | Calculator Reviewer
-description: Financial risk analyst with a background in mortgage underwriting, fraud detection, and credit evaluation. Reviews and verifies the financial calculators on Datafrog.tools.
+description: Financial risk analyst with a background in mortgage underwriting, fraud detection, and credit evaluation. Reviews and verifies the finance.
 is_homepage: true
 ---
 

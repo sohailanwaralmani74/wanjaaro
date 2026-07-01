@@ -1,7 +1,7 @@
 ---
 layout: main
 title: Full Stack Developer | Data Converters & Dev Utils
-description: Full Stack Developer with 6+ years experience in Java, Spring Boot, Angular, Ionic, Hibernate, and web development. Builds and maintains the dev utilities and data converters on Datafrog.tools.
+description: Full Stack Developer with 6+ years experience in Java, Spring Boot, Angular, Ionic, Hibernate, and web development. Builds and maintains the devops.
 is_homepage: true
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: main
 title: Senior Consultant | Banking & Insurance Calculators
-description: Senior Consultant with 12+ years experience in enterprise ERP, finance, and banking applications — mortgage, claims, repurchase, and insurance — using Java, Spring Boot, and modern full-stack frameworks.
+description: Senior Consultant with 12+ years experience in enterprise ERP, finance, and banking applications — mortgage, claims, repurchase, and insurance.
 is_homepage: true
 ---
 
