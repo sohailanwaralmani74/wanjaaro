@@ -413,7 +413,7 @@ details[open] .faq-chevron{transform:rotate(90deg)}
 
   <section id="how-it-works">
     <h2 style="margin-top:30px;">How to decode a URL – 3 simple steps</h2>
-    <ol style="padding-left:20px;">
+    <ul  style="padding-left:20px;">
       <li><strong>Paste your encoded URL</strong> – paste a percent-encoded string (e.g., <code>https%3A%2F%2Fexample.com%2Fpath</code>) into the input field.</li>
       <li><strong>Choose your decoding mode</strong> – select <code>decodeURI</code> for full URLs or <code>decodeURIComponent</code> for query strings and hash fragments.</li>
       <li><strong>Get instant results</strong> – the decoded text appears instantly, along with a parsed breakdown of protocol, host, path, and query parameters.</li>

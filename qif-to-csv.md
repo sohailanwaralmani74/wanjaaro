@@ -73,7 +73,7 @@ category: qifFinance
 
   <section id="how-it-works-qif-to-csv">
     <h2 style="margin-top:30px;">How to convert QIF to CSV – 3 simple steps</h2>
-    <ol style="padding-left:20px;">
+    <ul  style="padding-left:20px;">
       <li><strong>Upload your QIF file</strong> – click “Upload QIF File” and select any .qif file from your computer. All processing happens locally.</li>
       <li><strong>Preview transactions</strong> – the tool automatically parses transaction blocks and displays them in a table.</li>
       <li><strong>Download CSV</strong> – click “Convert to CSV” then “Download .csv” to get your spreadsheet‑ready file.</li>

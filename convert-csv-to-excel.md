@@ -198,7 +198,7 @@ category: csv
   </ul>
 
   <h2 id="how-it-works" style="margin-top:30px;">How to convert CSV to Excel online – 3 simple steps</h2>
-  <ol style="padding-left:20px;">
+  <ul  style="padding-left:20px;">
     <li><strong>Upload your CSV file</strong> – click “Upload CSV” and select any .csv file from your computer.</li>
     <li><strong>Preview and verify</strong> – see the parsed CSV as a table; check for correct delimiter and column headers.</li>
     <li><strong>Download Excel</strong> – click “Convert to Excel Now”, then choose .xlsx or .xls. Your file is generated instantly and saved locally.</li>

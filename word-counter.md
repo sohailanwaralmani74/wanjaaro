@@ -375,7 +375,7 @@ pre{background:#0f172a;color:#e2e8f0;border-radius:var(--radius);padding:20px 24
 
   <section id="how-it-works">
     <h2 style="margin-top:30px;">How to use the word counter – 3 simple steps</h2>
-    <ol style="padding-left:20px;">
+    <ul  style="padding-left:20px;">
       <li><strong>Enter your text</strong> – paste your content into the text area or type directly.</li>
       <li><strong>View real-time statistics</strong> – see word count, character count, sentences, paragraphs, and more update instantly.</li>
       <li><strong>Explore detailed analysis</strong> – switch tabs to view readability scores, keyword frequency, letter breakdowns, and full word lists.</li>

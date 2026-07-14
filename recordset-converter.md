@@ -345,7 +345,7 @@ category: utilities
     "@type": "Organization",
     "name": "DataFrog"
   },
-  "url": "https://datafrog.example.com/tools/recordset-converter",
+  "url": "https://datafrog.tools/recordset-converter",
   "isAccessibleForFree": true
 }
 </script>

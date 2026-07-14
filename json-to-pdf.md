@@ -84,7 +84,7 @@ category: json
   </ul>
 
   <h2 id="how-it-works" style="margin-top:30px;">How to convert JSON to PDF – 3 simple steps</h2>
-  <ol style="padding-left:20px;">
+  <ul  style="padding-left:20px;">
     <li><strong>Paste or upload JSON</strong> – copy your JSON into the editor or click “Upload JSON File” to load a .json file.</li>
     <li><strong>Validate and preview</strong> – the tool checks syntax and shows a collapsible tree view of your data.</li>
     <li><strong>Generate PDF</strong> – click “Convert to PDF” to create a formatted document. Preview it in the embedded viewer, then download instantly.</li>

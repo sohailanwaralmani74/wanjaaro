@@ -74,7 +74,7 @@ category: qifFinance
 
   <section id="how-it-works-qif-to-qbo">
     <h2 style="margin-top:30px;">How to convert QIF to QBO – 3 simple steps</h2>
-    <ol style="padding-left:20px;">
+    <ul  style="padding-left:20px;">
       <li><strong>Upload your QIF file</strong> – click “Upload QIF File” and select any .qif file from your computer.</li>
       <li><strong>Preview transactions</strong> – the tool parses each transaction (date, amount, payee, memo) and displays them for review.</li>
       <li><strong>Download QBO file</strong> – click “Convert to QBO”, then download the .qbo file ready for QuickBooks import.</li>

@@ -81,7 +81,7 @@ category: excel
   <section id="how-it-works">
 
     <h2 id="how-it-works" style="margin-top:30px;">How to convert XLSX to XML – 3 simple steps</h2>
-    <ol style="padding-left:20px;">
+    <ul  style="padding-left:20px;">
       <li><strong>Upload your Excel file</strong> – click “Upload Excel” and select any .xlsx or .xls file from your computer.</li>
       <li><strong>Preview and edit</strong> – see the spreadsheet content in a table; you can modify cells, add or delete rows before conversion.</li>
       <li><strong>Generate XML</strong> – click “Convert to XML”, then copy the indented XML or download as a .xml file.</li>

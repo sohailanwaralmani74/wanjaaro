@@ -81,7 +81,7 @@ category: excel
   <section id="how-it-works">
 
     <h2 id="how-it-works" style="margin-top:30px;">How to convert XLSX to CSV – 3 simple steps</h2>
-    <ol style="padding-left:20px;">
+    <ul  style="padding-left:20px;">
       <li><strong>Upload your Excel file</strong> – click “Upload Excel” and select any .xlsx or .xls file from your computer.</li>
       <li><strong>Preview your data</strong> – see the spreadsheet contents in a table; verify rows and columns.</li>
       <li><strong>Get CSV output</strong> – click “Convert to CSV”, then copy the text or download as a .csv file.</li>

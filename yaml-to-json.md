@@ -87,7 +87,7 @@ category: utilities
 
   <section id="how-it-works-section">
     <h2 id="how-it-works" style="margin-top:30px;">How to convert YAML to JSON – 3 simple steps</h2>
-    <ol style="padding-left:20px;">
+    <ul  style="padding-left:20px;">
       <li><strong>Provide your YAML input</strong> – paste YAML code directly into the editor or upload a .yaml / .yml file.</li>
       <li><strong>Convert automatically</strong> – click “Convert to JSON”. The tool parses your YAML structure in your browser using js-yaml.</li>
       <li><strong>Copy or download JSON</strong> – review the formatted JSON output, then copy it to your clipboard or download as a .json file.</li>

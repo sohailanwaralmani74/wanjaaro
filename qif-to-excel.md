@@ -77,7 +77,7 @@ category: qifFinance
 
   <section id="how-it-works-qif-to-excel">
     <h2 style="margin-top:30px;">How to convert QIF to Excel – 3 simple steps</h2>
-    <ol style="padding-left:20px;">
+    <ul  style="padding-left:20px;">
       <li><strong>Upload your QIF file</strong> – click “Upload QIF File” and select any .qif file from your computer.</li>
       <li><strong>Preview transactions</strong> – the tool automatically parses each transaction and displays them in a table.</li>
       <li><strong>Download Excel</strong> – click “Convert to Excel”, then choose .xlsx or .xls to save your spreadsheet.</li>

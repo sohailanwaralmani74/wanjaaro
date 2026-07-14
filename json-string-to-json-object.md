@@ -153,7 +153,7 @@ category: json
   </ul>
 
   <h2 id="how-it-works" style="margin-top:30px;">How to convert a JSON string to an object – 2 simple steps</h2>
-  <ol style="padding-left:20px;">
+  <ul  style="padding-left:20px;">
     <li><strong>Paste your JSON string</strong> – copy and paste any JSON string (e.g., from an API response or a log file) into the left editor.</li>
     <li><strong>See the parsed object instantly</strong> – as you type or paste, the tool parses the string and displays a formatted, interactive tree view on the right. No button required.</li>
   </ul>

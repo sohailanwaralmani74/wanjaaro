@@ -117,7 +117,7 @@ category: sql
 
   <section id="how-to-convert">
     <h2 style="margin-top:30px;">How to Convert SQL to XML in 2 Minutes</h2>
-    <ol style="padding-left:20px;">
+    <ul  style="padding-left:20px;">
       <li><strong>Upload</strong> – Select your SQL file (.sql, .txt, or .csv) containing structured data.</li>
       <li><strong>Convert</strong> – The tool parses INSERT rows or delimiter‑separated blocks into a table.</li>
       <li><strong>Preview & Export</strong> – Review the data and click <strong>Download XML</strong> to get your well‑formed XML file.</li>

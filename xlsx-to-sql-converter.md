@@ -77,7 +77,7 @@ category: excel
 
   <section id="how-it-works">
     <h2 style="margin-top:30px;">How to convert XLSX to SQL – 3 simple steps</h2>
-    <ol style="padding-left:20px;">
+    <ul  style="padding-left:20px;">
       <li><strong>Upload your Excel file</strong> – click “Upload Excel File” and select any .xlsx or .xls file from your computer.</li>
       <li><strong>Preview and edit</strong> – see the parsed spreadsheet data in a table; the first row is used as column names. You can modify cells before conversion.</li>
       <li><strong>Generate SQL</strong> – click “Convert to SQL” to get INSERT statements. Copy or download the .sql file.</li>

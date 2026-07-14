@@ -1,0 +1,1110 @@
+---
+layout: main
+title: "REM to PX & PX to REM Converter - Free CSS Unit Tool"
+description: "Free online REM to PX and PX to REM converter. Convert CSS units instantly with an adjustable root font-size.
+Also supports EM. Batch conversion, no data leaves your device."
+keywords: "rem to px, px to rem, 1 rem px, em to px, px to rem converter, rem to px converter, 3rem to px, em to rem,
+px em rem, rem em px, rem to em, 6 rem to px, px to rem css"
+category: utilities
+---
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "@id": "https://datafrog.tools/rem-px-converter#webapp",
+    "name": "REM to PX & PX to REM Converter",
+    "url": "https://datafrog.tools/rem-px-converter",
+    "description": "A free, browser-based tool that converts between PX, REM, and EM CSS units. Supports a fully adjustable root font-size, bidirectional conversion, and batch processing of multiple values offline with complete data privacy.",
+    "applicationCategory": "DeveloperTool",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "Privacy-first client-side processing (no data uploaded to servers)",
+      "Bidirectional conversion - PX to REM and REM to PX in one tool",
+      "Also converts EM, both to and from PX",
+      "Fully adjustable root font-size (defaults to browser standard 16px)",
+      "Batch conversion for multiple values at once",
+      "Live inline preview with real-time updates",
+      "Instant copy to clipboard or download results as a .txt file"
+    ],
+    "softwareRequirements": "A modern web browser",
+    "softwareVersion": "1.0",
+    "datePublished": "2026-07-14",
+    "dateModified": "2026-07-14"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": "https://datafrog.tools/rem-px-converter#faq",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I convert REM to PX?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Multiply the rem value by your root font-size (16px by default in most browsers). For example, 1rem = 1 x 16px = 16px, and 2rem = 32px. This tool does the math instantly and lets you change the root font-size if your project uses a different base."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I convert PX to REM?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Divide the pixel value by your root font-size. For example, 24px / 16px = 1.5rem. Enter your pixel value into the converter above and it calculates the rem equivalent automatically, using your chosen root font-size."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is 1rem in px?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "By default, 1rem equals 16px, since browsers set the default root font-size to 16px. If a site's CSS changes the root font-size (for example to 62.5% for easy math, making 1rem = 10px), the conversion changes accordingly - this tool lets you set that custom root size."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is 3rem to px, and 6rem to px?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "At the default 16px root font-size, 3rem equals 48px and 6rem equals 96px. If your project uses a different root font-size, multiply that value by 3 or 6 respectively, or use the converter above for instant results."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between em and rem?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Rem is always relative to the root (html) element's font-size, so it stays consistent everywhere on a page. Em is relative to the font-size of its nearest parent element, so the same em value can compute to different pixel sizes depending on where it's used. This tool treats em as relative to the root font-size for simplicity, matching rem, since that covers the vast majority of real-world use cases."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the root font-size always 16px?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "16px is the default in every major browser, but developers commonly override it in CSS (a popular pattern is setting html { font-size: 62.5% } to make 1rem equal 10px for easier mental math). Always check your project's actual root font-size before relying on rem-to-px conversions."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why do px, em, and rem all matter in CSS?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Px gives you fixed, predictable sizing. Rem scales consistently with a user's font-size preferences, which is important for accessibility. Em is useful for sizing that should scale relative to a specific component's own font-size. Most modern CSS uses rem for layout and typography, and reserves px for things like borders that shouldn't scale."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does root font-size only affect text size?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Rem and em are calculated against the root font-size no matter which CSS property they're used for - width, height, padding, margin, gap, border-radius, and font-size all convert the same way. If you use 1.5rem for a padding value, it equals the same pixel amount as 1.5rem used for font-size."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does this tool support batch conversion?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Paste multiple values, one per line, in any mix of px, rem, or em (for example 16px, 1.5rem, 2em) and the tool converts every line into all three units at once in a results table."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my data sent to a server?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. All conversion happens entirely inside your browser using local JavaScript. No values are uploaded or transmitted anywhere."
+        }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "@id": "https://datafrog.tools/rem-px-converter#howto",
+    "name": "How to Convert Between PX, REM, and EM",
+    "description": "Step-by-step guide to converting CSS units - px to rem, rem to px, and em - using the free online converter.",
+    "tool": {
+      "@type": "HowToTool",
+      "name": "REM to PX & PX to REM Converter"
+    },
+    "supply": {
+      "@type": "HowToSupply",
+      "name": "A pixel, rem, or em value"
+    },
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Set Your Root Font-Size",
+        "text": "Confirm or change the root font-size (defaults to 16px, the browser standard) so the conversion matches your actual project.",
+        "url": "https://datafrog.tools/rem-px-converter"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Enter Your Value",
+        "text": "Type a pixel value into the PX to REM panel, or a rem/em value into the REM to PX panel.",
+        "url": "https://datafrog.tools/rem-px-converter"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "View Instant Conversion",
+        "text": "The result updates in real time, showing the converted value in the target unit.",
+        "url": "https://datafrog.tools/rem-px-converter"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Copy or Export the Result",
+        "text": "Copy the converted value to your clipboard with one click, or use batch mode to convert a whole list at once and export it.",
+        "url": "https://datafrog.tools/rem-px-converter"
+      }
+    ],
+    "totalTime": "PT1M"
+  }
+]
+</script>
+<style>
+  .unit-wrap {
+    background: #1e1e1e;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-height: 100px;
+    margin: 2rem;
+  }
+
+  .unit-panel-card {
+    background: #252526;
+    border-radius: 8px;
+    border: 1px solid #3c3c3c;
+    overflow: hidden
+  }
+
+  .unit-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    background: #2d2d2d;
+    border-bottom: 1px solid #3c3c3c;
+    flex-wrap: wrap;
+    gap: 8px
+  }
+
+  .unit-panel-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: #cccccc;
+    letter-spacing: .3px
+  }
+
+  .unit-panel-sub {
+    font-size: 11px;
+    color: #6a9955;
+    margin-top: 2px
+  }
+
+  .unit-btn-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap
+  }
+
+  .unit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-family: inherit;
+    cursor: pointer;
+    border: 1px solid #555;
+    background: #3a3a3a;
+    color: #cccccc;
+    transition: background .15s
+  }
+
+  .unit-btn:hover {
+    background: #4a4a4a
+  }
+
+  .unit-btn.primary {
+    background: #0e639c;
+    border-color: #0e639c;
+    color: #fff
+  }
+
+  .unit-btn.primary:hover {
+    background: #1177bb
+  }
+
+  .unit-root-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    padding: 14px 16px;
+    align-items: center
+  }
+
+  .unit-root-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px
+  }
+
+  .unit-root-label {
+    font-size: 10px;
+    color: #7a7a7a;
+    letter-spacing: .5px;
+    text-transform: uppercase
+  }
+
+  .unit-root-input {
+    width: 90px;
+    background: #1b1b1b;
+    color: #9cdcfe;
+    font-family: var(--font-mono, 'Fira Mono', monospace);
+    font-size: 16px;
+    padding: 8px 10px;
+    border: 1px solid #3c3c3c;
+    border-radius: 5px;
+    outline: none
+  }
+
+  .unit-root-input:focus {
+    border-color: #0e639c
+  }
+
+  .unit-root-hint {
+    font-size: 11px;
+    color: #6a9955;
+  }
+
+  .unit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px
+  }
+
+  @media (max-width:760px) {
+    .unit-grid {
+      grid-template-columns: 1fr
+    }
+  }
+
+  .unit-field-row {
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+  }
+
+  .unit-input {
+    width: 100%;
+    background: #1b1b1b;
+    color: #9cdcfe;
+    font-family: var(--font-mono, 'Fira Mono', monospace);
+    font-size: 13px;
+    padding: 10px 12px;
+    border: 1px solid #3c3c3c;
+    border-radius: 5px;
+    outline: none
+  }
+
+  .unit-input::placeholder {
+    color: #4a4a4a
+  }
+
+  .unit-input:focus {
+    border-color: #0e639c
+  }
+
+  .unit-select-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap
+  }
+
+  .unit-select {
+    background: #1b1b1b;
+    color: #cccccc;
+    font-family: inherit;
+    font-size: 12px;
+    padding: 7px 10px;
+    border: 1px solid #3c3c3c;
+    border-radius: 5px;
+    outline: none
+  }
+
+  .unit-result-box {
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px
+  }
+
+  .unit-result-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    background: #1b1b1b;
+    border: 1px solid #3c3c3c;
+    border-radius: 5px;
+    padding: 9px 12px
+  }
+
+  .unit-result-line-label {
+    font-size: 11px;
+    color: #7a7a7a;
+    min-width: 78px
+  }
+
+  .unit-result-line-val {
+    font-family: var(--font-mono, 'Fira Mono', monospace);
+    font-size: 12.5px;
+    color: #d4d4d4;
+    word-break: break-all;
+    flex: 1
+  }
+
+  .unit-result-line-val.empty {
+    color: #4a4a4a;
+    font-style: italic
+  }
+
+  .unit-mini-copy {
+    background: none;
+    border: none;
+    color: #6a9955;
+    cursor: pointer;
+    font-size: 13px;
+    padding: 2px 4px;
+    flex-shrink: 0
+  }
+
+  .unit-mini-copy:hover {
+    color: #9cdcfe
+  }
+
+  .unit-batch-ta {
+    width: 100%;
+    min-height: 140px;
+    max-height: 220px;
+    background: #1b1b1b;
+    color: #9cdcfe;
+    font-family: var(--font-mono, 'Fira Mono', monospace);
+    font-size: 12px;
+    padding: 12px;
+    border: none;
+    resize: vertical;
+    outline: none;
+    line-height: 1.6
+  }
+
+  .unit-batch-ta::placeholder {
+    color: #4a4a4a
+  }
+
+  .unit-batch-output {
+    padding: 0;
+    max-height: 260px;
+    overflow-y: auto
+  }
+
+  .unit-batch-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-mono, 'Fira Mono', monospace);
+    font-size: 12px
+  }
+
+  .unit-batch-table th {
+    position: sticky;
+    top: 0;
+    background: #2d2d2d;
+    color: #7a7a7a;
+    text-align: left;
+    padding: 8px 12px;
+    font-weight: 500;
+    border-bottom: 1px solid #3c3c3c
+  }
+
+  .unit-batch-table td {
+    padding: 7px 12px;
+    color: #d4d4d4;
+    border-bottom: 1px solid #2a2a2a;
+    word-break: break-all
+  }
+
+  .unit-batch-table td.err {
+    color: #f97583
+  }
+
+  .unit-batch-empty {
+    padding: 24px;
+    text-align: center;
+    color: #4a4a4a;
+    font-size: 12px
+  }
+
+  .unit-toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-family: var(--font-mono, monospace);
+    z-index: 999;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity .25s, transform .25s;
+    pointer-events: none;
+    max-width: 320px
+  }
+
+  .unit-toast.success {
+    background: #1e293b;
+    border: 1px solid #2d7a4a;
+    color: #6fcf97
+  }
+
+  .unit-toast.error {
+    background: #1e293b;
+    border: 1px solid #8b3333;
+    color: #f97583
+  }
+
+  .unit-toast.show {
+    opacity: 1;
+    transform: translateY(0)
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    border: 1px solid var(--border);
+    background: var(--surface-2);
+    color: var(--ink-2);
+  }
+
+  .badge.green {
+    background: var(--green-light);
+    border-color: #bbf7d0;
+    color: var(--green);
+  }
+
+  .badge.blue {
+    background: var(--accent-light);
+    border-color: #bfdbfe;
+    color: var(--accent);
+  }
+
+  .badge.amber {
+    background: var(--amber-light);
+    border-color: #fde68a;
+    color: var(--amber);
+  }
+
+  .section {
+    margin-bottom: 56px;
+    margin-top: 56px;
+  }
+
+  h2 {
+    font-size: clamp(20px, 3vw, 27px);
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+    letter-spacing: -0.3px;
+  }
+
+  h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 28px 0 8px;
+  }
+
+  p {
+    margin-bottom: 16px;
+    color: var(--ink-2);
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  strong {
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  code {
+    font-family: var(--font-code);
+    font-size: 13.5px;
+    background: var(--surface-3);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1px 6px;
+    color: #be123c;
+  }
+
+  .tbl-wrap {
+    overflow-x: auto;
+    margin: 16px 0 24px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-ui);
+    font-size: 14px;
+  }
+
+  th {
+    background: var(--surface-3);
+    border: 1px solid var(--border);
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+
+  td {
+    border: 1px solid var(--border);
+    padding: 9px 14px;
+    color: var(--ink-2);
+    vertical-align: top;
+  }
+
+  tr:nth-child(even) td {
+    background: var(--surface-2);
+  }
+
+  .callout {
+    border-left: 4px solid;
+    padding: 16px 20px;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    margin: 20px 0;
+  }
+
+  .callout.info {
+    border-color: var(--accent);
+    background: var(--accent-light);
+  }
+
+  .callout p {
+    margin: 0;
+    font-size: 15px;
+  }
+
+  .callout strong {
+    display: block;
+    margin-bottom: 4px;
+    font-family: var(--font-ui);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+  }
+
+  .callout.info strong {
+    color: var(--accent);
+  }
+
+  .hero {
+    padding: 56px 0 40px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 48px;
+  }
+
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    font-family: var(--font-ui);
+  }
+
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 26px;
+    }
+
+    .hero {
+      padding: 32px 0 28px;
+    }
+
+    .unit-grid {
+      grid-template-columns: 1fr
+    }
+  }
+</style>
+
+<!-- ================================================================
+  BLOCK 1 — HERO (place ABOVE the tool)
+  Carries the WebApplication microdata: name + description.
+================================================================ -->
+<div class="home-hero">
+  <h1>PX to REM and REM to PX Converter</h1>
+  <p>Convert PX to REM, REM to PX, or EM instantly — right in your browser. Use the adjustable root font-size to match
+    your exact project, or leave it at the browser default of 16px. No signup, no data leaves your device.
+  </p>
+
+  <div class="hero-badges">
+    <span class="badge green">✓ 100% Client-Side</span>
+    <span class="badge blue">✓ Adjustable Root Font-Size</span>
+    <span class="badge amber">✓ Batch Conversion</span>
+    <span class="badge">✓ PX · REM · EM</span>
+    <span class="badge">✓ Free Forever</span>
+  </div>
+</div>
+
+<section id="rem-px-converter-tool" aria-label="REM to PX and PX to REM Converter Tool">
+  <div>
+
+    <div class="unit-wrap">
+
+      <div class="unit-panel-card">
+        <div class="unit-root-bar">
+          <div class="unit-root-item">
+            <div class="unit-root-label">Root Font-Size (px)</div>
+            <input id="root-font-size" class="unit-root-input" type="number" value="16" min="1" step="0.1">
+          </div>
+          <div class="unit-root-hint" id="root-font-hint">Default browser root font-size is 16px. This is the base
+            rem/em is calculated against for <strong>any</strong> property — width, padding, margin, gap, border-radius,
+            and font-size alike. Change it to match your project's <code>html { font-size: ... }</code> value.</div>
+        </div>
+      </div>
+
+      <div class="unit-grid">
+
+        <div class="unit-panel-card">
+          <div class="unit-panel-header">
+            <div>
+              <div class="unit-panel-title"><i class="ti ti-arrow-right" aria-hidden="true"
+                  style="font-size:14px;margin-right:6px;color:#e2c08d"></i>PX → REM / EM</div>
+              <div class="unit-panel-sub">Enter a pixel value</div>
+            </div>
+          </div>
+          <div class="unit-field-row">
+            <input id="px-in" class="unit-input" placeholder="e.g. 24" inputmode="decimal">
+            <div class="unit-select-row">
+              <button class="unit-btn primary" id="btn-to-rem"><i class="ti ti-bolt" aria-hidden="true"></i>
+                Convert</button>
+            </div>
+          </div>
+          <div class="unit-result-box">
+            <div class="unit-result-line"><span class="unit-result-line-label">REM</span><span
+                class="unit-result-line-val empty" id="out-rem">—</span><button class="unit-mini-copy"
+                data-copy="out-rem"><i class="ti ti-copy" aria-hidden="true"></i></button></div>
+            <div class="unit-result-line"><span class="unit-result-line-label">EM</span><span
+                class="unit-result-line-val empty" id="out-em-from-px">—</span><button class="unit-mini-copy"
+                data-copy="out-em-from-px"><i class="ti ti-copy" aria-hidden="true"></i></button></div>
+          </div>
+        </div>
+
+        <div class="unit-panel-card">
+          <div class="unit-panel-header">
+            <div>
+              <div class="unit-panel-title"><i class="ti ti-arrow-left" aria-hidden="true"
+                  style="font-size:14px;margin-right:6px;color:#79b8ff"></i>REM / EM → PX</div>
+              <div class="unit-panel-sub">Enter a rem or em value</div>
+            </div>
+          </div>
+          <div class="unit-field-row">
+            <input id="rem-in" class="unit-input" placeholder="e.g. 1.5" inputmode="decimal">
+            <div class="unit-select-row">
+              <select id="rem-unit" class="unit-select">
+                <option value="rem">rem</option>
+                <option value="em">em</option>
+              </select>
+              <button class="unit-btn primary" id="btn-to-px"><i class="ti ti-bolt" aria-hidden="true"></i>
+                Convert</button>
+            </div>
+          </div>
+          <div class="unit-result-box">
+            <div class="unit-result-line"><span class="unit-result-line-label">PX</span><span
+                class="unit-result-line-val empty" id="out-px">—</span><button class="unit-mini-copy"
+                data-copy="out-px"><i class="ti ti-copy" aria-hidden="true"></i></button></div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="unit-panel-card">
+        <div class="unit-panel-header">
+          <div>
+            <div class="unit-panel-title"><i class="ti ti-list" aria-hidden="true"
+                style="font-size:14px;margin-right:6px;color:#b392f0"></i>Batch Conversion</div>
+            <div class="unit-panel-sub">One value per line — mix px, rem, and em freely, e.g. 16px, 1.5rem, 2em</div>
+          </div>
+          <div class="unit-btn-row">
+            <button class="unit-btn" id="btn-batch-clear">Clear</button>
+            <button class="unit-btn primary" id="btn-batch-run"><i class="ti ti-bolt" aria-hidden="true"></i> Convert
+              All</button>
+          </div>
+        </div>
+        <textarea id="batch-in" class="unit-batch-ta" placeholder="16px&#10;1.5rem&#10;2em&#10;24"
+          spellcheck="false"></textarea>
+        <div class="unit-batch-output" id="batch-output">
+          <div class="unit-batch-empty">Results will appear here as a table</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="unit-toast" id="toast" role="alert" aria-live="assertive"></div>
+
+
+
+    <!-- ================================================================
+  BLOCK 2 — CONTENT (place BELOW the tool body)
+  margin-top: 3rem keeps it visually separated from the tool.
+  FAQ section is marked up with FAQPage microdata directly in the
+  HTML (in addition to the JSON-LD at the bottom) for redundancy.
+  ================================================================ -->
+    <article class="onpage-content">
+      <div class="blog-post-meta">
+        <a href="/saeed-ahmed" style="display:flex; gap: 10px;" class="link">
+          <img src="/assets/img/saeed-ahmed.webp" alt="Saeed Ahmed" class="author-img">
+          <span class="author-name">Saeed Ahmed</span>
+        </a>
+        <span class="post-date">Jul 14, 2026</span>
+      </div>
+
+      <section id="why-convert-rem-px">
+        <h2 id="why-section-heading" style="margin-top:30px;">Why convert between PX, REM, and EM?</h2>
+        <ul style="padding-left:20px;">
+          <li>Translate a designer's px-based Figma or Sketch spec into rem values for your CSS — widths, margins,
+            padding, and gaps just as often as text</li>
+          <li>Build a spacing scale (rem-based margins, padding, and gaps) that stays proportional if a user changes
+            their browser's font-size setting</li>
+          <li>Audit an existing stylesheet and standardize inconsistent px, rem, and em usage across layout and
+            typography alike</li>
+          <li>Check how an entire component — not just its text — will reflow when a user changes their accessibility
+            font-size preferences</li>
+          <li>Convert legacy px-based CSS to rem-based CSS during a design-system migration</li>
+          <li>Quickly sanity-check values while writing Tailwind, Bootstrap, or custom CSS without doing the math by
+            hand</li>
+        </ul>
+      </section>
+
+      <section id="how-to-convert-px-to-rem">
+        <h2 id="how-to-px-rem-heading" style="margin-top:30px;">How to convert PX to REM</h2>
+        <p>Divide the pixel value by your root font-size. With the default 16px root, <code>24px</code> becomes
+          <code>1.5rem</code>, and <code>32px</code> becomes <code>2rem</code>. Enter your pixel value into the
+          PX → REM panel above and the result updates instantly, using whichever root font-size you've set.</p>
+      </section>
+
+      <section id="how-to-convert-rem-to-px">
+        <h2 id="how-to-rem-px-heading" style="margin-top:30px;">How to convert REM to PX</h2>
+        <p>Multiply the rem value by your root font-size. With the default 16px root, <code>1rem</code> becomes
+          <code>16px</code>, and <code>1.5rem</code> becomes <code>24px</code>. Enter your rem value into the
+          REM → PX panel above, and switch the unit selector to <code>em</code> if you're converting an em value
+          instead.</p>
+      </section>
+
+      <section id="rem-px-conversion-table">
+        <h2 id="conversion-table-heading" style="margin-top:30px;">Common REM to PX conversions (16px root)</h2>
+        <div class="tbl-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>REM</th>
+                <th>PX</th>
+                <th>REM</th>
+                <th>PX</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>0.25rem</td>
+                <td>4px</td>
+                <td>1.75rem</td>
+                <td>28px</td>
+              </tr>
+              <tr>
+                <td>0.5rem</td>
+                <td>8px</td>
+                <td>2rem</td>
+                <td>32px</td>
+              </tr>
+              <tr>
+                <td>0.75rem</td>
+                <td>12px</td>
+                <td>2.5rem</td>
+                <td>40px</td>
+              </tr>
+              <tr>
+                <td>1rem</td>
+                <td>16px</td>
+                <td>3rem</td>
+                <td>48px</td>
+              </tr>
+              <tr>
+                <td>1.25rem</td>
+                <td>20px</td>
+                <td>4rem</td>
+                <td>64px</td>
+              </tr>
+              <tr>
+                <td>1.5rem</td>
+                <td>24px</td>
+                <td>6rem</td>
+                <td>96px</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout info">
+          <strong>Note</strong>
+          <p>This table assumes the default 16px root font-size. If your project overrides <code>html { font-size }</code>,
+            use the converter above with your own root value instead of these fixed numbers.</p>
+        </div>
+      </section>
+
+      <section id="key-features">
+        <h2 id="key-features-heading" style="margin-top:30px;">REM to PX converter — features you'll love</h2>
+        <ul style="padding-left:20px;">
+          <li>✅ <strong>100% browser-based</strong> — your values never leave your device, ensuring complete privacy
+          </li>
+          <li>✅ <strong>Fully bidirectional</strong> — convert px to rem and rem to px in one tool, with equal focus
+            on both directions</li>
+          <li>✅ <strong>EM support</strong> — convert em to px and em to rem alongside standard rem calculations</li>
+          <li>✅ <strong>Adjustable root font-size</strong> — matches non-standard root values like the common 62.5%
+            trick</li>
+          <li>✅ <strong>Live inline preview</strong> — see the conversion update in real time as you type</li>
+          <li>✅ <strong>Batch conversion</strong> — paste a mixed list of px, rem, and em values and convert them all
+            at once</li>
+          <li>✅ <strong>Copy results</strong> — copy any converted value to your clipboard with one click</li>
+          <li>✅ <strong>Works offline</strong> after first load — no internet connection required</li>
+        </ul>
+      </section>
+
+      <section id="what-makes-different">
+        <h2 id="what-makes-different-heading" style="margin-top:30px;">Why DataFrog's PX/REM/EM converter stands out
+        </h2>
+        <ul style="padding-left:20px;">
+          <li><strong>Privacy first</strong> — your CSS values are never uploaded to our servers.</li>
+          <li><strong>Real project accuracy</strong> — the adjustable root font-size means results match your actual
+            codebase, not just the browser default.</li>
+          <li><strong>Equal treatment of both directions</strong> — most converters bury one direction as an
+            afterthought; this tool gives px→rem and rem→px identical, side-by-side panels.</li>
+          <li><strong>No signup, no watermarks</strong> — completely free, whether you need one conversion or a batch
+            of hundreds.</li>
+        </ul>
+      </section>
+
+      <section id="supported-units">
+        <h2 id="supported-units-heading" style="margin-top:30px;">Supported units</h2>
+        <ul style="padding-left:20px;">
+          <li><strong>PX</strong> (pixels) — an absolute CSS unit, fixed regardless of font-size settings</li>
+          <li><strong>REM</strong> (root em) — relative to the root <code>&lt;html&gt;</code> element's font-size,
+            consistent everywhere on the page</li>
+          <li><strong>EM</strong> — relative to the font-size of the nearest parent element; this tool calculates em
+            against your chosen root font-size for a simple, consistent baseline</li>
+          <li>Decimal values are supported for all units (e.g. <code>1.25rem</code>, <code>0.5em</code>)</li>
+        </ul>
+      </section>
+
+      <section id="use-cases">
+        <h2 id="use-cases-heading" style="margin-top:30px;">Common use cases</h2>
+        <ul style="padding-left:20px;">
+          <li>🎨 Design handoff — convert a designer's px specs into rem for accessible, scalable CSS</li>
+          <li>🔄 Legacy CSS migration — batch-convert an old px-based stylesheet to rem</li>
+          <li>♿ Accessibility audits — check how components scale when a user increases their browser's default font
+            size</li>
+          <li>🧩 Design systems — verify spacing and typography scales stay consistent across breakpoints</li>
+          <li>🛠️ Framework work — quickly convert Tailwind, Bootstrap, or custom design-token values</li>
+        </ul>
+      </section>
+
+      <section id="privacy-security">
+        <h2 id="privacy-security-heading" style="margin-top:30px;">Privacy & Security</h2>
+        <ul style="padding-left:20px;">
+          <li>🔒 All processing happens locally in your browser using vanilla JavaScript</li>
+          <li>🚫 No data transmission — your values never touch our network</li>
+          <li>🕵️ No tracking, no cookies, no third-party analytics scripts</li>
+          <li>💼 Safe for proprietary design-system values and internal component libraries</li>
+        </ul>
+      </section>
+
+      <section id="faq">
+        <h2 id="faq-heading" style="margin-top:30px;">Frequently asked questions (PX, REM & EM conversion)</h2>
+
+        <h3 id="faq-1">How do I convert REM to PX?</h3>
+        <p>Multiply the rem value by your root font-size (16px by default in most browsers). For example,
+          <code>1rem</code> = 1 × 16px = <code>16px</code>, and <code>2rem</code> = <code>32px</code>. This tool does
+          the math instantly and lets you change the root font-size if your project uses a different base.</p>
+
+        <h3 id="faq-2">How do I convert PX to REM?</h3>
+        <p>Divide the pixel value by your root font-size. For example, <code>24px / 16px = 1.5rem</code>. Enter your
+          pixel value into the converter above and it calculates the rem equivalent automatically, using your chosen
+          root font-size.</p>
+
+        <h3 id="faq-3">What is 1rem in px?</h3>
+        <p>By default, <code>1rem</code> equals <code>16px</code>, since browsers set the default root font-size to
+          16px. If a site's CSS changes the root font-size (for example to <code>62.5%</code> for easy math, making
+          1rem = 10px), the conversion changes accordingly — this tool lets you set that custom root size.</p>
+
+        <h3 id="faq-4">What is 3rem to px, and 6rem to px?</h3>
+        <p>At the default 16px root font-size, <code>3rem</code> equals <code>48px</code> and <code>6rem</code>
+          equals <code>96px</code>. If your project uses a different root font-size, multiply that value by 3 or 6
+          respectively, or use the converter above for instant results.</p>
+
+        <h3 id="faq-5">What is the difference between em and rem?</h3>
+        <p><strong>Rem</strong> is always relative to the root (<code>html</code>) element's font-size, so it stays
+          consistent everywhere on a page. <strong>Em</strong> is relative to the font-size of its nearest parent
+          element, so the same em value can compute to different pixel sizes depending on where it's used. This tool
+          treats em as relative to the root font-size for simplicity, matching rem, since that covers the vast
+          majority of real-world use cases.</p>
+
+        <h3 id="faq-6">Is the root font-size always 16px?</h3>
+        <p>16px is the default in every major browser, but developers commonly override it in CSS (a popular pattern
+          is setting <code>html { font-size: 62.5% }</code> to make 1rem equal 10px for easier mental math). Always
+          check your project's actual root font-size before relying on rem-to-px conversions.</p>
+
+        <h3 id="faq-7">Why do px, em, and rem all matter in CSS?</h3>
+        <p>Px gives you fixed, predictable sizing. Rem scales consistently with a user's font-size preferences, which
+          is important for accessibility. Em is useful for sizing that should scale relative to a specific
+          component's own font-size. Most modern CSS uses rem for layout and typography, and reserves px for things
+          like borders that shouldn't scale.</p>
+
+        <h3 id="faq-8">Does root font-size only affect text size?</h3>
+        <p><strong>No.</strong> Rem and em are calculated against the root font-size no matter which CSS property
+          they're used for — width, height, padding, margin, gap, border-radius, and font-size all convert the same
+          way. If you use <code>1.5rem</code> for a padding value, it equals the same pixel amount as
+          <code>1.5rem</code> used for font-size.</p>
+
+        <h3 id="faq-9">Does this tool support batch conversion?</h3>
+        <p>Yes. Paste multiple values, one per line, in any mix of px, rem, or em (for example
+          <code>16px</code>, <code>1.5rem</code>, <code>2em</code>) and the tool converts every line into all three
+          units at once in a results table.</p>
+
+        <h3 id="faq-10">Is my data sent to a server?</h3>
+        <p><strong>No.</strong> All conversion happens entirely inside your browser using local JavaScript. No
+          values are uploaded or transmitted anywhere.</p>
+      </section>
+
+    </article>
+
+  </div>
+</section>
+<script>
+  (function () {
+    function showToast(msg, type) {
+      var t = document.getElementById('toast');
+      t.textContent = msg;
+      t.className = 'unit-toast ' + type + ' show';
+      setTimeout(function () { t.className = 'unit-toast ' + type; }, 1800);
+    }
+    function copyText(text) {
+      if (!text || text === '—') return;
+      navigator.clipboard.writeText(text).then(function () {
+        showToast('Copied to clipboard', 'success');
+      }).catch(function () { showToast('Copy failed', 'error'); });
+    }
+    function getRoot() {
+      var v = parseFloat(document.getElementById('root-font-size').value);
+      return (!v || v <= 0) ? 16 : v;
+    }
+    function fmt(n) {
+      return (Math.round(n * 1000) / 1000).toString();
+    }
+    function setResult(id, value) {
+      var el = document.getElementById(id);
+      el.textContent = value;
+      el.classList.toggle('empty', !value && value !== 0);
+    }
+
+    // PX -> REM / EM
+    document.getElementById('btn-to-rem').addEventListener('click', function () {
+      var raw = document.getElementById('px-in').value.trim();
+      if (!raw || isNaN(Number(raw))) { showToast('Enter a valid pixel number', 'error'); return; }
+      var px = Number(raw);
+      var root = getRoot();
+      var rem = px / root;
+      setResult('out-rem', fmt(rem) + 'rem');
+      setResult('out-em-from-px', fmt(rem) + 'em');
+    });
+
+    // REM/EM -> PX
+    document.getElementById('btn-to-px').addEventListener('click', function () {
+      var raw = document.getElementById('rem-in').value.trim();
+      if (!raw || isNaN(Number(raw))) { showToast('Enter a valid rem/em number', 'error'); return; }
+      var val = Number(raw);
+      var root = getRoot();
+      var px = val * root;
+      setResult('out-px', fmt(px) + 'px');
+    });
+
+    // copy buttons for result lines
+    document.querySelectorAll('.unit-mini-copy').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        copyText(document.getElementById(btn.dataset.copy).textContent);
+      });
+    });
+
+    // Batch conversion
+    function parseLine(line) {
+      line = line.trim();
+      if (!line) return null;
+      var root = getRoot();
+      var m = line.match(/^(-?\d*\.?\d+)\s*(px|rem|em)?$/i);
+      if (!m) return { input: line, error: true };
+      var num = parseFloat(m[1]);
+      var unit = (m[2] || 'px').toLowerCase();
+      var px;
+      if (unit === 'px') { px = num; }
+      else { px = num * root; }
+      var rem = px / root;
+      return {
+        input: line,
+        unit: unit,
+        px: fmt(px) + 'px',
+        rem: fmt(rem) + 'rem',
+        em: fmt(rem) + 'em'
+      };
+    }
+
+    document.getElementById('btn-batch-run').addEventListener('click', function () {
+      var lines = document.getElementById('batch-in').value.split('\n');
+      var rows = lines.map(parseLine).filter(Boolean);
+      var out = document.getElementById('batch-output');
+      if (!rows.length) { out.innerHTML = '<div class="unit-batch-empty">Results will appear here as a table</div>'; return; }
+      var html = '<table class="unit-batch-table"><thead><tr><th>Input</th><th>PX</th><th>REM</th><th>EM</th></tr></thead><tbody>';
+      rows.forEach(function (r) {
+        if (r.error) {
+          html += '<tr><td>' + r.input + '</td><td class="err">error</td><td class="err">could not parse</td><td class="err">—</td></tr>';
+        } else {
+          html += '<tr><td>' + r.input + '</td><td>' + r.px + '</td><td>' + r.rem + '</td><td>' + r.em + '</td></tr>';
+        }
+      });
+      html += '</tbody></table>';
+      out.innerHTML = html;
+    });
+    document.getElementById('btn-batch-clear').addEventListener('click', function () {
+      document.getElementById('batch-in').value = '';
+      document.getElementById('batch-output').innerHTML = '<div class="unit-batch-empty">Results will appear here as a table</div>';
+    });
+  })();
+</script>

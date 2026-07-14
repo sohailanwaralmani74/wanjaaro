@@ -92,7 +92,7 @@ category: sql
 
   <section id="how-to-convert-sql-to-excel">
     <h2 style="margin-top:30px;">How to Convert SQL to Excel in 2 Minutes</h2>
-    <ol style="padding-left:20px;">
+    <ul  style="padding-left:20px;">
       <li><strong>Upload</strong> – Choose your SQL file (or .txt/.csv) containing structured data.</li>
       <li><strong>Convert</strong> – The tool automatically parses INSERT rows or delimiter‑separated blocks.</li>
       <li><strong>Preview & Export</strong> – Verify the table and click <code>Download .xlsx</code> or <code>Download .xls</code>.</li>

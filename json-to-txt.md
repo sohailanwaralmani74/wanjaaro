@@ -123,7 +123,7 @@ user.age = 30</code></pre>
   </ul>
 
   <h2 id="how-it-works" style="margin-top:30px;">How to convert JSON to TXT – 3 simple steps</h2>
-  <ol style="padding-left:20px;">
+  <ul  style="padding-left:20px;">
     <li><strong>Paste or upload JSON</strong> – copy your JSON into the editor or click “Upload JSON File” to load a .json file.</li>
     <li><strong>Choose output mode</strong> – select from Raw, Flattened, Readable, or Values Only.</li>
     <li><strong>Get text output</strong> – click “Convert to Text”, then copy the result or download as a .txt file.</li>

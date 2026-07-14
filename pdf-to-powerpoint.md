@@ -186,7 +186,7 @@ p{
 
   <section id="how-to-convert-pdf-to-ppt">
     <h2 id="how-it-works" style="margin-top:30px;">How to convert PDF to PowerPoint – 3 simple steps</h2>
-    <ol style="padding-left:20px;">
+    <ul  style="padding-left:20px;">
       <li><strong>Upload your PDF file</strong> – click “Upload PDF” and select any PDF from your computer. All processing happens in your browser.</li>
       <li><strong>Automatic conversion</strong> – each PDF page is rendered as a high‑quality image and placed onto a separate PowerPoint slide. Preview thumbnails appear as they’re generated.</li>
       <li><strong>Download PPTX</strong> – click “Download .pptx” to save your PowerPoint file, ready for use in any presentation software.</li>

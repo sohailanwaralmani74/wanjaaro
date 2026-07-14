@@ -95,7 +95,7 @@ category: coding
   </ul>
 
   <h2 id="how-it-works" style="margin-top:30px;">How to convert JSON to HTML table – 3 simple steps</h2>
-  <ol style="padding-left:20px;">
+  <ul  style="padding-left:20px;">
     <li><strong>Paste or upload JSON</strong> – copy your JSON into the editor or upload a .json file.</li>
     <li><strong>Validate and preview</strong> – the tool checks syntax and shows a collapsible tree view of your data.</li>
     <li><strong>Generate HTML</strong> – click “Convert to HTML”, then copy the HTML table code or download as a complete .html file. Nested objects are automatically handled.</li>

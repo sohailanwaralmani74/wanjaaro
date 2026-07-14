@@ -144,7 +144,7 @@ category: coding
   </ul>
 
   <h2 id="how-it-works" style="margin-top:30px;">How to generate Dart models from JSON – 3 simple steps</h2>
-  <ol style="padding-left:20px;">
+  <ul  style="padding-left:20px;">
     <li><strong>Paste or upload JSON</strong> – copy your JSON into the editor or upload a .json file.</li>
     <li><strong>Configure options</strong> – enable null safety, private fields, required fields, or default values as needed.</li>
     <li><strong>Copy or download Dart code</strong> – the generated model class appears instantly. Click “Copy to Clipboard” or “Download Dart” to save.</li>

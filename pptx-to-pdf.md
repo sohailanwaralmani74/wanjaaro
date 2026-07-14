@@ -192,7 +192,7 @@ p{
 
   <section id="how-it-works-pptx-to-pdf">
     <h2 style="margin-top:30px;">How to convert PPTX to PDF – 3 simple steps</h2>
-    <ol style="padding-left:20px;">
+    <ul  style="padding-left:20px;">
       <li><strong>Upload your PowerPoint file</strong> – click “Upload PowerPoint” and select a .pptx or .ppt file from your computer. All processing happens locally.</li>
       <li><strong>Preview slides</strong> – see thumbnail previews of your presentation to confirm the content.</li>
       <li><strong>Generate and download PDF</strong> – click “Convert to PDF”, then download the high‑quality PDF file with all slides preserved.</li>

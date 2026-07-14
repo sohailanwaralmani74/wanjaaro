@@ -250,6 +250,11 @@
   url: /word-counter
   category: utilities
 
+- title: "REM to PX Converter"
+  url: /rem-px-converter
+  category: utilities
+
+
 # ------- blog posts ------
 - title: "How to Convert Excel to JSON"
   url: /how-to-convert-excel-to-json

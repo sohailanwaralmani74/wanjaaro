@@ -145,7 +145,7 @@ category: sql
 
   <h2 id="workflowTitle">How the conversion works</h2>
 
-  <ol id="workflowSteps">
+  <ul  id="workflowSteps">
     <li>Upload or paste SQL dump file</li>
     <li>System detects INSERT INTO statements</li>
     <li>Column names and values are extracted</li>

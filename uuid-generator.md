@@ -71,7 +71,7 @@ category: utilities
 
   <section id="how-it-works-generator">
     <h2 style="margin-top:30px;">How to generate unique IDs – 3 simple steps</h2>
-    <ol style="padding-left:20px;">
+    <ul  style="padding-left:20px;">
       <li><strong>Select an ID format</strong> – choose from UUID v1/v4/v7, GUID, ULID, NanoID, KSUID, CUID, or CUID2.</li>
       <li><strong>Set the quantity</strong> – pick how many IDs you need (1 to 1000).</li>
       <li><strong>Generate and export</strong> – click “Generate Unique IDs”, then copy the list or export as CSV, Excel, JSON, SQL, or XML.</li>
