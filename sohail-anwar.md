@@ -1,6 +1,6 @@
 ---
 layout: main
-title: Senior Consultant | Banking & Insurance Calculators
+title: Senior Consultant | Banking & Insurance Tools
 description: Senior Consultant with 12+ years experience in enterprise ERP, finance, and banking applications — mortgage, claims, repurchase, and insurance.
 is_homepage: true
 ---
@@ -250,7 +250,7 @@ is_homepage: true
         repurchase loan tracking, and insurance policy management</strong> — delivered through
         scalable architectures using <strong>Java, Spring Boot, JSF, Struts, Angular, and Microservices</strong>.
         <br><br>
-        <strong>Tools he owns:</strong> Validates banking &amp; insurance calculators, including repurchase, mortgage, and claims.
+        <strong>Tools he owns:</strong> Validates banking &amp; insurance Tools, including repurchase, mortgage, and claims.
       </p>
       <button class="gm-verify" id="gmVerifyBtn" aria-expanded="false" aria-controls="gmVerifyNote">
         ✓ Datafrog-verified expertise

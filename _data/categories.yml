@@ -21,9 +21,4 @@ validator:    { parent: "Utilities", parent_url: "/utilities" }
 coding:       { parent: "Utilities", parent_url: "/utilities" }
 utilities:    { parent: "Utilities", parent_url: "/utilities" }
 
-investing:    { parent: "Calculator", parent_url: "/calculators" }
-loans:        { parent: "Calculator", parent_url: "/calculators" }
-budget:       { parent: "Calculator", parent_url: "/calculators" }
-tax:          { parent: "Calculator", parent_url: "/calculators" }
-
 jsonblog:          { parent: "Blog", parent_url: "/blog" }

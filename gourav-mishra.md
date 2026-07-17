@@ -1,6 +1,6 @@
 ---
 layout: main
-title: Financial Risk & Underwriting Analyst | Calculator Reviewer
+title: Financial Risk & Underwriting Analyst | Tools Reviewer
 description: Financial risk analyst with a background in mortgage underwriting, fraud detection, and credit evaluation. Reviews and verifies the finance.
 is_homepage: true
 ---
@@ -233,16 +233,16 @@ is_homepage: true
   <div class="gm-hero">
     <img src="/assets/img/gourav-mishra.webp" alt="Gourav Mishra">
     <div>
-      <p class="gm-eyebrow">Author &amp; Calculator Reviewer</p>
+      <p class="gm-eyebrow">Author &amp; Tools Reviewer</p>
       <h1>Gourav Mishra</h1>
       <p class="gm-role">Financial Risk &amp; Underwriting Analyst</p>
       <p class="gm-bio">
         Gourav has spent <strong>9+ years</strong> in mortgage risk, underwriting, and fraud evaluation,
         reviewing financial applications for accuracy, compliance, and risk exposure. He applies that
-        same scrutiny to every calculator on Datafrog.tools — checking formulas against the standard
+        same scrutiny to every Tools on Datafrog.tools — checking formulas against the standard
         financial methodology before they're published.
         <br><br>
-        <strong>Tools he owns:</strong> Reviews all financial calculators — mortgages, loans, and investment returns.
+        <strong>Tools he owns:</strong> Reviews all  — mortgages, loans, and investment returns.
       </p>
       <button class="gm-verify" id="gmVerifyBtn" aria-expanded="false" aria-controls="gmVerifyNote">
         ✓ Datafrog-verified expertise
@@ -250,7 +250,7 @@ is_homepage: true
       <p class="gm-verify-note" id="gmVerifyNote">
         Verified means: real, continuous professional experience in mortgage underwriting and credit
         risk roles since 2016, listed in the Case History tab below. This is a background check on the
-        author, not a claim that any calculator output is personalized financial advice — see the
+        author, not a claim that any Tools output is personalized financial advice — see the
         disclaimer on each tool.
       </p>
     </div>
@@ -275,7 +275,7 @@ is_homepage: true
     <p style="color:var(--ink-soft); margin-top:1.5rem; line-height:1.7; max-width:560px;">
       Gourav's work has centered on evaluating financial risk at the individual application level —
       mortgage files, credit decisions, and fraud indicators — where small errors carry real financial
-      consequences. That same standard of verification is applied to the calculators published here.
+      consequences. That same standard of verification is applied to the Tools published here.
     </p>
   </div>
 
@@ -323,7 +323,7 @@ is_homepage: true
   </div>
 
   <div class="gm-panel" id="panel-method" role="tabpanel" aria-labelledby="tab-method">
-    <h2 style="font-size:1.2rem; margin-bottom:1rem;">How Gourav verifies every calculator on Datafrog</h2>
+    <h2 style="font-size:1.2rem; margin-bottom:1rem;">How Gourav verifies every Tools on Datafrog</h2>
     <div class="gm-method-item">
       <span class="gm-method-icon">01</span>
       <span class="gm-method-text">Every formula is checked against the recognized standard for that
@@ -337,7 +337,7 @@ is_homepage: true
     </div>
     <div class="gm-method-item">
       <span class="gm-method-icon">03</span>
-      <span class="gm-method-text">Every financial calculator carries a disclaimer stating results are
+      <span class="gm-method-text">Every financial Tools carries a disclaimer stating results are
       illustrative, not personalized financial advice, and that a registered advisor should be consulted
       before acting on them.</span>
     </div>
